@@ -6,11 +6,14 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const SliderContainer = styled.div`
-  width: 1145px;
-  height: 640px;
+  flex-grow: 1;
+  width: calc(100% - 600px);
+  height: calc(100vh - 250px);
 
+  .slick-slider {
+  }
   .slick-dots {
-    bottom: -75px;
+    bottom: -70px;
   }
   .slick-dots li.slick-active button:before {
     color: #e40177;
@@ -19,10 +22,12 @@ const SliderContainer = styled.div`
 
 const MainImgBox = styled.div`
   outline: none;
+  height: 648px;
 `;
 const MainImg = styled.img`
   width: 100%;
   height: 100%;
+  object-fit: cover;
 `;
 function MainCarousel() {
   const settings = {
@@ -33,6 +38,7 @@ function MainCarousel() {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
+    pauseOnHover: false,
   };
 
   return (
