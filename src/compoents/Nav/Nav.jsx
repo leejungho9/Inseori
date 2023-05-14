@@ -4,8 +4,9 @@ import insta from '../../assets/images/insta.png';
 import kakao from '../../assets/images/kakao.png';
 
 const NavContainer = styled.div`
-  width: 335px;
+  width: 500px;
   padding-top: 150px;
+  padding-left: 100px;
 `;
 const Navul = styled.ul``;
 const Navli = styled.li`
