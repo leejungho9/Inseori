@@ -8,12 +8,11 @@ const HeaderContainer = styled.header`
 `;
 
 const HeaderWrapper = styled.div`
-  width: 1480px;
   height: 100%;
   box-sizing: border-box;
   ${LineFlex}
   justify-content: space-between;
-  margin: 0 auto;
+  margin: 0 100px;
 `;
 
 const Logo = styled.img``;
