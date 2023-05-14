@@ -42,6 +42,7 @@ function MainImageCarousel() {
     centerMode: true,
     slidesToScroll: 4,
     draggable: true,
+    pauseOnHover: false,
   };
 
   return (
