@@ -8,7 +8,6 @@ import 'slick-carousel/slick/slick-theme.css';
 const SliderContainer = styled.div`
   flex-grow: 1;
   width: calc(100% - 600px);
-  height: calc(100vh - 250px);
 
   .slick-slider {
   }
@@ -22,7 +21,7 @@ const SliderContainer = styled.div`
 
 const MainImgBox = styled.div`
   outline: none;
-  height: 648px;
+  height: 640px;
 `;
 const MainImg = styled.img`
   width: 100%;
