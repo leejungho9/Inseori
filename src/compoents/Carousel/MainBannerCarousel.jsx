@@ -5,10 +5,8 @@ import mainImage from '../../assets/images/main.jpg';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const SliderContainer = styled.div`
-  flex-grow: 1;
-  width: calc(100% - 600px);
-
+const SliderContainer = styled.section`
+  margin-top: 150px;
   .slick-slider {
   }
   .slick-dots {
