@@ -1,46 +1,61 @@
 import React from 'react';
 import styled from 'styled-components';
-import { LineFlex } from '../../styles/GlobalStyle';
-import logo from '../../assets/images/logo.png';
 import reserLogo from '../../assets/images/reserLogo.png';
+import Nav from '../Nav/Nav';
 const HeaderContainer = styled.header`
-  height: 150px;
-`;
-
-const HeaderWrapper = styled.div`
+  width: 100%;
   height: 100%;
-  box-sizing: border-box;
-  ${LineFlex}
-  justify-content: space-between;
-  margin: 0 100px;
+  z-index: 30;
 `;
 
-const Logo = styled.img``;
-const ReserLogo = styled.img`
-  width: 15px;
-  height: 15px;
-  margin-right: 10px;
+const NavWrapper = styled.div`
+  /* position: fixed; */
+  position: absolute;
+  width: 435px;
+  height: 790px;
+  padding-left: 100px;
+  z-index: 15;
+  top: 0;
 `;
 
 // ! 나중에 Link로 교체
 const ReserveButton = styled.div`
-  font-size: 15px;
-  ${LineFlex}
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 150px;
+  background-color: white;
+  overflow: hidden;
+  z-index: 14;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
+const ReserveLogo = styled.img`
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
   cursor: pointer;
 `;
 
-const ReserSpan = styled.span``;
+const ReserveSpan = styled.span`
+  cursor: pointer;
+  font-size: 14px;
+  float: right;
+  margin-right: 100px;
+`;
 
 function Header() {
   return (
     <HeaderContainer>
-      <HeaderWrapper>
-        <Logo src={logo} alt=" 임시로고" />
-        <ReserveButton>
-          <ReserLogo src={reserLogo} alt="예약로고" />
-          <ReserSpan>실시간 예약</ReserSpan>
-        </ReserveButton>
-      </HeaderWrapper>
+      <NavWrapper>
+        <Nav />
+      </NavWrapper>
+      <ReserveButton>
+        <ReserveLogo src={reserLogo} alt="예약로고" />
+        <ReserveSpan>실시간 예약</ReserveSpan>
+      </ReserveButton>
     </HeaderContainer>
   );
 }
