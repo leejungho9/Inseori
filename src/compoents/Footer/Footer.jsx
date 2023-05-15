@@ -6,6 +6,9 @@ const FooterContainer = styled.footer`
   height: 180px;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
+  z-index: 16;
+  position: relative;
+  background-color: white;
 `;
 const FooterWrapper = styled.div`
   width: 1480px;
@@ -23,7 +26,7 @@ const FooterLogoBox = styled.div`
 `;
 
 const LogoImageBox = styled.div``;
-const Telh1 = styled.h1`
+const Tel = styled.h1`
   font-size: 15px;
 `;
 
@@ -52,7 +55,7 @@ function Footer() {
         <FooterLogoBox>
           <LogoImageBox>
             <Logo src={logo} alt=" 임시로고" />
-            <Telh1>1661-6948</Telh1>
+            <Tel>1661-6948</Tel>
           </LogoImageBox>
         </FooterLogoBox>
         <FooterTextBox>
