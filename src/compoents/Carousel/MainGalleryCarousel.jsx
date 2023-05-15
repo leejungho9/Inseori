@@ -10,19 +10,20 @@ import MainImage4 from '../../assets/images/MainImage/MainImage4.jpg';
 import MainImage5 from '../../assets/images/MainImage/MainImage5.jpg';
 import MainImage6 from '../../assets/images/MainImage/MainImage6.jpg';
 
-const SliderContainer = styled.div`
+const SliderContainer = styled.section`
+  max-width: 100%;
+  margin: 0 auto;
+  .slick-slider {
+    width: 100%;
+  }
   .slick-list {
+    margin-right: -20px;
     padding: 0 !important;
   }
   .slick-slide {
     height: 435px !important;
     width: 435px !important;
     margin-left: 20px;
-  }
-  .slick-slide img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
   }
 `;
 const MainImgBox = styled.div`
@@ -31,18 +32,20 @@ const MainImgBox = styled.div`
 const MainImg = styled.img`
   width: 100%;
   height: 100%;
+  object-fit: cover;
 `;
 
-function MainImageCarousel() {
+function MainGalleryCarousel() {
   const settings = {
-    infinite: true,
+    infinite: true, // 슬라이드 갯수에 상관없이 무한반복
     autoplay: true,
     autoplaySpeed: 2000,
-    slidesToShow: 3,
     centerMode: true,
-    slidesToScroll: 4,
+    slidesToShow: 3, //보여지는 슬라이드 갯수
+    slidesToScroll: 4, //스크롤 넘겼을때 넘어가는 슬라이드 갯수
     draggable: true,
     pauseOnHover: false,
+    arrows: false,
   };
 
   return (
@@ -66,9 +69,21 @@ function MainImageCarousel() {
         <MainImgBox>
           <MainImg src={MainImage6} alt="캐러셀메인" />
         </MainImgBox>
+        <MainImgBox>
+          <MainImg src={MainImage2} alt="캐러셀메인" />
+        </MainImgBox>
+        <MainImgBox>
+          <MainImg src={MainImage4} alt="캐러셀메인" />
+        </MainImgBox>
+        <MainImgBox>
+          <MainImg src={MainImage1} alt="캐러셀메인" />
+        </MainImgBox>
+        <MainImgBox>
+          <MainImg src={MainImage3} alt="캐러셀메인" />
+        </MainImgBox>
       </Slider>
     </SliderContainer>
   );
 }
 
-export default MainImageCarousel;
+export default MainGalleryCarousel;
