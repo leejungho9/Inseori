@@ -1,55 +1,61 @@
 import React from 'react';
-import Header from '../../compoents/Header/Header';
-import Nav from '../../compoents/Nav/Nav';
 import styled from 'styled-components';
+import MainGalleryCarousel from '../../compoents/Carousel/MainGalleryCarousel';
 import MainBannerCarousel from '../../compoents/Carousel/MainBannerCarousel';
-import MainImageCarousel from '../../compoents/Carousel/MainImageCarousel';
-import Footer from '../../compoents/Footer/Footer';
 
-const MainBox = styled.div`
-  display: flex;
+const MainContainer = styled.main`
+  position: relative;
+  overflow: hidden;
 `;
 
-const MainIntroContainer = styled.div`
+const MainWrpper = styled.figure`
+  float: right;
+  width: calc(100% - 535px);
+  position: relative;
+`;
+
+const MainIntroWrapper = styled.section`
+  width: 100%;
+  display: flex;
   padding: 200px 0;
 `;
-
-const MainIntroWrapper = styled.div`
-  width: 480px;
+const MainIntroBox = styled.div`
+  width: 510px;
   text-align: center;
   line-height: 2;
   margin: 0 auto;
 `;
 const MainIntroSpan = styled.span`
-  font-size: 14px;
+  font-size: 15px;
 `;
 
-const MainImageBox = styled.div`
-  margin-bottom: 130px;
+const MainGalleryCarouselWrapper = styled.figure`
+  float: right;
+  width: 100%;
+  margin-bottom: 150px;
+  position: relative;
 `;
+
 function Main() {
   return (
-    <>
-      <Header />
-      <MainBox>
-        <Nav />
+    <MainContainer>
+      <MainWrpper>
         <MainBannerCarousel />
-      </MainBox>
-      <MainIntroContainer>
-        <MainIntroWrapper>
+      </MainWrpper>
+      <MainIntroWrapper>
+        <MainIntroBox>
           <MainIntroSpan>
             인서리공원은 광양시에서 도시재생 프로그램으로 리노베이션한 크고 작은
             14채 공간을 활용하여 보다 많은 사람들이 더 쉽게 그리고 더 가까이
             예술을 접하고 향유 할 수 있기를 바라는 기대로 만들어진
             복합문화공간입니다.
           </MainIntroSpan>
-        </MainIntroWrapper>
-      </MainIntroContainer>
-      <MainImageBox>
-        <MainImageCarousel />
-      </MainImageBox>
-      <Footer />
-    </>
+        </MainIntroBox>
+      </MainIntroWrapper>
+      <MainGalleryCarouselWrapper>
+        <MainGalleryCarousel />
+      </MainGalleryCarouselWrapper>
+    </MainContainer>
   );
 }
 
