@@ -10,7 +10,6 @@ const HeaderContainer = styled.header`
 `;
 
 const NavWrapper = styled.div`
-  position: ${(props) => (props.fixed ? 'fixed' : 'absolute')};
   width: 435px;
   height: 790px;
   padding-left: 100px;
