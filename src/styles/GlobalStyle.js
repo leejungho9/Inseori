@@ -63,6 +63,11 @@ table {
 html, body {
 	font-family: "PretendardMedium" ;
 }
+
+a {
+	text-decoration: none;
+	color: inherit;
+  }
 `;
 
 export default GlobalStyle;
