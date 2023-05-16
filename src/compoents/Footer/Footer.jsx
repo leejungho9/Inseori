@@ -50,7 +50,7 @@ const CuratedText = styled.address`
 `;
 function Footer() {
   return (
-    <FooterContainer>
+    <FooterContainer className="footer">
       <FooterWrapper>
         <FooterLogoBox>
           <LogoImageBox>
