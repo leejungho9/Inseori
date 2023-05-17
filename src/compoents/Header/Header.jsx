@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import reserLogo from '../../assets/images/reserLogo.png';
 import Nav from '../Nav/Nav';
-import { Link } from 'react-router-dom';
 const HeaderContainer = styled.header`
   width: 100%;
   height: 100%;
@@ -15,10 +14,11 @@ const NavWrapper = styled.div`
   padding-left: 100px;
   z-index: 15;
   top: 0;
+  position: absolute;
 `;
 
 // ! 나중에 Link로 교체
-const ReserveButton = styled(Link)`
+const ReserveButton = styled.a`
   position: absolute;
   top: 0;
   width: 100%;
@@ -51,7 +51,10 @@ function Header() {
       <NavWrapper className="header">
         <Nav />
       </NavWrapper>
-      <ReserveButton to="https://booking.naver.com/booking/3/bizes/802107">
+      <ReserveButton
+        target="_blank"
+        href="https://booking.naver.com/booking/3/bizes/802107"
+      >
         <ReserveLogo src={reserLogo} alt="예약로고" />
         <ReserveSpan>실시간 예약</ReserveSpan>
       </ReserveButton>
