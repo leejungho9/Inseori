@@ -15,8 +15,9 @@ const NavContainer = styled.div`
 
 const NavBox = styled.nav`
   position: absolute;
-  top: 10%;
-  height: 220px;
+  top: 25%;
+  transform: translateY(-50%);
+  height: 230px;
 `;
 
 const Navul = styled.ul`
@@ -34,14 +35,24 @@ const Navli = styled.li`
     color: #e40177;
     font-weight: 600;
   }
+
+  @media screen and (max-width: 1440px) {
+    margin-bottom: 25px;
+  }
 `;
 
 const IconNavol = styled.ol`
   width: 100%;
-  bottom: 220px;
+  bottom: 200px;
   position: absolute;
   li:first-child {
     padding-bottom: 35px;
+  }
+
+  @media screen and (max-width: 1440px) {
+    li:first-child {
+      padding-bottom: 30px;
+    }
   }
 `;
 const IconNavli = styled.li``;
@@ -50,6 +61,11 @@ const SocialIcon = styled.img`
   width: 26px;
   height: 26px;
   cursor: pointer;
+
+  @media screen and (max-width: 1440px) {
+    width: 20px;
+    height: 20px;
+  }
 `;
 const NavSubul = styled.ul`
   height: 0;
@@ -59,8 +75,10 @@ const NavSubul = styled.ul`
   li:first-child {
     padding-top: 20px;
   }
-  li:last-child {
-    padding-bottom: 35px;
+  @media screen and (max-width: 1440px) {
+    li:first-child {
+      padding-top: 15px;
+    }
   }
 `;
 
@@ -141,6 +159,9 @@ function Nav() {
             <NavSubul className="sub-menu class">
               <NavSubli>
                 <Link to="/RoomA">임시</Link>
+              </NavSubli>
+              <NavSubli>
+                <a>임시 </a>
               </NavSubli>
               <NavSubli>
                 <a>임시 </a>
