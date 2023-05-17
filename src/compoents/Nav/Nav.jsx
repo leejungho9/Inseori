@@ -12,7 +12,12 @@ const LogoBox = styled.a`
   align-items: center;
   cursor: pointer;
 `;
-const Logo = styled.img``;
+
+const LogoImgBox = styled.div``;
+const Logo = styled.img`
+  width: 234px;
+  height: 105px;
+`;
 
 const Navul = styled.ul`
   padding-top: 150px;
@@ -105,7 +110,9 @@ function Nav() {
   return (
     <NavContainer>
       <LogoBox href="/">
-        <Logo src={logo} alt=" 임시로고" />
+        <LogoImgBox>
+          <Logo src={logo} alt=" 임시로고" />
+        </LogoImgBox>
       </LogoBox>
       <Navul>
         <Navli>
@@ -155,10 +162,23 @@ function Nav() {
       </Navul>
       <IconNavol>
         <IconNavli>
-          <SocialIcon src={insta} alt="인스타그램 아이콘" />
+          <a
+            target="_blank"
+            href="https://www.instagram.com/inseori01/"
+            rel="noreferrer"
+          >
+            <SocialIcon src={insta} alt="인스타그램 아이콘" />
+          </a>
         </IconNavli>
+
         <IconNavli>
-          <SocialIcon src={kakao} alt="카카오 아이콘" />
+          <a
+            target="_blank"
+            href="https://pf.kakao.com/_xnhxhrxj"
+            rel="noreferrer"
+          >
+            <SocialIcon src={kakao} alt="카카오 아이콘" />
+          </a>
         </IconNavli>
       </IconNavol>
     </NavContainer>
