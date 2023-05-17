@@ -8,7 +8,6 @@ import { useEffect } from 'react';
 
 function App() {
   const { pathname } = useLocation();
-  window.scrollTo(0, 0);
 
   //! 헤더 스크롤 이벤트
   useEffect(() => {
