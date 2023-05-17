@@ -50,9 +50,6 @@ const IconNavol = styled.ol`
   }
 
   @media screen and (max-width: 1440px) {
-    li:first-child {
-      padding-bottom: 30px;
-    }
   }
 `;
 const IconNavli = styled.li``;
@@ -61,11 +58,6 @@ const SocialIcon = styled.img`
   width: 26px;
   height: 26px;
   cursor: pointer;
-
-  @media screen and (max-width: 1440px) {
-    width: 20px;
-    height: 20px;
-  }
 `;
 const NavSubul = styled.ul`
   height: 0;
