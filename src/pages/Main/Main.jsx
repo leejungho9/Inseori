@@ -6,6 +6,8 @@ import MainBannerCarousel from '../../compoents/Carousel/MainBannerCarousel';
 const MainContainer = styled.main`
   position: relative;
   overflow: hidden;
+  /* margin-left: 20px;
+  box-sizing: border-box; */
 `;
 
 const MainWrpper = styled.figure`
@@ -41,20 +43,20 @@ function Main() {
     <MainContainer>
       <MainWrpper>
         <MainBannerCarousel />
+        <MainIntroWrapper>
+          <MainIntroBox>
+            <MainIntroSpan>
+              인서리공원은 광양시에서 도시재생 프로그램으로 리노베이션한 크고
+              작은 14채 공간을 활용하여 보다 많은 사람들이 더 쉽게 그리고 더
+              가까이 예술을 접하고 향유 할 수 있기를 바라는 기대로 만들어진
+              복합문화공간입니다.
+            </MainIntroSpan>
+          </MainIntroBox>
+        </MainIntroWrapper>
+        <MainGalleryCarouselWrapper>
+          <MainGalleryCarousel />
+        </MainGalleryCarouselWrapper>
       </MainWrpper>
-      <MainIntroWrapper>
-        <MainIntroBox>
-          <MainIntroSpan>
-            인서리공원은 광양시에서 도시재생 프로그램으로 리노베이션한 크고 작은
-            14채 공간을 활용하여 보다 많은 사람들이 더 쉽게 그리고 더 가까이
-            예술을 접하고 향유 할 수 있기를 바라는 기대로 만들어진
-            복합문화공간입니다.
-          </MainIntroSpan>
-        </MainIntroBox>
-      </MainIntroWrapper>
-      <MainGalleryCarouselWrapper>
-        <MainGalleryCarousel />
-      </MainGalleryCarouselWrapper>
     </MainContainer>
   );
 }
