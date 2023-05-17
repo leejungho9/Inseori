@@ -15,8 +15,7 @@ const NavContainer = styled.div`
 
 const NavBox = styled.nav`
   position: absolute;
-  top: calc(50% - 150px);
-  transform: translateY(-50%);
+  top: 10%;
   height: 220px;
 `;
 
