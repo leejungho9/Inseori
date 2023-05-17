@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import logo from '../../assets/images/logo.png';
 import { LineFlex } from '../../styles/GlobalStyle';
 const FooterContainer = styled.footer`
+  width: 100%;
   height: 180px;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
@@ -11,12 +12,10 @@ const FooterContainer = styled.footer`
   background-color: white;
 `;
 const FooterWrapper = styled.div`
-  width: 1480px;
   height: 100%;
   box-sizing: border-box;
   ${LineFlex}
-  margin: 0 auto;
-  padding: 60px 0;
+  margin: auto 100px;
 `;
 const Logo = styled.img`
   width: 90px;
