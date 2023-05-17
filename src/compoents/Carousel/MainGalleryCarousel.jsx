@@ -13,6 +13,7 @@ import MainImage6 from '../../assets/images/MainImage/MainImage6.jpg';
 const SliderContainer = styled.section`
   max-width: 100%;
   margin: 0 auto;
+  height: 435px;
   .slick-slider {
     width: 100%;
   }
