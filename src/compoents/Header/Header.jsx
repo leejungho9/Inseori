@@ -2,33 +2,35 @@ import React from 'react';
 import styled from 'styled-components';
 import reserLogo from '../../assets/images/reserLogo.png';
 import Nav from '../Nav/Nav';
+import logo from '../../assets/images/logo.png';
+
 const HeaderContainer = styled.header`
   width: 100%;
   height: 100%;
   z-index: 30;
+  top: 0;
+  position: fixed;
 `;
 
 const NavWrapper = styled.div`
   width: 435px;
-  height: 790px;
+  height: 100%;
   padding-left: 100px;
-  z-index: 15;
-  top: 0;
-  position: absolute;
+  z-index: 20;
+  position: relative;
 `;
 
-// ! 나중에 Link로 교체
-const ReserveButton = styled.a`
+const ReserveButtonBox = styled.div`
   position: absolute;
+  height: 150px;
+  overflow: hidden;
   top: 0;
   width: 100%;
-  height: 150px;
-  background-color: white;
-  overflow: hidden;
-  z-index: 14;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  background-color: white;
+  z-index: 0;
 `;
 
 const ReserveLogo = styled.img`
@@ -42,22 +44,41 @@ const ReserveSpan = styled.span`
   cursor: pointer;
   font-size: 14px;
   float: right;
-  margin-right: 100px;
+  padding-right: 100px;
+`;
+const LogoImgBox = styled.div`
+  width: 234px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+`;
+const Logo = styled.img`
+  width: 100%;
+  height: auto;
 `;
 
 function Header() {
   return (
-    <HeaderContainer>
-      <NavWrapper className="header">
+    <HeaderContainer className="header">
+      <NavWrapper>
+        <LogoImgBox>
+          <a href="/">
+            <Logo src={logo} alt=" 임시로고" />
+          </a>
+        </LogoImgBox>
         <Nav />
       </NavWrapper>
-      <ReserveButton
-        target="_blank"
-        href="https://booking.naver.com/booking/3/bizes/802107"
-      >
-        <ReserveLogo src={reserLogo} alt="예약로고" />
-        <ReserveSpan>실시간 예약</ReserveSpan>
-      </ReserveButton>
+      <ReserveButtonBox>
+        <a
+          target="_blank"
+          href="https://booking.naver.com/booking/3/bizes/802107"
+          rel="noreferrer"
+        >
+          <ReserveLogo src={reserLogo} alt="예약로고" />
+          <ReserveSpan>실시간 예약</ReserveSpan>
+        </a>
+      </ReserveButtonBox>
     </HeaderContainer>
   );
 }
