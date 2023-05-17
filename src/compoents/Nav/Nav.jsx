@@ -26,7 +26,7 @@ const Navul = styled.ul`
 const Navli = styled.li`
   font-size: 15px;
   transition: 0.6s;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 
   a {
     cursor: pointer;
@@ -37,7 +37,7 @@ const Navli = styled.li`
   }
 
   @media screen and (max-width: 1440px) {
-    margin-bottom: 25px;
+    margin-bottom: 30px;
   }
 `;
 
@@ -46,10 +46,7 @@ const IconNavol = styled.ol`
   bottom: 200px;
   position: absolute;
   li:first-child {
-    padding-bottom: 35px;
-  }
-
-  @media screen and (max-width: 1440px) {
+    padding-bottom: 30px;
   }
 `;
 const IconNavli = styled.li``;
@@ -58,25 +55,26 @@ const SocialIcon = styled.img`
   width: 26px;
   height: 26px;
   cursor: pointer;
+
+  @media screen and (max-width: 1440px) {
+    width: 22px;
+    height: 22px;
+  }
 `;
 const NavSubul = styled.ul`
   height: 0;
   overflow: hidden;
   transition: all 0.6s;
 
-  li:first-child {
-    padding-top: 20px;
+  li {
+    padding-top: 15px;
   }
-  @media screen and (max-width: 1440px) {
-    li:first-child {
-      padding-top: 15px;
-    }
+  li:first-child {
+    padding-top: 30px;
   }
 `;
 
 const NavSubli = styled.li`
-  margin-top: 15px;
-
   a {
     font-size: 13px;
   }
@@ -100,7 +98,7 @@ function Nav() {
       const subMenuEls = document.querySelectorAll('.sub-menu');
       subMenuEls.forEach((subMenuEl) => {
         subMenuEl.style.height = 0;
-        subMenuEl.style.overflow = 'hidden';
+        subMenuEl.style.visibility = 'hidden';
         subMenuEl.style.opacity = '0';
       });
     };
@@ -109,9 +107,8 @@ function Nav() {
       closeSubMenu();
 
       const subMenuEl = document.querySelector('.' + mainMenu);
-      console.log(subMenuEl);
-      subMenuEl.style.height = '120px';
-      subMenuEl.style.ope = 'visible';
+      subMenuEl.style.height = subMenuEl.dataset.height + 'px';
+      subMenuEl.style.visibility = 'visible';
       subMenuEl.style.opacity = '100';
     } else {
       closeSubMenu();
@@ -124,7 +121,7 @@ function Nav() {
         <Navul>
           <Navli>
             <MainMenu onMouseEnter={() => showSubMenu('stay')}>스테이</MainMenu>
-            <NavSubul className="sub-menu stay">
+            <NavSubul className="sub-menu stay" data-height="105">
               <NavSubli>
                 <Link
                   to="/RoomA"
@@ -148,7 +145,7 @@ function Nav() {
             <MainMenu onMouseEnter={() => showSubMenu('class')}>
               원데이클래스
             </MainMenu>
-            <NavSubul className="sub-menu class">
+            <NavSubul className="sub-menu class" data-height="105">
               <NavSubli>
                 <Link to="/RoomA">임시</Link>
               </NavSubli>
