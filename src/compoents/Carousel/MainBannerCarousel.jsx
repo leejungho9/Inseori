@@ -9,8 +9,11 @@ const SliderContainer = styled.section`
   margin-top: 150px;
   .slick-slider {
   }
+  .slick-list {
+  }
   .slick-dots {
-    bottom: -70px;
+    position: static;
+    padding-top: 50px;
   }
   .slick-dots li.slick-active button:before {
     color: #e40177;
@@ -20,6 +23,9 @@ const SliderContainer = styled.section`
 const MainImgBox = styled.div`
   outline: none;
   height: 640px;
+  @media screen and (max-width: 1440px) {
+    height: 540px;
+  }
 `;
 const MainImg = styled.img`
   width: 100%;
