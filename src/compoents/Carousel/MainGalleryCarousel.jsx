@@ -17,13 +17,13 @@ const SliderContainer = styled.section`
     width: 100%;
   }
   .slick-list {
-    height: 435px;
+    height: 300px;
     margin-right: -20px;
     padding: 0 !important;
   }
   .slick-slide {
-    height: 435px !important;
-    width: 435px !important;
+    height: 300px !important;
+    width: 300px !important;
     margin-left: 20px;
   }
 `;
