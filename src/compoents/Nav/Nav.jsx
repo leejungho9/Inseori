@@ -39,9 +39,7 @@ const Navli = styled.li`
 `;
 
 const IconNavol = styled.ol`
-  width: 100%;
-  bottom: 18%;
-  position: absolute;
+  padding-top: 50px;
   li:first-child {
     padding-bottom: 30px;
   }
@@ -150,29 +148,29 @@ function Nav() {
             <MainMenu className="mainMenu">문화공간</MainMenu>
           </Navli>
         </Navul>
+
+        <IconNavol>
+          <IconNavli>
+            <a
+              target="_blank"
+              href="https://www.instagram.com/inseori01/"
+              rel="noreferrer"
+            >
+              <SocialIcon src={insta} alt="인스타그램 아이콘" />
+            </a>
+          </IconNavli>
+
+          <IconNavli>
+            <a
+              target="_blank"
+              href="https://pf.kakao.com/_xnhxhrxj"
+              rel="noreferrer"
+            >
+              <SocialIcon src={kakao} alt="카카오 아이콘" />
+            </a>
+          </IconNavli>
+        </IconNavol>
       </NavBox>
-
-      <IconNavol>
-        <IconNavli>
-          <a
-            target="_blank"
-            href="https://www.instagram.com/inseori01/"
-            rel="noreferrer"
-          >
-            <SocialIcon src={insta} alt="인스타그램 아이콘" />
-          </a>
-        </IconNavli>
-
-        <IconNavli>
-          <a
-            target="_blank"
-            href="https://pf.kakao.com/_xnhxhrxj"
-            rel="noreferrer"
-          >
-            <SocialIcon src={kakao} alt="카카오 아이콘" />
-          </a>
-        </IconNavli>
-      </IconNavol>
     </NavContainer>
   );
 }
