@@ -14,7 +14,7 @@ const NavContainer = styled.div`
 
 const NavBox = styled.nav`
   position: absolute;
-  top: 40%;
+  top: 42%;
   transform: translateY(-50%);
   height: 230px;
 `;
@@ -40,7 +40,7 @@ const Navli = styled.li`
 
 const IconNavol = styled.ol`
   width: 100%;
-  bottom: 25%;
+  bottom: 18%;
   position: absolute;
   li:first-child {
     padding-bottom: 30px;
