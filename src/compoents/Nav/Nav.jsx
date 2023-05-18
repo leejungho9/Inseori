@@ -20,9 +20,7 @@ const NavBox = styled.nav`
   height: 230px;
 `;
 
-const Navul = styled.ul`
-  /* padding-top: 150px; */
-`;
+const Navul = styled.ul``;
 const Navli = styled.li`
   font-size: 15px;
   transition: 0.6s;
@@ -43,7 +41,7 @@ const Navli = styled.li`
 
 const IconNavol = styled.ol`
   width: 100%;
-  bottom: 200px;
+  bottom: 30%;
   position: absolute;
   li:first-child {
     padding-bottom: 30px;
