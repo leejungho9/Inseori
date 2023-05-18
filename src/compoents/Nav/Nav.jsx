@@ -7,22 +7,23 @@ import { useEffect, useState } from 'react';
 
 const NavContainer = styled.div`
   position: absolute;
-  top: 150;
+  top: 0;
   height: 100%;
+  width: 100%;
   // ! 전체에서 왼쪽 여백
-  width: calc(100% - 100px);
+  /* width: calc(100% - 100px); */
 `;
 
 const NavBox = styled.nav`
   position: absolute;
-  top: 25%;
+  top: 40%;
   transform: translateY(-50%);
   height: 230px;
 `;
 
 const Navul = styled.ul``;
 const Navli = styled.li`
-  font-size: 15px;
+  font-size: var(--text-size-18);
   transition: 0.6s;
   margin-bottom: 30px;
 
@@ -30,7 +31,7 @@ const Navli = styled.li`
     cursor: pointer;
   }
   a:hover {
-    color: #e40177;
+    color: var(--text-point-color);
     font-weight: 600;
   }
 
@@ -41,7 +42,7 @@ const Navli = styled.li`
 
 const IconNavol = styled.ol`
   width: 100%;
-  bottom: 30%;
+  bottom: 25%;
   position: absolute;
   li:first-child {
     padding-bottom: 30px;
@@ -73,11 +74,9 @@ const NavSubul = styled.ul`
 `;
 
 const NavSubli = styled.li`
-  a {
-    font-size: 13px;
-  }
+  font-size: var(--text-size-14);
   .active {
-    color: #e40177;
+    color: var(--text-point-color);
   }
 `;
 
@@ -140,20 +139,8 @@ function Nav() {
             </NavSubul>
           </Navli>
           <Navli>
-            <MainMenu onMouseEnter={() => showSubMenu('class')}>
-              원데이클래스
-            </MainMenu>
-            <NavSubul className="sub-menu class" data-height="105">
-              <NavSubli>
-                <Link to="/RoomA">임시</Link>
-              </NavSubli>
-              <NavSubli>
-                <a>임시 </a>
-              </NavSubli>
-              <NavSubli>
-                <a>임시 </a>
-              </NavSubli>
-            </NavSubul>
+            <MainMenu>원데이클래스</MainMenu>
+            <NavSubul className="mainMenu"></NavSubul>
           </Navli>
           <Navli>
             <MainMenu className="mainMenu">아트샵</MainMenu>
