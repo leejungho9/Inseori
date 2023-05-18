@@ -5,9 +5,9 @@ import { LineFlex } from '../../styles/GlobalStyle';
 const FooterContainer = styled.footer`
   width: 100%;
   height: 180px;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  z-index: 16;
+  border-top: 1px solid var(--black);
+  border-bottom: 1px solid var(--black);
+  z-index: 20;
   position: relative;
   background-color: white;
 `;
@@ -26,7 +26,7 @@ const FooterLogoBox = styled.div`
 
 const LogoImageBox = styled.div``;
 const Tel = styled.h1`
-  font-size: 15px;
+  font-size: var(--text-size-15);
 `;
 
 const FooterTextBox = styled.div`
@@ -36,7 +36,7 @@ const FooterTextBox = styled.div`
   padding: 0 100px;
 `;
 const AddressText = styled.address`
-  font-size: 12px;
+  font-size: var(--text-size-12);
 `;
 
 const FooterCuratedBox = styled.div`
@@ -45,7 +45,7 @@ const FooterCuratedBox = styled.div`
   align-items: flex-end;
 `;
 const CuratedText = styled.address`
-  font-size: 14px;
+  font-size: var(--text-size-14);
 `;
 function Footer() {
   return (

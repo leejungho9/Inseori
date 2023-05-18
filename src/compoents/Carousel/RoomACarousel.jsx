@@ -13,7 +13,7 @@ const SliderContainer = styled.section`
     bottom: -70px;
   }
   .slick-dots li.slick-active button:before {
-    color: #e40177;
+    color: var(--text-point-color);
   }
 `;
 

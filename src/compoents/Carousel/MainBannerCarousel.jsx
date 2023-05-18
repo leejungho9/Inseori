@@ -6,7 +6,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const SliderContainer = styled.section`
-  margin-top: 150px;
   .slick-slider {
   }
   .slick-list {
@@ -16,7 +15,7 @@ const SliderContainer = styled.section`
     padding-top: 50px;
   }
   .slick-dots li.slick-active button:before {
-    color: #e40177;
+    color: var(--text-point-color);
   }
 `;
 
