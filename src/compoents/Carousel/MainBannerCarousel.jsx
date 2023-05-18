@@ -8,8 +8,6 @@ import 'slick-carousel/slick/slick-theme.css';
 const SliderContainer = styled.section`
   .slick-slider {
   }
-  .slick-list {
-  }
   .slick-dots {
     position: static;
     padding-top: 50px;
