@@ -4,22 +4,23 @@ import MainGalleryCarousel from '../../compoents/Carousel/MainGalleryCarousel';
 import MainBannerCarousel from '../../compoents/Carousel/MainBannerCarousel';
 
 const MainContainer = styled.main`
-  position: relative;
+  //! 추후에 사용
+  /* position: relative; */
   overflow: hidden;
 `;
 
 const MainWrpper = styled.figure`
   float: right;
-  width: calc(100% - 535px);
+  //! 전체너비 - 네브바 너비
+  width: calc(100% - 435px);
   position: relative;
-  z-index: 2;
+  margin-top: 150px;
 `;
 
 const MainIntroWrapper = styled.section`
   width: 100%;
   display: flex;
-  padding: 200px 0;
-  padding-top: 150px;
+  padding: 150px 0 150px;
 `;
 const MainIntroBox = styled.div`
   width: 510px;
@@ -28,7 +29,7 @@ const MainIntroBox = styled.div`
   margin: 0 auto;
 `;
 const MainIntroSpan = styled.span`
-  font-size: 15px;
+  font-size: var(--text-size-15);
 `;
 
 const MainGalleryCarouselWrapper = styled.figure`
