@@ -8,39 +8,42 @@ import RoomA_4 from '../../assets/images/RoomA/RoomA_4.jpg';
 import RoomA_5 from '../../assets/images/RoomA/RoomA_5.jpg';
 import RoomA_6 from '../../assets/images/RoomA/RoomA_6.jpg';
 const MainContainer = styled.main`
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
 `;
 
 const MainWrpper = styled.figure`
   float: right;
-  width: calc(100% - 535px);
+  width: calc(100% - 435px);
   position: relative;
+  margin-top: 150px;
 `;
 
 const RoomDescWrapper = styled.section`
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  padding-top: 145px;
-  padding-bottom: 130px;
+  padding: 150px 0 150px;
+  background-color: var(--white);
 `;
 const RoomDescBox = styled.div`
-  width: 350px;
+  width: 370px;
 `;
 const RoomTitle = styled.h1`
   font-size: var(--text-size-25);
   font-weight: bold;
+  color: var(--dark);
 `;
 
 const RoomSubTitle = styled.p`
-  font-size: var(--text-size-15);
-  margin-top: 15px;
+  font-size: var(--text-size-18);
+  color: var(--dark);
+  margin-top: 16px;
 `;
 const RoomDesc = styled.p`
+  color: var(--gray);
   margin-top: 60px;
-  line-height: 2.5;
-  font-size: var(--text-size-14);
+  line-height: 2;
+  font-size: var(--text-size-16);
 `;
 const ReserveButtonBox = styled.div`
   padding-right: 100px;
