@@ -6,11 +6,11 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const SliderContainer = styled.section`
-  margin-top: 150px;
   .slick-slider {
   }
   .slick-dots {
-    bottom: -70px;
+    position: static;
+    padding-top: 50px;
   }
   .slick-dots li.slick-active button:before {
     color: var(--text-point-color);
@@ -20,6 +20,9 @@ const SliderContainer = styled.section`
 const MainImgBox = styled.div`
   outline: none;
   height: 640px;
+  @media screen and (max-width: 1440px) {
+    height: 540px;
+  }
 `;
 const MainImg = styled.img`
   width: 100%;
