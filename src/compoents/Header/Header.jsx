@@ -7,7 +7,7 @@ import logo from '../../assets/images/logo.png';
 const HeaderContainer = styled.header`
   width: 100%;
   height: 100%;
-  z-index: 30;
+  z-index: 1;
   top: 0;
   position: fixed;
 `;
