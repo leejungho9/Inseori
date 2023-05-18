@@ -5,13 +5,15 @@ export const Variables = css`
   :root {
     --black: #000;
     --white: #fff;
-    --dark: #101010;
+    --dark: #2d2d2d;
+    --gray: #515151;
     --text-point-color: #e40177;
     --text-size-10: 1rem;
     --text-size-12: 1.2rem;
     --text-size-13: 1.3rem;
     --text-size-14: 1.4rem;
     --text-size-15: 1.5rem;
+    --text-size-16: 1.6rem;
     --text-size-18: 1.8rem;
     --text-size-20: 2rem;
     --text-size-24: 2.4rem;
