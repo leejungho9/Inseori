@@ -6,20 +6,20 @@ import MainBannerCarousel from '../../compoents/Carousel/MainBannerCarousel';
 const MainContainer = styled.main`
   position: relative;
   overflow: hidden;
-  /* margin-left: 20px;
-  box-sizing: border-box; */
 `;
 
 const MainWrpper = styled.figure`
   float: right;
   width: calc(100% - 535px);
   position: relative;
+  z-index: 2;
 `;
 
 const MainIntroWrapper = styled.section`
   width: 100%;
   display: flex;
   padding: 200px 0;
+  padding-top: 150px;
 `;
 const MainIntroBox = styled.div`
   width: 510px;
