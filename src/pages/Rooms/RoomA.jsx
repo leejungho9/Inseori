@@ -29,19 +29,18 @@ const RoomDescBox = styled.div`
   width: 350px;
 `;
 const RoomTitle = styled.h1`
-  font-size: 25px;
+  font-size: var(--text-size-25);
   font-weight: bold;
 `;
 
 const RoomSubTitle = styled.p`
-  font-size: 15px;
+  font-size: var(--text-size-15);
   margin-top: 15px;
-  font-size: 15px;
 `;
 const RoomDesc = styled.p`
   margin-top: 60px;
   line-height: 2.5;
-  font-size: 14px;
+  font-size: var(--text-size-14);
 `;
 const ReserveButtonBox = styled.div`
   padding-right: 100px;
@@ -90,7 +89,7 @@ const RoomInfoWrapper = styled.div`
   padding-bottom: 130px;
 `;
 const RoomInfoBox = styled.div`
-  font-size: 14px;
+  font-size: var(--text-size-14);
   margin-right: 20px;
   & > div:first-child {
     margin-top: 40px;
