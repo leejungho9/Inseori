@@ -22,6 +22,7 @@ const MainWrpper = styled.figure`
 const RoomDescWrapper = styled.section`
   width: 100%;
   display: flex;
+  justify-content: space-between;
   padding: 150px 0 150px;
   background-color: var(--white);
 `;
