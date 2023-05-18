@@ -7,7 +7,6 @@ import logo from '../../assets/images/logo.png';
 const HeaderContainer = styled.header`
   width: 100%;
   height: 100%;
-  z-index: 1;
   top: 0;
   position: fixed;
 `;
@@ -15,34 +14,35 @@ const HeaderContainer = styled.header`
 const NavWrapper = styled.div`
   width: 435px;
   height: 100%;
+  box-sizing: border-box;
   padding-left: 100px;
-  z-index: 20;
+  z-index: 15;
   position: relative;
 `;
 
 const ReserveButtonBox = styled.div`
   position: absolute;
-  height: 150px;
-  overflow: hidden;
   top: 0;
   width: 100%;
+  height: 150px;
+  background-color: var(--white);
+  z-index: 14;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background-color: white;
-  z-index: 0;
 `;
 
 const ReserveLogo = styled.img`
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
   margin-right: 10px;
   cursor: pointer;
 `;
 
 const ReserveSpan = styled.span`
   cursor: pointer;
-  font-size: 14px;
+  font-size: var(--text-size-18);
   float: right;
   padding-right: 100px;
 `;
@@ -52,6 +52,8 @@ const LogoImgBox = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
+  z-index: 30;
+  position: relative;
 `;
 const Logo = styled.img`
   width: 100%;
