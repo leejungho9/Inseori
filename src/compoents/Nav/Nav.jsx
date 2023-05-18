@@ -10,8 +10,6 @@ const NavContainer = styled.div`
   top: 0;
   height: 100%;
   width: 100%;
-  // ! 전체에서 왼쪽 여백
-  /* width: calc(100% - 100px); */
 `;
 
 const NavBox = styled.nav`
