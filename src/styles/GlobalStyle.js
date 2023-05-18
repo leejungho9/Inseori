@@ -3,6 +3,29 @@ import PretendardVariable from '../assets/fonts/PretendardVariable.woff2';
 // *  변수
 export const Variables = css`
   :root {
+    --black: #000;
+    --white: #fff;
+    --dark: #101010;
+    --text-point-color: #e40177;
+    --text-size-10: 1rem;
+    --text-size-12: 1.2rem;
+    --text-size-13: 1.3rem;
+    --text-size-14: 1.4rem;
+    --text-size-15: 1.5rem;
+    --text-size-18: 1.8rem;
+    --text-size-20: 2rem;
+    --text-size-24: 2.4rem;
+    --text-size-25: 2.5rem;
+    --text-size-30: 3rem;
+    // ! mobile : 0 ~ 479
+    // ! tablet : 480 ~ 991
+    // ! labtop : 992 ~ 1199
+    // ! desktop : 1200 ~  1440
+    // ! big desgtop : 1440 ~
+    --breakpoint-mobile: 480;
+    --breakpoint-tablet: 992;
+    --breakpoint-laptop: 1200;
+    --breakpoint-desktop: 1440;
   }
 `;
 
@@ -14,6 +37,10 @@ ${Variables}
 	font-family: "PretendardMedium";
 	font-weight: 500;
 	src: url(${PretendardVariable}) format("woff2")
+}
+
+*{
+  box-sizing: border-box;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -43,6 +70,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+
 }
 ol, ul {
 	list-style: none;
@@ -59,9 +87,13 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+html {
+  font-size: 62.5%
+}
 
 html, body {
 	font-family: "PretendardMedium" ;
+
 }
 
 a {
