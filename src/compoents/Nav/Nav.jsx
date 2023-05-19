@@ -3,7 +3,7 @@ import insta from '../../assets/images/insta.png';
 import kakao from '../../assets/images/kakao.png';
 
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const NavContainer = styled.div`
   position: absolute;
@@ -79,42 +79,32 @@ const NavSubli = styled.li`
 const MainMenu = styled.a``;
 
 function Nav() {
-  const [mainMenu, setMainMenu] = useState();
   const [subMenu, setsubMenu] = useState('');
 
-  const showSubMenu = (menu) => {
-    setMainMenu(menu);
+  const showSubMenu = () => {
+    const subMenuEl = document.querySelector('.sub-menu');
+    console.log(subMenuEl);
+    subMenuEl.style.height = subMenuEl.dataset.height + 'px';
+    subMenuEl.style.visibility = 'visible';
+    subMenuEl.style.opacity = '100';
   };
 
-  useEffect(() => {
-    const closeSubMenu = () => {
-      const subMenuEls = document.querySelectorAll('.sub-menu');
-      subMenuEls.forEach((subMenuEl) => {
-        subMenuEl.style.height = 0;
-        subMenuEl.style.visibility = 'hidden';
-        subMenuEl.style.opacity = '0';
-      });
-    };
-
-    if (mainMenu) {
-      closeSubMenu();
-
-      const subMenuEl = document.querySelector('.' + mainMenu);
-      subMenuEl.style.height = subMenuEl.dataset.height + 'px';
-      subMenuEl.style.visibility = 'visible';
-      subMenuEl.style.opacity = '100';
-    } else {
-      closeSubMenu();
-    }
-  }, [mainMenu]);
+  const closeSubMenu = () => {
+    const subMenuEls = document.querySelectorAll('.sub-menu');
+    subMenuEls.forEach((subMenuEl) => {
+      subMenuEl.style.height = 0;
+      subMenuEl.style.visibility = 'hidden';
+      subMenuEl.style.opacity = '0';
+    });
+  };
 
   return (
     <NavContainer>
       <NavBox>
         <Navul>
-          <Navli>
-            <MainMenu onMouseEnter={() => showSubMenu('stay')}>스테이</MainMenu>
-            <NavSubul className="sub-menu stay" data-height="105">
+          <Navli onMouseLeave={closeSubMenu}>
+            <MainMenu onMouseEnter={showSubMenu}>스테이</MainMenu>
+            <NavSubul className="sub-menu" data-height="105">
               <NavSubli>
                 <Link
                   to="/RoomA"
