@@ -7,6 +7,7 @@ export const Variables = css`
     --white: #fff;
     --dark: #2d2d2d;
     --gray: #515151;
+    --light-gray: #fbfbfb;
     --text-point-color: #e40177;
     --text-size-10: 1rem;
     --text-size-12: 1.2rem;
