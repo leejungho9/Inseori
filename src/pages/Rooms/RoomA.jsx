@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import RoomACarousel from '../../compoents/Carousel/RoomACarousel';
+import MainBannerCarousel from '../../compoents/Carousel/MainBannerCarousel';
 import ReserveButton from '../../compoents/Button/ReserveButton';
 import RoomA_1 from '../../assets/images/RoomA/RoomA_1.jpg';
 import RoomA_3 from '../../assets/images/RoomA/RoomA_3.jpg';
@@ -124,7 +124,7 @@ function RoomA() {
   return (
     <MainContainer>
       <MainWrpper>
-        <RoomACarousel />
+        <MainBannerCarousel />
         <RoomDescWrapper>
           <RoomDescBox>
             <RoomTitle>홰경당</RoomTitle>
