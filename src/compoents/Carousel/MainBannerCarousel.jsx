@@ -1,9 +1,9 @@
 import React from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
-import mainImage from '../../assets/images/main.jpg';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import banner from '../../assets/images/banner.jpg';
 
 const SliderContainer = styled.section`
   .slick-slider {
@@ -19,7 +19,7 @@ const SliderContainer = styled.section`
 
 const MainImgBox = styled.div`
   outline: none;
-  height: 640px;
+  /* height: 640px; */
   @media screen and (max-width: 1440px) {
     height: 540px;
   }
@@ -45,13 +45,13 @@ function MainCarousel() {
     <SliderContainer>
       <Slider {...settings}>
         <MainImgBox>
-          <MainImg src={mainImage} alt="캐러셀메인" />
+          <MainImg src={banner} alt="캐러셀메인" />
         </MainImgBox>
         <MainImgBox>
-          <MainImg src={mainImage} alt="캐러셀메인" />
+          <MainImg src={banner} alt="캐러셀메인" />
         </MainImgBox>
         <MainImgBox>
-          <MainImg src={mainImage} alt="캐러셀메인" />
+          <MainImg src={banner} alt="캐러셀메인" />
         </MainImgBox>
       </Slider>
     </SliderContainer>
