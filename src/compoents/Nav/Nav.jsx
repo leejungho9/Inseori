@@ -60,7 +60,13 @@ const NavSubul = styled.ul`
   height: 0;
   overflow: hidden;
   transition: all 0.6s;
+  visibility: hidden;
+  opacity: 0;
 
+  visibility: ${({ subMenuVisible }) =>
+    subMenuVisible ? 'visible' : 'hidden'};
+  opacity: ${({ subMenuVisible }) => (subMenuVisible ? '100' : '0')};
+  height: ${({ subMenuVisible }) => (subMenuVisible ? '105px' : '0')};
   li {
     padding-top: 15px;
   }
@@ -79,23 +85,14 @@ const NavSubli = styled.li`
 const MainMenu = styled.a``;
 
 function Nav() {
-  const [subMenu, setsubMenu] = useState('');
+  const [subMenuVisible, setSubMenuVisible] = useState(false);
 
   const showSubMenu = () => {
-    const subMenuEl = document.querySelector('.sub-menu');
-    console.log(subMenuEl);
-    subMenuEl.style.height = subMenuEl.dataset.height + 'px';
-    subMenuEl.style.visibility = 'visible';
-    subMenuEl.style.opacity = '100';
+    setSubMenuVisible(true);
   };
 
   const closeSubMenu = () => {
-    const subMenuEls = document.querySelectorAll('.sub-menu');
-    subMenuEls.forEach((subMenuEl) => {
-      subMenuEl.style.height = 0;
-      subMenuEl.style.visibility = 'hidden';
-      subMenuEl.style.opacity = '0';
-    });
+    setSubMenuVisible(false);
   };
 
   return (
@@ -104,17 +101,9 @@ function Nav() {
         <Navul>
           <Navli onMouseLeave={closeSubMenu}>
             <MainMenu onMouseEnter={showSubMenu}>스테이</MainMenu>
-            <NavSubul className="sub-menu" data-height="105">
+            <NavSubul subMenuVisible={subMenuVisible}>
               <NavSubli>
-                <Link
-                  to="/RoomA"
-                  onClick={() => {
-                    setsubMenu('RoomA');
-                  }}
-                  className={subMenu === 'RoomA' ? 'active' : ''}
-                >
-                  홰경당
-                </Link>
+                <Link to="/RoomA">홰경당</Link>
               </NavSubli>
               <NavSubli>
                 <a>예린의 집</a>
