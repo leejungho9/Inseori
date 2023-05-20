@@ -3,44 +3,61 @@ import Main from './pages/Main/Main';
 import Footer from './compoents/Footer/Footer';
 import Header from './compoents/Header/Header';
 import RoomA from './pages/Rooms/RoomA';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 function App() {
-  //! 추후에 사용
-  // window.scrollTo(0, 0);
+  const [topHeaderVisible, setTopHeaderVisible] = useState(true);
+  const [leftNavFixed, setLeftNavFixed] = useState(true);
+  let [footerOffsetProps, setFooterOffsetProps] = useState(0);
+  const footerRef = useRef(null);
 
+  const refs = {
+    headerRef: useRef(null),
+    topHeaderRef: useRef(null),
+  };
   //! 헤더 스크롤 이벤트
   useEffect(() => {
     const handleScroll = () => {
-      const headerEl = document.querySelector('.header');
-      const footerEl = document.querySelector('.footer');
-      if (headerEl && footerEl) {
-        const footerTop = footerEl.offsetTop; //! 푸터 최상단 위치
-        const windowHeight = window.innerHeight; // ! 브라우저 높이
-        const offsetMenu = footerTop - windowHeight; // ! 푸터 위치 - 브라우저 높이
+      const footerTop = footerRef.current.offsetTop; //! 푸터 최상단 위치
+      const windowHeight = window.innerHeight; // ! 브라우저 높이
+      const footerOffset = footerTop - windowHeight; // ! 푸터 위치 - 브라우저 높이
+      setFooterOffsetProps(footerOffset);
+      if (refs.headerRef && footerRef) {
         if (window.innerWidth > 1024) {
-          if (window.pageYOffset >= offsetMenu) {
-            headerEl.style.position = 'absolute';
-            headerEl.style.top = offsetMenu + 'px';
+          if (window.pageYOffset >= footerOffset) {
+            setLeftNavFixed(false);
           } else {
-            headerEl.style.position = 'fixed';
-            headerEl.style.top = '0';
+            setLeftNavFixed(true);
           }
+        }
+      }
+      // ! 상단 헤더 숨기는 이벤트
+
+      if (refs.headerRef) {
+        if (window.scrollY > refs.topHeaderRef.current.offsetHeight) {
+          setTopHeaderVisible(false);
+        } else {
+          setTopHeaderVisible(true);
         }
       }
     };
 
     window.addEventListener('scroll', handleScroll);
-  }, []);
+  }, [refs.headerRef, refs.topHeaderRef]);
 
   return (
     <>
-      <Header />
+      <Header
+        ref={refs}
+        topHeaderVisible={topHeaderVisible}
+        leftNavFixed={leftNavFixed}
+        footerOffsetProps={footerOffsetProps}
+      />
       <Routes>
         <Route path="/" element={<Main />}></Route>
         <Route path="/RoomA" element={<RoomA />}></Route>
       </Routes>
-      <Footer />
+      <Footer ref={footerRef} />
     </>
   );
 }
