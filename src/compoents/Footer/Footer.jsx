@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import logo from '../../assets/images/footerimage.png';
 import map from '../../assets/images/map.png';
@@ -84,9 +84,9 @@ const SocialIcon = styled.img`
   height: auto;
 `;
 
-function Footer() {
+const Footer = forwardRef((props, footerRef) => {
   return (
-    <FooterContainer className="footer">
+    <FooterContainer ref={footerRef}>
       <FooterWrapper>
         <LogoImageBox>
           <Logo src={logo} alt=" 임시로고" />
@@ -141,6 +141,8 @@ function Footer() {
       </FooterWrapper>
     </FooterContainer>
   );
-}
+});
 
+// * displayName 설정
+Footer.displayName = 'Footer';
 export default Footer;
