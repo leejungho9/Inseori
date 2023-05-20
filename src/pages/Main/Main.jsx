@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import MainGalleryCarousel from '../../compoents/Carousel/MainGalleryCarousel';
 import MainBannerCarousel from '../../compoents/Carousel/MainBannerCarousel';
@@ -39,10 +39,10 @@ const MainGalleryCarouselWrapper = styled.figure`
   position: relative;
 `;
 
-function Main() {
+const Main = forwardRef((props, mainTopRef) => {
   return (
     <MainContainer>
-      <MainWrpper>
+      <MainWrpper ref={mainTopRef}>
         <MainBannerCarousel />
         <MainIntroWrapper>
           <MainIntroBox>
@@ -60,6 +60,8 @@ function Main() {
       </MainWrpper>
     </MainContainer>
   );
-}
+});
 
+// * displayName 설정
+Main.displayName = 'Main';
 export default Main;
