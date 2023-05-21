@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import MainBannerCarousel from '../../compoents/Carousel/MainBannerCarousel';
 import ReserveButton from '../../compoents/Button/ReserveButton';
@@ -7,6 +7,11 @@ import RoomA_3 from '../../assets/images/RoomA/RoomA_3.jpg';
 import RoomA_4 from '../../assets/images/RoomA/RoomA_4.jpg';
 import RoomA_5 from '../../assets/images/RoomA/RoomA_5.jpg';
 import RoomA_6 from '../../assets/images/RoomA/RoomA_6.jpg';
+import ban from '../../assets/images/ban.png';
+import ban2 from '../../assets/images/ban2.png';
+import ban3 from '../../assets/images/ban3.png';
+import ban4 from '../../assets/images/ban4.png';
+import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 const MainContainer = styled.main`
   /* position: relative; */
   overflow: hidden;
@@ -93,34 +98,86 @@ const RoomInfoWrapper = styled.div`
   padding-bottom: 130px;
 `;
 const RoomInfoBox = styled.div`
-  font-size: var(--text-size-14);
-  margin-right: 20px;
-  & > div:first-child {
-    margin-top: 40px;
-  }
-  & > div:last-child {
-    margin-top: 30px;
-  }
-`;
-const RoomDetailInfo = styled.div`
-  width: 400px;
   display: flex;
+  padding-right: 100px;
+  /* background-color: red; */
+`;
 
-  padding: 13px 0;
+const RoomInfoContentBox = styled.div`
+  /* background-color: pink; */
+  flex-grow: 1;
+  width: 70%;
 `;
-const RoomInfo = styled.span`
-  margin-right: 30px;
-  width: 60px;
+const RoomInfoSubTitleBox = styled.div`
+  display: flex;
+  padding-top: 70px;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
 `;
-const RoomInfoEtc = styled.span`
-  margin-right: 30px;
+const RoomInfoSubTitle = styled.h3`
+  font-size: var(--text-size-18);
+  color: var(--dark);
+`;
+
+const SplitLine = styled.div`
+  height: 1px;
+  background-color: var(--gray);
+  margin: 10px 0;
+`;
+
+const RoomIconBox = styled.div`
+  /* background-color: blue; */
+  padding: 70px 140px;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* justify-content: space-between; */
+`;
+
+const IconBox = styled.div`
+  width: 50px;
+  height: 50px;
+  margin-bottom: 50px;
+`;
+
+const IconImage = styled.img`
   width: 100%;
+  height: auto;
 `;
 
-const FlexBox = styled.div`
-  display: flex;
+const RoomInfoDescBox = styled.div`
+  height: ${({ AccordiItemVisible }) => (AccordiItemVisible ? '100px' : '0')};
+  opacity: ${({ AccordiItemVisible }) => (AccordiItemVisible ? 100 : 0)};
+  visibility: ${({ AccordiItemVisible }) =>
+    AccordiItemVisible ? 'visible' : 'hidden'};
+  transition: 0.5s;
 `;
+
+const RoomInfoDesc = styled.p`
+  font-size: var(--text-size-16);
+  color: var(--dark);
+  line-height: 1.5;
+  padding: 10px 0;
+`;
+
+const MinusIcon = styled(AiOutlineMinus)``;
+const PlusIcon = styled(AiOutlinePlus)``;
+
 function RoomA() {
+  const [AccordiItemVisible, setAccordiItemVisible] = useState('');
+
+  console.log(AccordiItemVisible);
+
+  //! 아코디언 활성화 함수
+  const handleShowAccordion = (menu) => {
+    if (menu === AccordiItemVisible) {
+      setAccordiItemVisible('');
+    } else {
+      setAccordiItemVisible(menu);
+    }
+  };
   return (
     <MainContainer>
       <MainWrpper>
@@ -166,43 +223,92 @@ function RoomA() {
         </RoomImagesContainer>
         <RoomInfoWrapper>
           <RoomTitle>객실정보</RoomTitle>
-          <FlexBox>
-            <RoomInfoBox>
-              <RoomDetailInfo>
-                <RoomInfo>체크인</RoomInfo>
-                <RoomInfo> 14:00</RoomInfo>
-              </RoomDetailInfo>
-              <RoomDetailInfo>
-                <RoomInfo>체크아웃</RoomInfo>
-                <RoomInfo> 11:00</RoomInfo>
-              </RoomDetailInfo>
-              <RoomDetailInfo>
-                <RoomInfo>기준인원</RoomInfo>
-                <RoomInfo>2인</RoomInfo>
-              </RoomDetailInfo>
-              <RoomDetailInfo>
-                <RoomInfoEtc>
-                  기준인원 초과시 1인당 50,000원 추가금액 발생
-                </RoomInfoEtc>
-              </RoomDetailInfo>
-            </RoomInfoBox>
-            <RoomInfoBox>
-              <RoomDetailInfo>
-                <RoomInfo>구비용품</RoomInfo>
-              </RoomDetailInfo>
-              <RoomDetailInfo>
-                <RoomInfoEtc>
-                  침대, 에어컨, 포트, 인덕션, 정수기, 드라이기, 샴푸, 린스, 칫솔
-                </RoomInfoEtc>
-              </RoomDetailInfo>
-              <RoomDetailInfo>
-                <RoomInfoEtc>치약, 바디워시, 수건, 비누</RoomInfoEtc>
-              </RoomDetailInfo>
-              <RoomDetailInfo>
-                <RoomInfoEtc>객실 내 흡연, 취사 일체 불가</RoomInfoEtc>
-              </RoomDetailInfo>
-            </RoomInfoBox>
-          </FlexBox>
+          <RoomInfoBox>
+            <RoomInfoContentBox>
+              <RoomInfoSubTitleBox onClick={() => handleShowAccordion('itemA')}>
+                <RoomInfoSubTitle>정보</RoomInfoSubTitle>
+                {AccordiItemVisible === 'itemA' ? <MinusIcon /> : <PlusIcon />}
+              </RoomInfoSubTitleBox>
+              <SplitLine />
+              <RoomInfoDescBox
+                AccordiItemVisible={AccordiItemVisible === 'itemA'}
+              >
+                <RoomInfoDesc>
+                  스테이 아트앤은 (주)아트앤라이프에서 기획하고 운영하는
+                  복합문화공간인 인서리공원 내에 있는 스테이입니다. 광양 내
+                  100년된 한옥을 리노베이션 한 다경당, 근대시대에 있을 법한
+                  공간으로 꾸며진 예린의 집, 한옥이 더 이상 옛것이 아닌 현대의
+                  펍한 공안으로 거듭난 홰경당이 있으며 더 다양하고 아름다운
+                  공간을 만들어 갈 계획을 가지고 있습니다.
+                </RoomInfoDesc>
+              </RoomInfoDescBox>
+              <RoomInfoSubTitleBox onClick={() => handleShowAccordion('itemB')}>
+                <RoomInfoSubTitle>주의사항</RoomInfoSubTitle>
+                {AccordiItemVisible === 'itemB' ? <MinusIcon /> : <PlusIcon />}
+              </RoomInfoSubTitleBox>
+              <SplitLine />
+              <RoomInfoDescBox
+                AccordiItemVisible={AccordiItemVisible === 'itemB'}
+              >
+                <RoomInfoDesc>
+                  스테이 아트앤은 (주)아트앤라이프에서 기획하고 운영하는
+                  복합문화공간인 인서리공원 내에 있는 스테이입니다. 광양 내
+                  100년된 한옥을 리노베이션 한 다경당, 근대시대에 있을 법한
+                  공간으로 꾸며진 예린의 집, 한옥이 더 이상 옛것이 아닌 현대의
+                  펍한 공안으로 거듭난 홰경당이 있으며 더 다양하고 아름다운
+                  공간을 만들어 갈 계획을 가지고 있습니다.
+                </RoomInfoDesc>
+              </RoomInfoDescBox>
+              <RoomInfoSubTitleBox onClick={() => handleShowAccordion('itemC')}>
+                <RoomInfoSubTitle>어매니티</RoomInfoSubTitle>
+                {AccordiItemVisible === 'itemC' ? <MinusIcon /> : <PlusIcon />}
+              </RoomInfoSubTitleBox>
+              <SplitLine />
+              <RoomInfoDescBox
+                AccordiItemVisible={AccordiItemVisible === 'itemC'}
+              >
+                <RoomInfoDesc>
+                  스테이 아트앤은 (주)아트앤라이프에서 기획하고 운영하는
+                  복합문화공간인 인서리공원 내에 있는 스테이입니다. 광양 내
+                  100년된 한옥을 리노베이션 한 다경당, 근대시대에 있을 법한
+                  공간으로 꾸며진 예린의 집, 한옥이 더 이상 옛것이 아닌 현대의
+                  펍한 공안으로 거듭난 홰경당이 있으며 더 다양하고 아름다운
+                  공간을 만들어 갈 계획을 가지고 있습니다.
+                </RoomInfoDesc>
+              </RoomInfoDescBox>
+              <RoomInfoSubTitleBox onClick={() => handleShowAccordion('itemD')}>
+                <RoomInfoSubTitle>추가요금 안내</RoomInfoSubTitle>
+                {AccordiItemVisible === 'itemD' ? <MinusIcon /> : <PlusIcon />}
+              </RoomInfoSubTitleBox>
+              <SplitLine />
+              <RoomInfoDescBox
+                AccordiItemVisible={AccordiItemVisible === 'itemD'}
+              >
+                <RoomInfoDesc>
+                  스테이 아트앤은 (주)아트앤라이프에서 기획하고 운영하는
+                  복합문화공간인 인서리공원 내에 있는 스테이입니다. 광양 내
+                  100년된 한옥을 리노베이션 한 다경당, 근대시대에 있을 법한
+                  공간으로 꾸며진 예린의 집, 한옥이 더 이상 옛것이 아닌 현대의
+                  펍한 공안으로 거듭난 홰경당이 있으며 더 다양하고 아름다운
+                  공간을 만들어 갈 계획을 가지고 있습니다.
+                </RoomInfoDesc>
+              </RoomInfoDescBox>
+            </RoomInfoContentBox>
+            <RoomIconBox>
+              <IconBox>
+                <IconImage src={ban}></IconImage>
+              </IconBox>
+              <IconBox>
+                <IconImage src={ban2}></IconImage>
+              </IconBox>
+              <IconBox>
+                <IconImage src={ban3}></IconImage>
+              </IconBox>
+              <IconBox>
+                <IconImage src={ban4}></IconImage>
+              </IconBox>
+            </RoomIconBox>
+          </RoomInfoBox>
         </RoomInfoWrapper>
       </MainWrpper>
     </MainContainer>
