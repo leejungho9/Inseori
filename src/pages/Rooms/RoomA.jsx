@@ -100,11 +100,9 @@ const RoomInfoWrapper = styled.div`
 const RoomInfoBox = styled.div`
   display: flex;
   padding-right: 100px;
-  /* background-color: red; */
 `;
 
 const RoomInfoContentBox = styled.div`
-  /* background-color: pink; */
   flex-grow: 1;
   width: 70%;
 `;
@@ -127,13 +125,11 @@ const SplitLine = styled.div`
 `;
 
 const RoomIconBox = styled.div`
-  /* background-color: blue; */
   padding: 70px 140px;
   width: 30%;
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* justify-content: space-between; */
 `;
 
 const IconBox = styled.div`
@@ -166,7 +162,7 @@ const MinusIcon = styled(AiOutlineMinus)``;
 const PlusIcon = styled(AiOutlinePlus)``;
 
 function RoomA() {
-  const [AccordiItemVisible, setAccordiItemVisible] = useState('');
+  const [AccordiItemVisible, setAccordiItemVisible] = useState('itemA');
 
   console.log(AccordiItemVisible);
 
