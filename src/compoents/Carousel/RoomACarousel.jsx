@@ -1,9 +1,9 @@
 import React from 'react';
 import Slider from 'react-slick';
 import styled from 'styled-components';
-import RoomA_2 from '../../assets/images/RoomA/RoomA_2.jpg';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import banner from '../../assets/images/RoomA/RoomA_banner.jpg';
 
 const SliderContainer = styled.section`
   .slick-slider {
@@ -19,7 +19,6 @@ const SliderContainer = styled.section`
 
 const MainImgBox = styled.div`
   outline: none;
-  height: 640px;
   @media screen and (max-width: 1440px) {
     height: 540px;
   }
@@ -29,7 +28,7 @@ const MainImg = styled.img`
   height: 100%;
   object-fit: cover;
 `;
-function RoomACarousel() {
+const RoomACarousel = () => {
   const settings = {
     dots: true,
     infinite: true,
@@ -45,17 +44,17 @@ function RoomACarousel() {
     <SliderContainer>
       <Slider {...settings}>
         <MainImgBox>
-          <MainImg src={RoomA_2} alt="캐러셀메인" />
+          <MainImg src={banner} alt="캐러셀메인" />
         </MainImgBox>
         <MainImgBox>
-          <MainImg src={RoomA_2} alt="캐러셀메인" />
+          <MainImg src={banner} alt="캐러셀메인" />
         </MainImgBox>
         <MainImgBox>
-          <MainImg src={RoomA_2} alt="캐러셀메인" />
+          <MainImg src={banner} alt="캐러셀메인" />
         </MainImgBox>
       </Slider>
     </SliderContainer>
   );
-}
+};
 
 export default RoomACarousel;

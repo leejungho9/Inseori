@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import MainBannerCarousel from '../../compoents/Carousel/MainBannerCarousel';
 import ReserveButton from '../../compoents/Button/ReserveButton';
-import RoomA_1 from '../../assets/images/RoomA/RoomA_1.jpg';
-import RoomA_3 from '../../assets/images/RoomA/RoomA_3.jpg';
-import RoomA_4 from '../../assets/images/RoomA/RoomA_4.jpg';
-import RoomA_5 from '../../assets/images/RoomA/RoomA_5.jpg';
-import RoomA_6 from '../../assets/images/RoomA/RoomA_6.jpg';
+import RoomA_1 from '../../assets/images/RoomA/RoomB_1.jpg';
+import RoomA_2 from '../../assets/images/RoomA/RoomB_2.jpg';
+import RoomA_3 from '../../assets/images/RoomA/RoomB_3.jpg';
+import RoomA_4 from '../../assets/images/RoomA/RoomB_4.jpg';
+import RoomA_5 from '../../assets/images/RoomA/RoomB_5.jpg';
 import ban from '../../assets/images/ban.png';
 import ban2 from '../../assets/images/ban2.png';
 import ban3 from '../../assets/images/ban3.png';
 import ban4 from '../../assets/images/ban4.png';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
+import RoomACarousel from '../../compoents/Carousel/RoomACarousel';
 const MainContainer = styled.main`
   /* position: relative; */
   overflow: hidden;
@@ -59,7 +59,6 @@ const RoomImagesContainer = styled.section`
   display: grid;
   align-items: start;
   display: grid;
-  grid-template-rows: repeat(3, 435px);
   grid-row-gap: 20px;
 
   .item:nth-child(1) {
@@ -70,20 +69,17 @@ const RoomImagesWrapper = styled.figure``;
 
 const FirstImageBox = styled.div`
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 25% 75%;
   column-gap: 20px;
-  grid-auto-rows: 435px;
 `;
 const SecondImageBox = styled.div`
   display: grid;
-  grid-template-columns: 60% 40%;
+  grid-template-columns: 65% 35%;
   column-gap: 20px;
-  grid-auto-rows: 435px;
 `;
 const ThreeImageBox = styled.div`
   display: grid;
   grid-template-columns: calc(100% + 20px);
-  grid-auto-rows: 435px;
   column-gap: 20px;
 `;
 
@@ -177,7 +173,7 @@ function RoomA() {
   return (
     <MainContainer>
       <MainWrpper>
-        <MainBannerCarousel />
+        <RoomACarousel />
         <RoomDescWrapper>
           <RoomDescBox>
             <RoomTitle>홰경당</RoomTitle>
@@ -197,10 +193,10 @@ function RoomA() {
         <RoomImagesContainer>
           <FirstImageBox>
             <RoomImagesWrapper className="item">
-              <RoomImages src={RoomA_6} alt="홰경당 이미지" />
+              <RoomImages src={RoomA_1} alt="홰경당 이미지" />
             </RoomImagesWrapper>
             <RoomImagesWrapper className="item">
-              <RoomImages src={RoomA_5} alt="홰경당 이미지" />
+              <RoomImages src={RoomA_2} alt="홰경당 이미지" />
             </RoomImagesWrapper>
           </FirstImageBox>
           <SecondImageBox>
@@ -208,12 +204,12 @@ function RoomA() {
               <RoomImages src={RoomA_3} alt="홰경당 이미지" />
             </RoomImagesWrapper>
             <RoomImagesWrapper className="item">
-              <RoomImages src={RoomA_1} alt="홰경당 이미지" />
+              <RoomImages src={RoomA_4} alt="홰경당 이미지" />
             </RoomImagesWrapper>
           </SecondImageBox>
           <ThreeImageBox>
             <RoomImagesWrapper className="item">
-              <RoomImages src={RoomA_4} alt="홰경당 이미지" />
+              <RoomImages src={RoomA_5} alt="홰경당 이미지" />
             </RoomImagesWrapper>
           </ThreeImageBox>
         </RoomImagesContainer>
