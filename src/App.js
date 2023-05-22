@@ -4,6 +4,7 @@ import Footer from './compoents/Footer/Footer';
 import Header from './compoents/Header/Header';
 import RoomA from './pages/Rooms/RoomA';
 import { useEffect, useRef, useState } from 'react';
+import OneDayCalss from './pages/OneDayClass/OneDayCalss';
 
 function App() {
   const [topHeaderVisible, setTopHeaderVisible] = useState(true);
@@ -55,7 +56,8 @@ function App() {
       />
       <Routes>
         <Route path="/" element={<Main />}></Route>
-        <Route path="/RoomA" element={<RoomA />}></Route>
+        <Route path="/roomA" element={<RoomA />}></Route>
+        <Route path="/onedayclass" element={<OneDayCalss />}></Route>
       </Routes>
       <Footer ref={footerRef} />
     </>
