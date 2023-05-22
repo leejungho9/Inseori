@@ -41,7 +41,6 @@ const OneDayClassTextImage = styled.div`
   height: 100%;
   opacity: 50%;
   background-color: #212121;
-  z-index: 9;
   border-radius: 10px;
   ${Flex}
 `;
@@ -50,7 +49,6 @@ const OneDayClassText = styled.span`
   font-size: var(--text-size-25);
   color: var(--white);
   font-weight: bold;
-  z-index: 10;
   letter-spacing: 1.5px;
   cursor: pointer;
 `;
