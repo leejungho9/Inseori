@@ -112,7 +112,7 @@ const Footer = forwardRef((props, footerRef) => {
           <SocialIconBox>
             <a
               target="_blank"
-              href="http://kko.to/YAAtXaebeH/"
+              href="https://map.kakao.com/?itemId=386938052"
               rel="noreferrer"
             >
               <SocialIcon src={map}></SocialIcon>
