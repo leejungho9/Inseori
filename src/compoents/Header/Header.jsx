@@ -35,13 +35,16 @@ const ReserveButtonBox = styled.div`
   overflow: hidden;
   background-color: var(--white);
   z-index: 14;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
   pointer-events: all;
-  transition: 1s;
+  transition: 0.4s;
   height: ${({ topHeaderVisible }) => (topHeaderVisible ? '150px' : 0)};
-  opacity: ${({ topHeaderVisible }) => (topHeaderVisible ? '100' : 0)};
+
+  a {
+    float: right;
+    margin-top: 62px;
+    margin-right: 100px;
+    display: flex;
+  }
 `;
 
 const ReserveLogo = styled.img`
@@ -54,8 +57,6 @@ const ReserveLogo = styled.img`
 const ReserveSpan = styled.span`
   cursor: pointer;
   font-size: var(--text-size-18);
-  float: right;
-  padding-right: 100px;
 `;
 const LogoImgBox = styled.div`
   width: 234px;
