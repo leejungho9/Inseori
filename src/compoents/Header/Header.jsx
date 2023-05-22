@@ -38,6 +38,7 @@ const ReserveButtonBox = styled.div`
   pointer-events: all;
   transition: 0.4s;
   height: ${({ topHeaderVisible }) => (topHeaderVisible ? '150px' : 0)};
+  opacity: ${({ topHeaderVisible }) => (topHeaderVisible ? '100' : 0)};
 
   a {
     float: right;
