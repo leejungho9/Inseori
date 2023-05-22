@@ -103,7 +103,7 @@ function Nav() {
             <MainMenu onMouseEnter={showSubMenu}>스테이</MainMenu>
             <NavSubul subMenuVisible={subMenuVisible}>
               <NavSubli>
-                <Link to="/RoomA">홰경당</Link>
+                <Link to="/roomA">홰경당</Link>
               </NavSubli>
               <NavSubli>
                 <a>예린의 집</a>
@@ -114,7 +114,9 @@ function Nav() {
             </NavSubul>
           </Navli>
           <Navli>
-            <MainMenu>원데이클래스</MainMenu>
+            <MainMenu>
+              <Link to="/OneDayClass">원데이클래스</Link>
+            </MainMenu>
             <NavSubul className="mainMenu"></NavSubul>
           </Navli>
           <Navli>
