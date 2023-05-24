@@ -20,11 +20,20 @@ const SliderContainer = styled.section`
     height: 300px;
     margin-right: -20px;
     padding: 0 !important;
+    @media screen and (max-width: 500px) {
+      height: 180px;
+    }
   }
   .slick-slide {
     height: 300px !important;
     width: 300px !important;
     margin-left: 20px;
+
+    @media screen and (max-width: 500px) {
+      height: 180px !important;
+      width: 180px !important;
+      margin-left: 10px;
+    }
   }
 `;
 const MainImgBox = styled.div`
