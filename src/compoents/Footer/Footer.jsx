@@ -112,6 +112,9 @@ const AddressText = styled.address`
   @media screen and (max-width: 991px) {
     font-size: var(--text-size-15);
   }
+  @media screen and (max-width: 991px) {
+    font-size: var(--text-size-10);
+  }
 `;
 
 const FooterCompannyBox = styled.div`
@@ -171,6 +174,9 @@ const CuratedText = styled.span`
   @media screen and (max-width: 991px) {
     font-size: var(--text-size-15);
     display: block;
+  }
+  @media screen and (max-width: 991px) {
+    font-size: var(--text-size-10);
   }
 `;
 
