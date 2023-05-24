@@ -14,10 +14,6 @@ const HeaderContainer = styled.header`
   position: ${({ leftNavFixed }) => (leftNavFixed ? 'fixed' : 'absolute')};
   top: ${({ leftNavFixed, footerOffsetProps }) =>
     leftNavFixed && footerOffsetProps ? 0 : footerOffsetProps + 'px'};
-  @media screen and (max-width: 991px) {
-    width: 100%;
-    height: 150px;
-  }
 `;
 
 const NavWrapper = styled.div`
@@ -31,7 +27,7 @@ const NavWrapper = styled.div`
   @media screen and (max-width: 991px) {
     padding-left: 50px;
     width: 100%;
-    height: 100%;
+    height: 70px;
     padding-top: 0;
   }
   @media screen and (max-width: 500px) {
@@ -84,6 +80,10 @@ const LogoImgBox = styled.div`
   cursor: pointer;
   z-index: 30;
   position: relative;
+  @media screen and (max-width: 991px) {
+    width: 120px;
+    height: 70px;
+  }
 `;
 const Logo = styled.img`
   width: 100%;
@@ -111,17 +111,18 @@ const HamButtonBox = styled.div`
   //! 991px까지 해당 사항 적용
   @media screen and (max-width: 991px) {
     display: block;
-    height: 150px;
+    height: 70px;
   }
 `;
 const HamImageBox = styled.div`
-  width: 35px;
+  width: 20px;
   float: right;
   margin-top: 62px;
   margin-right: 100px;
   display: flex;
   @media screen and (max-width: 991px) {
     margin-right: 50px;
+    margin-top: 28px;
   }
   @media screen and (max-width: 500px) {
     margin-right: 20px;
