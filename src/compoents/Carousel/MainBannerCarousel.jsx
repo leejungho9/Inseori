@@ -15,6 +15,11 @@ const SliderContainer = styled.section`
     @media screen and (max-width: 991px) {
       padding-top: 30px;
     }
+    @media screen and (max-width: 500px) {
+      li button:before {
+        font-size: 13px;
+      }
+    }
   }
   .slick-dots li.slick-active button:before {
     color: var(--text-point-color);
@@ -42,7 +47,7 @@ function MainCarousel() {
   const settings = {
     dots: true,
     infinite: true,
-    autoplay: true,
+    // autoplay: true,
     autoplaySpeed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
