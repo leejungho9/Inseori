@@ -36,9 +36,13 @@ function App() {
 
       if (refs.headerRef) {
         if (window.scrollY > refs.topHeaderRef.current.offsetHeight) {
-          setTopHeaderVisible(false);
+          if (window.innerWidth > 991) {
+            setTopHeaderVisible(false);
+          }
         } else {
-          setTopHeaderVisible(true);
+          if (window.innerWidth > 991) {
+            setTopHeaderVisible(true);
+          }
         }
       }
     };
