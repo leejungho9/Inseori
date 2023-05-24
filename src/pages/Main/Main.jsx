@@ -42,13 +42,14 @@ const MainIntroBox = styled.div`
     width: 100%;
   }
   @media screen and (max-width: 500px) {
-    line-height: 1.8;
+    line-height: 1.9;
   }
 `;
 
 const MainTitle = styled.h1`
   font-weight: bold;
   font-size: var(--text-size-20);
+  color: var(--dark);
   margin-bottom: 20px;
   @media screen and (max-width: 1440px) {
     display: none;
@@ -59,6 +60,7 @@ const MainTitle = styled.h1`
 `;
 const MainIntroP = styled.span`
   font-size: var(--text-size-15);
+  color: var(--gray);
   @media screen and (max-width: 991px) {
     font-size: var(--text-size-20);
     word-break: keep-all;
