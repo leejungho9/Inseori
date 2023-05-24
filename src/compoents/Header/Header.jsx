@@ -34,6 +34,9 @@ const NavWrapper = styled.div`
     height: 100%;
     padding-top: 0;
   }
+  @media screen and (max-width: 500px) {
+    padding-left: 20px;
+  }
 `;
 
 const ReserveButtonBox = styled.div`
@@ -119,6 +122,9 @@ const HamImageBox = styled.div`
   display: flex;
   @media screen and (max-width: 991px) {
     margin-right: 50px;
+  }
+  @media screen and (max-width: 500px) {
+    margin-right: 20px;
   }
 `;
 const HamImage = styled.img`
