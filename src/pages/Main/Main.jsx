@@ -30,7 +30,7 @@ const MainIntroWrapper = styled.section`
     padding: 100px 0 155px;
   }
   @media screen and (max-width: 500px) {
-    padding: 100px 20px 155px;
+    padding: 45px 20px 90px;
   }
 `;
 const MainIntroBox = styled.div`
@@ -39,7 +39,19 @@ const MainIntroBox = styled.div`
   line-height: 2;
   margin: 0 auto;
   @media screen and (max-width: 991px) {
-    width: 450px;
+    width: 100%;
+  }
+`;
+
+const MainTitle = styled.h1`
+  font-weight: bold;
+  font-size: var(--text-size-20);
+  margin-bottom: 20px;
+  @media screen and (max-width: 1440px) {
+    display: none;
+  }
+  @media screen and (max-width: 500px) {
+    display: block;
   }
 `;
 const MainIntroP = styled.span`
@@ -49,7 +61,7 @@ const MainIntroP = styled.span`
     word-break: keep-all;
   }
   @media screen and (max-width: 500px) {
-    font-size: var(--text-size-16);
+    font-size: var(--text-size-14);
     word-break: keep-all;
   }
 `;
@@ -62,6 +74,9 @@ const MainGalleryCarouselWrapper = styled.figure`
   @media screen and (max-width: 991px) {
     margin-bottom: 120px;
   }
+  @media screen and (max-width: 500px) {
+    margin-bottom: 60px;
+  }
 `;
 
 const Main = forwardRef((props, mainTopRef) => {
@@ -71,6 +86,7 @@ const Main = forwardRef((props, mainTopRef) => {
         <MainBannerCarousel />
         <MainIntroWrapper>
           <MainIntroBox>
+            <MainTitle>인서리공원</MainTitle>
             <MainIntroP>
               인서리공원은 광양시에서 도시재생 프로그램으로 리노베이션한 크고
               작은 14채 공간을 활용하여 보다 많은 사람들이 더 쉽게 그리고 더
