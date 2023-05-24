@@ -17,7 +17,7 @@ const SliderContainer = styled.section`
     }
     @media screen and (max-width: 500px) {
       li button:before {
-        font-size: 13px;
+        font-size: 10px;
       }
     }
   }
