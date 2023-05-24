@@ -18,6 +18,7 @@ const MainWrpper = styled.figure`
 
   @media screen and (max-width: 991px) {
     width: 100%;
+    margin-top: 70px;
   }
 `;
 
