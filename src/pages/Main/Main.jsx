@@ -28,6 +28,9 @@ const MainIntroWrapper = styled.section`
   @media screen and (max-width: 991px) {
     padding: 100px 0 155px;
   }
+  @media screen and (max-width: 500px) {
+    padding: 100px 20px 155px;
+  }
 `;
 const MainIntroBox = styled.div`
   width: 510px;
@@ -42,6 +45,10 @@ const MainIntroP = styled.span`
   font-size: var(--text-size-15);
   @media screen and (max-width: 991px) {
     font-size: var(--text-size-20);
+    word-break: keep-all;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: var(--text-size-16);
     word-break: keep-all;
   }
 `;
