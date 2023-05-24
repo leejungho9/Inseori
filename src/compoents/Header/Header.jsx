@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import reserLogo from '../../assets/images/reserLogo.png';
 import Nav from '../Nav/Nav';
 import logo from '../../assets/images/logo.png';
-
+import ham from '../../assets/images/ham.png';
 const HeaderContainer = styled.header`
   width: 100%;
   height: 100%;
@@ -14,6 +14,10 @@ const HeaderContainer = styled.header`
   position: ${({ leftNavFixed }) => (leftNavFixed ? 'fixed' : 'absolute')};
   top: ${({ leftNavFixed, footerOffsetProps }) =>
     leftNavFixed && footerOffsetProps ? 0 : footerOffsetProps + 'px'};
+  @media screen and (max-width: 991px) {
+    width: 100%;
+    height: 150px;
+  }
 `;
 
 const NavWrapper = styled.div`
@@ -24,6 +28,12 @@ const NavWrapper = styled.div`
   z-index: 15;
   position: relative;
   pointer-events: all;
+  @media screen and (max-width: 991px) {
+    padding-left: 50px;
+    width: 100%;
+    height: 100%;
+    padding-top: 0;
+  }
 `;
 
 const ReserveButtonBox = styled.div`
@@ -45,6 +55,10 @@ const ReserveButtonBox = styled.div`
     margin-top: 62px;
     margin-right: 100px;
     display: flex;
+  }
+
+  @media screen and (max-width: 991px) {
+    display: none;
   }
 `;
 
@@ -73,10 +87,49 @@ const Logo = styled.img`
   height: auto;
 `;
 
+// ! 반응형 스타일
+const HamButtonBox = styled.div`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 150px;
+  opacity: 100;
+  overflow: hidden;
+  background-color: var(--white);
+  z-index: 14;
+  pointer-events: all;
+  transition: 0.4s;
+  height: ${({ topHeaderVisible }) => (topHeaderVisible ? '150px' : 0)};
+  opacity: ${({ topHeaderVisible }) => (topHeaderVisible ? '100' : 0)};
+  //! 992px부터 해당 사항 적용
+  @media screen and (min-width: 991px) {
+    display: none;
+  }
+  //! 991px까지 해당 사항 적용
+  @media screen and (max-width: 991px) {
+    display: block;
+    height: 150px;
+  }
+`;
+const HamImageBox = styled.div`
+  width: 35px;
+  float: right;
+  margin-top: 62px;
+  margin-right: 100px;
+  display: flex;
+  @media screen and (max-width: 991px) {
+    margin-right: 50px;
+  }
+`;
+const HamImage = styled.img`
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+`;
+
 const Header = forwardRef(
   ({ topHeaderVisible, leftNavFixed, footerOffsetProps }, refs) => {
     const { headerRef, topHeaderRef } = refs;
-    console.log(footerOffsetProps);
     return (
       <HeaderContainer
         ref={headerRef}
@@ -104,6 +157,12 @@ const Header = forwardRef(
             <ReserveSpan>실시간 예약</ReserveSpan>
           </a>
         </ReserveButtonBox>
+
+        <HamButtonBox topHeaderVisible={topHeaderVisible} ref={topHeaderRef}>
+          <HamImageBox>
+            <HamImage src={ham} alt="햄버거 이미지" />
+          </HamImageBox>
+        </HamButtonBox>
       </HeaderContainer>
     );
   },
