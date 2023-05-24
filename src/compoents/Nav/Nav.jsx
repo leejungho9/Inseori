@@ -10,6 +10,10 @@ const NavContainer = styled.div`
   top: 0;
   height: 100%;
   width: 100%;
+
+  @media screen and (max-width: 991px) {
+    display: none;
+  }
 `;
 
 const NavBox = styled.nav`
