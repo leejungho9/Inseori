@@ -26,10 +26,8 @@ const MainIntroWrapper = styled.section`
   width: 100%;
   display: flex;
   padding: 150px 0 150px;
+
   @media screen and (max-width: 991px) {
-    padding: 100px 0 155px;
-  }
-  @media screen and (max-width: 500px) {
     padding: 45px 20px 90px;
   }
 `;
