@@ -65,6 +65,11 @@ const RoomSubTitle = styled.p`
   @media screen and (max-width: 991px) {
     text-align: center;
     font-size: var(--text-size-20);
+    margin-top: 10px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: var(--text-size-13);
   }
 `;
 const RoomDesc = styled.p`
@@ -75,7 +80,12 @@ const RoomDesc = styled.p`
 
   @media screen and (max-width: 991px) {
     text-align: center;
+    word-break: keep-all;
     font-size: var(--text-size-18);
+    margin-top: 20px;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: var(--text-size-13);
   }
 `;
 const ReserveButtonBox = styled.div`
@@ -134,6 +144,12 @@ const RoomImages = styled.img`
 const RoomInfoWrapper = styled.div`
   padding-top: 100px;
   padding-bottom: 130px;
+  @media screen and (max-width: 991px) {
+    padding-bottom: 120px;
+  }
+  @media screen and (max-width: 500px) {
+    padding-bottom: 60px;
+  }
 `;
 const RoomInfoBox = styled.div`
   display: flex;
@@ -217,6 +233,10 @@ const RoomInfoDesc = styled.p`
   color: var(--dark);
   line-height: 1.5;
   padding: 10px 0;
+
+  @media screen and (max-width: 991px) {
+    font-size: var(--text-size-13);
+  }
 `;
 
 const MinusIcon = styled(AiOutlineMinus)``;
