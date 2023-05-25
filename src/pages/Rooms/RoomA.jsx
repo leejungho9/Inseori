@@ -22,6 +22,11 @@ const MainWrpper = styled.figure`
   width: calc(100% - 435px);
   position: relative;
   margin-top: 150px;
+
+  @media screen and (max-width: 991px) {
+    width: 100%;
+    margin-top: 70px;
+  }
 `;
 
 const RoomDescWrapper = styled.section`
@@ -30,29 +35,56 @@ const RoomDescWrapper = styled.section`
   justify-content: space-between;
   padding: 150px 0 150px;
   background-color: var(--white);
+
+  @media screen and (max-width: 991px) {
+    padding: 45px 20px 90px;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 const RoomDescBox = styled.div`
   width: 370px;
+  @media screen and (max-width: 991px) {
+    width: 100%;
+  }
 `;
 const RoomTitle = styled.h1`
   font-size: var(--text-size-25);
   font-weight: bold;
   color: var(--dark);
-`;
 
+  @media screen and (max-width: 991px) {
+    text-align: center;
+    font-size: var(--text-size-20);
+  }
+`;
 const RoomSubTitle = styled.p`
   font-size: var(--text-size-18);
   color: var(--dark);
   margin-top: 16px;
+  @media screen and (max-width: 991px) {
+    text-align: center;
+    font-size: var(--text-size-20);
+  }
 `;
 const RoomDesc = styled.p`
   color: var(--gray);
   margin-top: 60px;
   line-height: 2;
   font-size: var(--text-size-16);
+
+  @media screen and (max-width: 991px) {
+    text-align: center;
+    font-size: var(--text-size-18);
+  }
 `;
 const ReserveButtonBox = styled.div`
   padding-right: 100px;
+
+  @media screen and (max-width: 991px) {
+    margin-top: 60px;
+    padding-right: 0;
+  }
 `;
 
 const RoomImagesContainer = styled.section`
@@ -61,7 +93,8 @@ const RoomImagesContainer = styled.section`
   display: grid;
   grid-row-gap: 20px;
 
-  .item:nth-child(1) {
+  @media screen and (max-width: 991px) {
+    grid-row-gap: 10px;
   }
 `;
 
@@ -71,16 +104,25 @@ const FirstImageBox = styled.div`
   display: grid;
   grid-template-columns: 25% 75%;
   column-gap: 20px;
+  @media screen and (max-width: 991px) {
+    column-gap: 10px;
+  }
 `;
 const SecondImageBox = styled.div`
   display: grid;
   grid-template-columns: 65% 35%;
   column-gap: 20px;
+  @media screen and (max-width: 991px) {
+    column-gap: 10px;
+  }
 `;
 const ThreeImageBox = styled.div`
   display: grid;
   grid-template-columns: calc(100% + 20px);
   column-gap: 20px;
+  @media screen and (max-width: 991px) {
+    column-gap: 10px;
+  }
 `;
 
 const RoomImages = styled.img`
@@ -96,11 +138,19 @@ const RoomInfoWrapper = styled.div`
 const RoomInfoBox = styled.div`
   display: flex;
   padding-right: 100px;
+  @media screen and (max-width: 991px) {
+    padding-right: 0;
+    flex-direction: column;
+  }
 `;
 
 const RoomInfoContentBox = styled.div`
   flex-grow: 1;
   width: 70%;
+  @media screen and (max-width: 991px) {
+    width: 100%;
+    padding: 0 50px;
+  }
 `;
 const RoomInfoSubTitleBox = styled.div`
   display: flex;
@@ -126,12 +176,27 @@ const RoomIconBox = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+
+  @media screen and (max-width: 991px) {
+    width: 100%;
+    padding: 100px;
+    flex-direction: row;
+    justify-content: center;
+
+    padding: 100px 50px;
+    padding-bottom: 0;
+  }
 `;
 
 const IconBox = styled.div`
   width: 50px;
   height: 50px;
   margin-bottom: 50px;
+  @media screen and (max-width: 991px) {
+    margin-bottom: 0;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
 `;
 
 const IconImage = styled.img`
@@ -157,6 +222,14 @@ const RoomInfoDesc = styled.p`
 const MinusIcon = styled(AiOutlineMinus)``;
 const PlusIcon = styled(AiOutlinePlus)``;
 
+//! 줄바꿈
+const Break = styled.br`
+  display: none;
+  @media screen and (max-width: 991px) {
+    display: block;
+  }
+`;
+
 function RoomA() {
   const [AccordiItemVisible, setAccordiItemVisible] = useState('itemA');
 
@@ -179,9 +252,10 @@ function RoomA() {
             <RoomTitle>홰경당</RoomTitle>
             <RoomSubTitle>한옥을 현대적으로 재해석하다.</RoomSubTitle>
             <RoomDesc>
-              홰경당은 인서리공원 Aat 카페와 가장 인접하게 위치하고 있으며
-              모던하고 깔끔한 분위기의 젊은이들이 좋아하는 감성숙소의 요소를
-              가지고 있습니다.
+              홰경당은 인서리공원 Aat 카페와 가장 인접하게
+              <Break /> 위치하고 있으며 모던하고 깔끔한 분위기의 젊은이들이
+              <Break />
+              좋아하는 감성숙소의 요소를 가지고 있습니다.
             </RoomDesc>
           </RoomDescBox>
           <ReserveButtonBox>
