@@ -47,15 +47,13 @@ const MainIntroBox = styled.div`
 `;
 
 const MainTitle = styled.h1`
-  font-weight: bold;
-  font-size: var(--text-size-20);
-  color: var(--dark);
-  margin-bottom: 20px;
-  @media screen and (max-width: 1440px) {
-    display: none;
-  }
-  @media screen and (max-width: 500px) {
+  display: none;
+  @media screen and (max-width: 991px) {
     display: block;
+    font-weight: bold;
+    font-size: var(--text-size-20);
+    color: var(--dark);
+    margin-bottom: 20px;
   }
 `;
 const MainIntroP = styled.span`
@@ -68,6 +66,13 @@ const MainIntroP = styled.span`
   @media screen and (max-width: 500px) {
     font-size: var(--text-size-13);
     word-break: keep-all;
+  }
+`;
+//! 줄바꿈
+const Break = styled.br`
+  display: none;
+  @media screen and (max-width: 991px) {
+    display: block;
   }
 `;
 
@@ -94,9 +99,9 @@ const Main = forwardRef((props, mainTopRef) => {
             <MainTitle>인서리공원</MainTitle>
             <MainIntroP>
               인서리공원은 광양시에서 도시재생 프로그램으로
-              <br /> 리노베이션한 크고 작은 14채 공간을 활용하여 보다 많은
-              사람들이 <br /> 더 쉽게 그리고 더 가까이 예술을 접하고 향유 할 수
-              있기를 <br /> 바라는 기대로 만들어진 복합문화공간입니다.
+              <Break /> 리노베이션한 크고 작은 14채 공간을 활용하여 보다 많은
+              사람들이 <Break /> 더 쉽게 그리고 더 가까이 예술을 접하고 향유 할
+              수 있기를 <Break /> 바라는 기대로 만들어진 복합문화공간입니다.
             </MainIntroP>
           </MainIntroBox>
         </MainIntroWrapper>
