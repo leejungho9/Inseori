@@ -35,7 +35,9 @@ function App() {
       // ! 상단 헤더 숨기는 이벤트
 
       if (refs.headerRef) {
-        if (window.scrollY > refs.topHeaderRef.current.offsetHeight) {
+        //! 안먹어서 일단 150px 값으로 적어둠
+        // if (window.scrollY > refs.topHeaderRef.current.offsetHeight) {
+        if (window.scrollY > 150) {
           if (window.innerWidth > 991) {
             setTopHeaderVisible(false);
           }
