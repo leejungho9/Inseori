@@ -14,8 +14,6 @@ const SliderContainer = styled.section`
 
     @media screen and (max-width: 991px) {
       padding-top: 30px;
-    }
-    @media screen and (max-width: 500px) {
       li button:before {
         font-size: 10px;
       }
@@ -47,7 +45,7 @@ function MainCarousel() {
   const settings = {
     dots: true,
     infinite: true,
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
