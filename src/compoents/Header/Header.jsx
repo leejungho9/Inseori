@@ -4,6 +4,7 @@ import reserLogo from '../../assets/images/reserLogo.png';
 import Nav from '../Nav/Nav';
 import logo from '../../assets/images/logo.png';
 import ham from '../../assets/images/ham.png';
+import { Link } from 'react-router-dom';
 const HeaderContainer = styled.header`
   width: 100%;
   height: 100%;
@@ -26,7 +27,7 @@ const NavWrapper = styled.div`
   pointer-events: all;
   @media screen and (max-width: 991px) {
     padding-left: 50px;
-    width: 100%;
+    /* width: 100%; */
     height: 70px;
     padding-top: 0;
   }
@@ -109,16 +110,15 @@ const HamButtonBox = styled.div`
     height: 70px;
   }
 `;
-const HamImageBox = styled.div`
-  width: 23px;
-  float: right;
-  margin-top: 62px;
-  margin-right: 100px;
-  display: flex;
+const HamImageBox = styled(Link)`
+  display: none;
 
   @media screen and (max-width: 991px) {
     margin-right: 50px;
     margin-top: 27px;
+    width: 23px;
+    float: right;
+    display: block;
   }
   @media screen and (max-width: 500px) {
     margin-right: 20px;
@@ -128,6 +128,7 @@ const HamImage = styled.img`
   width: 100%;
   height: auto;
   object-fit: cover;
+  cursor: pointer;
 `;
 
 const Header = forwardRef(
@@ -162,7 +163,7 @@ const Header = forwardRef(
         </ReserveButtonBox>
 
         <HamButtonBox topHeaderVisible={topHeaderVisible} ref={topHeaderRef}>
-          <HamImageBox>
+          <HamImageBox to="/RoomA">
             <HamImage src={ham} alt="햄버거 이미지" />
           </HamImageBox>
         </HamButtonBox>
