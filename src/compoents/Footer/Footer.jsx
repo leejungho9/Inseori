@@ -24,11 +24,6 @@ const FooterWrapper = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
   }
-  @media screen and (max-width: 780px) {
-    flex-direction: column;
-    width: 100%;
-    display: block;
-  }
 `;
 
 const LogoImageBox = styled.div`
@@ -49,12 +44,14 @@ const TelBox = styled.div``;
 const TelText = styled.span`
   display: none;
   @media screen and (max-width: 991px) {
-    font-size: var(--text-size-20);
+    font-size: var(--text-size-25);
     display: block;
     font-weight: bold;
+    letter-spacing: 1.3px;
   }
-  @media screen and (max-width: 780px) {
-    text-align: center;
+  //! 임시
+  @media screen and (max-width: 500px) {
+    font-size: var(--text-size-20);
   }
 `;
 const Tel = styled.h1`
@@ -64,6 +61,13 @@ const Tel = styled.h1`
   margin-bottom: 5px;
   @media screen and (max-width: 991px) {
     font-weight: normal;
+    letter-spacing: -1px;
+  }
+
+  //! 임시
+  @media screen and (max-width: 500px) {
+    font-size: var(--text-size-18);
+    margin-bottom: 25px;
   }
 `;
 
@@ -75,11 +79,12 @@ const FooterTextBox = styled.div`
   }
   @media screen and (max-width: 991px) {
     display: flex;
+    width: 100%;
   }
-  @media screen and (max-width: 780px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  //! 임시
+  @media screen and (max-width: 500px) {
+    display: block;
+    text-align: center;
   }
 `;
 
@@ -88,10 +93,11 @@ const AddressTextBox = styled.div`
     position: absolute;
     right: 50px;
   }
-  @media screen and (max-width: 780px) {
+  //! 임시
+
+  @media screen and (max-width: 500px) {
     position: static;
     right: 0;
-    margin: 30px 0;
   }
 `;
 
@@ -100,20 +106,23 @@ const TextBox = styled.div`
   address:nth-child(2) {
     margin-left: 10px;
   }
-  @media screen and (max-width: 780px) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  @media screen and (max-width: 991px) {
+    display: block;
+    address:nth-child(2) {
+      margin-left: 0;
+    }
   }
 `;
 const AddressText = styled.address`
   font-size: var(--text-size-12);
   color: var(--gray);
   @media screen and (max-width: 991px) {
-    font-size: var(--text-size-15);
+    font-size: var(--text-size-12);
   }
-  @media screen and (max-width: 991px) {
-    font-size: var(--text-size-10);
+  //! 임시
+
+  @media screen and (max-width: 500px) {
+    font-size: var(--text-size-11);
   }
 `;
 
@@ -139,26 +148,18 @@ const FooterIconBox = styled.div`
     margin: 0 45px;
   }
   @media screen and (max-width: 991px) {
-    position: absolute;
-    right: 50px;
-    bottom: 105px;
-    align-items: center;
-  }
-  @media screen and (max-width: 780px) {
+    width: 100%;
     display: flex;
+    justify-content: space-between;
+  }
+  //! 임시
+
+  @media screen and (max-width: 500px) {
     justify-content: center;
-    margin-top: 30px;
-    position: static;
   }
 `;
 const SocialIconBox = styled.div`
   display: flex;
-  @media screen and (max-width: 991px) {
-    margin-right: 205px;
-  }
-  @media screen and (max-width: 780px) {
-    margin-right: 50px;
-  }
 `;
 const IconBox = styled.div`
   cursor: pointer;
@@ -172,11 +173,16 @@ const SocialIcon = styled.img`
 const CuratedText = styled.span`
   display: none;
   @media screen and (max-width: 991px) {
-    font-size: var(--text-size-15);
     display: block;
+    font-size: var(--text-size-15);
+    color: var(--gray);
+    display: block;
+    margin-right: 90px;
   }
-  @media screen and (max-width: 991px) {
-    font-size: var(--text-size-10);
+
+  //! 임시
+  @media screen and (max-width: 500px) {
+    display: none;
   }
 `;
 
