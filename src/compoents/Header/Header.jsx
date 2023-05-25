@@ -92,37 +92,33 @@ const Logo = styled.img`
 
 // ! 반응형 스타일
 const HamButtonBox = styled.div`
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 150px;
-  opacity: 100;
-  overflow: hidden;
-  background-color: var(--white);
-  z-index: 14;
-  pointer-events: all;
-  transition: 0.4s;
-  height: ${({ topHeaderVisible }) => (topHeaderVisible ? '150px' : 0)};
-  opacity: ${({ topHeaderVisible }) => (topHeaderVisible ? '100' : 0)};
-  //! 992px부터 해당 사항 적용
-  @media screen and (min-width: 991px) {
-    display: none;
-  }
-  //! 991px까지 해당 사항 적용
+  display: none;
   @media screen and (max-width: 991px) {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    opacity: 100;
+    overflow: hidden;
+    background-color: var(--white);
+    z-index: 14;
+    pointer-events: all;
+    transition: 0.4s;
+    height: ${({ topHeaderVisible }) => (topHeaderVisible ? '150px' : 0)};
+    opacity: ${({ topHeaderVisible }) => (topHeaderVisible ? '100' : 0)};
     display: block;
     height: 70px;
   }
 `;
 const HamImageBox = styled.div`
-  width: 20px;
+  width: 23px;
   float: right;
   margin-top: 62px;
   margin-right: 100px;
   display: flex;
+
   @media screen and (max-width: 991px) {
     margin-right: 50px;
-    margin-top: 28px;
+    margin-top: 27px;
   }
   @media screen and (max-width: 500px) {
     margin-right: 20px;
