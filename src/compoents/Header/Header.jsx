@@ -26,13 +26,10 @@ const NavWrapper = styled.div`
   position: relative;
   pointer-events: all;
   @media screen and (max-width: 991px) {
-    padding-left: 50px;
-    /* width: 100%; */
+    padding-left: 0;
+    width: 100%;
     height: 70px;
     padding-top: 0;
-  }
-  @media screen and (max-width: 500px) {
-    padding-left: 20px;
   }
 `;
 
@@ -82,8 +79,13 @@ const LogoImgBox = styled.div`
   z-index: 30;
   position: relative;
   @media screen and (max-width: 991px) {
-    width: 120px;
+    width: 185px;
     height: 70px;
+    padding-left: 50px;
+  }
+  @media screen and (max-width: 500px) {
+    padding-left: 20px;
+    width: 150px;
   }
 `;
 const Logo = styled.img`
@@ -114,14 +116,15 @@ const HamImageBox = styled(Link)`
   display: none;
 
   @media screen and (max-width: 991px) {
-    margin-right: 50px;
-    margin-top: 27px;
-    width: 23px;
-    float: right;
+    width: 24px;
+    position: absolute;
+    top: 27px;
+    right: 50px;
+    z-index: 6;
     display: block;
   }
   @media screen and (max-width: 500px) {
-    margin-right: 20px;
+    right: 20px;
   }
 `;
 const HamImage = styled.img`
@@ -146,6 +149,11 @@ const Header = forwardRef(
               <Logo src={logo} alt=" 임시로고" />
             </a>
           </LogoImgBox>
+          <HamButtonBox topHeaderVisible={topHeaderVisible} ref={topHeaderRef}>
+            <HamImageBox to="/RoomA">
+              <HamImage src={ham} alt="햄버거 이미지" />
+            </HamImageBox>
+          </HamButtonBox>
           <Nav />
         </NavWrapper>
         <ReserveButtonBox
@@ -161,12 +169,6 @@ const Header = forwardRef(
             <ReserveSpan>실시간 예약</ReserveSpan>
           </a>
         </ReserveButtonBox>
-
-        <HamButtonBox topHeaderVisible={topHeaderVisible} ref={topHeaderRef}>
-          <HamImageBox to="/RoomA">
-            <HamImage src={ham} alt="햄버거 이미지" />
-          </HamImageBox>
-        </HamButtonBox>
       </HeaderContainer>
     );
   },
