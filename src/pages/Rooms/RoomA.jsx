@@ -270,6 +270,8 @@ const RoomInfoDesc = styled.p`
   }
   @media screen and (max-width: 500px) {
     font-size: var(--text-size-16);
+    text-align: justify;
+    letter-spacing: -0.085em;
   }
 `;
 
