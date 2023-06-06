@@ -106,11 +106,15 @@ const RoomTitle = styled.h1`
     text-align: center;
     font-size: var(--text-size-20);
   }
+  @media screen and (max-width: 500px) {
+    font-size: var(--text-size-24);
+  }
 `;
 const RoomSubTitle = styled.p`
   font-size: var(--text-size-18);
   color: var(--dark);
   margin-top: 16px;
+
   @media screen and (max-width: 991px) {
     text-align: center;
     font-size: var(--text-size-20);
@@ -118,7 +122,7 @@ const RoomSubTitle = styled.p`
   }
 
   @media screen and (max-width: 500px) {
-    font-size: var(--text-size-14);
+    font-size: var(--text-size-16);
   }
 `;
 const RoomDesc = styled.p`
@@ -133,7 +137,7 @@ const RoomDesc = styled.p`
     margin-top: 50px;
   }
   @media screen and (max-width: 500px) {
-    font-size: var(--text-size-14);
+    font-size: var(--text-size-16);
   }
 `;
 const ReserveButtonBox = styled.div`
@@ -141,8 +145,10 @@ const ReserveButtonBox = styled.div`
   width: 200px;
   @media screen and (max-width: 991px) {
     width: 100%;
-    margin-top: 60px;
     padding: 0 12px;
+  }
+  @media screen and (max-width: 500px) {
+    margin-top: 60px;
   }
 `;
 const RoomInfoWrapper = styled.div`
@@ -152,8 +158,8 @@ const RoomInfoWrapper = styled.div`
     padding-bottom: 120px;
   }
   @media screen and (max-width: 500px) {
-    padding-bottom: 75px;
     padding-top: 40px;
+    padding-bottom: 0px;
   }
 `;
 const RoomInfoBox = styled.div`
@@ -179,11 +185,18 @@ const RoomInfoSubTitleBox = styled.div`
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
+
+  @media screen and (max-width: 500px) {
+    padding-top: 50px;
+  }
 `;
 const RoomInfoSubTitle = styled.h3`
   font-size: var(--text-size-16);
   color: var(--dark);
   margin-left: 20px;
+  @media screen and (max-width: 500px) {
+    font-weight: bold;
+  }
 `;
 
 const SplitLine = styled.div`
@@ -201,10 +214,14 @@ const RoomIconBox = styled.div`
 
   @media screen and (max-width: 991px) {
     width: 100%;
-    padding: 100px;
     flex-direction: row;
     justify-content: center;
     padding: 95px 50px 0px;
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 95px 46px 67px;
+    justify-content: space-between;
   }
 `;
 
@@ -217,6 +234,12 @@ const IconBox = styled.div`
     margin-right: 20px;
     margin-left: 20px;
   }
+  @media screen and (max-width: 500px) {
+    width: 52px;
+    height: 52px;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
 `;
 
 const IconImage = styled.img`
@@ -225,21 +248,28 @@ const IconImage = styled.img`
 `;
 
 const RoomInfoDescBox = styled.div`
-  height: ${({ AccordiItemVisible }) => (AccordiItemVisible ? '130px' : '0')};
+  height: ${({ AccordiItemVisible }) => (AccordiItemVisible ? '190px' : '0')};
   opacity: ${({ AccordiItemVisible }) => (AccordiItemVisible ? 100 : 0)};
   visibility: ${({ AccordiItemVisible }) =>
     AccordiItemVisible ? 'visible' : 'hidden'};
   transition: 0.5s;
+
+  @media screen and (max-width: 500px) {
+    height: ${({ AccordiItemVisible }) => (AccordiItemVisible ? '165px' : '0')};
+  }
 `;
 
 const RoomInfoDesc = styled.p`
   font-size: var(--text-size-16);
   color: var(--dark);
-  line-height: 1.5;
-  padding: 10px 20px;
+  line-height: 180.5%;
+  padding: 10px;
 
   @media screen and (max-width: 991px) {
-    font-size: var(--text-size-14);
+    font-size: var(--text-size-16);
+  }
+  @media screen and (max-width: 500px) {
+    font-size: var(--text-size-16);
   }
 `;
 
