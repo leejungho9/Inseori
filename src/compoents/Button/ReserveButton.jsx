@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { RowFlex } from '../../styles/GlobalStyle';
 const ReserveBtn = styled(Link)`
-  border: 2px solid var(--gray);
+  border: 1px solid var(--gray);
   font-weight: bold;
-  width: 120px;
-  height: 45px;
+  width: 100%;
+  height: 40px;
   border-radius: 30px;
   ${RowFlex}
   align-items: center;
-  font-size: var(--text-size-18);
+  font-size: var(--text-size-16);
   color: var(--gray);
 `;
 function ReserveButton({ children, url }) {
