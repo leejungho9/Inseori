@@ -1,10 +1,11 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useState } from 'react';
 import styled from 'styled-components';
 import reserLogo from '../../assets/images/reserLogo.png';
 import Nav from '../Nav/Nav';
 import logo from '../../assets/images/logo.png';
 import ham from '../../assets/images/ham.png';
-import { Link } from 'react-router-dom';
+import MobileSidebar from '../MobileSidebar/MobileSidebar';
+
 const HeaderContainer = styled.header`
   width: 100%;
   height: 100%;
@@ -112,7 +113,7 @@ const HamButtonBox = styled.div`
     height: 70px;
   }
 `;
-const HamImageBox = styled(Link)`
+const HamImageBox = styled.div`
   display: none;
 
   @media screen and (max-width: 991px) {
@@ -137,6 +138,8 @@ const HamImage = styled.img`
 const Header = forwardRef(
   ({ topHeaderVisible, leftNavFixed, footerOffsetProps }, refs) => {
     const { headerRef, topHeaderRef } = refs;
+    const [showSidebar, setShowSidebar] = useState(false);
+
     return (
       <HeaderContainer
         ref={headerRef}
@@ -150,12 +153,22 @@ const Header = forwardRef(
             </a>
           </LogoImgBox>
           <HamButtonBox topHeaderVisible={topHeaderVisible} ref={topHeaderRef}>
-            <HamImageBox to="/RoomA">
-              <HamImage src={ham} alt="햄버거 이미지" />
+            <HamImageBox>
+              <HamImage
+                src={ham}
+                alt="햄버거 이미지"
+                onClick={() => setShowSidebar(!showSidebar)}
+              />
             </HamImageBox>
           </HamButtonBox>
           <Nav />
         </NavWrapper>
+
+        <MobileSidebar
+          setShowSidebar={setShowSidebar}
+          showSidebar={showSidebar}
+        />
+
         <ReserveButtonBox
           topHeaderVisible={topHeaderVisible}
           ref={topHeaderRef}
