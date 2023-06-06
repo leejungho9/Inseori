@@ -8,7 +8,6 @@ import { LineFlex } from '../../styles/GlobalStyle';
 const FooterContainer = styled.footer`
   width: 100%;
   z-index: 20;
-  position: relative;
   background-color: var(--light-gray);
 `;
 const FooterWrapper = styled.div`
