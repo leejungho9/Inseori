@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ReserveButton from '../../compoents/Button/ReserveButton';
-import RoomA_1 from '../../assets/images/RoomA/RoomB_1.jpg';
-import RoomA_2 from '../../assets/images/RoomA/RoomB_2.jpg';
-import RoomA_3 from '../../assets/images/RoomA/RoomB_3.jpg';
-import RoomA_4 from '../../assets/images/RoomA/RoomB_4.jpg';
-import RoomA_5 from '../../assets/images/RoomA/RoomB_5.jpg';
 import ban from '../../assets/images/ban.png';
 import ban2 from '../../assets/images/ban2.png';
 import ban3 from '../../assets/images/ban3.png';
 import ban4 from '../../assets/images/ban4.png';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import RoomACarousel from '../../compoents/Carousel/RoomACarousel';
+import RoomAGalleryCarousel from '../../compoents/Carousel/RoomAGalleryCarousel';
+import RoomA_1 from '../../assets/images/RoomA/RoomB_1.jpg';
+import RoomA_2 from '../../assets/images/RoomA/RoomB_2.jpg';
+import RoomA_3 from '../../assets/images/RoomA/RoomB_3.jpg';
+import RoomA_4 from '../../assets/images/RoomA/RoomB_4.jpg';
+import RoomA_5 from '../../assets/images/RoomA/RoomB_5.jpg';
 const MainContainer = styled.main`
   /* position: relative; */
   overflow: hidden;
@@ -32,12 +33,12 @@ const MainWrpper = styled.figure`
 const RoomDescWrapper = styled.section`
   width: 100%;
   display: flex;
-  justify-content: space-between;
   padding: 150px 0 150px;
+  justify-content: space-between;
   background-color: var(--white);
 
   @media screen and (max-width: 991px) {
-    padding: 45px 20px 90px;
+    padding: 55px 20px 50px;
     flex-direction: column;
     align-items: center;
   }
@@ -47,53 +48,8 @@ const RoomDescBox = styled.div`
   @media screen and (max-width: 991px) {
     width: 100%;
   }
-`;
-const RoomTitle = styled.h1`
-  font-size: var(--text-size-25);
-  font-weight: bold;
-  color: var(--dark);
-
-  @media screen and (max-width: 991px) {
-    text-align: center;
-    font-size: var(--text-size-20);
-  }
-`;
-const RoomSubTitle = styled.p`
-  font-size: var(--text-size-18);
-  color: var(--dark);
-  margin-top: 16px;
-  @media screen and (max-width: 991px) {
-    text-align: center;
-    font-size: var(--text-size-20);
-    margin-top: 10px;
-  }
-
   @media screen and (max-width: 500px) {
-    font-size: var(--text-size-13);
-  }
-`;
-const RoomDesc = styled.p`
-  color: var(--gray);
-  margin-top: 60px;
-  line-height: 2;
-  font-size: var(--text-size-16);
-
-  @media screen and (max-width: 991px) {
-    text-align: center;
-    word-break: keep-all;
-    font-size: var(--text-size-18);
-    margin-top: 20px;
-  }
-  @media screen and (max-width: 500px) {
-    font-size: var(--text-size-13);
-  }
-`;
-const ReserveButtonBox = styled.div`
-  padding-right: 100px;
-
-  @media screen and (max-width: 991px) {
-    margin-top: 60px;
-    padding-right: 0;
+    width: 400px;
   }
 `;
 
@@ -141,6 +97,54 @@ const RoomImages = styled.img`
   object-fit: cover;
 `;
 
+const RoomTitle = styled.h1`
+  font-size: var(--text-size-25);
+  font-weight: bold;
+  color: var(--dark);
+
+  @media screen and (max-width: 991px) {
+    text-align: center;
+    font-size: var(--text-size-20);
+  }
+`;
+const RoomSubTitle = styled.p`
+  font-size: var(--text-size-18);
+  color: var(--dark);
+  margin-top: 16px;
+  @media screen and (max-width: 991px) {
+    text-align: center;
+    font-size: var(--text-size-20);
+    margin-top: 10px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: var(--text-size-14);
+  }
+`;
+const RoomDesc = styled.p`
+  color: var(--gray);
+  margin-top: 60px;
+  line-height: 2;
+  font-size: var(--text-size-16);
+
+  @media screen and (max-width: 991px) {
+    text-align: center;
+    font-size: var(--text-size-18);
+    margin-top: 50px;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: var(--text-size-14);
+  }
+`;
+const ReserveButtonBox = styled.div`
+  padding-right: 100px;
+  width: 200px;
+  @media screen and (max-width: 991px) {
+    width: 100%;
+    margin-top: 60px;
+    padding: 0 12px;
+  }
+`;
 const RoomInfoWrapper = styled.div`
   padding-top: 100px;
   padding-bottom: 130px;
@@ -148,7 +152,8 @@ const RoomInfoWrapper = styled.div`
     padding-bottom: 120px;
   }
   @media screen and (max-width: 500px) {
-    padding-bottom: 60px;
+    padding-bottom: 75px;
+    padding-top: 40px;
   }
 `;
 const RoomInfoBox = styled.div`
@@ -165,19 +170,20 @@ const RoomInfoContentBox = styled.div`
   width: 70%;
   @media screen and (max-width: 991px) {
     width: 100%;
-    padding: 0 50px;
+    padding: 0 15px;
   }
 `;
 const RoomInfoSubTitleBox = styled.div`
   display: flex;
-  padding-top: 70px;
+  padding-top: 30px;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
 `;
 const RoomInfoSubTitle = styled.h3`
-  font-size: var(--text-size-18);
+  font-size: var(--text-size-16);
   color: var(--dark);
+  margin-left: 20px;
 `;
 
 const SplitLine = styled.div`
@@ -198,9 +204,7 @@ const RoomIconBox = styled.div`
     padding: 100px;
     flex-direction: row;
     justify-content: center;
-
-    padding: 100px 50px;
-    padding-bottom: 0;
+    padding: 95px 50px 0px;
   }
 `;
 
@@ -221,7 +225,7 @@ const IconImage = styled.img`
 `;
 
 const RoomInfoDescBox = styled.div`
-  height: ${({ AccordiItemVisible }) => (AccordiItemVisible ? '100px' : '0')};
+  height: ${({ AccordiItemVisible }) => (AccordiItemVisible ? '130px' : '0')};
   opacity: ${({ AccordiItemVisible }) => (AccordiItemVisible ? 100 : 0)};
   visibility: ${({ AccordiItemVisible }) =>
     AccordiItemVisible ? 'visible' : 'hidden'};
@@ -232,23 +236,21 @@ const RoomInfoDesc = styled.p`
   font-size: var(--text-size-16);
   color: var(--dark);
   line-height: 1.5;
-  padding: 10px 0;
+  padding: 10px 20px;
 
   @media screen and (max-width: 991px) {
-    font-size: var(--text-size-13);
+    font-size: var(--text-size-14);
   }
 `;
 
-const MinusIcon = styled(AiOutlineMinus)``;
-const PlusIcon = styled(AiOutlinePlus)``;
-
+const MinusIcon = styled(AiOutlineMinus)`
+  margin-right: 20px;
+`;
+const PlusIcon = styled(AiOutlinePlus)`
+  margin-right: 20px;
+`;
 //! 줄바꿈
-const Break = styled.br`
-  display: none;
-  @media screen and (max-width: 991px) {
-    display: block;
-  }
-`;
+const Break = styled.br``;
 
 function RoomA() {
   const [AccordiItemVisible, setAccordiItemVisible] = useState('itemA');
@@ -263,6 +265,12 @@ function RoomA() {
       setAccordiItemVisible(menu);
     }
   };
+  const [mobileGallery, setMobileGallery] = useState(false);
+  useEffect(() => {
+    if (window.innerWidth < 500) {
+      setMobileGallery(true);
+    }
+  }, []);
   return (
     <MainContainer>
       <MainWrpper>
@@ -272,10 +280,9 @@ function RoomA() {
             <RoomTitle>홰경당</RoomTitle>
             <RoomSubTitle>한옥을 현대적으로 재해석하다.</RoomSubTitle>
             <RoomDesc>
-              홰경당은 인서리공원 Aat 카페와 가장 인접하게
-              <Break /> 위치하고 있으며 모던하고 깔끔한 분위기의 젊은이들이
-              <Break />
-              좋아하는 감성숙소의 요소를 가지고 있습니다.
+              홰경당은 인서리공원 Aat 카페와 가장 인접하게 위치하고 <Break />
+              있으며 젊은 사람들이 좋아하는 감성요소들로 채워진 <Break />
+              모던한 숙소입니다.
             </RoomDesc>
           </RoomDescBox>
           <ReserveButtonBox>
@@ -284,29 +291,33 @@ function RoomA() {
             </ReserveButton>
           </ReserveButtonBox>
         </RoomDescWrapper>
-        <RoomImagesContainer>
-          <FirstImageBox>
-            <RoomImagesWrapper className="item">
-              <RoomImages src={RoomA_1} alt="홰경당 이미지" />
-            </RoomImagesWrapper>
-            <RoomImagesWrapper className="item">
-              <RoomImages src={RoomA_2} alt="홰경당 이미지" />
-            </RoomImagesWrapper>
-          </FirstImageBox>
-          <SecondImageBox>
-            <RoomImagesWrapper className="item">
-              <RoomImages src={RoomA_3} alt="홰경당 이미지" />
-            </RoomImagesWrapper>
-            <RoomImagesWrapper className="item">
-              <RoomImages src={RoomA_4} alt="홰경당 이미지" />
-            </RoomImagesWrapper>
-          </SecondImageBox>
-          <ThreeImageBox>
-            <RoomImagesWrapper className="item">
-              <RoomImages src={RoomA_5} alt="홰경당 이미지" />
-            </RoomImagesWrapper>
-          </ThreeImageBox>
-        </RoomImagesContainer>
+        {mobileGallery ? (
+          <RoomAGalleryCarousel />
+        ) : (
+          <RoomImagesContainer>
+            <FirstImageBox>
+              <RoomImagesWrapper className="item">
+                <RoomImages src={RoomA_1} alt="홰경당 이미지" />
+              </RoomImagesWrapper>
+              <RoomImagesWrapper className="item">
+                <RoomImages src={RoomA_2} alt="홰경당 이미지" />
+              </RoomImagesWrapper>
+            </FirstImageBox>
+            <SecondImageBox>
+              <RoomImagesWrapper className="item">
+                <RoomImages src={RoomA_3} alt="홰경당 이미지" />
+              </RoomImagesWrapper>
+              <RoomImagesWrapper className="item">
+                <RoomImages src={RoomA_4} alt="홰경당 이미지" />
+              </RoomImagesWrapper>
+            </SecondImageBox>
+            <ThreeImageBox>
+              <RoomImagesWrapper className="item">
+                <RoomImages src={RoomA_5} alt="홰경당 이미지" />
+              </RoomImagesWrapper>
+            </ThreeImageBox>
+          </RoomImagesContainer>
+        )}
         <RoomInfoWrapper>
           <RoomTitle>객실정보</RoomTitle>
           <RoomInfoBox>
