@@ -30,17 +30,16 @@ const MainIntroWrapper = styled.section`
   @media screen and (max-width: 991px) {
     padding: 55px 20px 90px;
   }
+  @media screen and (max-width: 500px) {
+    padding: 55px 20px 70px;
+  }
 `;
 const MainIntroBox = styled.div`
   width: 510px;
   text-align: center;
-  line-height: 2;
   margin: 0 auto;
   @media screen and (max-width: 991px) {
     width: 100%;
-  }
-  @media screen and (max-width: 500px) {
-    line-height: 1.9;
   }
 `;
 
@@ -53,17 +52,21 @@ const MainTitle = styled.h1`
     color: var(--dark);
     margin-bottom: 20px;
   }
+  @media screen and (max-width: 500px) {
+    font-size: var(--text-size-24);
+    margin-bottom: 30px;
+  }
 `;
 const MainIntroP = styled.span`
   font-size: var(--text-size-15);
   color: var(--gray);
+  line-height: 1.9;
+
   @media screen and (max-width: 991px) {
     font-size: var(--text-size-20);
-    word-break: keep-all;
   }
   @media screen and (max-width: 500px) {
-    font-size: var(--text-size-13);
-    word-break: keep-all;
+    font-size: var(--text-size-16);
   }
 `;
 //! 줄바꿈
