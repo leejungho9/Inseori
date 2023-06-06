@@ -37,7 +37,8 @@ const CloseIcon = styled(AiOutlineRight)`
 `;
 const ReserveLink = styled.a`
   display: flex;
-  padding-left: 20px;
+  margin-left: 20px;
+  width: 130px;
 `;
 const ReserveLogo = styled.img`
   width: 20px;
