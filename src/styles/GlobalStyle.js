@@ -96,7 +96,7 @@ html {
 
 html, body {
 	font-family: "PretendardMedium" ;
-
+  letter-spacing: -0.5px;
 }
 
 a {
