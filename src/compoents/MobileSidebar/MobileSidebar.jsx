@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import reserLogo from '../../assets/images/reserLogo.png';
-import { IoMdClose } from 'react-icons/io';
+import { AiOutlineRight } from 'react-icons/ai';
 import MobileNav from '../Nav/MobileNav';
 
 const SidebarWrapper = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #f6f6f6;
   position: absolute;
   top: 0;
   z-index: 100;
@@ -22,12 +21,13 @@ const SidebarContainer = styled.div`
   padding-top: 25px;
   padding-left: 35px;
   padding-bottom: 25px;
+  background-color: #f6f6f6;
 `;
 const CloseIconBox = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
   @media screen and (max-width: 991px) {
     padding-right: 50px;
   }
@@ -35,17 +35,18 @@ const CloseIconBox = styled.div`
     padding-right: 20px;
   }
 `;
-const CloseIcon = styled(IoMdClose)`
+const CloseIcon = styled(AiOutlineRight)`
   font-size: 25px;
   cursor: pointer;
+  color: #515151;
 `;
 const ReserveLink = styled.a`
   display: flex;
   padding-left: 28px;
 `;
 const ReserveLogo = styled.img`
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   margin-right: 15px;
   cursor: pointer;
 `;
@@ -55,10 +56,11 @@ const ReserveSpan = styled.span`
   font-size: var(--text-size-18);
   font-weight: bold;
   color: #515151;
+  letter-spacing: -0.5px;
 `;
 
 const MobileNavWrapper = styled.div`
-  margin-top: 70px;
+  margin-top: 50px;
 `;
 
 function MobileSidebar({ setShowSidebar, showSidebar }) {
