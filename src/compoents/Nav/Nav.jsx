@@ -65,11 +65,8 @@ const NavSubul = styled.ul`
   overflow: hidden;
   transition: all 0.6s;
   visibility: hidden;
-  opacity: 0;
-
   visibility: ${({ subMenuVisible }) =>
     subMenuVisible ? 'visible' : 'hidden'};
-  opacity: ${({ subMenuVisible }) => (subMenuVisible ? '100' : '0')};
   height: ${({ subMenuVisible }) => (subMenuVisible ? '105px' : '0')};
   li {
     padding-top: 15px;
