@@ -7,7 +7,7 @@ import MobileNav from '../Nav/MobileNav';
 const SidebarWrapper = styled.div`
   width: 100%;
   background-color: #f6f6f6;
-  height: 100vh;
+  height: 100%;
   position: fixed;
   top: 0;
   z-index: 100;
