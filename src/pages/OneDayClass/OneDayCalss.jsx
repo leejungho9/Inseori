@@ -15,6 +15,23 @@ const OneDayCalssWrapper = styled.figure`
   position: relative;
   margin-top: 150px;
   padding-bottom: 130px;
+
+  @media screen and (max-width: 991px) {
+    width: 100%;
+    margin-top: 70px;
+    padding-bottom: 75px;
+  }
+`;
+
+const MobileTitle = styled.h1`
+  display: none;
+
+  @media screen and (max-width: 991px) {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 28px 25px;
+    display: inline-block;
+  }
 `;
 
 const OneDayCalssContentWrapper = styled.section`
@@ -25,7 +42,13 @@ const OneDayCalssContentWrapper = styled.section`
   column-gap: 20px;
   grid-template-columns: repeat(4, 1fr);
   @media screen and (max-width: 1440px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (max-width: 991px) {
+    padding: 0 20px;
+    row-gap: 70px;
+    column-gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 const OneDayClassContentBox = styled.div``;
@@ -51,6 +74,7 @@ const OneDayClassText = styled.span`
   font-weight: bold;
   letter-spacing: 1.5px;
   cursor: pointer;
+  text-align: center;
 `;
 const OneDayClassImage = styled.img`
   width: 100%;
@@ -66,23 +90,27 @@ const OneDayClassInfoHead = styled.div`
   justify-content: space-between;
   padding-top: 30px;
   padding-bottom: 40px;
-  font-size: var(--text-size-15);
   font-weight: bold;
 `;
 const OneDayClassTitleBox = styled.div``;
 const OneDayClassInfoTitle = styled.h2`
   color: var(--dark);
+  font-size: var(--text-size-15);
 `;
 const OneDayClassStatusBox = styled.div``;
 const OneDayClassStatus = styled.h2`
+  font-size: var(--text-size-15);
   color: var(--text-point-color);
 `;
 const OneDayClassInfoBody = styled.div`
   padding: 5px 0;
   line-height: 1.5;
   padding-bottom: 30px;
-  font-size: var(--text-size-15);
   color: var(--gray);
+  font-size: var(--text-size-15);
+  @media screen and (max-width: 500px) {
+    font-size: var(--text-size-14);
+  }
 `;
 const OneDayClassDateBox = styled.div``;
 const OneDayClassDate = styled.h2``;
@@ -100,6 +128,7 @@ const OneDayCalss = () => {
   return (
     <OneDayCalssContainer>
       <OneDayCalssWrapper>
+        <MobileTitle>원데이클래스</MobileTitle>
         <OneDayCalssContentWrapper>
           {/* ! 반복 시작 */}
           <OneDayClassContentBox>
