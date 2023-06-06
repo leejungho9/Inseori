@@ -248,14 +248,14 @@ const IconImage = styled.img`
 `;
 
 const RoomInfoDescBox = styled.div`
-  height: ${({ AccordiItemVisible }) => (AccordiItemVisible ? '190px' : '0')};
+  height: ${({ AccordiItemVisible }) => (AccordiItemVisible ? '165px' : '0')};
   opacity: ${({ AccordiItemVisible }) => (AccordiItemVisible ? 100 : 0)};
   visibility: ${({ AccordiItemVisible }) =>
     AccordiItemVisible ? 'visible' : 'hidden'};
   transition: 0.5s;
 
   @media screen and (max-width: 500px) {
-    height: ${({ AccordiItemVisible }) => (AccordiItemVisible ? '165px' : '0')};
+    height: ${({ AccordiItemVisible }) => (AccordiItemVisible ? '200px' : '0')};
   }
 `;
 
