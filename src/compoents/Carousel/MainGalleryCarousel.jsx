@@ -21,7 +21,7 @@ const SliderContainer = styled.section`
     margin-right: -20px;
     padding: 0 !important;
     @media screen and (max-width: 500px) {
-      height: 180px;
+      height: 200px;
     }
   }
   .slick-slide {
@@ -30,8 +30,8 @@ const SliderContainer = styled.section`
     margin-left: 20px;
 
     @media screen and (max-width: 500px) {
-      height: 180px !important;
-      width: 180px !important;
+      height: 200px !important;
+      width: 200px !important;
       margin-left: 10px;
     }
   }
