@@ -6,8 +6,9 @@ import MobileNav from '../Nav/MobileNav';
 
 const SidebarWrapper = styled.div`
   width: 100%;
+  height: 100%;
   background-color: #f6f6f6;
-  position: fixed;
+  position: absolute;
   top: 0;
   z-index: 100;
   transition: all 0.8s ease 0s;
