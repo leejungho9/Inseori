@@ -13,7 +13,7 @@ const SliderContainer = styled.section`
     padding-top: 50px;
 
     @media screen and (max-width: 991px) {
-      padding-top: 30px;
+      padding-top: 40px;
       li button:before {
         font-size: 10px;
       }
@@ -33,7 +33,7 @@ const MainImgBox = styled.div`
     height: 480px;
   }
   @media screen and (max-width: 500px) {
-    height: 400px;
+    height: 550px;
   }
 `;
 const MainImg = styled.img`
