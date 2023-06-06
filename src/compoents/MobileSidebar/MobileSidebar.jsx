@@ -15,12 +15,9 @@ const SidebarWrapper = styled.div`
   pointer-events: ${({ showSidebar }) => (showSidebar ? 'all' : 'none')};
   right: ${({ showSidebar }) => (showSidebar ? '0px' : '-1000px')};
   visibility: ${({ showSidebar }) => (showSidebar ? 'visible' : 'hidden')};
-`;
-
-const SidebarContainer = styled.div`
-  height: 100%;
   padding: 25px 15px;
 `;
+
 const CloseIconBox = styled.div`
   width: 100%;
   display: flex;
@@ -64,22 +61,20 @@ const MobileNavWrapper = styled.div`
 function MobileSidebar({ setShowSidebar, showSidebar }) {
   return (
     <SidebarWrapper showSidebar={showSidebar}>
-      <SidebarContainer>
-        <CloseIconBox>
-          <CloseIcon onClick={() => setShowSidebar(!showSidebar)} />
-        </CloseIconBox>
-        <ReserveLink
-          target="_blank"
-          href="https://booking.naver.com/booking/3/bizes/802107"
-          rel="noreferrer"
-        >
-          <ReserveLogo src={reserLogo} alt="예약로고" />
-          <ReserveSpan>실시간 예약</ReserveSpan>
-        </ReserveLink>
-        <MobileNavWrapper>
-          <MobileNav />
-        </MobileNavWrapper>
-      </SidebarContainer>
+      <CloseIconBox>
+        <CloseIcon onClick={() => setShowSidebar(!showSidebar)} />
+      </CloseIconBox>
+      <ReserveLink
+        target="_blank"
+        href="https://booking.naver.com/booking/3/bizes/802107"
+        rel="noreferrer"
+      >
+        <ReserveLogo src={reserLogo} alt="예약로고" />
+        <ReserveSpan>실시간 예약</ReserveSpan>
+      </ReserveLink>
+      <MobileNavWrapper>
+        <MobileNav />
+      </MobileNavWrapper>
     </SidebarWrapper>
   );
 }
