@@ -12,22 +12,22 @@ const MainMenu = styled.span`
   font-size: var(--text-size-18);
   font-weight: bold;
   color: #515151;
-  padding-left: 28px;
+  padding-left: 21px;
 `;
 const MainMenuA = styled.a`
   font-size: var(--text-size-18);
   font-weight: bold;
-  padding-left: 28px;
+  padding-left: 21px;
   color: ${({ active }) => (active ? 'var(--text-point-color)' : '#515151')};
 `;
 const MenuLinebar = styled.div`
   width: 100%;
   margin: 19px 0;
   height: 1px;
-  background-color: #d8d8d8;
+  background-color: #e4e4e4;
 `;
 const NavSubul = styled.ul`
-  padding-left: 28px;
+  padding-left: 20px;
   font-size: var(--text-size-16);
 
   li:last-child {
@@ -44,7 +44,7 @@ const Nava = styled.a`
 `;
 
 const IconNavol = styled.ol`
-  padding-left: 28px;
+  padding-left: 20px;
   padding-top: 21px;
   display: flex;
 `;
