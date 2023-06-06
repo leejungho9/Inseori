@@ -7,8 +7,9 @@ import MobileNav from '../Nav/MobileNav';
 const SidebarWrapper = styled.div`
   width: 100%;
   height: 100%;
-  position: absolute;
   top: 0;
+  position: fixed;
+  background-color: #fff;
   z-index: 100;
   transition: all 0.8s ease 0s;
   pointer-events: ${({ showSidebar }) => (showSidebar ? 'all' : 'none')};
@@ -18,10 +19,7 @@ const SidebarWrapper = styled.div`
 
 const SidebarContainer = styled.div`
   height: 100%;
-  padding-top: 25px;
-  padding-left: 35px;
-  padding-bottom: 25px;
-  background-color: #f6f6f6;
+  padding: 25px 15px;
 `;
 const CloseIconBox = styled.div`
   width: 100%;
@@ -29,10 +27,10 @@ const CloseIconBox = styled.div`
   justify-content: flex-end;
   margin-bottom: 40px;
   @media screen and (max-width: 991px) {
-    padding-right: 50px;
+    padding-right: 35px;
   }
   @media screen and (max-width: 500px) {
-    padding-right: 20px;
+    padding-right: 5px;
   }
 `;
 const CloseIcon = styled(AiOutlineRight)`
@@ -42,7 +40,7 @@ const CloseIcon = styled(AiOutlineRight)`
 `;
 const ReserveLink = styled.a`
   display: flex;
-  padding-left: 28px;
+  padding-left: 20px;
 `;
 const ReserveLogo = styled.img`
   width: 20px;
