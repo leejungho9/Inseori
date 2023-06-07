@@ -9,8 +9,8 @@ const NavContainer = styled.div`
   position: absolute;
   top: 0;
   height: 100%;
-  width: 100%;
-
+  // * 100% - 헤더왼쪽 여백
+  width: calc(100% - 100px);
   @media screen and (max-width: 991px) {
     display: none;
   }
@@ -116,7 +116,7 @@ function Nav() {
           </Navli>
           <Navli>
             <MainMenu>
-              <Link to="/OneDayClass">원데이클래스</Link>
+              <Link to="/onedayclass">원데이클래스</Link>
             </MainMenu>
             <NavSubul className="mainMenu"></NavSubul>
           </Navli>
