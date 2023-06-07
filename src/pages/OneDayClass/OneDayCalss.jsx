@@ -4,6 +4,7 @@ import oneday1 from '../../assets/images/OneDayClass/oneday1.jpg';
 import oneday2 from '../../assets/images/OneDayClass/oneday2.jpg';
 import oneday3 from '../../assets/images/OneDayClass/oneday3.jpg';
 import { Flex } from '../../styles/GlobalStyle';
+import { Link } from 'react-router-dom';
 
 const OneDayCalssContainer = styled.main`
   /* position: relative; */
@@ -22,7 +23,6 @@ const OneDayCalssWrapper = styled.figure`
     padding-bottom: 75px;
   }
 `;
-
 const MobileTitle = styled.h1`
   display: none;
 
@@ -51,7 +51,7 @@ const OneDayCalssContentWrapper = styled.section`
     grid-template-columns: repeat(2, 1fr);
   }
 `;
-const OneDayClassContentBox = styled.div``;
+const OneDayClassContentBox = styled(Link)``;
 const OneDayClassImageBox = styled.div`
   position: relative;
   cursor: pointer;
@@ -151,7 +151,7 @@ const OneDayCalss = () => {
         <MobileTitle>원데이클래스</MobileTitle>
         <OneDayCalssContentWrapper>
           {/* ! 반복 시작 */}
-          <OneDayClassContentBox>
+          <OneDayClassContentBox to="/onedayclass/1">
             <OneDayClassImageBox>
               <OneDayClassImage
                 src={oneday1}
@@ -186,42 +186,7 @@ const OneDayCalss = () => {
           </OneDayClassContentBox>
           {/* ! 반복 끝 */}
           {/* ! 반복 시작 */}
-          <OneDayClassContentBox>
-            <OneDayClassImageBox>
-              <OneDayClassImage
-                src={oneday2}
-                alt="원데이클래스 이미지"
-              ></OneDayClassImage>
-            </OneDayClassImageBox>
-            <OneDayClassInfoBox>
-              <OneDayClassInfoHead>
-                <OneDayClassTitleBox>
-                  <OneDayClassInfoTitle>라탄조명 클래스</OneDayClassInfoTitle>
-                </OneDayClassTitleBox>
-                <OneDayClassStatusBox>
-                  <OneDayClassStatus>모집중</OneDayClassStatus>
-                </OneDayClassStatusBox>
-              </OneDayClassInfoHead>
-              <OneDayClassInfoBody>
-                <OneDayClassDateBox>
-                  <OneDayClassDate>
-                    2023.5.13(토) <span>/</span> 11:00~13:00
-                  </OneDayClassDate>
-                </OneDayClassDateBox>
-                <OneDayClassPersonnelBox>
-                  <OneDayClassPersonnel>인원 4-8명</OneDayClassPersonnel>
-                </OneDayClassPersonnelBox>
-              </OneDayClassInfoBody>
-              <OneDayClassInfoFoot>
-                <OneDayClassPriceBox>
-                  <OneDayClassPrice>45,000</OneDayClassPrice>
-                </OneDayClassPriceBox>
-              </OneDayClassInfoFoot>
-            </OneDayClassInfoBox>
-          </OneDayClassContentBox>
-          {/* ! 반복 끝 */}
-          {/* ! 반복 시작 */}
-          <OneDayClassContentBox>
+          <OneDayClassContentBox to="/onedayclass/1">
             <OneDayClassImageBox>
               <OneDayClassImage
                 src={oneday3}
@@ -259,7 +224,7 @@ const OneDayCalss = () => {
           <OneDayClassContentBox>
             <OneDayClassImageBox>
               <OneDayClassImage
-                src={oneday1}
+                src={oneday2}
                 alt="원데이클래스 이미지"
               ></OneDayClassImage>
               {/* class.status === 'coming soon' */}
@@ -298,7 +263,7 @@ const OneDayCalss = () => {
           <OneDayClassContentBox>
             <OneDayClassImageBox>
               <OneDayClassImage
-                src={oneday2}
+                src={oneday3}
                 alt="원데이클래스 이미지"
               ></OneDayClassImage>
               {/* ! Status close */}
