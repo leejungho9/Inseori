@@ -5,6 +5,7 @@ import Header from './compoents/Header/Header';
 import RoomA from './pages/Rooms/RoomA';
 import { useEffect, useRef, useState } from 'react';
 import OneDayCalss from './pages/OneDayClass/OneDayCalss';
+import OneDayClassDetail from './pages/OneDayClassDetail/OneDayClassDetail';
 
 function App() {
   const [topHeaderVisible, setTopHeaderVisible] = useState(true);
@@ -37,7 +38,7 @@ function App() {
       if (refs.headerRef) {
         //! 안먹어서 일단 150px 값으로 적어둠
         // if (window.scrollY > refs.topHeaderRef.current.offsetHeight) {
-        if (window.scrollY > 150) {
+        if (window.scrollY > 80) {
           if (window.innerWidth > 991) {
             setTopHeaderVisible(false);
           }
@@ -64,6 +65,7 @@ function App() {
         <Route path="/" element={<Main />}></Route>
         <Route path="/roomA" element={<RoomA />}></Route>
         <Route path="/onedayclass" element={<OneDayCalss />}></Route>
+        <Route path="/onedayclass/:id" element={<OneDayClassDetail />}></Route>
       </Routes>
       <Footer ref={footerRef} />
     </>
