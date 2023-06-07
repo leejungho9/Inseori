@@ -91,13 +91,21 @@ const OneDayClassInfoHead = styled.div`
   padding-top: 30px;
   padding-bottom: 40px;
   font-weight: bold;
+
+  @media screen and (max-width: 500px) {
+    padding-bottom: 20px;
+  }
 `;
 const OneDayClassTitleBox = styled.div``;
 const OneDayClassInfoTitle = styled.h2`
   color: var(--dark);
   font-size: var(--text-size-15);
 `;
-const OneDayClassStatusBox = styled.div``;
+const OneDayClassStatusBox = styled.div`
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
+`;
 const OneDayClassStatus = styled.h2`
   font-size: var(--text-size-15);
   color: var(--text-point-color);
@@ -110,11 +118,23 @@ const OneDayClassInfoBody = styled.div`
   font-size: var(--text-size-15);
   @media screen and (max-width: 500px) {
     font-size: var(--text-size-14);
+    padding-bottom: 25px;
   }
 `;
 const OneDayClassDateBox = styled.div``;
-const OneDayClassDate = styled.h2``;
-const OneDayClassPersonnelBox = styled.div``;
+const OneDayClassDate = styled.h2`
+  @media screen and (max-width: 500px) {
+    span {
+      display: none;
+    }
+  }
+`;
+
+const OneDayClassPersonnelBox = styled.div`
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
+`;
 const OneDayClassPersonnel = styled.h2``;
 
 const OneDayClassInfoFoot = styled.div``;
@@ -149,7 +169,9 @@ const OneDayCalss = () => {
               </OneDayClassInfoHead>
               <OneDayClassInfoBody>
                 <OneDayClassDateBox>
-                  <OneDayClassDate>2023.5.13(토) / 11:00~13:00</OneDayClassDate>
+                  <OneDayClassDate>
+                    2023.5.13(토) <span>/</span> 11:00~13:00
+                  </OneDayClassDate>
                 </OneDayClassDateBox>
                 <OneDayClassPersonnelBox>
                   <OneDayClassPersonnel>인원 4-8명</OneDayClassPersonnel>
@@ -182,7 +204,9 @@ const OneDayCalss = () => {
               </OneDayClassInfoHead>
               <OneDayClassInfoBody>
                 <OneDayClassDateBox>
-                  <OneDayClassDate>2023.5.13(토) / 11:00~13:00</OneDayClassDate>
+                  <OneDayClassDate>
+                    2023.5.13(토) <span>/</span> 11:00~13:00
+                  </OneDayClassDate>
                 </OneDayClassDateBox>
                 <OneDayClassPersonnelBox>
                   <OneDayClassPersonnel>인원 4-8명</OneDayClassPersonnel>
@@ -215,7 +239,9 @@ const OneDayCalss = () => {
               </OneDayClassInfoHead>
               <OneDayClassInfoBody>
                 <OneDayClassDateBox>
-                  <OneDayClassDate>2023.5.13(토) / 11:00~13:00</OneDayClassDate>
+                  <OneDayClassDate>
+                    2023.5.13(토) <span>/</span> 11:00~13:00
+                  </OneDayClassDate>
                 </OneDayClassDateBox>
                 <OneDayClassPersonnelBox>
                   <OneDayClassPersonnel>인원 4-8명</OneDayClassPersonnel>
@@ -236,9 +262,9 @@ const OneDayCalss = () => {
                 src={oneday1}
                 alt="원데이클래스 이미지"
               ></OneDayClassImage>
-              {/* class.status === 'comming soon' */}
+              {/* class.status === 'coming soon' */}
               <OneDayClassTextImage>
-                <OneDayClassText>Comming Soon</OneDayClassText>
+                <OneDayClassText>Coming Soon</OneDayClassText>
               </OneDayClassTextImage>
             </OneDayClassImageBox>
             <OneDayClassInfoBox>
@@ -252,7 +278,9 @@ const OneDayCalss = () => {
               </OneDayClassInfoHead>
               <OneDayClassInfoBody>
                 <OneDayClassDateBox>
-                  <OneDayClassDate>2023.5.13(토) / 11:00~13:00</OneDayClassDate>
+                  <OneDayClassDate>
+                    2023.5.13(토)<span>/</span> 11:00~13:00
+                  </OneDayClassDate>
                 </OneDayClassDateBox>
                 <OneDayClassPersonnelBox>
                   <OneDayClassPersonnel>인원 4-8명</OneDayClassPersonnel>
@@ -290,7 +318,9 @@ const OneDayCalss = () => {
               </OneDayClassInfoHead>
               <OneDayClassInfoBody>
                 <OneDayClassDateBox>
-                  <OneDayClassDate>2023.5.13(토) / 11:00~13:00</OneDayClassDate>
+                  <OneDayClassDate>
+                    2023.5.13(토) <span>/</span> 11:00~13:00
+                  </OneDayClassDate>
                 </OneDayClassDateBox>
                 <OneDayClassPersonnelBox>
                   <OneDayClassPersonnel>인원 4-8명</OneDayClassPersonnel>
