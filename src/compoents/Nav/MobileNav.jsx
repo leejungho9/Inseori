@@ -87,7 +87,7 @@ function MobileNav() {
             </NavSubul>
           </Navli>
           <Navli>
-            <MainMenuA href="/OneDayClass" active={pathname === '/OneDayClass'}>
+            <MainMenuA href="/onedayclass" active={pathname === '/OneDayClass'}>
               원데이클래스
             </MainMenuA>
             <MenuLinebar />
