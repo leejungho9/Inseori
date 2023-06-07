@@ -1,5 +1,8 @@
 import styled, { createGlobalStyle, css } from 'styled-components';
-import PretendardVariable from '../assets/fonts/PretendardVariable.woff2';
+import PretendardMedium from '../assets/fonts/Pretendard-Medium.woff2';
+import PretendardRegular from '../assets/fonts/Pretendard-Regular.woff2';
+import PretendardBold from '../assets/fonts/Pretendard-Bold.woff2';
+import PretendardSemiBold from '../assets/fonts/Pretendard-SemiBold.woff2';
 // *  변수
 export const Variables = css`
   :root {
@@ -35,11 +38,27 @@ export const Variables = css`
 // *  css reset, 공통스타일
 const GlobalStyle = createGlobalStyle`
 // *  font 적용
+
 ${Variables}
+@font-face {
+	font-family: "PretendardRegular";
+	font-weight: 400;
+	src: url(${PretendardRegular}) format("woff2")
+}
 @font-face {
 	font-family: "PretendardMedium";
 	font-weight: 500;
-	src: url(${PretendardVariable}) format("woff2")
+	src: url(${PretendardMedium}) format("woff2")
+}
+@font-face {
+	font-family: "PretendardBold";
+	font-weight: 600;
+	src: url(${PretendardBold}) format("woff2")
+}
+@font-face {
+	font-family: "PretendardSemiBold";
+	font-weight: 700;
+	src: url(${PretendardSemiBold}) format("woff2")
 }
 
 *{
