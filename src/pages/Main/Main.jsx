@@ -57,7 +57,7 @@ const MainTitle = styled.h1`
     margin-bottom: 30px;
   }
 `;
-const MainIntroP = styled.span`
+const MainIntroP = styled.p`
   font-size: var(--text-size-15);
   color: var(--gray);
   line-height: 1.9;
@@ -99,12 +99,12 @@ const Main = forwardRef((props, mainTopRef) => {
           <MainIntroBox>
             <MainTitle>인서리공원</MainTitle>
             <MainIntroP>
-              인서리공원은 광양시에서 도시재생 프로그램으로 리노베이션한
-              <Break /> 크고 작은 14채 공간을 활용하여 보다 많은 사람들이 더
-              쉽게 그리
-              <Break />고 더 가까이 예술을 접하고 향유 할 수 있기를 바라는
-              기대로 만<Break />
-              들어진 복합문화공간입니다.
+              인서리공원은 광양시 도시재생 프로젝트로 <Break />
+              리노베이션한 한옥 14채를 활용하여 <Break />
+              많은 사람들이 쉽게, 더 가까이 예술을 접하고 <Break />
+              향유 할 수 있기를 바라는 기대로 만들어진
+              <Break />
+              복합문화공간입니다.
             </MainIntroP>
           </MainIntroBox>
         </MainIntroWrapper>
