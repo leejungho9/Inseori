@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import oneday1 from '../../assets/images/OneDayClass/oneday1.jpg';
-import oneday2 from '../../assets/images/OneDayClass/oneday2.jpg';
-import oneday3 from '../../assets/images/OneDayClass/oneday3.jpg';
+import oneday1 from '../assets/images/OneDayClass/oneday1.jpg';
+import oneday2 from '../assets/images/OneDayClass/oneday2.jpg';
+import oneday3 from '../assets/images/OneDayClass/oneday3.jpg';
 import { Link } from 'react-router-dom';
-import Searchbar from '../../compoents/Searchbar/Searchbar';
-import { GoSearch } from 'react-icons/go';
 
 const OneDayCalssContainer = styled.main`
   overflow: hidden;
@@ -14,7 +12,6 @@ const OneDayCalssWrapper = styled.figure`
   float: right;
   width: calc(100% - 435px);
   position: relative;
-  margin-top: 150px;
   padding-bottom: 130px;
 
   @media screen and (max-width: 991px) {
@@ -36,7 +33,7 @@ const MobileTitle = styled.h1`
 
 const OneDayCalssContentWrapper = styled.section`
   width: 100%;
-  padding-top: 100px;
+  padding-top: 150px;
   padding-right: 100px;
   display: grid;
   row-gap: 120px;
@@ -116,98 +113,11 @@ const OneDayClassPrice = styled.h2`
   font-weight: bold;
 `;
 
-//! Nav
-const OneDayClassNav = styled.div`
-  height: 52px;
-  margin-right: 100px;
-  display: flex;
-  justify-content: space-between;
-`;
-const OneDayClassNavUl = styled.ul`
-  height: 100%;
-  display: flex;
-  align-items: center;
-`;
-const OneDayClassNavLi = styled.li`
-  font-size: var(--text-size-18);
-`;
-
-const OneDayClassNavLink = styled(Link)`
-  margin-right: 40px;
-  font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
-  cursor: pointer;
-`;
-
-const OneDayClassSearchBox = styled.div`
-  position: relative;
-  width: 428px;
-`;
-const SearchIcon = styled(GoSearch)`
-  position: absolute;
-  right: 25px;
-  top: 15px;
-  font-size: 20px;
-  cursor: pointer;
-`;
 const OneDayCalss = () => {
-  const [classNavMenu, setClassNavMenu] = useState('전체');
-
-  const clickNavMenuHandle = (event) => {
-    setClassNavMenu(event.target.innerText);
-  };
-
   return (
     <OneDayCalssContainer>
       <OneDayCalssWrapper>
         <MobileTitle>원데이클래스</MobileTitle>
-        <OneDayClassNav>
-          <OneDayClassNavUl>
-            <OneDayClassNavLi>
-              <OneDayClassNavLink
-                onClick={clickNavMenuHandle}
-                active={classNavMenu === '아트포스터'}
-              >
-                아트포스터
-              </OneDayClassNavLink>
-            </OneDayClassNavLi>
-            <OneDayClassNavLi>
-              <OneDayClassNavLink
-                onClick={clickNavMenuHandle}
-                active={classNavMenu === '에디션판화'}
-              >
-                에디션판화
-              </OneDayClassNavLink>
-            </OneDayClassNavLi>
-            <OneDayClassNavLi>
-              <OneDayClassNavLink
-                onClick={clickNavMenuHandle}
-                active={classNavMenu === '굿즈/오브제'}
-              >
-                굿즈/오브제
-              </OneDayClassNavLink>
-            </OneDayClassNavLi>
-            <OneDayClassNavLi>
-              <OneDayClassNavLink
-                onClick={clickNavMenuHandle}
-                active={classNavMenu === '기타'}
-              >
-                기타
-              </OneDayClassNavLink>
-            </OneDayClassNavLi>
-            <OneDayClassNavLi>
-              <OneDayClassNavLink
-                onClick={clickNavMenuHandle}
-                active={classNavMenu === '전체'}
-              >
-                전체
-              </OneDayClassNavLink>
-            </OneDayClassNavLi>
-          </OneDayClassNavUl>
-          <OneDayClassSearchBox>
-            <SearchIcon />
-            <Searchbar paddingRight={50} />
-          </OneDayClassSearchBox>
-        </OneDayClassNav>
         <OneDayCalssContentWrapper>
           {/* ! 반복 시작 */}
           <OneDayClassContentBox to="/onedayclass/1">

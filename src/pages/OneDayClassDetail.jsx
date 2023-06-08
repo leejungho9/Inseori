@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import classBanner from '../../assets/images/OneDayClassDetail/onedayclassDetail.png';
-import ReserveButton from '../../compoents/Button/ReserveButton';
+import classBanner from '../assets/images/OneDayClassDetail/onedayclassDetail.png';
+import ReserveButton from '../compoents/Button/ReserveButton';
 const OneDayCalssDetialContainer = styled.main`
   /* position: relative; */
   overflow: hidden;
@@ -65,7 +65,7 @@ const ClassInfoInputBox = styled.div`
   width: 50%;
 `;
 const ClassInfoTextBox = styled.div`
-  height: 40px;
+  height: 48px;
   margin-bottom: 6px;
   display: flex;
   align-items: center;
@@ -89,7 +89,7 @@ const ClassInfoContent = styled.span`
 
 const ClasasInfoDesc = styled.div`
   width: 100%;
-  height: 40px;
+  height: 48px;
   font-size: var(--text-size-16);
   margin-top: 43px;
   margin-bottom: 30px;
