@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import insta from '../../assets/images/insta.png';
-import kakao from '../../assets/images/kakao.png';
+import insta from 'assets/images/insta.png';
+import kakao from 'assets/images/kakao.png';
 
 import { Link } from 'react-router-dom';
 import { useState } from 'react';

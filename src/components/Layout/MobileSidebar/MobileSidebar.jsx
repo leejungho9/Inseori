@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import reserLogo from '../../assets/images/reserLogo.png';
 import { AiOutlineRight } from 'react-icons/ai';
-import MobileNav from '../Nav/MobileNav';
+import reserLogo from 'assets/images/reserLogo.png';
+import MobileNav from 'components/Layout/Nav/MobileNav';
 
 const SidebarWrapper = styled.div`
   width: 100%;

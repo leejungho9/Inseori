@@ -3,12 +3,12 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import MainImage1 from '../../assets/images/MainImage/MainImage1.jpg';
-import MainImage2 from '../../assets/images/MainImage/MainImage2.jpg';
-import MainImage3 from '../../assets/images/MainImage/MainImage3.jpg';
-import MainImage4 from '../../assets/images/MainImage/MainImage4.jpg';
-import MainImage5 from '../../assets/images/MainImage/MainImage5.jpg';
-import MainImage6 from '../../assets/images/MainImage/MainImage6.jpg';
+import MainImage1 from 'assets/images/MainImage/MainImage1.jpg';
+import MainImage2 from 'assets/images/MainImage/MainImage2.jpg';
+import MainImage3 from 'assets/images/MainImage/MainImage3.jpg';
+import MainImage4 from 'assets/images/MainImage/MainImage4.jpg';
+import MainImage5 from 'assets/images/MainImage/MainImage5.jpg';
+import MainImage6 from 'assets/images/MainImage/MainImage6.jpg';
 
 const SliderContainer = styled.section`
   max-width: 100%;

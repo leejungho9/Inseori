@@ -1,9 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
-import oneday1 from '../assets/images/OneDayClass/oneday1.jpg';
-import oneday2 from '../assets/images/OneDayClass/oneday2.jpg';
-import oneday3 from '../assets/images/OneDayClass/oneday3.jpg';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import oneday1 from 'assets/images/OneDayClass/oneday1.jpg';
+import oneday2 from 'assets/images/OneDayClass/oneday2.jpg';
+import oneday3 from 'assets/images/OneDayClass/oneday3.jpg';
 
 const OneDayCalssContainer = styled.main`
   overflow: hidden;

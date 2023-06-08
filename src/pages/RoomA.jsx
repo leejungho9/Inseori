@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import ReserveButton from '../compoents/Button/ReserveButton';
-import ban from '../assets/images/ban.png';
-import ban2 from '../assets/images/ban2.png';
-import ban3 from '../assets/images/ban3.png';
-import ban4 from '../assets/images/ban4.png';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
-import RoomACarousel from '../compoents/Carousel/RoomACarousel';
-import RoomAGalleryCarousel from '../compoents/Carousel/RoomAGalleryCarousel';
-import RoomA_1 from '../assets/images/RoomA/RoomB_1.jpg';
-import RoomA_2 from '../assets/images/RoomA/RoomB_2.jpg';
-import RoomA_3 from '../assets/images/RoomA/RoomB_3.jpg';
-import RoomA_4 from '../assets/images/RoomA/RoomB_4.jpg';
-import RoomA_5 from '../assets/images/RoomA/RoomB_5.jpg';
+import ReserveButton from 'components/Common/Button/ReserveButton';
+import RoomACarousel from 'components/Common/Carousel/RoomACarousel';
+import RoomAGalleryCarousel from 'components/Common/Carousel/RoomAGalleryCarousel';
+import ban from 'assets/images/ban.png';
+import ban2 from 'assets/images/ban2.png';
+import ban3 from 'assets/images/ban3.png';
+import ban4 from 'assets/images/ban4.png';
+import RoomA_1 from 'assets/images/RoomA/RoomB_1.jpg';
+import RoomA_2 from 'assets/images/RoomA/RoomB_2.jpg';
+import RoomA_3 from 'assets/images/RoomA/RoomB_3.jpg';
+import RoomA_4 from 'assets/images/RoomA/RoomB_4.jpg';
+import RoomA_5 from 'assets/images/RoomA/RoomB_5.jpg';
+
 const MainContainer = styled.main`
-  /* position: relative; */
   overflow: hidden;
 `;
 

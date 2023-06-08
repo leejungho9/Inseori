@@ -3,11 +3,11 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import RoomA_1 from '../../assets/images/RoomA/RoomB_1.jpg';
-import RoomA_2 from '../../assets/images/RoomA/RoomB_2.jpg';
-import RoomA_3 from '../../assets/images/RoomA/RoomB_3.jpg';
-import RoomA_4 from '../../assets/images/RoomA/RoomB_4.jpg';
-import RoomA_5 from '../../assets/images/RoomA/RoomB_5.jpg';
+import RoomA_1 from 'assets/images/RoomA/RoomB_1.jpg';
+import RoomA_2 from 'assets/images/RoomA/RoomB_2.jpg';
+import RoomA_3 from 'assets/images/RoomA/RoomB_3.jpg';
+import RoomA_4 from 'assets/images/RoomA/RoomB_4.jpg';
+import RoomA_5 from 'assets/images/RoomA/RoomB_5.jpg';
 
 const SliderContainer = styled.section`
   .slick-slider {

@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
-import MainGalleryCarousel from '../compoents/Carousel/MainGalleryCarousel';
-import MainBannerCarousel from '../compoents/Carousel/MainBannerCarousel';
+import MainGalleryCarousel from '../components/Common/Carousel/MainGalleryCarousel';
+import MainBannerCarousel from '../components/Common/Carousel/MainBannerCarousel';
 
 const MainContainer = styled.main`
   //! 추후에 사용

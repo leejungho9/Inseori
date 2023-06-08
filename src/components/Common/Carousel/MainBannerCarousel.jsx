@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import banner from '../../assets/images/RoomA/RoomA_banner.jpg';
+import banner from 'assets/images/banner.jpg';
 
 const SliderContainer = styled.section`
   .slick-slider {
@@ -41,7 +41,7 @@ const MainImg = styled.img`
   height: 100%;
   object-fit: cover;
 `;
-const RoomACarousel = () => {
+function MainCarousel() {
   const settings = {
     dots: true,
     infinite: true,
@@ -68,6 +68,6 @@ const RoomACarousel = () => {
       </Slider>
     </SliderContainer>
   );
-};
+}
 
-export default RoomACarousel;
+export default MainCarousel;

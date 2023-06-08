@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import oneday1 from '../assets/images/OneDayClass/oneday1.jpg';
 import { Link } from 'react-router-dom';
-import Searchbar from '../compoents/Searchbar/Searchbar';
 import { GoSearch } from 'react-icons/go';
+import styled from 'styled-components';
+import oneday1 from 'assets/images/OneDayClass/oneday1.jpg';
+import Searchbar from 'components/Common/Searchbar/Searchbar';
 
 const ArtShopContainer = styled.main`
   overflow: hidden;

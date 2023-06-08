@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { RowFlex } from '../../styles/GlobalStyle';
+import { RowFlex } from 'styles/GlobalStyle';
 const ReserveBtn = styled(Link)`
   border: 1px solid var(--gray);
   font-weight: bold;
