@@ -57,7 +57,7 @@ const ReservationBox = styled.div`
 const ClassInfoBox = styled.div`
   width: 50%;
   div:last-child {
-    margin-top: 80px;
+    margin-top: 40px;
   }
 `;
 const ClassInfoInputBox = styled.div`
@@ -89,10 +89,10 @@ const ClassInfoContent = styled.span`
 
 const ClasasInfoDesc = styled.div`
   width: 100%;
-  line-height: 25px;
+  height: 40px;
   font-size: var(--text-size-16);
-  margin-bottom: 50px;
-  margin-top: 20px;
+  margin-top: 43px;
+  margin-bottom: 30px;
   font-family: PretendardRegular;
 `;
 
@@ -169,12 +169,15 @@ const OneDayCalssDetail = () => {
                   <ClassInfoLabel htmlFor="age">체험자 나이</ClassInfoLabel>
                   <ClassInfoInput id="age" />
                 </ClassInfoTextBox>
+                <ClassInfoTextBox>
+                  <ClassInfoLabel htmlFor="request">요청사항</ClassInfoLabel>
+                  <ClassInfoInput id="request" />
+                </ClassInfoTextBox>
                 <ClasasInfoDesc>
-                  예약신청서는 대표자 한 명만 적어주시면됩니다. <br />
                   원데이클래스 참여가능여부 확인되면 핸드폰으로 개별
                   연락드립니다.
                 </ClasasInfoDesc>
-                <ReserveButton>예약하기</ReserveButton>
+                <ReserveButton color={'black'}>예약하기</ReserveButton>
               </ClassInfoInputBox>
             </ReservationBox>
           </ReservationFormBox>
