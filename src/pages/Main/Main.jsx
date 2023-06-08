@@ -80,7 +80,7 @@ const Break = styled.br`
 const MainGalleryCarouselWrapper = styled.figure`
   float: right;
   width: 100%;
-  margin-bottom: 150px;
+  margin-bottom: 130px;
   position: relative;
   @media screen and (max-width: 991px) {
     margin-bottom: 120px;
