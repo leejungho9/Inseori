@@ -20,6 +20,7 @@ function App() {
     topHeaderRef: useRef(null),
   };
   //! 상단 헤더와 오른쪽 네브바 스크롤 이벤트
+
   useEffect(() => {
     const handleScroll = () => {
       const footerTop = footerRef.current.offsetTop; //! 푸터 최상단 위치
@@ -53,7 +54,10 @@ function App() {
         }
       }
     };
-    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll); // ! clean up
+    };
   }, [refs.headerRef, refs.topHeaderRef, pathname, footerOffsetProps]);
 
   return (
