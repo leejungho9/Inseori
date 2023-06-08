@@ -23,11 +23,12 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
+      // let scrollY = window.scrollY + 1;
+
       const footerTop = footerRef.current.offsetTop; //! 푸터 최상단 위치
       const windowHeight = window.innerHeight; // ! 브라우저 높이
       const footerOffset = footerTop - windowHeight; // ! 푸터 위치 - 브라우저 높이
 
-      setFooterOffsetProps(footerOffset);
       if (refs.headerRef && footerRef) {
         if (window.innerWidth > 1024) {
           if (window.pageYOffset >= footerOffset) {
@@ -42,19 +43,21 @@ function App() {
       if (refs.headerRef) {
         //! 안먹어서 일단 150px 값으로 적어둠
         // if (window.scrollY > refs.topHeaderRef.current.offsetHeight) {
-        if (window.scrollY > 80) {
+        if (window.scrollY < 80) {
           if (window.innerWidth > 991) {
-            setTopHeaderVisible(false);
+            setTopHeaderVisible(true);
+            setFooterOffsetProps(0);
           }
         } else {
           if (window.innerWidth > 991) {
-            setTopHeaderVisible(true);
+            setTopHeaderVisible(false);
+            setFooterOffsetProps(footerOffset);
           }
         }
       }
     };
     handleScroll();
-  }, [refs.headerRef, refs.topHeaderRef, pathname]);
+  }, [refs.headerRef, refs.topHeaderRef, pathname, footerOffsetProps]);
 
   return (
     <>
