@@ -121,7 +121,9 @@ function Nav() {
             <NavSubul className="mainMenu"></NavSubul>
           </Navli>
           <Navli>
-            <MainMenu className="mainMenu">아트샵</MainMenu>
+            <MainMenu className="mainMenu">
+              <Link to="/artshop">아트샵</Link>
+            </MainMenu>
           </Navli>
           <Navli>
             <MainMenu className="mainMenu">카페</MainMenu>
