@@ -1,28 +1,32 @@
-import { Route, Routes } from 'react-router-dom';
-import Main from './pages/Main/Main';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Footer from './compoents/Footer/Footer';
 import Header from './compoents/Header/Header';
-import RoomA from './pages/Rooms/RoomA';
 import { useEffect, useRef, useState } from 'react';
-import OneDayCalss from './pages/OneDayClass/OneDayCalss';
-import OneDayClassDetail from './pages/OneDayClassDetail/OneDayClassDetail';
+import RoomA from './pages/RoomA';
+import Main from './pages/Main';
+import OneDayCalss from './pages/OneDayCalss';
+import OneDayClassDetail from './pages/OneDayClassDetail';
+import ArtShop from './pages/ArtShop';
 
 function App() {
   const [topHeaderVisible, setTopHeaderVisible] = useState(true);
   const [leftNavFixed, setLeftNavFixed] = useState(true);
   let [footerOffsetProps, setFooterOffsetProps] = useState(0);
   const footerRef = useRef(null);
+  const { pathname } = useLocation();
 
   const refs = {
     headerRef: useRef(null),
     topHeaderRef: useRef(null),
   };
   //! 헤더 스크롤 이벤트
+
   useEffect(() => {
     const handleScroll = () => {
       const footerTop = footerRef.current.offsetTop; //! 푸터 최상단 위치
       const windowHeight = window.innerHeight; // ! 브라우저 높이
       const footerOffset = footerTop - windowHeight; // ! 푸터 위치 - 브라우저 높이
+
       setFooterOffsetProps(footerOffset);
       if (refs.headerRef && footerRef) {
         if (window.innerWidth > 1024) {
@@ -49,9 +53,8 @@ function App() {
         }
       }
     };
-
-    window.addEventListener('scroll', handleScroll);
-  }, [refs.headerRef, refs.topHeaderRef]);
+    handleScroll();
+  }, [refs.headerRef, refs.topHeaderRef, pathname]);
 
   return (
     <>
@@ -66,6 +69,7 @@ function App() {
         <Route path="/roomA" element={<RoomA />}></Route>
         <Route path="/onedayclass" element={<OneDayCalss />}></Route>
         <Route path="/onedayclass/:id" element={<OneDayClassDetail />}></Route>
+        <Route path="/artshop" element={<ArtShop />}></Route>
       </Routes>
       <Footer ref={footerRef} />
     </>
