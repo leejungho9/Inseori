@@ -12,6 +12,7 @@ const OneDayCalssWrapper = styled.figure`
   float: right;
   width: calc(100% - 435px);
   position: relative;
+  margin-top: 150px;
   padding-bottom: 130px;
 
   @media screen and (max-width: 991px) {
@@ -33,7 +34,7 @@ const MobileTitle = styled.h1`
 
 const OneDayCalssContentWrapper = styled.section`
   width: 100%;
-  padding-top: 150px;
+  /* padding-top: 100px; */
   padding-right: 100px;
   display: grid;
   row-gap: 120px;
