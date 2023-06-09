@@ -1,6 +1,6 @@
 import React, { forwardRef, useState } from 'react';
 import styled from 'styled-components';
-import reserLogo from 'assets/images/reserLogo.png';
+import reserveLogo from 'assets/images/reserLogo.png';
 import logo from 'assets/images/logo.png';
 import ham from 'assets/images/ham.png';
 import Nav from 'components/Layout/Nav/Nav';
@@ -18,7 +18,7 @@ const HeaderContainer = styled.header`
     leftNavFixed && footerOffsetProps ? 0 : footerOffsetProps + 'px'};
 `;
 
-const NavWrapper = styled.div`
+const NavWrapper = styled.section`
   width: 435px;
   height: 100%;
   box-sizing: border-box;
@@ -26,6 +26,7 @@ const NavWrapper = styled.div`
   z-index: 15;
   position: relative;
   pointer-events: all;
+
   @media screen and (max-width: 991px) {
     padding-left: 0;
     width: 100%;
@@ -34,44 +35,7 @@ const NavWrapper = styled.div`
   }
 `;
 
-const ReserveButtonBox = styled.div`
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 150px;
-  opacity: 100;
-  overflow: hidden;
-  background-color: var(--white);
-  z-index: 14;
-  pointer-events: all;
-  transition: 0.4s;
-  height: ${({ topHeaderVisible }) => (topHeaderVisible ? '150px' : 0)};
-  opacity: ${({ topHeaderVisible }) => (topHeaderVisible ? '100' : 0)};
-
-  a {
-    float: right;
-    margin-top: 62px;
-    margin-right: 100px;
-    display: flex;
-  }
-
-  @media screen and (max-width: 991px) {
-    display: none;
-  }
-`;
-
-const ReserveLogo = styled.img`
-  width: 18px;
-  height: 18px;
-  margin-right: 10px;
-  cursor: pointer;
-`;
-
-const ReserveSpan = styled.span`
-  cursor: pointer;
-  font-size: var(--text-size-18);
-`;
-const LogoImgBox = styled.div`
+const LogoWrapper = styled.nav`
   width: 234px;
   height: 150px;
   display: flex;
@@ -79,23 +43,27 @@ const LogoImgBox = styled.div`
   cursor: pointer;
   z-index: 30;
   position: relative;
+  box-sizing: border-box;
+
   @media screen and (max-width: 991px) {
     width: 185px;
     height: 70px;
-    padding-left: 50px;
+    padding-left: 25px;
   }
   @media screen and (max-width: 500px) {
     padding-left: 20px;
     width: 150px;
   }
 `;
+
+const LogoLink = styled.a``;
+
 const Logo = styled.img`
   width: 100%;
   height: auto;
 `;
 
-// ! 반응형 스타일
-const HamButtonBox = styled.div`
+const BurgerWrapper = styled.nav`
   display: none;
   @media screen and (max-width: 991px) {
     position: absolute;
@@ -113,14 +81,14 @@ const HamButtonBox = styled.div`
     height: 70px;
   }
 `;
-const HamImageBox = styled.div`
+const BurgerBox = styled.figure`
   display: none;
 
   @media screen and (max-width: 991px) {
     width: 24px;
     position: absolute;
     top: 27px;
-    right: 50px;
+    right: 25px;
     z-index: 6;
     display: block;
   }
@@ -128,18 +96,56 @@ const HamImageBox = styled.div`
     right: 20px;
   }
 `;
-const HamImage = styled.img`
+const BurgerImg = styled.img`
   width: 100%;
   height: auto;
   object-fit: cover;
   cursor: pointer;
 `;
 
+const ReserveButtonBox = styled.section`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 150px;
+  opacity: 100;
+  overflow: hidden;
+  background-color: var(--white);
+  z-index: 14;
+  pointer-events: all;
+  transition: 0.4s;
+  height: ${({ topHeaderVisible }) => (topHeaderVisible ? '150px' : 0)};
+  opacity: ${({ topHeaderVisible }) => (topHeaderVisible ? '100' : 0)};
+
+  @media screen and (max-width: 991px) {
+    display: none;
+  }
+`;
+
+const ReserveButton = styled.a`
+  float: right;
+  margin-top: 62px;
+  margin-right: 100px;
+  display: flex;
+`;
+
+const ReserveLogo = styled.img`
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+`;
+
+const ReserveSpan = styled.span`
+  cursor: pointer;
+  font-size: var(--text-size-18);
+`;
+
 const Header = forwardRef(
   ({ topHeaderVisible, leftNavFixed, footerOffsetProps }, refs) => {
     const { headerRef, topHeaderRef } = refs;
     const [showSidebar, setShowSidebar] = useState(false);
-
+    const windowWidth = window.innerWidth;
     return (
       <HeaderContainer
         ref={headerRef}
@@ -147,40 +153,42 @@ const Header = forwardRef(
         footerOffsetProps={footerOffsetProps}
       >
         <NavWrapper>
-          <LogoImgBox>
-            <a href="/">
-              <Logo src={logo} alt=" 임시로고" />
-            </a>
-          </LogoImgBox>
-          <HamButtonBox topHeaderVisible={topHeaderVisible} ref={topHeaderRef}>
-            <HamImageBox>
-              <HamImage
+          <LogoWrapper>
+            <LogoLink href="/">
+              <Logo src={logo} alt="logo" />
+            </LogoLink>
+          </LogoWrapper>
+          <BurgerWrapper topHeaderVisible={topHeaderVisible} ref={topHeaderRef}>
+            <BurgerBox>
+              <BurgerImg
                 src={ham}
                 alt="햄버거 이미지"
                 onClick={() => setShowSidebar(!showSidebar)}
               />
-            </HamImageBox>
-          </HamButtonBox>
+            </BurgerBox>
+          </BurgerWrapper>
           <Nav />
         </NavWrapper>
 
-        <MobileSidebar
-          setShowSidebar={setShowSidebar}
-          showSidebar={showSidebar}
-        />
+        {windowWidth < 991 && (
+          <MobileSidebar
+            setShowSidebar={setShowSidebar}
+            showSidebar={showSidebar}
+          />
+        )}
 
         <ReserveButtonBox
           topHeaderVisible={topHeaderVisible}
           ref={topHeaderRef}
         >
-          <a
+          <ReserveButton
             target="_blank"
             href="https://booking.naver.com/booking/3/bizes/802107"
             rel="noreferrer"
           >
-            <ReserveLogo src={reserLogo} alt="예약로고" />
+            <ReserveLogo src={reserveLogo} alt="예약 로고" />
             <ReserveSpan>실시간 예약</ReserveSpan>
-          </a>
+          </ReserveButton>
         </ReserveButtonBox>
       </HeaderContainer>
     );
