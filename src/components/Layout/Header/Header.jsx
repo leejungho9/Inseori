@@ -40,7 +40,6 @@ const LogoWrapper = styled.nav`
   height: 150px;
   display: flex;
   align-items: center;
-  cursor: pointer;
   z-index: 30;
   position: relative;
   box-sizing: border-box;
@@ -56,7 +55,9 @@ const LogoWrapper = styled.nav`
   }
 `;
 
-const LogoLink = styled.a``;
+const LogoLink = styled.a`
+  cursor: pointer;
+`;
 
 const Logo = styled.img`
   width: 100%;
