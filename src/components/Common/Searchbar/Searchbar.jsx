@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 const SearchbarInput = styled.input`
   width: 100%;
-  height: 100%;
+  height: inherit;
   background-color: #f6f6f6;
   border-radius: 28px;
   outline: none;
