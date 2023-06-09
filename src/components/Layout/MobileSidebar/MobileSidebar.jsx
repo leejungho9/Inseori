@@ -9,7 +9,7 @@ const SidebarWrapper = styled.aside`
   height: 100%;
   top: 0;
   position: fixed;
-  background-color: #fff;
+  background-color: var(--white);
   z-index: 100;
   transition: all 0.8s ease 0s;
   pointer-events: ${({ showSidebar }) => (showSidebar ? 'all' : 'none')};
@@ -32,28 +32,29 @@ const CloseIconBox = styled.section`
 const CloseIcon = styled(AiOutlineRight)`
   font-size: 25px;
   cursor: pointer;
-  color: #515151;
+  color: var(--gray);
 `;
 
 const ReserveButton = styled.a`
   display: flex;
+  align-items: center;
   margin-left: 20px;
   width: 130px;
 `;
 
 const ReserveLogo = styled.img`
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   margin-right: 15px;
   cursor: pointer;
 `;
 
 const ReserveSpan = styled.span`
-  cursor: pointer;
-  font-size: var(--text-size-18);
+  font-family: 'PretendardSemiBold';
+  font-size: var(--text-size-20);
+  color: var(--gray);
   font-weight: bold;
-  color: #515151;
-  letter-spacing: -0.5px;
+  cursor: pointer;
 `;
 
 function MobileSidebar({ setShowSidebar, showSidebar }) {
