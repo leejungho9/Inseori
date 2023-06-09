@@ -27,18 +27,33 @@ const Navul = styled.ul``;
 const NavLi = styled.li`
   font-size: var(--text-size-18);
   transition: 0.6s;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
+
   @media screen and (max-width: 1440px) {
     margin-bottom: 30px;
   }
 `;
-const MainMenu = styled.span``;
-
-const MainMenuLink = styled.a`
-  color: ${({ active }) => (active ? 'var(--text-point-color)' : '#515151')};
+const MainMenu = styled.span`
+  font-family: 'PretendardSemiBold';
+  font-size: var(--text-size-18);
+  color: var(--gray);
+  font-weight: bold;
+  cursor: pointer;
 `;
 
-const NavSubl = styled.ul`
+const MainMenuLink = styled.a`
+  font-family: 'PretendardSemiBold';
+  font-size: var(--text-size-18);
+  font-weight: bold;
+  color: ${({ active }) =>
+    active ? 'var(--text-point-color)' : 'var(--gray)'};
+
+  &:hover {
+    color: var(--text-point-color);
+  }
+`;
+
+const NavSubUl = styled.ul`
   height: 0;
   overflow: hidden;
   transition: all 0.6s;
@@ -105,7 +120,7 @@ function Nav() {
         <Navul>
           <NavLi onMouseLeave={closeSubMenu}>
             <MainMenu onMouseEnter={showSubMenu}>스테이</MainMenu>
-            <NavSubl subMenuVisible={subMenuVisible}>
+            <NavSubUl subMenuVisible={subMenuVisible}>
               <NavSubLi>
                 <NavLink to="/roomA" active={pathname === '/roomA'}>
                   홰경당
@@ -123,7 +138,7 @@ function Nav() {
                   다경당
                 </NavLink>
               </NavSubLi>
-            </NavSubl>
+            </NavSubUl>
           </NavLi>
           <NavLi>
             <MainMenuLink
