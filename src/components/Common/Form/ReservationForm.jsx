@@ -10,7 +10,7 @@ const ClassInfoForm = styled(Form)`
 
 const ClassInfoBox = styled.div`
   width: 50%;
-  div:last-child {
+  section:last-child {
     margin-top: 37px;
   }
 `;
