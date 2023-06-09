@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { AiOutlineRight } from 'react-icons/ai';
-import reserLogo from 'assets/images/reserLogo.png';
+import reserveLogo from 'assets/images/reserLogo.png';
 import MobileNav from 'components/Layout/Nav/MobileNav';
 
-const SidebarWrapper = styled.div`
+const SidebarWrapper = styled.aside`
   width: 100%;
   height: 100%;
   top: 0;
@@ -18,28 +18,29 @@ const SidebarWrapper = styled.div`
   padding: 25px 15px;
 `;
 
-const CloseIconBox = styled.div`
+const CloseIconBox = styled.section`
   width: 100%;
   display: flex;
   justify-content: flex-end;
   margin-bottom: 40px;
+
   @media screen and (max-width: 991px) {
-    padding-right: 35px;
-  }
-  @media screen and (max-width: 500px) {
     padding-right: 5px;
   }
 `;
+
 const CloseIcon = styled(AiOutlineRight)`
   font-size: 25px;
   cursor: pointer;
   color: #515151;
 `;
-const ReserveLink = styled.a`
+
+const ReserveButton = styled.a`
   display: flex;
   margin-left: 20px;
   width: 130px;
 `;
+
 const ReserveLogo = styled.img`
   width: 20px;
   height: 20px;
@@ -55,27 +56,22 @@ const ReserveSpan = styled.span`
   letter-spacing: -0.5px;
 `;
 
-const MobileNavWrapper = styled.div`
-  margin-top: 50px;
-`;
-
 function MobileSidebar({ setShowSidebar, showSidebar }) {
   return (
     <SidebarWrapper showSidebar={showSidebar}>
       <CloseIconBox>
         <CloseIcon onClick={() => setShowSidebar(!showSidebar)} />
       </CloseIconBox>
-      <ReserveLink
+      <ReserveButton
         target="_blank"
         href="https://booking.naver.com/booking/3/bizes/802107"
         rel="noreferrer"
       >
-        <ReserveLogo src={reserLogo} alt="예약로고" />
+        <ReserveLogo src={reserveLogo} alt="예약 로고" />
         <ReserveSpan>실시간 예약</ReserveSpan>
-      </ReserveLink>
-      <MobileNavWrapper>
-        <MobileNav />
-      </MobileNavWrapper>
+      </ReserveButton>
+
+      <MobileNav />
     </SidebarWrapper>
   );
 }
