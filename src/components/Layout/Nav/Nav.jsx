@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-import insta from 'assets/images/insta.png';
+import instagram from 'assets/images/insta.png';
 import kakao from 'assets/images/kakao.png';
-
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
-const NavContainer = styled.div`
+const NavContainer = styled.nav`
   position: absolute;
   top: 0;
   height: 100%;
@@ -16,7 +15,7 @@ const NavContainer = styled.div`
   }
 `;
 
-const NavBox = styled.nav`
+const NavBox = styled.section`
   position: absolute;
   top: 42%;
   transform: translateY(-50%);
@@ -24,31 +23,59 @@ const NavBox = styled.nav`
 `;
 
 const Navul = styled.ul``;
-const Navli = styled.li`
+
+const NavLi = styled.li`
   font-size: var(--text-size-18);
   transition: 0.6s;
   margin-bottom: 30px;
-
-  a {
-    cursor: pointer;
-  }
-  a:hover {
-    color: var(--text-point-color);
-    font-weight: 600;
-  }
-
   @media screen and (max-width: 1440px) {
     margin-bottom: 30px;
   }
 `;
+const MainMenu = styled.span``;
 
-const IconNavol = styled.ol`
+const MainMenuLink = styled.a`
+  color: ${({ active }) => (active ? 'var(--text-point-color)' : '#515151')};
+`;
+
+const NavSubl = styled.ul`
+  height: 0;
+  overflow: hidden;
+  transition: all 0.6s;
+  visibility: hidden;
+  visibility: ${({ subMenuVisible }) =>
+    subMenuVisible ? 'visible' : 'hidden'};
+  height: ${({ subMenuVisible }) => (subMenuVisible ? '105px' : '0')};
+`;
+
+const NavSubLi = styled.li`
+  font-size: var(--text-size-14);
+  padding-top: 15px;
+
+  &:first-child {
+    padding-top: 30px;
+  }
+`;
+
+const NavLink = styled(Link)`
+  cursor: pointer;
+  color: ${({ active }) => (active ? 'var(--text-point-color)' : '#515151')};
+  &:hover {
+    color: var(--text-point-color);
+    font-weight: 600;
+  }
+`;
+
+const SocialNavOl = styled.ol`
   padding-top: 50px;
   li:first-child {
     padding-bottom: 30px;
   }
 `;
-const IconNavli = styled.li``;
+
+const SocialNavLi = styled.li``;
+
+const SocialLink = styled.a``;
 
 const SocialIcon = styled.img`
   width: 26px;
@@ -60,34 +87,10 @@ const SocialIcon = styled.img`
     height: 22px;
   }
 `;
-const NavSubul = styled.ul`
-  height: 0;
-  overflow: hidden;
-  transition: all 0.6s;
-  visibility: hidden;
-  visibility: ${({ subMenuVisible }) =>
-    subMenuVisible ? 'visible' : 'hidden'};
-  height: ${({ subMenuVisible }) => (subMenuVisible ? '105px' : '0')};
-  li {
-    padding-top: 15px;
-  }
-  li:first-child {
-    padding-top: 30px;
-  }
-`;
-
-const NavSubli = styled.li`
-  font-size: var(--text-size-14);
-  .active {
-    color: var(--text-point-color);
-  }
-`;
-
-const MainMenu = styled.a``;
 
 function Nav() {
   const [subMenuVisible, setSubMenuVisible] = useState(false);
-
+  const { pathname } = useLocation();
   const showSubMenu = () => {
     setSubMenuVisible(true);
   };
@@ -100,60 +103,69 @@ function Nav() {
     <NavContainer>
       <NavBox>
         <Navul>
-          <Navli onMouseLeave={closeSubMenu}>
+          <NavLi onMouseLeave={closeSubMenu}>
             <MainMenu onMouseEnter={showSubMenu}>스테이</MainMenu>
-            <NavSubul subMenuVisible={subMenuVisible}>
-              <NavSubli>
-                <Link to="/roomA">홰경당</Link>
-              </NavSubli>
-              <NavSubli>
-                <a>예린의 집</a>
-              </NavSubli>
-              <NavSubli>
-                <a>다경당</a>
-              </NavSubli>
-            </NavSubul>
-          </Navli>
-          <Navli>
-            <MainMenu>
-              <Link to="/onedayclass">원데이클래스</Link>
-            </MainMenu>
-            <NavSubul className="mainMenu"></NavSubul>
-          </Navli>
-          <Navli>
-            <MainMenu className="mainMenu">
-              <Link to="/artshop">아트샵</Link>
-            </MainMenu>
-          </Navli>
-          <Navli>
-            <MainMenu className="mainMenu">카페</MainMenu>
-          </Navli>
-          <Navli>
-            <MainMenu className="mainMenu">문화공간</MainMenu>
-          </Navli>
+            <NavSubl subMenuVisible={subMenuVisible}>
+              <NavSubLi>
+                <NavLink to="/roomA" active={pathname === '/roomA'}>
+                  홰경당
+                </NavLink>
+              </NavSubLi>
+              <NavSubLi>
+                {/** 임시로 roomA 에 연결**/}
+                <NavLink to="/roomB" active={pathname === '/roomB'}>
+                  예린의 집
+                </NavLink>
+              </NavSubLi>
+              <NavSubLi>
+                {/** 임시로 roomA 에 연결**/}
+                <NavLink to="/roomC" active={pathname === '/roomC'}>
+                  다경당
+                </NavLink>
+              </NavSubLi>
+            </NavSubl>
+          </NavLi>
+          <NavLi>
+            <MainMenuLink
+              href="/onedayclass"
+              active={pathname === '/onedayclass'}
+            >
+              원데이클래스
+            </MainMenuLink>
+          </NavLi>
+          <NavLi>
+            <MainMenuLink href="/artshop" active={pathname === '/artshop'}>
+              아트샵
+            </MainMenuLink>
+          </NavLi>
+          <NavLi>
+            <MainMenuLink className="mainMenu">카페</MainMenuLink>
+          </NavLi>
+          <NavLi>
+            <MainMenuLink className="mainMenu">문화공간</MainMenuLink>
+          </NavLi>
         </Navul>
-
-        <IconNavol>
-          <IconNavli>
-            <a
+        <SocialNavOl>
+          <SocialNavLi>
+            <SocialLink
               target="_blank"
               href="https://www.instagram.com/inseori01/"
               rel="noreferrer"
             >
-              <SocialIcon src={insta} alt="인스타그램 아이콘" />
-            </a>
-          </IconNavli>
+              <SocialIcon src={instagram} alt="인스타그램 아이콘" />
+            </SocialLink>
+          </SocialNavLi>
 
-          <IconNavli>
-            <a
+          <SocialNavLi>
+            <SocialLink
               target="_blank"
               href="https://pf.kakao.com/_xnhxhrxj"
               rel="noreferrer"
             >
               <SocialIcon src={kakao} alt="카카오 아이콘" />
-            </a>
-          </IconNavli>
-        </IconNavol>
+            </SocialLink>
+          </SocialNavLi>
+        </SocialNavOl>
       </NavBox>
     </NavContainer>
   );
