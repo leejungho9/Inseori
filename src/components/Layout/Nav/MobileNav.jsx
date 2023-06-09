@@ -1,56 +1,72 @@
 import React from 'react';
 import styled from 'styled-components';
-import insta from 'assets/images/insta.png';
+import instagram from 'assets/images/insta.png';
 import kakao from 'assets/images/kakao.png';
 import { useLocation } from 'react-router-dom';
 
-const NavContainer = styled.nav``;
-const NavBox = styled.div``;
-const Navul = styled.ul``;
-const Navli = styled.li``;
+const NavContainer = styled.nav`
+  margin-top: 50px;
+`;
+
+const NavBox = styled.section``;
+
+const NavUl = styled.ul``;
+
+const NavLi = styled.li``;
+
 const MainMenu = styled.span`
+  font-family: 'PretendardSemiBold';
   font-size: var(--text-size-18);
-  font-weight: bold;
-  color: #515151;
-  padding-left: 21px;
-`;
-const MainMenuA = styled.a`
-  font-size: var(--text-size-18);
+  color: var(--gray);
   font-weight: bold;
   padding-left: 21px;
-  color: ${({ active }) => (active ? 'var(--text-point-color)' : '#515151')};
 `;
-const MenuLinebar = styled.div`
+
+const MainMenuLink = styled.a`
+  font-family: 'PretendardSemiBold';
+  font-size: var(--text-size-20);
+  font-weight: bold;
+  padding-left: 21px;
+  color: ${({ active }) =>
+    active ? 'var(--text-point-color)' : 'var(--gray)'};
+`;
+
+const Linebar = styled.hr`
   width: 100%;
   margin: 19px 0;
   height: 1px;
   background-color: #e4e4e4;
+  border: none;
 `;
-const NavSubul = styled.ul`
+
+const NavSubUl = styled.ul`
   padding-left: 20px;
   font-size: var(--text-size-16);
-
   li:last-child {
     padding-bottom: 38px;
   }
 `;
-const NavSubli = styled.li`
+
+const NavSubLi = styled.li`
   padding-bottom: 15px;
 `;
 
-const Nava = styled.a`
+const NavLink = styled.a`
   cursor: pointer;
   color: ${({ active }) => (active ? 'var(--text-point-color)' : '#515151')};
 `;
 
-const IconNavol = styled.ol`
+const SocialNavOl = styled.ol`
   padding-left: 20px;
   padding-top: 21px;
   display: flex;
 `;
-const IconNavli = styled.li`
+
+const SocialNavLi = styled.li`
   margin-right: 35px;
 `;
+
+const SocialLink = styled.a``;
 
 const SocialIcon = styled.img`
   width: 23px;
@@ -64,69 +80,74 @@ function MobileNav() {
   return (
     <NavContainer>
       <NavBox>
-        <Navul>
-          <Navli>
+        <NavUl>
+          <NavLi>
             <MainMenu>스테이</MainMenu>
-            <MenuLinebar />
-            <NavSubul>
-              <NavSubli>
-                <Nava href="/RoomA" active={pathname === '/RoomA'}>
+            <Linebar />
+            <NavSubUl>
+              <NavSubLi>
+                <NavLink href="/roomA" active={pathname === '/roomA'}>
                   홰경당
-                </Nava>
-              </NavSubli>
-              <NavSubli>
-                <Nava href="/RoomA" active={pathname === '/RoomB'}>
+                </NavLink>
+              </NavSubLi>
+              <NavSubLi>
+                <NavLink href="/roomA" active={pathname === '/roomB'}>
                   예린의집
-                </Nava>
-              </NavSubli>
-              <NavSubli>
-                <Nava href="/RoomA" active={pathname === '/RoomC'}>
+                </NavLink>
+              </NavSubLi>
+              <NavSubLi>
+                <NavLink href="/roomA" active={pathname === '/roomC'}>
                   다경당
-                </Nava>
-              </NavSubli>
-            </NavSubul>
-          </Navli>
-          <Navli>
-            <MainMenuA href="/onedayclass" active={pathname === '/OneDayClass'}>
+                </NavLink>
+              </NavSubLi>
+            </NavSubUl>
+          </NavLi>
+          <NavLi>
+            <MainMenuLink
+              href="/onedayclass"
+              active={pathname === '/onedayclass'}
+            >
               원데이클래스
-            </MainMenuA>
-            <MenuLinebar />
-          </Navli>
-          <Navli>
-            <MainMenuA>카페</MainMenuA>
-            <MenuLinebar />
-          </Navli>
-          <Navli>
-            <MainMenuA>아트샵</MainMenuA>
-            <MenuLinebar />
-          </Navli>
-          <Navli>
-            <MainMenuA>문화공간</MainMenuA>
-            <MenuLinebar />
-          </Navli>
-        </Navul>
+            </MainMenuLink>
+            <Linebar />
+          </NavLi>
+          <NavLi>
+            <MainMenuLink href="/artshop" active={pathname === '/artshop'}>
+              아트샵
+            </MainMenuLink>
+            <Linebar />
+          </NavLi>
+          <NavLi>
+            <MainMenuLink>카페</MainMenuLink>
+            <Linebar />
+          </NavLi>
+          <NavLi>
+            <MainMenuLink>문화공간</MainMenuLink>
+            <Linebar />
+          </NavLi>
+        </NavUl>
 
-        <IconNavol>
-          <IconNavli>
-            <a
+        <SocialNavOl>
+          <SocialNavLi>
+            <SocialLink
               target="_blank"
               href="https://www.instagram.com/inseori01/"
               rel="noreferrer"
             >
-              <SocialIcon src={insta} alt="인스타그램 아이콘" />
-            </a>
-          </IconNavli>
+              <SocialIcon src={instagram} alt="인스타그램 아이콘" />
+            </SocialLink>
+          </SocialNavLi>
 
-          <IconNavli>
-            <a
+          <SocialNavLi>
+            <SocialLink
               target="_blank"
               href="https://pf.kakao.com/_xnhxhrxj"
               rel="noreferrer"
             >
               <SocialIcon src={kakao} alt="카카오 아이콘" />
-            </a>
-          </IconNavli>
-        </IconNavol>
+            </SocialLink>
+          </SocialNavLi>
+        </SocialNavOl>
       </NavBox>
     </NavContainer>
   );
