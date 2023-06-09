@@ -1,6 +1,6 @@
 import ArtShop from 'pages/ArtShop';
 import Main from 'pages/Main';
-import OneDayCalss from 'pages/OnedayCalss';
+import OnedayClass from 'pages/OnedayClass';
 import OnedayClassDetail from 'pages/OnedayClassDetail';
 import RoomA from 'pages/RoomA';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
@@ -23,7 +23,7 @@ function App() {
         },
         {
           path: 'onedayclass',
-          element: <OneDayCalss />,
+          element: <OnedayClass />,
         },
         {
           path: 'onedayclass/:id',

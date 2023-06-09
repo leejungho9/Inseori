@@ -29,7 +29,7 @@ const Title = styled.h1`
   }
 `;
 
-const OneDayCalss = () => {
+const OnedayCalss = () => {
   return (
     <OneDayCalssContainer>
       <OneDayCalssWrapper>
@@ -40,4 +40,4 @@ const OneDayCalss = () => {
   );
 };
 
-export default OneDayCalss;
+export default OnedayCalss;

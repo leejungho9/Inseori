@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import classBanner from 'assets/images/OneDayClassDetail/onedayclassDetail.png';
 import ReservationForm from 'components/Common/Form/ReservationForm';
 
-const OnedayCalssDetialContainer = styled.main`
+const OnedayClassDetialContainer = styled.main`
   overflow: hidden;
 `;
 
@@ -55,7 +55,7 @@ const BorderLine = styled.hr`
 
 const OnedayClassDetail = () => {
   return (
-    <OnedayCalssDetialContainer>
+    <OnedayClassDetialContainer>
       <OnedayClassDetailWrapper>
         <OnedayClassDetailTitle>라탄조명 클래스</OnedayClassDetailTitle>
         <ReservationWrapper>
@@ -67,7 +67,7 @@ const OnedayClassDetail = () => {
           </ReservationFormBox>
         </ReservationWrapper>
       </OnedayClassDetailWrapper>
-    </OnedayCalssDetialContainer>
+    </OnedayClassDetialContainer>
   );
 };
 
