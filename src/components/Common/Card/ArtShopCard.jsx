@@ -45,7 +45,8 @@ const ArtShopImage = styled.img`
 const ArtShopInfoBox = styled.article`
   padding: 0 10px;
 `;
-const ArtInfoHead = styled.article`
+
+const ArtInfoHead = styled.section`
   display: flex;
   justify-content: space-between;
   padding-top: 30px;
@@ -62,7 +63,7 @@ const ArtName = styled.h2`
   font-size: var(--text-size-15);
 `;
 
-const ArtInfoBody = styled.article`
+const ArtInfoBody = styled.section`
   padding-bottom: 5px;
   line-height: 1.5;
   color: var(--gray);
@@ -72,7 +73,7 @@ const ArtInfoBody = styled.article`
   }
 `;
 
-const ArtAuthor = styled.h2`
+const ArtAuthor = styled.span`
   @media screen and (max-width: 500px) {
     span {
       display: none;
@@ -80,17 +81,17 @@ const ArtAuthor = styled.h2`
   }
 `;
 
-const ArtSize = styled.h2`
+const ArtSize = styled.span`
   font-size: var(--text-size-15);
 `;
 
-const ArtInfoFoot = styled.article`
+const ArtInfoFoot = styled.section`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 `;
 
-const ArtPrice = styled.h2`
+const ArtPrice = styled.span`
   font-size: var(--text-size-15);
   font-weight: bold;
 
