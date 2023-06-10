@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import { RowFlex } from 'styles/GlobalStyle';
 
 const ReserveLinkBtn = styled(Link)`
-  border: 1px solid var(--gray);
+  border: 2px solid var(--gray);
   font-weight: bold;
   width: 100%;
-  height: 40px;
+  height: 100%;
   border-radius: 30px;
   ${RowFlex}
   align-items: center;
