@@ -39,6 +39,7 @@ const ReservationBanner = styled.figure`
 const ReservationFormBox = styled.div`
   margin: 30px 0;
 `;
+
 const ReservationFormTitle = styled.h2`
   font-size: var(--text-size-18);
   font-weight: bold;
