@@ -1,4 +1,5 @@
 import ArtShop from 'pages/ArtShop';
+import ArtShopDetail from 'pages/ArtShopDetail';
 import Main from 'pages/Main';
 import OnedayClass from 'pages/OnedayClass';
 import OnedayClassDetail from 'pages/OnedayClassDetail';
@@ -32,6 +33,10 @@ function App() {
         {
           path: 'artshop',
           element: <ArtShop />,
+        },
+        {
+          path: 'artshop/:id',
+          element: <ArtShopDetail />,
         },
       ],
     },
