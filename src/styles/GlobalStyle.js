@@ -1,8 +1,8 @@
 import styled, { createGlobalStyle, css } from 'styled-components';
-import PretendardMedium from '../assets/fonts/Pretendard-Medium.woff2';
-import PretendardRegular from '../assets/fonts/Pretendard-Regular.woff2';
-import PretendardBold from '../assets/fonts/Pretendard-Bold.woff2';
-import PretendardSemiBold from '../assets/fonts/Pretendard-SemiBold.woff2';
+import PretendardMedium from 'assets/fonts/Pretendard-Medium.woff2';
+import PretendardRegular from 'assets/fonts/Pretendard-Regular.woff2';
+import PretendardBold from 'assets/fonts/Pretendard-Bold.woff2';
+import PretendardSemiBold from 'assets/fonts/Pretendard-SemiBold.woff2';
 // *  변수
 export const Variables = css`
   :root {
