@@ -6,20 +6,37 @@ import ReserveButton from '../Button/ReserveButton';
 
 const ClassInfoForm = styled(Form)`
   display: flex;
-`;
 
-const ClassInfoBox = styled.div`
-  width: 50%;
-  section:last-child {
-    margin-top: 37px;
+  @media screen and (max-width: 991px) {
+    flex-direction: column;
   }
 `;
 
-const ClassInfoTextBox = styled.section`
+const ClassInfoBox = styled.section`
+  width: 50%;
+  div:last-child {
+    margin-top: 37px;
+  }
+
+  @media screen and (max-width: 991px) {
+    width: 100%;
+    div:last-child {
+      margin-top: 55px;
+      margin-bottom: 75px;
+    }
+  }
+`;
+
+const ClassInfoTextBox = styled.div`
   height: 48px;
   margin-bottom: 6px;
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 991px) {
+    height: 20px;
+    margin-bottom: 20px;
+  }
 `;
 
 const ClassInfoTextLabel = styled.span`
@@ -30,6 +47,7 @@ const ClassInfoTextLabel = styled.span`
 `;
 
 const ClassInfoTextValue = styled.span`
+  font-family: PretendardRegular;
   font-size: var(--text-size-16);
 `;
 
@@ -42,9 +60,14 @@ const ClassCheckLable = styled.label`
   font-family: 'PretendardRegular';
 `;
 
-const ClassInfoInputBox = styled.div`
+const ClassInfoInputBox = styled.section`
   padding-left: 68px;
   width: 50%;
+
+  @media screen and (max-width: 991px) {
+    width: 100%;
+    padding-left: 0;
+  }
 `;
 
 const ClassInfoLabel = styled.label`
@@ -60,9 +83,10 @@ const ClassInfoInput = styled.input`
   border-bottom: 1px solid #d9d9d9;
   width: 100%;
   font-size: var(--text-size-16);
+  font-family: 'PretendardRegular';
 `;
 
-const ClassInfoDescBox = styled.section`
+const ClassInfoDescBox = styled.div`
   width: 100%;
   height: 48px;
   display: flex;
@@ -70,6 +94,10 @@ const ClassInfoDescBox = styled.section`
   margin-top: 37px;
   margin-bottom: 30px;
   font-family: PretendardRegular;
+
+  @media screen and (max-width: 500px) {
+    margin-top: 30px;
+  }
 `;
 
 const ClassInfoDesc = styled.p`
