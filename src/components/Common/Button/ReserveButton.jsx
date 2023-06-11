@@ -13,6 +13,9 @@ const ReserveLinkBtn = styled(Link)`
   align-items: center;
   font-size: var(--text-size-16);
   color: var(--gray);
+  @media screen and (max-width: 500px) {
+    border: 1px solid var(--gray);
+  }
 `;
 
 const ReserveSubmitBtn = styled.button`
@@ -26,6 +29,9 @@ const ReserveSubmitBtn = styled.button`
   align-items: center;
   font-size: var(--text-size-16);
   color: var(--gray);
+  @media screen and (max-width: 500px) {
+    border: 1px solid var(--gray);
+  }
 `;
 function ReserveButton({ children, url, link = true }) {
   return link ? (
