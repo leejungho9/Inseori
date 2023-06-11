@@ -26,13 +26,37 @@ const ArtShopDetailWrapper = styled.section`
   }
 `;
 
+const ArtShopDetailTitle = styled.h1`
+  display: none;
+
+  @media screen and (max-width: 991px) {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 30px 25px;
+    display: inline-block;
+  }
+`;
+
 const ArtShopDetailBox = styled.article`
   display: flex;
+  flex-wrap: wrap;
+  @media screen and (max-width: 1440px) {
+    flex-direction: column;
+    align-items: center;
+  }
+  @media screen and (max-width: 991px) {
+    padding: 0 25px;
+  }
 `;
 
 const ArtShopImageBox = styled.figure`
   width: 450px;
   height: 450px;
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    height: 380px;
+  }
 `;
 
 const ArtShopImage = styled.img`
@@ -48,9 +72,15 @@ const ArtShopInfoBox = styled.article`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media screen and (max-width: 1440px) {
+    width: 100%;
+    padding-left: 0;
+    padding-top: 45px;
+  }
 `;
 
-const ArtShopTitle = styled.h1`
+const ArtShopTitle = styled.h2`
   font-family: 'PretendardBold';
   font-weight: bold;
   font-size: var(--text-size-25);
@@ -62,10 +92,20 @@ const Linebar = styled.hr`
   background-color: #d9d9d9;
   height: 1px;
   margin: 30px 0;
+
+  @media screen and (max-width: 991px) {
+    margin: 15px 0;
+  }
 `;
 const ArtShopTextBox = styled.div`
+  display: flex;
   height: 27px;
-  margin-top: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+
+  @media screen and (max-width: 991px) {
+    margin-bottom: 15px;
+  }
 `;
 
 const ArtShopInfoLable = styled.span`
@@ -75,7 +115,12 @@ const ArtShopInfoLable = styled.span`
   font-weight: bold;
   font-size: var(--text-size-16);
   display: inline-block;
+
+  @media screen and (max-width: 991px) {
+    margin-right: 62px;
+  }
 `;
+
 const ArtShopInfoValue = styled.span`
   font-family: 'PretendardRegular';
   font-size: var(--text-size-16);
@@ -84,17 +129,31 @@ const ArtShopInfoValue = styled.span`
 const ReserveButtonBox = styled.div`
   width: 400px;
   height: 40px;
-  margin-top: 50px;
+  margin-top: 30px;
+  @media screen and (max-width: 1440px) {
+    width: 100%;
+  }
+  @media screen and (max-width: 991px) {
+    margin-top: 47px;
+  }
 `;
 
 const ArtShopDetailImageWrapper = styled.section`
   padding-top: 40px;
+
+  @media screen and (max-width: 991px) {
+    padding-top: 74px;
+  }
 `;
 
 const ArtShopDetailText = styled.h2`
   font-family: 'PretendardBold';
   font-size: 18px;
   margin-bottom: 30px;
+
+  @media screen and (max-width: 991px) {
+    display: none;
+  }
 `;
 
 const ArtShopDetailImageBox = styled.figure`
@@ -103,18 +162,29 @@ const ArtShopDetailImageBox = styled.figure`
   img:first-child {
     margin-bottom: 15px;
   }
+
+  @media screen and (max-width: 991px) {
+    img:first-child {
+      margin-bottom: 20px;
+    }
+  }
 `;
 
 const ArtShopDetailImage = styled.img`
   width: 100%;
   height: 467px;
   object-fit: cover;
+
+  @media screen and (max-width: 500px) {
+    height: 300px;
+  }
 `;
 
 const ArtShopDetail = () => {
   return (
     <ArtShopDetailContainer>
       <ArtShopDetailWrapper>
+        <ArtShopDetailTitle>아트샵</ArtShopDetailTitle>
         <ArtShopDetailBox>
           <ArtShopImageBox>
             <ArtShopImage src={artshop} />
