@@ -2,11 +2,12 @@ import OnedayClassCard from 'components/Common/Card/OnedayClassCard';
 import React from 'react';
 import styled from 'styled-components';
 
-const OneDayCalssContainer = styled.main`
+const OnedayCalssContainer = styled.main`
   overflow: hidden;
 `;
-const OneDayCalssWrapper = styled.figure`
+const OnedayCalssWrapper = styled.figure`
   float: right;
+  //! 전체너비 - 네브바 너비
   width: calc(100% - 435px);
   position: relative;
   margin-top: 150px;
@@ -18,26 +19,26 @@ const OneDayCalssWrapper = styled.figure`
     padding-bottom: 75px;
   }
 `;
-const Title = styled.h1`
+const OnedayCalssTitle = styled.h1`
   display: none;
 
   @media screen and (max-width: 991px) {
     font-family: 'PretendardBold';
     font-size: 22px;
     font-weight: bold;
-    margin: 30px;
+    margin: 30px 25px;
     display: inline-block;
   }
 `;
 
 const OnedayCalss = () => {
   return (
-    <OneDayCalssContainer>
-      <OneDayCalssWrapper>
-        <Title>원데이클래스</Title>
+    <OnedayCalssContainer>
+      <OnedayCalssWrapper>
+        <OnedayCalssTitle>원데이클래스</OnedayCalssTitle>
         <OnedayClassCard />
-      </OneDayCalssWrapper>
-    </OneDayCalssContainer>
+      </OnedayCalssWrapper>
+    </OnedayCalssContainer>
   );
 };
 
