@@ -16,7 +16,6 @@ const OnedayClassCardWrapper = styled.section`
   @media screen and (max-width: 1440px) {
     grid-template-columns: repeat(3, 1fr);
   }
-
   @media screen and (max-width: 1200px) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -45,6 +44,10 @@ const OnedayClassImage = styled.img`
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
+
+  @media screen and (max-width: 991px) {
+    border-radius: 15px;
+  }
 `;
 
 const OnedayClassInfoHead = styled.section`
