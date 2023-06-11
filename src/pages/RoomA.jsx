@@ -20,6 +20,7 @@ const MainContainer = styled.main`
 
 const MainWrpper = styled.figure`
   float: right;
+  //! 전체너비 - 네브바 너비
   width: calc(100% - 435px);
   position: relative;
   margin-top: 150px;
@@ -49,8 +50,10 @@ const RoomDescBox = styled.div``;
 
 const RoomTitle = styled.h1`
   font-size: var(--text-size-25);
+  font-family: PretendardBold;
   font-weight: bold;
   color: var(--dark);
+  letter-spacing: -0.07em;
 
   @media screen and (max-width: 991px) {
     text-align: center;
@@ -63,12 +66,14 @@ const RoomTitle = styled.h1`
 
 const RoomSubTitle = styled.p`
   font-size: var(--text-size-18);
+  font-family: PretendardRegular;
   color: var(--dark);
   margin-top: 16px;
+  letter-spacing: -0.07em;
 
   @media screen and (max-width: 991px) {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 13px;
   }
 
   @media screen and (max-width: 500px) {
@@ -81,6 +86,8 @@ const RoomDesc = styled.p`
   color: var(--gray);
   margin-top: 60px;
   line-height: 1.8;
+  font-family: PretendardRegular;
+  letter-spacing: -0.07em;
 
   @media screen and (max-width: 991px) {
     text-align: center;
