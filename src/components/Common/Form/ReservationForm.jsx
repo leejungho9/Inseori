@@ -7,7 +7,7 @@ import ReserveButton from '../Button/ReserveButton';
 const ClassInfoForm = styled(Form)`
   display: flex;
 
-  @media screen and (max-width: 991px) {
+  @media screen and (max-width: 1300px) {
     flex-direction: column;
   }
 `;
@@ -17,8 +17,7 @@ const ClassInfoBox = styled.section`
   div:last-child {
     margin-top: 37px;
   }
-
-  @media screen and (max-width: 991px) {
+  @media screen and (max-width: 1300px) {
     width: 100%;
     div:last-child {
       margin-top: 55px;
@@ -32,7 +31,9 @@ const ClassInfoTextBox = styled.div`
   margin-bottom: 6px;
   display: flex;
   align-items: center;
-
+  @media screen and (max-width: 1300px) {
+    height: 40px;
+  }
   @media screen and (max-width: 991px) {
     height: 20px;
     margin-bottom: 20px;
@@ -44,6 +45,10 @@ const ClassInfoTextLabel = styled.span`
   margin-right: 76px;
   font-size: var(--text-size-16);
   font-family: 'PretendardBold';
+
+  @media screen and (max-width: 500px) {
+    margin-right: 15px;
+  }
 `;
 
 const ClassInfoTextValue = styled.span`
@@ -58,13 +63,17 @@ const ClassCheckLable = styled.label`
   margin: 0 5px;
   cursor: pointer;
   font-family: 'PretendardRegular';
+
+  @media screen and (max-width: 500px) {
+    font-size: var(--text-size-13);
+  }
 `;
 
 const ClassInfoInputBox = styled.section`
   padding-left: 68px;
   width: 50%;
 
-  @media screen and (max-width: 991px) {
+  @media screen and (max-width: 1300px) {
     width: 100%;
     padding-left: 0;
   }
@@ -102,6 +111,9 @@ const ClassInfoDescBox = styled.div`
 
 const ClassInfoDesc = styled.p`
   font-size: var(--text-size-16);
+  @media screen and (max-width: 500px) {
+    font-size: var(--text-size-13);
+  }
 `;
 const ReservationForm = () => {
   const [name, setName] = useState('');
