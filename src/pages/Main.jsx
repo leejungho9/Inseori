@@ -4,8 +4,6 @@ import MainGalleryCarousel from '../components/Common/Carousel/MainGalleryCarous
 import MainBannerCarousel from '../components/Common/Carousel/MainBannerCarousel';
 
 const MainContainer = styled.main`
-  //! 추후에 사용
-  /* position: relative; */
   overflow: hidden;
 `;
 
@@ -25,8 +23,7 @@ const MainWrpper = styled.figure`
 const MainIntroWrapper = styled.section`
   width: 100%;
   display: flex;
-  padding: 150px 0 150px;
-
+  padding: 100px 0 150px;
   @media screen and (max-width: 991px) {
     padding: 55px 20px 90px;
   }
@@ -45,22 +42,25 @@ const MainIntroBox = styled.div`
 
 const MainTitle = styled.h1`
   display: none;
+
   @media screen and (max-width: 991px) {
     display: block;
-    font-weight: bold;
-    font-size: var(--text-size-20);
+    font-family: PretendardBold;
+    font-size: var(--text-size-25);
     color: var(--dark);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    letter-spacing: -0.07em;
   }
   @media screen and (max-width: 500px) {
     font-size: var(--text-size-24);
-    margin-bottom: 30px;
   }
 `;
-const MainIntroP = styled.p`
-  font-size: var(--text-size-15);
+const MainIntro = styled.p`
+  font-size: var(--text-size-18);
+  font-family: PretendardRegular;
   color: var(--gray);
-  line-height: 1.9;
+  line-height: 1.8;
+  letter-spacing: -0.07em;
 
   @media screen and (max-width: 991px) {
     font-size: var(--text-size-20);
@@ -80,8 +80,7 @@ const Break = styled.br`
 const MainGalleryCarouselWrapper = styled.figure`
   float: right;
   width: 100%;
-  margin-bottom: 130px;
-  position: relative;
+  padding-bottom: 130px;
   @media screen and (max-width: 991px) {
     margin-bottom: 120px;
   }
@@ -98,14 +97,14 @@ const Main = forwardRef((props, mainTopRef) => {
         <MainIntroWrapper>
           <MainIntroBox>
             <MainTitle>인서리공원</MainTitle>
-            <MainIntroP>
+            <MainIntro>
               인서리공원은 광양시 도시재생 프로젝트로 <Break />
               리노베이션한 한옥 14채를 활용하여 <Break />
               많은 사람들이 쉽게, 더 가까이 예술을 접하고 <Break />
               향유 할 수 있기를 바라는 기대로 만들어진
               <Break />
               복합문화공간입니다.
-            </MainIntroP>
+            </MainIntro>
           </MainIntroBox>
         </MainIntroWrapper>
         <MainGalleryCarouselWrapper>
