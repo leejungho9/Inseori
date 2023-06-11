@@ -22,9 +22,10 @@ const Title = styled.h1`
   display: none;
 
   @media screen and (max-width: 991px) {
+    font-family: 'PretendardBold';
     font-size: 22px;
     font-weight: bold;
-    margin: 30px 25px;
+    margin: 30px;
     display: inline-block;
   }
 `;
