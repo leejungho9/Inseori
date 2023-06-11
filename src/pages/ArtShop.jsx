@@ -9,6 +9,7 @@ const ArtShopContainer = styled.main`
 
 const ArtShopWrapper = styled.figure`
   float: right;
+  //! 전체너비 - 네브바 너비
   width: calc(100% - 435px);
   position: relative;
   margin-top: 150px;
@@ -21,7 +22,7 @@ const ArtShopWrapper = styled.figure`
   }
 `;
 
-const Title = styled.h1`
+const ArtShopTitle = styled.h1`
   display: none;
 
   @media screen and (max-width: 991px) {
@@ -36,9 +37,8 @@ const ArtShop = () => {
   return (
     <ArtShopContainer>
       <ArtShopWrapper>
-        <Title>아트샵</Title>
+        <ArtShopTitle>아트샵</ArtShopTitle>
         <ArtShopNav />
-
         <ArtShopCard />
       </ArtShopWrapper>
     </ArtShopContainer>
