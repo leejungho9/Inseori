@@ -11,7 +11,7 @@ const AccordionContainer = styled.section`
     padding: 80px 15px 0;
   }
   @media screen and (max-width: 500px) {
-    padding-top: 0;
+    padding-top: 10px;
   }
 `;
 const AccordionTitleBox = styled.article`
@@ -21,6 +21,10 @@ const AccordionTitleBox = styled.article`
   justify-content: space-between;
   padding-bottom: 15px;
   cursor: pointer;
+
+  @media screen and (max-width: 500px) {
+    height: 55px;
+  }
 `;
 
 const AccordionTitle = styled.h3`
@@ -79,7 +83,7 @@ const PlusIcon = styled(AiOutlinePlus)`
 
 const Accordion = () => {
   const accordiItemRef = useRef([]);
-  const [itemHeight, setItemHeight] = useState([]);
+  const [itemHeight, setItemHeight] = useState([0]);
   const [itemVisible, setItemVisible] = useState('itemA');
 
   //! 아코디언 활성화
@@ -95,7 +99,7 @@ const Accordion = () => {
   useEffect(() => {
     const heights = accordiItemRef.current.map((el) => el.scrollHeight);
     setItemHeight(heights);
-  }, [itemVisible, itemHeight]);
+  }, [itemVisible]);
 
   return (
     <AccordionContainer>
