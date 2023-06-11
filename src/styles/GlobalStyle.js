@@ -92,7 +92,6 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-
 }
 ol, ul {
 	list-style: none;
@@ -122,6 +121,15 @@ a {
 	text-decoration: none;
 	color: inherit;
   }
+
+input, textarea, button {
+ appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+};
 `;
 
 export default GlobalStyle;
