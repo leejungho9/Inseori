@@ -16,16 +16,23 @@ const ArtShopCardWrapper = styled.section`
   grid-template-columns: repeat(4, 1fr);
 
   @media screen and (max-width: 1440px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media screen and (max-width: 1200px) {
     grid-template-columns: repeat(2, 1fr);
   }
-
   @media screen and (max-width: 991px) {
     padding: 40px 20px 0px;
     row-gap: 75px;
     column-gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media screen and (max-width: 560px) {
     grid-template-columns: repeat(2, 1fr);
   }
 `;
+const ArtShopCardBox = styled.article``;
+
 const ArtShopCardLink = styled(Link)``;
 
 const ArtShopImageBox = styled.figure`
@@ -41,9 +48,6 @@ const ArtShopImage = styled.img`
   @media screen and (max-width: 991px) {
     border-radius: 15px;
   }
-`;
-const ArtShopInfoBox = styled.article`
-  padding: 0 10px;
 `;
 
 const ArtInfoHead = styled.section`
@@ -61,166 +65,177 @@ const ArtInfoHead = styled.section`
 const ArtName = styled.h2`
   color: var(--dark);
   font-size: var(--text-size-15);
+  font-family: 'PretendardBold';
+  letter-spacing: -0.07em;
 `;
 
 const ArtInfoBody = styled.section`
   padding-bottom: 5px;
   line-height: 1.5;
   color: var(--gray);
+`;
+
+const ArtAuthor = styled.span`
+  font-family: 'PretendardRegular';
   font-size: var(--text-size-15);
+  letter-spacing: -0.07em;
+
   @media screen and (max-width: 500px) {
     font-size: var(--text-size-14);
   }
 `;
 
-const ArtAuthor = styled.span`
-  @media screen and (max-width: 500px) {
-    span {
-      display: none;
-    }
-  }
-`;
-
 const ArtSize = styled.span`
+  font-family: 'PretendardRegular';
   font-size: var(--text-size-15);
+  letter-spacing: -0.07em;
+
+  @media screen and (max-width: 500px) {
+    font-size: var(--text-size-14);
+  }
 `;
 
 const ArtInfoFoot = styled.section`
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+
+  @media screen and (max-width: 991px) {
+    flex-direction: column;
+  }
 `;
 
 const ArtPrice = styled.span`
   font-size: var(--text-size-15);
-  font-weight: bold;
+  font-family: 'PretendardBold';
+  letter-spacing: -0.07em;
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 991px) {
     margin-top: 25px;
   }
 `;
 const ArtShopCard = () => {
   return (
     <ArtShopCardWrapper>
-      <ArtShopCardLink to="/ArtShop/1">
-        <ArtShopImageBox>
-          <ArtShopImage src={artshop1} alt="원데이클래스 이미지"></ArtShopImage>
-        </ArtShopImageBox>
-        <ArtShopInfoBox>
-          <ArtInfoHead>
-            <ArtName>Form-210503</ArtName>
-          </ArtInfoHead>
-          <ArtInfoBody>
-            <ArtAuthor>데이비드 걸스타인</ArtAuthor>
-          </ArtInfoBody>
-          <ArtInfoFoot>
-            <ArtSize>W 130.0 x H 130.0 cm </ArtSize>
-            <ArtPrice>45,000</ArtPrice>
-          </ArtInfoFoot>
-        </ArtShopInfoBox>
-      </ArtShopCardLink>
-      <ArtShopCardLink to="/ArtShop/1">
-        <ArtShopImageBox>
-          <ArtShopImage src={artshop2} alt="원데이클래스 이미지"></ArtShopImage>
-        </ArtShopImageBox>
-        <ArtShopInfoBox>
-          <ArtInfoHead>
-            <ArtName>Form-210503</ArtName>
-          </ArtInfoHead>
-          <ArtInfoBody>
-            <ArtAuthor>데이비드 걸스타인</ArtAuthor>
-          </ArtInfoBody>
-          <ArtInfoFoot>
-            <ArtSize>W 130.0 x H 130.0 cm </ArtSize>
-            <ArtPrice>45,000</ArtPrice>
-          </ArtInfoFoot>
-        </ArtShopInfoBox>
-      </ArtShopCardLink>
-      <ArtShopCardLink to="/ArtShop/1">
-        <ArtShopImageBox>
-          <ArtShopImage src={artshop3} alt="원데이클래스 이미지"></ArtShopImage>
-        </ArtShopImageBox>
-        <ArtShopInfoBox>
-          <ArtInfoHead>
-            <ArtName>Form-210503</ArtName>
-          </ArtInfoHead>
-          <ArtInfoBody>
-            <ArtAuthor>데이비드 걸스타인</ArtAuthor>
-          </ArtInfoBody>
-          <ArtInfoFoot>
-            <ArtSize>W 130.0 x H 130.0 cm </ArtSize>
-            <ArtPrice>45,000</ArtPrice>
-          </ArtInfoFoot>
-        </ArtShopInfoBox>
-      </ArtShopCardLink>
-      <ArtShopCardLink to="/ArtShop/1">
-        <ArtShopImageBox>
-          <ArtShopImage src={artshop4} alt="원데이클래스 이미지"></ArtShopImage>
-        </ArtShopImageBox>
-        <ArtShopInfoBox>
-          <ArtInfoHead>
-            <ArtName>Form-210503</ArtName>
-          </ArtInfoHead>
-          <ArtInfoBody>
-            <ArtAuthor>데이비드 걸스타인</ArtAuthor>
-          </ArtInfoBody>
-          <ArtInfoFoot>
-            <ArtSize>W 130.0 x H 130.0 cm </ArtSize>
-            <ArtPrice>45,000</ArtPrice>
-          </ArtInfoFoot>
-        </ArtShopInfoBox>
-      </ArtShopCardLink>
-      <ArtShopCardLink to="/ArtShop/1">
-        <ArtShopImageBox>
-          <ArtShopImage src={artshop2} alt="원데이클래스 이미지"></ArtShopImage>
-        </ArtShopImageBox>
-        <ArtShopInfoBox>
-          <ArtInfoHead>
-            <ArtName>Form-210503</ArtName>
-          </ArtInfoHead>
-          <ArtInfoBody>
-            <ArtAuthor>데이비드 걸스타인</ArtAuthor>
-          </ArtInfoBody>
-          <ArtInfoFoot>
-            <ArtSize>W 130.0 x H 130.0 cm </ArtSize>
-            <ArtPrice>45,000</ArtPrice>
-          </ArtInfoFoot>
-        </ArtShopInfoBox>
-      </ArtShopCardLink>
-      <ArtShopCardLink to="/ArtShop/1">
-        <ArtShopImageBox>
-          <ArtShopImage src={artshop2} alt="원데이클래스 이미지"></ArtShopImage>
-        </ArtShopImageBox>
-        <ArtShopInfoBox>
-          <ArtInfoHead>
-            <ArtName>Form-210503</ArtName>
-          </ArtInfoHead>
-          <ArtInfoBody>
-            <ArtAuthor>데이비드 걸스타인</ArtAuthor>
-          </ArtInfoBody>
-          <ArtInfoFoot>
-            <ArtSize>W 130.0 x H 130.0 cm </ArtSize>
-            <ArtPrice>45,000</ArtPrice>
-          </ArtInfoFoot>
-        </ArtShopInfoBox>
-      </ArtShopCardLink>
-      <ArtShopCardLink to="/ArtShop/1">
-        <ArtShopImageBox>
-          <ArtShopImage src={artshop4} alt="원데이클래스 이미지"></ArtShopImage>
-        </ArtShopImageBox>
-        <ArtShopInfoBox>
-          <ArtInfoHead>
-            <ArtName>Form-210503</ArtName>
-          </ArtInfoHead>
-          <ArtInfoBody>
-            <ArtAuthor>데이비드 걸스타인</ArtAuthor>
-          </ArtInfoBody>
-          <ArtInfoFoot>
-            <ArtSize>W 130.0 x H 130.0 cm </ArtSize>
-            <ArtPrice>45,000</ArtPrice>
-          </ArtInfoFoot>
-        </ArtShopInfoBox>
-      </ArtShopCardLink>
+      <ArtShopCardBox>
+        <ArtShopCardLink to="/ArtShop/1">
+          <ArtShopImageBox>
+            <ArtShopImage
+              src={artshop1}
+              alt="원데이클래스 이미지"
+            ></ArtShopImage>
+          </ArtShopImageBox>
+        </ArtShopCardLink>
+        <ArtInfoHead>
+          <ArtName>Form-210503</ArtName>
+        </ArtInfoHead>
+        <ArtInfoBody>
+          <ArtAuthor>데이비드 걸스타인</ArtAuthor>
+        </ArtInfoBody>
+        <ArtInfoFoot>
+          <ArtSize>W 130.0 x H 130.0 cm </ArtSize>
+          <ArtPrice>45,000</ArtPrice>
+        </ArtInfoFoot>
+      </ArtShopCardBox>
+      <ArtShopCardBox>
+        <ArtShopCardLink to="/ArtShop/1">
+          <ArtShopImageBox>
+            <ArtShopImage
+              src={artshop3}
+              alt="원데이클래스 이미지"
+            ></ArtShopImage>
+          </ArtShopImageBox>
+        </ArtShopCardLink>
+        <ArtInfoHead>
+          <ArtName>Form-210503</ArtName>
+        </ArtInfoHead>
+        <ArtInfoBody>
+          <ArtAuthor>데이비드 걸스타인</ArtAuthor>
+        </ArtInfoBody>
+        <ArtInfoFoot>
+          <ArtSize>W 130.0 x H 130.0 cm </ArtSize>
+          <ArtPrice>45,000</ArtPrice>
+        </ArtInfoFoot>
+      </ArtShopCardBox>
+      <ArtShopCardBox>
+        <ArtShopCardLink to="/ArtShop/1">
+          <ArtShopImageBox>
+            <ArtShopImage
+              src={artshop4}
+              alt="원데이클래스 이미지"
+            ></ArtShopImage>
+          </ArtShopImageBox>
+        </ArtShopCardLink>
+        <ArtInfoHead>
+          <ArtName>Form-210503</ArtName>
+        </ArtInfoHead>
+        <ArtInfoBody>
+          <ArtAuthor>데이비드 걸스타인</ArtAuthor>
+        </ArtInfoBody>
+        <ArtInfoFoot>
+          <ArtSize>W 130.0 x H 130.0 cm </ArtSize>
+          <ArtPrice>45,000</ArtPrice>
+        </ArtInfoFoot>
+      </ArtShopCardBox>
+      <ArtShopCardBox>
+        <ArtShopCardLink to="/ArtShop/1">
+          <ArtShopImageBox>
+            <ArtShopImage
+              src={artshop1}
+              alt="원데이클래스 이미지"
+            ></ArtShopImage>
+          </ArtShopImageBox>
+        </ArtShopCardLink>
+        <ArtInfoHead>
+          <ArtName>Form-210503</ArtName>
+        </ArtInfoHead>
+        <ArtInfoBody>
+          <ArtAuthor>데이비드 걸스타인</ArtAuthor>
+        </ArtInfoBody>
+        <ArtInfoFoot>
+          <ArtSize>W 130.0 x H 130.0 cm </ArtSize>
+          <ArtPrice>45,000</ArtPrice>
+        </ArtInfoFoot>
+      </ArtShopCardBox>
+      <ArtShopCardBox>
+        <ArtShopCardLink to="/ArtShop/1">
+          <ArtShopImageBox>
+            <ArtShopImage
+              src={artshop2}
+              alt="원데이클래스 이미지"
+            ></ArtShopImage>
+          </ArtShopImageBox>
+        </ArtShopCardLink>
+        <ArtInfoHead>
+          <ArtName>Form-210503</ArtName>
+        </ArtInfoHead>
+        <ArtInfoBody>
+          <ArtAuthor>데이비드 걸스타인</ArtAuthor>
+        </ArtInfoBody>
+        <ArtInfoFoot>
+          <ArtSize>W 130.0 x H 130.0 cm </ArtSize>
+          <ArtPrice>45,000</ArtPrice>
+        </ArtInfoFoot>
+      </ArtShopCardBox>
+      <ArtShopCardBox>
+        <ArtShopCardLink to="/ArtShop/1">
+          <ArtShopImageBox>
+            <ArtShopImage
+              src={artshop3}
+              alt="원데이클래스 이미지"
+            ></ArtShopImage>
+          </ArtShopImageBox>
+        </ArtShopCardLink>
+        <ArtInfoHead>
+          <ArtName>Form-210503</ArtName>
+        </ArtInfoHead>
+        <ArtInfoBody>
+          <ArtAuthor>데이비드 걸스타인</ArtAuthor>
+        </ArtInfoBody>
+        <ArtInfoFoot>
+          <ArtSize>W 130.0 x H 130.0 cm </ArtSize>
+          <ArtPrice>45,000</ArtPrice>
+        </ArtInfoFoot>
+      </ArtShopCardBox>
     </ArtShopCardWrapper>
   );
 };
