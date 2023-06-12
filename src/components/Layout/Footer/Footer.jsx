@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
-import logo from 'assets/images/footerimage.png';
-import map from 'assets/images/map.png';
-import insta from 'assets/images/insta.png';
-import kakao from 'assets/images/kakao.png';
+import logo from 'assets/images/common/footerimage.png';
+import map from 'assets/images/common/map.png';
+import insta from 'assets/images/common/insta.png';
+import kakao from 'assets/images/common/kakao.png';
 import { LineFlex } from '../../../styles/GlobalStyle';
 
 const FooterContainer = styled.footer`

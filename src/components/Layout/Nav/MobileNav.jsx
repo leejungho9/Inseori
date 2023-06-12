@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import instagram from 'assets/images/insta.png';
-import kakao from 'assets/images/kakao.png';
+import instagram from 'assets/images/common/insta.png';
+import kakao from 'assets/images/common/kakao.png';
 import { useLocation } from 'react-router-dom';
 
 const NavContainer = styled.nav`

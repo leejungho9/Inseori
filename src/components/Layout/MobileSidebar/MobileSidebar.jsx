@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { AiOutlineRight } from 'react-icons/ai';
-import reserveLogo from 'assets/images/reserLogo.png';
+import reserveLogo from 'assets/images/common/reserLogo.png';
 import MobileNav from 'components/Layout/Nav/MobileNav';
 
 const SidebarWrapper = styled.aside`

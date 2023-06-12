@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import oneday1 from 'assets/images/OneDayClass/oneday1.jpg';
-import oneday2 from 'assets/images/OneDayClass/oneday2.jpg';
-import oneday3 from 'assets/images/OneDayClass/oneday3.jpg';
+import oneday1 from 'assets/images/onedayclass/oneday1.jpg';
+import oneday2 from 'assets/images/onedayclass/oneday2.jpg';
+import oneday3 from 'assets/images/onedayclass/oneday3.jpg';
 
 const OnedayClassCardWrapper = styled.section`
   width: 100%;

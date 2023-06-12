@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import artshop1 from 'assets/images/ArtShop/artshop1.png';
-import artshop2 from 'assets/images/ArtShop/artshop2.png';
-import artshop3 from 'assets/images/ArtShop/artshop3.png';
-import artshop4 from 'assets/images/ArtShop/artshop4.png';
+import artshop1 from 'assets/images/artshop/artshop1.png';
+import artshop2 from 'assets/images/artshop/artshop2.png';
+import artshop3 from 'assets/images/artshop/artshop3.png';
+import artshop4 from 'assets/images/artshop/artshop4.png';
 
 const ArtShopCardWrapper = styled.section`
   width: 100%;

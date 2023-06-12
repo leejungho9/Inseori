@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import bean1 from 'assets/images/Cafe/bean1.png';
-import bean2 from 'assets/images/Cafe/bean2.png';
-import bean3 from 'assets/images/Cafe/bean3.png';
-import bean4 from 'assets/images/Cafe/bean4.png';
-import shop1 from 'assets/images/Cafe/shop1.png';
-import shop2 from 'assets/images/Cafe/shop2.png';
-import shop3 from 'assets/images/Cafe/shop3.png';
-import shop4 from 'assets/images/Cafe//shop4.png';
+import bean1 from 'assets/images/cafe/bean1.png';
+import bean2 from 'assets/images/cafe/bean2.png';
+import bean3 from 'assets/images/cafe/bean3.png';
+import bean4 from 'assets/images/cafe/bean4.png';
+import shop1 from 'assets/images/cafe/shop1.png';
+import shop2 from 'assets/images/cafe/shop2.png';
+import shop3 from 'assets/images/cafe/shop3.png';
+import shop4 from 'assets/images/cafe//shop4.png';
 
 const CafeShopWrapper = styled.section`
   width: 100%;
