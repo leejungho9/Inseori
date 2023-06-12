@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ReserveButton from 'components/Common/Button/ReserveButton';
-import RoomACarousel from 'components/Common/Carousel/RoomACarousel';
-import RoomAGalleryCarousel from 'components/Common/Carousel/RoomAGalleryCarousel';
-import ban from 'assets/images/ban.png';
-import ban2 from 'assets/images/ban2.png';
-import ban3 from 'assets/images/ban3.png';
-import ban4 from 'assets/images/ban4.png';
-import RoomA_1 from 'assets/images/RoomA/RoomB_1.jpg';
-import RoomA_2 from 'assets/images/RoomA/RoomB_2.jpg';
-import RoomA_3 from 'assets/images/RoomA/RoomB_3.jpg';
-import RoomA_4 from 'assets/images/RoomA/RoomB_4.jpg';
-import RoomA_5 from 'assets/images/RoomA/RoomB_5.jpg';
+import ban from 'assets/images/room/ban/ban.png';
+import ban2 from 'assets/images/room/ban/ban2.png';
+import ban3 from 'assets/images/room/ban/ban3.png';
+import ban4 from 'assets/images/room/ban/ban4.png';
+import room1 from 'assets/images/room/room1.jpg';
+import room2 from 'assets/images/room/room2.jpg';
+import room3 from 'assets/images/room/room3.jpg';
+import room4 from 'assets/images/room/room4.jpg';
+import room5 from 'assets/images/room/room5.jpg';
 import Accordion from 'components/Common/Accordion/Accordion';
+import roomgalleryData from 'data/roomgalleryData';
+import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
+import BannerCarousel from 'components/Common/Carousel/BannerCarousel';
+import roombannerData from 'data/roombannerData';
 
 const MainContainer = styled.main`
   overflow: hidden;
@@ -24,10 +26,12 @@ const MainWrpper = styled.figure`
   width: calc(100% - 435px);
   position: relative;
   margin-top: 150px;
+  padding-bottom: 130px;
 
   @media screen and (max-width: 991px) {
     width: 100%;
     margin-top: 70px;
+    padding-bottom: 70px;
   }
 `;
 
@@ -191,7 +195,7 @@ const RoomIconBox = styled.div`
   }
 
   @media screen and (max-width: 500px) {
-    padding: 95px 46px 67px;
+    padding: 95px 25px 0;
     justify-content: space-between;
   }
 `;
@@ -232,7 +236,7 @@ function RoomA() {
   return (
     <MainContainer>
       <MainWrpper>
-        <RoomACarousel />
+        <BannerCarousel slides={roombannerData} />
         <RoomDescWrapper>
           <RoomDescBox>
             <RoomTitle>홰경당</RoomTitle>
@@ -250,28 +254,33 @@ function RoomA() {
           </ReserveButtonBox>
         </RoomDescWrapper>
         {mobileGallery ? (
-          <RoomAGalleryCarousel />
+          <CarouselWrapper
+            slides={roomgalleryData}
+            width={'436px'}
+            height={'436px'}
+            padding={'25px'}
+          />
         ) : (
           <RoomImagesContainer>
             <HeadImageBox>
               <RoomImageWrapper className="item">
-                <RoomImage src={RoomA_1} alt="홰경당 이미지" />
+                <RoomImage src={room1} alt="홰경당 이미지" />
               </RoomImageWrapper>
               <RoomImageWrapper className="item">
-                <RoomImage src={RoomA_2} alt="홰경당 이미지" />
+                <RoomImage src={room2} alt="홰경당 이미지" />
               </RoomImageWrapper>
             </HeadImageBox>
             <BodyImageBox>
               <RoomImageWrapper className="item">
-                <RoomImage src={RoomA_3} alt="홰경당 이미지" />
+                <RoomImage src={room3} alt="홰경당 이미지" />
               </RoomImageWrapper>
               <RoomImageWrapper className="item">
-                <RoomImage src={RoomA_4} alt="홰경당 이미지" />
+                <RoomImage src={room4} alt="홰경당 이미지" />
               </RoomImageWrapper>
             </BodyImageBox>
             <FootImageBox>
               <RoomImageWrapper className="item">
-                <RoomImage src={RoomA_5} alt="홰경당 이미지" />
+                <RoomImage src={room5} alt="홰경당 이미지" />
               </RoomImageWrapper>
             </FootImageBox>
           </RoomImagesContainer>
