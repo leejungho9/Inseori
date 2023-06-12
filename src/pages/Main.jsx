@@ -1,7 +1,9 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
-import MainGalleryCarousel from '../components/Common/Carousel/MainGalleryCarousel';
-import MainBannerCarousel from '../components/Common/Carousel/MainBannerCarousel';
+import BannerCarousel from '../components/Common/Carousel/BannerCarousel';
+import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
+import maingalleryData from 'data/maingalleryData';
+import mainbannerData from 'data/mainbannerData';
 
 const MainContainer = styled.main`
   overflow: hidden;
@@ -13,10 +15,12 @@ const MainWrpper = styled.figure`
   width: calc(100% - 435px);
   position: relative;
   margin-top: 150px;
+  margin-bottom: 130px;
 
   @media screen and (max-width: 991px) {
     width: 100%;
     margin-top: 70px;
+    margin-bottom: 75px;
   }
 `;
 
@@ -77,23 +81,11 @@ const Break = styled.br`
   }
 `;
 
-const MainGalleryCarouselWrapper = styled.figure`
-  float: right;
-  width: 100%;
-  padding-bottom: 130px;
-  @media screen and (max-width: 991px) {
-    margin-bottom: 120px;
-  }
-  @media screen and (max-width: 500px) {
-    margin-bottom: 75px;
-  }
-`;
-
 const Main = forwardRef((props, mainTopRef) => {
   return (
     <MainContainer>
       <MainWrpper ref={mainTopRef}>
-        <MainBannerCarousel />
+        <BannerCarousel slides={mainbannerData} />
         <MainIntroWrapper>
           <MainIntroBox>
             <MainTitle>인서리공원</MainTitle>
@@ -107,9 +99,12 @@ const Main = forwardRef((props, mainTopRef) => {
             </MainIntro>
           </MainIntroBox>
         </MainIntroWrapper>
-        <MainGalleryCarouselWrapper>
-          <MainGalleryCarousel />
-        </MainGalleryCarouselWrapper>
+        <CarouselWrapper
+          slides={maingalleryData}
+          width={'435px'}
+          height={'435px'}
+          padding={'25px'}
+        />
       </MainWrpper>
     </MainContainer>
   );
