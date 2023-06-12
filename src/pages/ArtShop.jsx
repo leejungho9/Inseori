@@ -7,7 +7,7 @@ const ArtShopContainer = styled.main`
   overflow: hidden;
 `;
 
-const ArtShopWrapper = styled.figure`
+const ArtShopWrapper = styled.section`
   float: right;
   //! 전체너비 - 네브바 너비
   width: calc(100% - 435px);
