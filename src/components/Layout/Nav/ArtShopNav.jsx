@@ -36,8 +36,8 @@ const ArtShopNavLi = styled.li`
 
 const ArtShopNavLink = styled(Link)`
   margin-right: 40px;
-  font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
-  color: ${({ active }) => (active ? 'var(--text-point-color)' : 'normal')};
+  color: ${({ active }) =>
+    active ? 'var(--text-point-color)' : 'var(--gray)'};
   cursor: pointer;
 
   @media screen and (max-width: 991px) {
