@@ -29,8 +29,8 @@ const Image = styled.img`
   object-fit: cover;
 
   @media screen and (max-width: 500px) {
-    width: ${({ pathname }) => pathname === '/' && 200 + 'px'};
-    height: ${({ pathname }) => pathname === '/' && 200 + 'px'};
+    width: ${({ pathname }) => pathname === '/' && 250 + 'px'};
+    height: ${({ pathname }) => pathname === '/' && 250 + 'px'};
     width: ${({ pathname }) => pathname === '/roomA' && 300 + 'px'};
     height: ${({ pathname }) => pathname === '/roomA' && 300 + 'px'};
   }
