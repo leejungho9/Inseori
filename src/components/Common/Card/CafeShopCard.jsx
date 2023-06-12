@@ -56,11 +56,19 @@ const CafeShopName = styled.span`
   margin-top: 30px;
   margin-bottom: 25px;
   display: block;
+
+  @media screen and (max-width: 500px) {
+    font-size: var(--text-size-15);
+  }
 `;
 
 const CafeShopBottom = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 991px) {
+    flex-direction: column;
+  }
 `;
 
 const CafeShopInfo = styled.span`
@@ -68,6 +76,9 @@ const CafeShopInfo = styled.span`
   font-size: 16px;
   line-height: 19px;
   letter-spacing: -0.07em;
+  @media screen and (max-width: 500px) {
+    font-size: var(--text-size-14);
+  }
 `;
 
 const CafeShopPrice = styled.span`
@@ -75,6 +86,14 @@ const CafeShopPrice = styled.span`
   font-size: 16px;
   line-height: 19px;
   letter-spacing: -0.07em;
+
+  @media screen and (max-width: 991px) {
+    margin-top: 35px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: var(--text-size-15);
+  }
 `;
 
 const CafeShopCard = () => {
