@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import cafebanner from 'assets/images/Cafe/banner.png';
-import CafeGalleryCarousel from 'components/Common/Carousel/CafeGalleryCarousel';
+import cafebanner from 'assets/images/cafe/banner.png';
 import CafeShopCard from 'components/Common/Card/CafeShopCard';
 import Pagination from 'components/Common/Pagination/Pagination';
+import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
+import cafegalleryData from 'data/cafegalleryData';
 
 const CafeContainer = styled.main`
   overflow: hidden;
@@ -101,7 +102,12 @@ const Cafe = () => {
             보유하고 있으며 집으로 돌아 갈 때는 먹거리와 식재료 구입이 가능한
             새로운 라이프 스타일 공간을 추구하고 있습니다.
           </CafeDesc>
-          <CafeGalleryCarousel />
+          <CarouselWrapper
+            slides={cafegalleryData}
+            width={'450px'}
+            height={'450px'}
+            padding={'20px'}
+          />
         </CafeMenuBox>
         <CafeShopBox>
           <CafeShopName>Shop</CafeShopName>

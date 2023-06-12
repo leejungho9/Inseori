@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import classBanner from 'assets/images/OneDayClassDetail/onedayclassDetail.png';
 import ReservationForm from 'components/Common/Form/ReservationForm';
-import onedayCalssImage1 from 'assets/images/OneDayClassDetail/onedayClassImage1.png';
-import onedayCalssImage2 from 'assets/images/OneDayClassDetail/onedayClassImage2.png';
+import classBanner from 'assets/images/onedayclass/detail/onedayclassDetail.png';
+import onedayCalssImage1 from 'assets/images/onedayclass/detail/onedayClassImage1.png';
+import onedayCalssImage2 from 'assets/images/onedayclass/detail/onedayClassImage2.png';
 
 const OnedayClassDetialContainer = styled.main`
   overflow: hidden;

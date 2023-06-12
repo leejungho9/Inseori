@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import artshop from 'assets/images/ArtShop/artshop1.png';
 import ReserveButton from 'components/Common/Button/ReserveButton';
-import artshopDetail1 from 'assets/images/ArtShop/artshopDetail1.png';
-import artshopDetail2 from 'assets/images/ArtShop/artshopDetail2.png';
+import artshop from 'assets/images/artshop/artshop1.png';
+import artshopDetail1 from 'assets/images/artshop/artshopDetail1.png';
+import artshopDetail2 from 'assets/images/artshop/artshopDetail2.png';
 
 const ArtShopDetailContainer = styled.main`
   overflow: hidden;
