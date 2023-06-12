@@ -65,7 +65,7 @@ const ArtInfoHead = styled.section`
 const ArtName = styled.h2`
   color: var(--dark);
   font-size: var(--text-size-15);
-  font-family: 'PretendardBold';
+  font-family: 'PretendardSemiBold';
   letter-spacing: -0.07em;
 `;
 
@@ -106,7 +106,7 @@ const ArtInfoFoot = styled.section`
 
 const ArtPrice = styled.span`
   font-size: var(--text-size-15);
-  font-family: 'PretendardBold';
+  font-family: 'PretendardSemiBold';
   letter-spacing: -0.07em;
 
   @media screen and (max-width: 991px) {
@@ -133,7 +133,7 @@ const ArtShopCard = () => {
         </ArtInfoBody>
         <ArtInfoFoot>
           <ArtSize>W 130.0 x H 130.0 cm </ArtSize>
-          <ArtPrice>45,000</ArtPrice>
+          <ArtPrice>45,000원</ArtPrice>
         </ArtInfoFoot>
       </ArtShopCardBox>
       <ArtShopCardBox>
@@ -153,7 +153,7 @@ const ArtShopCard = () => {
         </ArtInfoBody>
         <ArtInfoFoot>
           <ArtSize>W 130.0 x H 130.0 cm </ArtSize>
-          <ArtPrice>45,000</ArtPrice>
+          <ArtPrice>45,000원</ArtPrice>
         </ArtInfoFoot>
       </ArtShopCardBox>
       <ArtShopCardBox>
@@ -173,7 +173,7 @@ const ArtShopCard = () => {
         </ArtInfoBody>
         <ArtInfoFoot>
           <ArtSize>W 130.0 x H 130.0 cm </ArtSize>
-          <ArtPrice>45,000</ArtPrice>
+          <ArtPrice>45,000원</ArtPrice>
         </ArtInfoFoot>
       </ArtShopCardBox>
       <ArtShopCardBox>
@@ -193,7 +193,7 @@ const ArtShopCard = () => {
         </ArtInfoBody>
         <ArtInfoFoot>
           <ArtSize>W 130.0 x H 130.0 cm </ArtSize>
-          <ArtPrice>45,000</ArtPrice>
+          <ArtPrice>45,000원</ArtPrice>
         </ArtInfoFoot>
       </ArtShopCardBox>
       <ArtShopCardBox>
@@ -213,7 +213,7 @@ const ArtShopCard = () => {
         </ArtInfoBody>
         <ArtInfoFoot>
           <ArtSize>W 130.0 x H 130.0 cm </ArtSize>
-          <ArtPrice>45,000</ArtPrice>
+          <ArtPrice>45,000원</ArtPrice>
         </ArtInfoFoot>
       </ArtShopCardBox>
       <ArtShopCardBox>
@@ -233,7 +233,7 @@ const ArtShopCard = () => {
         </ArtInfoBody>
         <ArtInfoFoot>
           <ArtSize>W 130.0 x H 130.0 cm </ArtSize>
-          <ArtPrice>45,000</ArtPrice>
+          <ArtPrice>45,000원</ArtPrice>
         </ArtInfoFoot>
       </ArtShopCardBox>
     </ArtShopCardWrapper>

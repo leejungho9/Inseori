@@ -44,10 +44,10 @@ const ClassInfoTextLabel = styled.span`
   width: 80px;
   margin-right: 76px;
   font-size: var(--text-size-16);
-  font-family: 'PretendardBold';
+  font-family: 'PretendardSemiBold';
 
   @media screen and (max-width: 500px) {
-    margin-right: 15px;
+    margin-right: 25px;
   }
 `;
 
@@ -82,7 +82,7 @@ const ClassInfoInputBox = styled.section`
 const ClassInfoLabel = styled.label`
   width: 156px;
   font-size: var(--text-size-16);
-  font-family: 'PretendardBold';
+  font-family: 'PretendardSemiBold';
   cursor: pointer;
 `;
 
@@ -111,8 +111,10 @@ const ClassInfoDescBox = styled.div`
 
 const ClassInfoDesc = styled.p`
   font-size: var(--text-size-16);
+  font-family: 'PretendardRegular';
+  letter-spacing: -0.07em;
   @media screen and (max-width: 500px) {
-    font-size: var(--text-size-13);
+    font-size: var(--text-size-14);
   }
 `;
 const ReservationForm = () => {

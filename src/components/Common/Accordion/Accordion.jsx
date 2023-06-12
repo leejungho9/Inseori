@@ -19,16 +19,17 @@ const AccordionTitleBox = styled.article`
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
   cursor: pointer;
 
   @media screen and (max-width: 500px) {
     height: 55px;
+    padding-bottom: 8px;
   }
 `;
 
 const AccordionTitle = styled.h3`
-  font-family: 'PretendardBold';
+  font-family: 'PretendardSemiBold';
   font-weight: bold;
   font-size: var(--text-size-16);
   color: var(--dark);

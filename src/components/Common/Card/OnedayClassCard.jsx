@@ -65,7 +65,7 @@ const OnedayClassInfoHead = styled.section`
 const OnedayClassName = styled.h2`
   color: var(--dark);
   font-size: var(--text-size-15);
-  font-family: 'PretendardBold';
+  font-family: 'PretendardSemiBold';
 `;
 
 const OnedayClassInfoBody = styled.section`
@@ -100,6 +100,7 @@ const OnedayClassPersonnel = styled.span`
 const OnedayClassInfoFoot = styled.section``;
 
 const OnedayClassPrice = styled.span`
+  font-family: 'PretendardSemiBold';
   font-size: var(--text-size-15);
   font-weight: bold;
 `;
