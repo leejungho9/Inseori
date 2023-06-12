@@ -122,7 +122,7 @@ a {
 	color: inherit;
   }
 
-input, textarea, button {
+input[type="text"], textarea, button {
  appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
