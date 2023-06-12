@@ -54,7 +54,7 @@ const RoomDescBox = styled.div``;
 
 const RoomTitle = styled.h1`
   font-size: var(--text-size-25);
-  font-family: PretendardBold;
+  font-family: PretendardSemiBold;
   font-weight: bold;
   color: var(--dark);
   letter-spacing: -0.07em;

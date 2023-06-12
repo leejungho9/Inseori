@@ -46,15 +46,16 @@ const MainIntroBox = styled.div`
 
 const MainTitle = styled.h1`
   display: none;
+  font-family: PretendardSemiBold;
+  font-size: var(--text-size-25);
+  color: var(--dark);
+  margin-bottom: 30px;
+  letter-spacing: -0.07em;
 
   @media screen and (max-width: 991px) {
     display: block;
-    font-family: PretendardBold;
-    font-size: var(--text-size-25);
-    color: var(--dark);
-    margin-bottom: 30px;
-    letter-spacing: -0.07em;
   }
+
   @media screen and (max-width: 500px) {
     font-size: var(--text-size-24);
   }

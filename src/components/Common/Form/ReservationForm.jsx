@@ -44,7 +44,7 @@ const ClassInfoTextLabel = styled.span`
   width: 80px;
   margin-right: 76px;
   font-size: var(--text-size-16);
-  font-family: 'PretendardBold';
+  font-family: 'PretendardSemiBold';
 
   @media screen and (max-width: 500px) {
     margin-right: 15px;
@@ -82,7 +82,7 @@ const ClassInfoInputBox = styled.section`
 const ClassInfoLabel = styled.label`
   width: 156px;
   font-size: var(--text-size-16);
-  font-family: 'PretendardBold';
+  font-family: 'PretendardSemiBold';
   cursor: pointer;
 `;
 
