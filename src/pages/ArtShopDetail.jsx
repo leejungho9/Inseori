@@ -34,6 +34,7 @@ const ArtShopDetailTitle = styled.h1`
     font-weight: bold;
     margin: 30px 25px;
     display: inline-block;
+    font-family: 'PretendardSemiBold';
   }
 `;
 
@@ -81,9 +82,13 @@ const ArtShopInfoBox = styled.article`
 `;
 
 const ArtShopTitle = styled.h2`
-  font-family: 'PretendardBold';
+  font-family: 'PretendardSemiBold';
   font-weight: bold;
   font-size: var(--text-size-25);
+
+  @media screen and (max-width: 500px) {
+    font-size: var(--text-size-18);
+  }
 `;
 
 const Linebar = styled.hr`
@@ -111,7 +116,7 @@ const ArtShopTextBox = styled.div`
 const ArtShopInfoLable = styled.span`
   width: 56px;
   margin-right: 87px;
-  font-family: 'PretendardBold';
+  font-family: 'PretendardSemiBold';
   font-weight: bold;
   font-size: var(--text-size-16);
   display: inline-block;

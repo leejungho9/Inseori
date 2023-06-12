@@ -25,14 +25,30 @@ const CafeWrapper = styled.section`
 `;
 const CafeTitle = styled.h1`
   font-size: var(--text-size-18);
-  font-family: 'PretendardBold';
+  font-family: 'PretendardSemiBold';
   font-weight: bold;
   margin-bottom: 20px;
+
+  @media screen and (max-width: 991px) {
+    margin: 30px 25px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: 22px;
+  }
 `;
 
 const CafeBannerBox = styled.figure`
   height: 300px;
   padding-right: 100px;
+
+  @media screen and (max-width: 991px) {
+    padding: 0 25px;
+  }
+  @media screen and (max-width: 500px) {
+    height: 430px;
+    height: 220px;
+  }
 `;
 
 const CafeBanner = styled.div`
@@ -41,6 +57,7 @@ const CafeBanner = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url(${cafebanner});
+  background-position: center;
 `;
 
 const CafeMenuBox = styled.figure``;
@@ -49,16 +66,26 @@ const CafeName = styled.figcaption`
   font-size: var(--text-size-18);
   font-family: 'PretendardBold';
   margin-top: 30px;
-  margin-bottom: 20px;
+
+  @media screen and (max-width: 991px) {
+    margin: 50px 25px 36px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: var(--text-size-15);
+  }
 `;
 
 const Linebar = styled.hr`
   width: 100%;
-  margin-bottom: 30px;
   height: 1px;
   background-color: #e4e4e4;
   border: none;
-  padding-right: 100px;
+  margin: 20px 100px 30px 0;
+  display: block;
+  @media screen and (max-width: 991px) {
+    display: none;
+  }
 `;
 
 const CafeDesc = styled.p`
@@ -67,18 +94,41 @@ const CafeDesc = styled.p`
   line-height: 234.5%;
   letter-spacing: -0.07em;
   margin-bottom: 50px;
+
+  @media screen and (max-width: 991px) {
+    margin-bottom: 45px;
+    padding: 0 25px;
+  }
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    line-height: 29px;
+    text-align: justify;
+    letter-spacing: -0.095em;
+  }
 `;
 
 const CafeShopBox = styled.figure`
   padding-right: 100px;
   padding-bottom: 145px;
+
+  @media screen and (max-width: 991px) {
+    padding-right: 0px;
+    padding-bottom: 75px;
+  }
 `;
 
 const CafeShopName = styled.figcaption`
   font-size: var(--text-size-18);
   font-family: 'PretendardBold';
   margin-top: 60px;
-  margin-bottom: 20px;
+
+  @media screen and (max-width: 991px) {
+    margin: 50px 25px 0px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: var(--text-size-15);
+  }
 `;
 
 const PaginationBox = styled.section`
