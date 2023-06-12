@@ -118,7 +118,9 @@ function MobileNav() {
             <Linebar />
           </NavLi>
           <NavLi>
-            <MainMenuLink>카페</MainMenuLink>
+            <MainMenuLink href="/cafe" active={pathname === '/cafe'}>
+              카페
+            </MainMenuLink>
             <Linebar />
           </NavLi>
           <NavLi>

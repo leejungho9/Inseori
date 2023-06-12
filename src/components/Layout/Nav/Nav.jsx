@@ -154,7 +154,9 @@ function Nav() {
             </MainMenuLink>
           </NavLi>
           <NavLi>
-            <MainMenuLink className="mainMenu">카페</MainMenuLink>
+            <MainMenuLink href="/cafe" active={pathname === '/cafe'}>
+              카페
+            </MainMenuLink>
           </NavLi>
           <NavLi>
             <MainMenuLink className="mainMenu">문화공간</MainMenuLink>
