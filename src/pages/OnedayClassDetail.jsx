@@ -27,9 +27,8 @@ const OnedayClassDetailWrapper = styled.section`
 `;
 
 const OnedayClassDetailTitle = styled.h1`
-  font-family: 'PretendardBold';
-  font-size: var(--text-size-18);
-  font-weight: bold;
+  font-family: 'PretendardSemiBold';
+  font-size: var(--text-size-22);
 
   @media screen and (max-width: 991px) {
     margin: 30px 25px;
@@ -65,7 +64,7 @@ const ReservationFormBox = styled.div`
 `;
 
 const ReservationFormTitle = styled.h2`
-  font-family: 'PretendardBold';
+  font-family: 'PretendardSemiBold';
   font-size: var(--text-size-18);
   font-weight: bold;
 `;
@@ -120,6 +119,8 @@ const OnedayClassDetailDescBox = styled.article`
 const OnedayClassDetailDesc = styled.p`
   font-size: var(--text-size-16);
   font-family: PretendardRegular;
+  line-height: 32px;
+  letter-spacing: -0.06em;
 `;
 const OnedayClassDetail = () => {
   return (
