@@ -1,6 +1,7 @@
 import ArtShop from 'pages/ArtShop';
 import ArtShopDetail from 'pages/ArtShopDetail';
 import Cafe from 'pages/Cafe';
+import CafeDetail from 'pages/CafeDetail';
 import Main from 'pages/Main';
 import OnedayClass from 'pages/OnedayClass';
 import OnedayClassDetail from 'pages/OnedayClassDetail';
@@ -42,6 +43,10 @@ function App() {
         {
           path: 'cafe',
           element: <Cafe />,
+        },
+        {
+          path: 'cafe/:id',
+          element: <CafeDetail />,
         },
       ],
     },
