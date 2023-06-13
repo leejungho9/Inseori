@@ -116,7 +116,7 @@ const OnedayClassCard = () => {
   return (
     <OnedayClassCardWrapper>
       <OnedayClassCardBox>
-        <OnedayClassCardLink to="/onedayclass/1">
+        <OnedayClassCardLink to="/onedayClass/1">
           <OnedayClassImageBox>
             <OnedayClassImage
               src={oneday1}
@@ -139,7 +139,7 @@ const OnedayClassCard = () => {
         </OnedayClassInfoFoot>
       </OnedayClassCardBox>
       <OnedayClassCardBox>
-        <OnedayClassCardLink to="/onedayclass/1">
+        <OnedayClassCardLink to="/onedayClass/1">
           <OnedayClassImageBox>
             <OnedayClassImage
               src={oneday3}
@@ -162,7 +162,7 @@ const OnedayClassCard = () => {
         </OnedayClassInfoFoot>
       </OnedayClassCardBox>
       <OnedayClassCardBox>
-        <OnedayClassCardLink to="/onedayclass/1">
+        <OnedayClassCardLink to="/onedayClass/1">
           <OnedayClassImageBox>
             <OnedayClassImage
               src={oneday2}
@@ -185,7 +185,7 @@ const OnedayClassCard = () => {
         </OnedayClassInfoFoot>
       </OnedayClassCardBox>
       <OnedayClassCardBox>
-        <OnedayClassCardLink to="/onedayclass/1">
+        <OnedayClassCardLink to="/onedayClass/1">
           <OnedayClassImageBox>
             <OnedayClassImage
               src={oneday1}
@@ -208,7 +208,7 @@ const OnedayClassCard = () => {
         </OnedayClassInfoFoot>
       </OnedayClassCardBox>
       <OnedayClassCardBox>
-        <OnedayClassCardLink to="/onedayclass/1">
+        <OnedayClassCardLink to="/onedayClass/1">
           <OnedayClassImageBox>
             <OnedayClassImage
               src={oneday1}
@@ -231,7 +231,7 @@ const OnedayClassCard = () => {
         </OnedayClassInfoFoot>
       </OnedayClassCardBox>
       <OnedayClassCardBox>
-        <OnedayClassCardLink to="/onedayclass/1">
+        <OnedayClassCardLink to="/onedayClass/1">
           <OnedayClassImageBox>
             <OnedayClassImage
               src={oneday3}
@@ -254,7 +254,7 @@ const OnedayClassCard = () => {
         </OnedayClassInfoFoot>
       </OnedayClassCardBox>
       <OnedayClassCardBox>
-        <OnedayClassCardLink to="/onedayclass/1">
+        <OnedayClassCardLink to="/onedayClass/1">
           <OnedayClassImageBox>
             <OnedayClassImage
               src={oneday1}
@@ -277,7 +277,7 @@ const OnedayClassCard = () => {
         </OnedayClassInfoFoot>
       </OnedayClassCardBox>
       <OnedayClassCardBox>
-        <OnedayClassCardLink to="/onedayclass/1">
+        <OnedayClassCardLink to="/onedayClass/1">
           <OnedayClassImageBox>
             <OnedayClassImage
               src={oneday2}
