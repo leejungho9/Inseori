@@ -33,8 +33,10 @@ const Image = styled.img`
     height: ${({ pathname }) => pathname === '/' && 250 + 'px'};
     width: ${({ pathname }) => pathname === '/roomA' && 300 + 'px'};
     height: ${({ pathname }) => pathname === '/roomA' && 300 + 'px'};
-    width: ${({ pathname }) => pathname === '/cafe' && 270 + 'px'};
-    height: ${({ pathname }) => pathname === '/cafe' && 270 + 'px'};
+    width: ${({ pathname }) =>
+      pathname === '/cafe' || ('/artshop' && 270 + 'px')};
+    height: ${({ pathname }) =>
+      pathname === '/cafe' || ('/artshop' && 270 + 'px')};
   }
 `;
 
