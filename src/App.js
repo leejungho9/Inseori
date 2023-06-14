@@ -2,6 +2,7 @@ import ArtShop from 'pages/ArtShop';
 import ArtShopDetail from 'pages/ArtShopDetail';
 import Cafe from 'pages/Cafe';
 import CafeDetail from 'pages/CafeDetail';
+import CultureSpace from 'pages/CultureSpace';
 import Main from 'pages/Main';
 import OnedayClass from 'pages/OnedayClass';
 import OnedayClassDetail from 'pages/OnedayClassDetail';
@@ -25,11 +26,11 @@ function App() {
           element: <RoomA />,
         },
         {
-          path: 'onedayclass',
+          path: 'onedayClass',
           element: <OnedayClass />,
         },
         {
-          path: 'onedayclass/:id',
+          path: 'onedayClass/:id',
           element: <OnedayClassDetail />,
         },
         {
@@ -47,6 +48,10 @@ function App() {
         {
           path: 'cafe/:id',
           element: <CafeDetail />,
+        },
+        {
+          path: 'cultureSpace',
+          element: <CultureSpace />,
         },
       ],
     },
