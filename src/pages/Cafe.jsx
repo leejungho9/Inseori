@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import cafebanner from 'assets/images/cafe/banner.png';
-import CafeShopCard from 'components/Common/Card/CafeCard';
-import Pagination from 'components/Common/Pagination/Pagination';
 import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
-import cafegalleryData from 'data/cafegalleryData';
+import cafeData from 'data/cafeData';
 
 const CafeContainer = styled.main`
   overflow: hidden;
@@ -24,14 +22,11 @@ const CafeWrapper = styled.section`
   }
 `;
 
-const CafeBox = styled.article`
-  padding-bottom: 145px;
-`;
+const CafeBox = styled.article``;
 
 const CafeTitle = styled.h1`
   font-size: var(--text-size-18);
-  font-family: 'PretendardSemiBold';
-  font-weight: bold;
+  font-family: 'PretendardBold';
   margin-bottom: 20px;
 
   @media screen and (max-width: 991px) {
@@ -112,67 +107,29 @@ const CafeDesc = styled.p`
   }
 `;
 
-const CafeShopBox = styled.figure`
-  padding-right: 100px;
-
-  @media screen and (max-width: 991px) {
-    padding-right: 0px;
-    padding-bottom: 75px;
-  }
-`;
-
-const CafeShopName = styled.figcaption`
-  font-size: var(--text-size-18);
-  font-family: 'PretendardBold';
-  margin-top: 60px;
-
-  @media screen and (max-width: 991px) {
-    margin: 50px 25px 0px;
-  }
-
-  @media screen and (max-width: 500px) {
-    font-size: var(--text-size-15);
-  }
-`;
-
-const PaginationBox = styled.section`
-  display: flex;
-  justify-content: center;
-`;
 const Cafe = () => {
   return (
     <CafeContainer>
       <CafeWrapper>
-        <CafeBox>
-          <CafeTitle>카페</CafeTitle>
-          <CafeBannerBox>
-            <CafeBanner />
-          </CafeBannerBox>
-          <CafeMenuBox>
-            <CafeName>Aat/menu</CafeName>
-            <Linebar />
-            <CafeDesc>
-              Aat 카페는 커피, 식사와 와인 그리고 푸드마켓이 한 공간에 있는
-              One-stop-shop입니다. 간단한 식사는 물론 다양한 디저트와
-              와인리스트를 보유하고 있으며 집으로 돌아 갈 때는 먹거리와 식재료
-              구입이 가능한 새로운 라이프 스타일 공간을 추구하고 있습니다.
-            </CafeDesc>
-            <CarouselWrapper
-              slides={cafegalleryData}
-              width={'450px'}
-              height={'450px'}
-              padding={'20px'}
-            />
-          </CafeMenuBox>
-          <CafeShopBox>
-            <CafeShopName>Shop</CafeShopName>
-            <Linebar />
-            <CafeShopCard />
-          </CafeShopBox>
-        </CafeBox>
-        <PaginationBox>
-          <Pagination />
-        </PaginationBox>
+        {cafeData && (
+          <CafeBox>
+            <CafeTitle>카페</CafeTitle>
+            <CafeBannerBox>
+              <CafeBanner />
+            </CafeBannerBox>
+            <CafeMenuBox>
+              <CafeName>Aat/menu</CafeName>
+              <Linebar />
+              <CafeDesc>{cafeData.desc}</CafeDesc>
+              <CarouselWrapper
+                slides={cafeData.gallery}
+                width={'450px'}
+                height={'450px'}
+                padding={'20px'}
+              />
+            </CafeMenuBox>
+          </CafeBox>
+        )}
       </CafeWrapper>
     </CafeContainer>
   );
