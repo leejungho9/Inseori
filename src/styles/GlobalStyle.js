@@ -20,6 +20,7 @@ export const Variables = css`
     --text-size-16: 1.6rem;
     --text-size-18: 1.8rem;
     --text-size-20: 2rem;
+    --text-size-22: 2.2rem;
     --text-size-24: 2.4rem;
     --text-size-25: 2.5rem;
     --text-size-30: 3rem;
