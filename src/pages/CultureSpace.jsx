@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-// import Pagination from 'components/Common/Pagination/Pagination';
 import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
 import cultureData from 'data/cultureData';
 import ReserveButton from 'components/Common/Button/ReserveButton';
@@ -26,16 +25,50 @@ const CultureSpaceWrapper = styled.section`
 
 const CultureSpaceBox = styled.article``;
 
+const CultureNavBox = styled.nav`
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+  span {
+    font-family: 'PretendardBold';
+    font-size: var(--text-size-18);
+    padding: 0 10px;
+  }
+
+  span:last-child {
+    display: none;
+  }
+
+  @media screen and (max-width: 991px) {
+    margin: 28px 25px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-family: 'PretendardSemiBold';
+    font-size: var(--text-size-22);
+    line-height: 27px;
+    letter-spacing: -0.07em;
+  }
+`;
+
+const CultureNavMenu = styled.h1`
+  font-size: var(--text-size-18);
+  font-family: 'PretendardBold';
+  color: ${({ active }) => active && 'var(--text-point-color)'};
+  cursor: pointer;
+`;
+
 const CultureSpaceBannerBox = styled.figure`
   height: 300px;
   padding-right: 100px;
 
   @media screen and (max-width: 991px) {
-    padding: 0 25px;
+    width: 100%;
+    padding-right: 0;
   }
   @media screen and (max-width: 500px) {
-    height: 430px;
-    height: 220px;
+    width: 100%;
+    height: 240px;
   }
 `;
 
@@ -50,6 +83,10 @@ const CultureSpaceBanner = styled.div`
 
 const CultureSpaceMenuBox = styled.figure`
   padding-right: 100px;
+
+  @media screen and (max-width: 991px) {
+    padding-right: 0px;
+  }
 `;
 
 const CultureSpaceName = styled.figcaption`
@@ -58,7 +95,7 @@ const CultureSpaceName = styled.figcaption`
   margin-top: 30px;
 
   @media screen and (max-width: 991px) {
-    margin: 50px 25px 36px;
+    margin: 50px 35px 17px;
   }
 
   @media screen and (max-width: 500px) {
@@ -73,8 +110,9 @@ const Linebar = styled.hr`
   border: none;
   margin: 20px 0px 30px 0px;
   display: block;
-  @media screen and (max-width: 991px) {
-    display: none;
+
+  @media screen and (max-width: 900px) {
+    margin: 0px 100px 17px 0;
   }
 `;
 
@@ -83,6 +121,11 @@ const CultureDescBox = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 50px;
+
+  @media screen and (max-width: 991px) {
+    flex-direction: column;
+    margin-bottom: 75px;
+  }
 `;
 
 const CultureSpaceDesc = styled.p`
@@ -90,16 +133,18 @@ const CultureSpaceDesc = styled.p`
   font-size: 16px;
   line-height: 234.5%;
   letter-spacing: -0.07em;
+  font-size: var(--text-size-16);
 
   @media screen and (max-width: 991px) {
-    margin-bottom: 45px;
-    padding: 0 25px;
-  }
-  @media screen and (max-width: 500px) {
+    margin-bottom: 50px;
+    padding: 0 35px;
     width: 100%;
     line-height: 29px;
     text-align: justify;
     letter-spacing: -0.095em;
+  }
+  @media screen and (max-width: 500px) {
+    width: 100%;
   }
 `;
 
@@ -107,6 +152,12 @@ const ReserveButtonBox = styled.div`
   margin-top: 25px;
   width: 400px;
   height: 40px;
+
+  @media screen and (max-width: 991px) {
+    margin-top: 0px;
+    width: 100%;
+    padding: 0 35px;
+  }
 `;
 
 const CultureSpaceShopBox = styled.figure`
@@ -114,7 +165,7 @@ const CultureSpaceShopBox = styled.figure`
 
   @media screen and (max-width: 991px) {
     padding-right: 0px;
-    padding-bottom: 75px;
+    padding-bottom: 0px;
   }
 `;
 
@@ -130,35 +181,6 @@ const CultureSpaceShopName = styled.figcaption`
   @media screen and (max-width: 500px) {
     font-size: var(--text-size-15);
   }
-`;
-
-//! 사용여부 불확실
-// const PaginationBox = styled.section`
-//   display: flex;
-//   justify-content: center;
-// `;
-
-const CultureNavBox = styled.nav`
-  width: 100%;
-  display: flex;
-  margin-bottom: 20px;
-  span {
-    font-family: 'PretendardBold';
-    font-size: var(--text-size-18);
-    padding: 0 10px;
-  }
-
-  span:last-child {
-    display: none;
-  }
-`;
-
-const CultureNavMenu = styled.h1`
-  font-size: 15px;
-  font-size: var(--text-size-18);
-  font-family: 'PretendardBold';
-  color: ${({ active }) => active && 'var(--text-point-color)'};
-  cursor: pointer;
 `;
 
 const CultureSpace = () => {
@@ -220,9 +242,6 @@ const CultureSpace = () => {
               </>
             ))}
         </CultureSpaceBox>
-        {/* <PaginationBox>
-          <Pagination />
-        </PaginationBox> */}
       </CultureSpaceWrapper>
     </CultureSpaceContainer>
   );

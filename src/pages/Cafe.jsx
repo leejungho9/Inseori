@@ -30,11 +30,14 @@ const CafeTitle = styled.h1`
   margin-bottom: 20px;
 
   @media screen and (max-width: 991px) {
-    margin: 30px 25px;
+    margin: 28px 25px;
   }
 
   @media screen and (max-width: 500px) {
+    font-family: 'PretendardSemiBold';
     font-size: var(--text-size-22);
+    line-height: 27px;
+    letter-spacing: -0.07em;
   }
 `;
 
@@ -43,11 +46,12 @@ const CafeBannerBox = styled.figure`
   padding-right: 100px;
 
   @media screen and (max-width: 991px) {
-    padding: 0 25px;
+    width: 100%;
+    padding-right: 0;
   }
   @media screen and (max-width: 500px) {
-    height: 430px;
-    height: 220px;
+    width: 100%;
+    height: 240px;
   }
 `;
 
@@ -60,7 +64,13 @@ const CafeBanner = styled.div`
   background-position: center;
 `;
 
-const CafeMenuBox = styled.figure``;
+const CafeMenuBox = styled.figure`
+  padding-right: 100px;
+
+  @media screen and (max-width: 991px) {
+    padding-right: 0px;
+  }
+`;
 
 const CafeName = styled.figcaption`
   font-size: var(--text-size-18);
@@ -68,7 +78,7 @@ const CafeName = styled.figcaption`
   margin-top: 30px;
 
   @media screen and (max-width: 991px) {
-    margin: 50px 25px 36px;
+    margin: 50px 35px 17px;
   }
 
   @media screen and (max-width: 500px) {
@@ -83,8 +93,9 @@ const Linebar = styled.hr`
   border: none;
   margin: 20px 100px 30px 0;
   display: block;
-  @media screen and (max-width: 991px) {
-    display: none;
+
+  @media screen and (max-width: 900px) {
+    margin: 0px 100px 17px 0;
   }
 `;
 
@@ -94,10 +105,15 @@ const CafeDesc = styled.p`
   line-height: 234.5%;
   letter-spacing: -0.07em;
   margin-bottom: 50px;
+  font-size: var(--text-size-16);
 
   @media screen and (max-width: 991px) {
-    margin-bottom: 45px;
-    padding: 0 25px;
+    margin-bottom: 46px;
+    padding: 0 35px;
+    width: 100%;
+    line-height: 29px;
+    text-align: justify;
+    letter-spacing: -0.095em;
   }
   @media screen and (max-width: 500px) {
     width: 100%;
@@ -121,13 +137,13 @@ const Cafe = () => {
               <CafeName>Aat/menu</CafeName>
               <Linebar />
               <CafeDesc>{cafeData.desc}</CafeDesc>
-              <CarouselWrapper
-                slides={cafeData.gallery}
-                width={'450px'}
-                height={'450px'}
-                padding={'20px'}
-              />
             </CafeMenuBox>
+            <CarouselWrapper
+              slides={cafeData.gallery}
+              width={'450px'}
+              height={'450px'}
+              padding={'20px'}
+            />
           </CafeBox>
         )}
       </CafeWrapper>
