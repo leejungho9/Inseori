@@ -14,14 +14,6 @@ const NavUl = styled.ul``;
 
 const NavLi = styled.li``;
 
-const MainMenu = styled.span`
-  font-family: 'PretendardSemiBold';
-  font-size: var(--text-size-18);
-  color: var(--gray);
-  font-weight: bold;
-  padding-left: 21px;
-`;
-
 const MainMenuLink = styled.a`
   font-family: 'PretendardSemiBold';
   font-size: var(--text-size-20);
@@ -82,7 +74,7 @@ function MobileNav() {
       <NavBox>
         <NavUl>
           <NavLi>
-            <MainMenu>스테이</MainMenu>
+            <MainMenuLink href="/roomA">스테이</MainMenuLink>
             <Linebar />
             <NavSubUl>
               <NavSubLi>
@@ -124,7 +116,12 @@ function MobileNav() {
             <Linebar />
           </NavLi>
           <NavLi>
-            <MainMenuLink>문화공간</MainMenuLink>
+            <MainMenuLink
+              href="/cultureSpace"
+              active={pathname === '/cultureSpace'}
+            >
+              문화공간
+            </MainMenuLink>
             <Linebar />
           </NavLi>
         </NavUl>

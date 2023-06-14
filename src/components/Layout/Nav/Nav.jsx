@@ -33,13 +33,6 @@ const NavLi = styled.li`
     margin-bottom: 30px;
   }
 `;
-const MainMenu = styled.span`
-  font-family: 'PretendardSemiBold';
-  font-size: var(--text-size-18);
-  color: var(--gray);
-  font-weight: bold;
-  cursor: pointer;
-`;
 
 const MainMenuLink = styled.a`
   font-family: 'PretendardSemiBold';
@@ -119,7 +112,9 @@ function Nav() {
       <NavBox>
         <Navul>
           <NavLi onMouseLeave={closeSubMenu}>
-            <MainMenu onMouseEnter={showSubMenu}>스테이</MainMenu>
+            <MainMenuLink onMouseEnter={showSubMenu} href="/roomA">
+              스테이
+            </MainMenuLink>
             <NavSubUl subMenuVisible={subMenuVisible}>
               <NavSubLi>
                 <NavLink to="/roomA" active={pathname === '/roomA'}>
@@ -159,7 +154,13 @@ function Nav() {
             </MainMenuLink>
           </NavLi>
           <NavLi>
-            <MainMenuLink className="mainMenu">문화공간</MainMenuLink>
+            <MainMenuLink
+              className="mainMenu"
+              href="/cultureSpace"
+              active={pathname === '/cultureSpace'}
+            >
+              문화공간
+            </MainMenuLink>
           </NavLi>
         </Navul>
         <SocialNavOl>
