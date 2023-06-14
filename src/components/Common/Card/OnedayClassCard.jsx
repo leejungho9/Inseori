@@ -1,9 +1,7 @@
+import onedayClassData from 'data/onedayClassData';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import oneday1 from 'assets/images/onedayclass/oneday1.jpg';
-import oneday2 from 'assets/images/onedayclass/oneday2.jpg';
-import oneday3 from 'assets/images/onedayclass/oneday3.jpg';
 
 const OnedayClassCardWrapper = styled.section`
   width: 100%;
@@ -68,6 +66,12 @@ const OnedayClassName = styled.h2`
   font-family: 'PretendardSemiBold';
 `;
 
+const OnedayClassStatus = styled.h2`
+  color: var(--text-point-color);
+  font-size: var(--text-size-15);
+  font-family: 'PretendardSemiBold';
+`;
+
 const OnedayClassInfoBody = styled.section`
   padding-bottom: 30px;
   line-height: 1.5;
@@ -115,190 +119,34 @@ const Break = styled.br`
 const OnedayClassCard = () => {
   return (
     <OnedayClassCardWrapper>
-      <OnedayClassCardBox>
-        <OnedayClassCardLink to="/onedayClass/1">
-          <OnedayClassImageBox>
-            <OnedayClassImage
-              src={oneday1}
-              alt="원데이클래스 이미지"
-            ></OnedayClassImage>
-          </OnedayClassImageBox>
-        </OnedayClassCardLink>
-        <OnedayClassInfoHead>
-          <OnedayClassName>라탄조명 클래스</OnedayClassName>
-        </OnedayClassInfoHead>
-        <OnedayClassInfoBody>
-          <OnedayClassDate>
-            2023.5.13(토) <span>/</span>
-            <Break /> 11:00~13:00
-          </OnedayClassDate>
-          <OnedayClassPersonnel>인원 4-8명</OnedayClassPersonnel>
-        </OnedayClassInfoBody>
-        <OnedayClassInfoFoot>
-          <OnedayClassPrice>45,000원</OnedayClassPrice>
-        </OnedayClassInfoFoot>
-      </OnedayClassCardBox>
-      <OnedayClassCardBox>
-        <OnedayClassCardLink to="/onedayClass/1">
-          <OnedayClassImageBox>
-            <OnedayClassImage
-              src={oneday3}
-              alt="원데이클래스 이미지"
-            ></OnedayClassImage>
-          </OnedayClassImageBox>
-        </OnedayClassCardLink>
-        <OnedayClassInfoHead>
-          <OnedayClassName>라탄조명 클래스</OnedayClassName>
-        </OnedayClassInfoHead>
-        <OnedayClassInfoBody>
-          <OnedayClassDate>
-            2023.5.13(토) <span>/</span>
-            <Break /> 11:00~13:00
-          </OnedayClassDate>
-          <OnedayClassPersonnel>인원 4-8명</OnedayClassPersonnel>
-        </OnedayClassInfoBody>
-        <OnedayClassInfoFoot>
-          <OnedayClassPrice>45,000원</OnedayClassPrice>
-        </OnedayClassInfoFoot>
-      </OnedayClassCardBox>
-      <OnedayClassCardBox>
-        <OnedayClassCardLink to="/onedayClass/1">
-          <OnedayClassImageBox>
-            <OnedayClassImage
-              src={oneday2}
-              alt="원데이클래스 이미지"
-            ></OnedayClassImage>
-          </OnedayClassImageBox>
-        </OnedayClassCardLink>
-        <OnedayClassInfoHead>
-          <OnedayClassName>라탄조명 클래스</OnedayClassName>
-        </OnedayClassInfoHead>
-        <OnedayClassInfoBody>
-          <OnedayClassDate>
-            2023.5.13(토) <span>/</span>
-            <Break /> 11:00~13:00
-          </OnedayClassDate>
-          <OnedayClassPersonnel>인원 4-8명</OnedayClassPersonnel>
-        </OnedayClassInfoBody>
-        <OnedayClassInfoFoot>
-          <OnedayClassPrice>45,000원</OnedayClassPrice>
-        </OnedayClassInfoFoot>
-      </OnedayClassCardBox>
-      <OnedayClassCardBox>
-        <OnedayClassCardLink to="/onedayClass/1">
-          <OnedayClassImageBox>
-            <OnedayClassImage
-              src={oneday1}
-              alt="원데이클래스 이미지"
-            ></OnedayClassImage>
-          </OnedayClassImageBox>
-        </OnedayClassCardLink>
-        <OnedayClassInfoHead>
-          <OnedayClassName>라탄조명 클래스</OnedayClassName>
-        </OnedayClassInfoHead>
-        <OnedayClassInfoBody>
-          <OnedayClassDate>
-            2023.5.13(토) <span>/</span>
-            <Break /> 11:00~13:00
-          </OnedayClassDate>
-          <OnedayClassPersonnel>인원 4-8명</OnedayClassPersonnel>
-        </OnedayClassInfoBody>
-        <OnedayClassInfoFoot>
-          <OnedayClassPrice>45,000원</OnedayClassPrice>
-        </OnedayClassInfoFoot>
-      </OnedayClassCardBox>
-      <OnedayClassCardBox>
-        <OnedayClassCardLink to="/onedayClass/1">
-          <OnedayClassImageBox>
-            <OnedayClassImage
-              src={oneday1}
-              alt="원데이클래스 이미지"
-            ></OnedayClassImage>
-          </OnedayClassImageBox>
-        </OnedayClassCardLink>
-        <OnedayClassInfoHead>
-          <OnedayClassName>라탄조명 클래스</OnedayClassName>
-        </OnedayClassInfoHead>
-        <OnedayClassInfoBody>
-          <OnedayClassDate>
-            2023.5.13(토) <span>/</span>
-            <Break /> 11:00~13:00
-          </OnedayClassDate>
-          <OnedayClassPersonnel>인원 4-8명</OnedayClassPersonnel>
-        </OnedayClassInfoBody>
-        <OnedayClassInfoFoot>
-          <OnedayClassPrice>45,000원</OnedayClassPrice>
-        </OnedayClassInfoFoot>
-      </OnedayClassCardBox>
-      <OnedayClassCardBox>
-        <OnedayClassCardLink to="/onedayClass/1">
-          <OnedayClassImageBox>
-            <OnedayClassImage
-              src={oneday3}
-              alt="원데이클래스 이미지"
-            ></OnedayClassImage>
-          </OnedayClassImageBox>
-        </OnedayClassCardLink>
-        <OnedayClassInfoHead>
-          <OnedayClassName>라탄조명 클래스</OnedayClassName>
-        </OnedayClassInfoHead>
-        <OnedayClassInfoBody>
-          <OnedayClassDate>
-            2023.5.13(토) <span>/</span>
-            <Break /> 11:00~13:00
-          </OnedayClassDate>
-          <OnedayClassPersonnel>인원 4-8명</OnedayClassPersonnel>
-        </OnedayClassInfoBody>
-        <OnedayClassInfoFoot>
-          <OnedayClassPrice>45,000원</OnedayClassPrice>
-        </OnedayClassInfoFoot>
-      </OnedayClassCardBox>
-      <OnedayClassCardBox>
-        <OnedayClassCardLink to="/onedayClass/1">
-          <OnedayClassImageBox>
-            <OnedayClassImage
-              src={oneday1}
-              alt="원데이클래스 이미지"
-            ></OnedayClassImage>
-          </OnedayClassImageBox>
-        </OnedayClassCardLink>
-        <OnedayClassInfoHead>
-          <OnedayClassName>라탄조명 클래스</OnedayClassName>
-        </OnedayClassInfoHead>
-        <OnedayClassInfoBody>
-          <OnedayClassDate>
-            2023.5.13(토) <span>/</span>
-            <Break /> 11:00~13:00
-          </OnedayClassDate>
-          <OnedayClassPersonnel>인원 4-8명</OnedayClassPersonnel>
-        </OnedayClassInfoBody>
-        <OnedayClassInfoFoot>
-          <OnedayClassPrice>45,000원</OnedayClassPrice>
-        </OnedayClassInfoFoot>
-      </OnedayClassCardBox>
-      <OnedayClassCardBox>
-        <OnedayClassCardLink to="/onedayClass/1">
-          <OnedayClassImageBox>
-            <OnedayClassImage
-              src={oneday2}
-              alt="원데이클래스 이미지"
-            ></OnedayClassImage>
-          </OnedayClassImageBox>
-        </OnedayClassCardLink>
-        <OnedayClassInfoHead>
-          <OnedayClassName>라탄조명 클래스</OnedayClassName>
-        </OnedayClassInfoHead>
-        <OnedayClassInfoBody>
-          <OnedayClassDate>
-            2023.5.13(토) <span>/</span>
-            <Break /> 11:00~13:00
-          </OnedayClassDate>
-          <OnedayClassPersonnel>인원 4-8명</OnedayClassPersonnel>
-        </OnedayClassInfoBody>
-        <OnedayClassInfoFoot>
-          <OnedayClassPrice>45,000원</OnedayClassPrice>
-        </OnedayClassInfoFoot>
-      </OnedayClassCardBox>
+      {onedayClassData.map((item) => (
+        <OnedayClassCardBox key={item.id}>
+          <OnedayClassCardLink to={`onedayclass/${item.id}}`}>
+            <OnedayClassImageBox>
+              <OnedayClassImage
+                src={item.url}
+                alt="원데이클래스 이미지"
+              ></OnedayClassImage>
+            </OnedayClassImageBox>
+          </OnedayClassCardLink>
+          <OnedayClassInfoHead>
+            <OnedayClassName>라탄조명 클래스</OnedayClassName>
+            <OnedayClassStatus>
+              {item.status === 'soldout' && 'SOLD OUT'}
+            </OnedayClassStatus>
+          </OnedayClassInfoHead>
+          <OnedayClassInfoBody>
+            <OnedayClassDate>
+              {item.date} <span>/</span>
+              <Break /> {item.starthour} ~ {item.endhour}
+            </OnedayClassDate>
+            <OnedayClassPersonnel>인원 {item.headCount}명</OnedayClassPersonnel>
+          </OnedayClassInfoBody>
+          <OnedayClassInfoFoot>
+            <OnedayClassPrice>{item.price}원</OnedayClassPrice>
+          </OnedayClassInfoFoot>
+        </OnedayClassCardBox>
+      ))}
     </OnedayClassCardWrapper>
   );
 };
