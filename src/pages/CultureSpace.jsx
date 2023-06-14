@@ -82,7 +82,6 @@ const CultureDescBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 100px;
   margin-bottom: 50px;
 `;
 
