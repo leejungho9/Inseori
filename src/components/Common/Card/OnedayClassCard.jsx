@@ -121,7 +121,7 @@ const OnedayClassCard = () => {
     <OnedayClassCardWrapper>
       {onedayClassData.map((item) => (
         <OnedayClassCardBox key={item.id}>
-          <OnedayClassCardLink to={`onedayclass/${item.id}}`}>
+          <OnedayClassCardLink to={`onedayclass/${item.id}`}>
             <OnedayClassImageBox>
               <OnedayClassImage
                 src={item.url}
