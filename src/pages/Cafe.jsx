@@ -23,6 +23,11 @@ const CafeWrapper = styled.section`
     padding-bottom: 75px;
   }
 `;
+
+const CafeBox = styled.article`
+  padding-bottom: 145px;
+`;
+
 const CafeTitle = styled.h1`
   font-size: var(--text-size-18);
   font-family: 'PretendardSemiBold';
@@ -34,7 +39,7 @@ const CafeTitle = styled.h1`
   }
 
   @media screen and (max-width: 500px) {
-    font-size: 22px;
+    font-size: var(--text-size-22);
   }
 `;
 
@@ -109,7 +114,6 @@ const CafeDesc = styled.p`
 
 const CafeShopBox = styled.figure`
   padding-right: 100px;
-  padding-bottom: 145px;
 
   @media screen and (max-width: 991px) {
     padding-right: 0px;
@@ -139,31 +143,33 @@ const Cafe = () => {
   return (
     <CafeContainer>
       <CafeWrapper>
-        <CafeTitle>카페</CafeTitle>
-        <CafeBannerBox>
-          <CafeBanner />
-        </CafeBannerBox>
-        <CafeMenuBox>
-          <CafeName>Aat/menu</CafeName>
-          <Linebar />
-          <CafeDesc>
-            Aat 카페는 커피, 식사와 와인 그리고 푸드마켓이 한 공간에 있는
-            One-stop-shop입니다. 간단한 식사는 물론 다양한 디저트와 와인리스트를
-            보유하고 있으며 집으로 돌아 갈 때는 먹거리와 식재료 구입이 가능한
-            새로운 라이프 스타일 공간을 추구하고 있습니다.
-          </CafeDesc>
-          <CarouselWrapper
-            slides={cafegalleryData}
-            width={'450px'}
-            height={'450px'}
-            padding={'20px'}
-          />
-        </CafeMenuBox>
-        <CafeShopBox>
-          <CafeShopName>Shop</CafeShopName>
-          <Linebar />
-          <CafeShopCard />
-        </CafeShopBox>
+        <CafeBox>
+          <CafeTitle>카페</CafeTitle>
+          <CafeBannerBox>
+            <CafeBanner />
+          </CafeBannerBox>
+          <CafeMenuBox>
+            <CafeName>Aat/menu</CafeName>
+            <Linebar />
+            <CafeDesc>
+              Aat 카페는 커피, 식사와 와인 그리고 푸드마켓이 한 공간에 있는
+              One-stop-shop입니다. 간단한 식사는 물론 다양한 디저트와
+              와인리스트를 보유하고 있으며 집으로 돌아 갈 때는 먹거리와 식재료
+              구입이 가능한 새로운 라이프 스타일 공간을 추구하고 있습니다.
+            </CafeDesc>
+            <CarouselWrapper
+              slides={cafegalleryData}
+              width={'450px'}
+              height={'450px'}
+              padding={'20px'}
+            />
+          </CafeMenuBox>
+          <CafeShopBox>
+            <CafeShopName>Shop</CafeShopName>
+            <Linebar />
+            <CafeShopCard />
+          </CafeShopBox>
+        </CafeBox>
         <PaginationBox>
           <Pagination />
         </PaginationBox>
