@@ -1,147 +1,20 @@
-import bean1 from 'assets/images/cafe/bean1.png';
-import bean2 from 'assets/images/cafe/bean2.png';
-import bean3 from 'assets/images/cafe/bean3.png';
-import bean4 from 'assets/images/cafe/bean4.png';
-import shop1 from 'assets/images/cafe/shop1.png';
-import shop2 from 'assets/images/cafe/shop2.png';
-import shop3 from 'assets/images/cafe/shop3.png';
-import shop4 from 'assets/images/cafe/shop4.png';
-import detail from 'assets/images/cafe/detail/detail.png';
-
-const cafeData = [
-  {
-    id: 1,
-    name: 'Ethiopia sidamo',
-    manufacturer: 'Aat',
-    origin: '에피오피아 사다모 원두',
-    cupnote: 16,
-    capacity: 1,
-    price: '45,000',
-    url: `${bean1}`,
-    detailurl: `${detail}`,
-  },
-  {
-    id: 2,
-    name: 'Ethiopia sidamo',
-    manufacturer: 'Aat',
-    origin: '에피오피아 사다모 원두',
-    cupnote: 16,
-    capacity: 1,
-    price: '45,000',
-    url: `${bean2}`,
-    detailurl: `${detail}`,
-  },
-  {
-    id: 3,
-    name: 'Ethiopia sidamo',
-    manufacturer: 'Aat',
-    origin: '에피오피아 사다모 원두',
-    cupnote: 16,
-    capacity: 1,
-    price: '45,000',
-    url: `${bean3}`,
-    detailurl: `${detail}`,
-  },
-  {
-    id: 4,
-    name: 'Ethiopia sidamo',
-    manufacturer: 'Aat',
-    origin: '에피오피아 사다모 원두',
-    cupnote: 16,
-    capacity: 1,
-    price: '45,000',
-    url: `${bean4}`,
-    detailurl: `${detail}`,
-  },
-  {
-    id: 5,
-    name: 'Ethiopia sidamo',
-    manufacturer: 'Aat',
-    origin: '에피오피아 사다모 원두',
-    cupnote: 16,
-    capacity: 1,
-    price: '45,000',
-    url: `${bean2}`,
-    detailurl: `${detail}`,
-  },
-  {
-    id: 6,
-    name: 'Ethiopia sidamo',
-    manufacturer: 'Aat',
-    origin: '에피오피아 사다모 원두',
-    cupnote: 16,
-    capacity: 1,
-    price: '45,000',
-    url: `${bean1}`,
-    detailurl: `${detail}`,
-  },
-  {
-    id: 7,
-    name: 'Ethiopia sidamo',
-    manufacturer: 'Aat',
-    origin: '에피오피아 사다모 원두',
-    cupnote: 16,
-    capacity: 1,
-    price: '45,000',
-    url: `${bean3}`,
-    detailurl: `${detail}`,
-  },
-  {
-    id: 8,
-    name: 'Ethiopia sidamo',
-    manufacturer: 'Aat',
-    origin: '에피오피아 사다모 원두',
-    cupnote: 16,
-    capacity: 1,
-    price: '45,000',
-    url: `${bean2}`,
-    detailurl: `${detail}`,
-  },
-  {
-    id: 9,
-    name: 'Ethiopia sidamo',
-    manufacturer: 'Aat',
-    origin: '에피오피아 사다모 원두',
-    cupnote: 16,
-    capacity: 1,
-    price: '45,000',
-    url: `${shop1}`,
-    detailurl: `${detail}`,
-  },
-  {
-    id: 10,
-    name: 'Ethiopia sidamo',
-    manufacturer: 'Aat',
-    origin: '에피오피아 사다모 원두',
-    cupnote: 16,
-    capacity: 1,
-    price: '45,000',
-    url: `${shop2}`,
-    detailurl: `${detail}`,
-  },
-
-  {
-    id: 11,
-    name: 'Ethiopia sidamo',
-    manufacturer: 'Aat',
-    origin: '에피오피아 사다모 원두',
-    cupnote: 16,
-    capacity: 1,
-    price: '45,000',
-    url: `${shop3}`,
-    detailurl: `${detail}`,
-  },
-  {
-    id: 12,
-    name: 'Ethiopia sidamo',
-    manufacturer: 'Aat',
-    origin: '에피오피아 사다모 원두',
-    cupnote: 16,
-    capacity: 1,
-    price: '45,000',
-    url: `${shop4}`,
-    detailurl: `${detail}`,
-  },
-];
+import banner from 'assets/images/cafe/banner.png';
+import coffee1 from 'assets/images/cafe/coffee1.png';
+import coffee2 from 'assets/images/cafe/coffee2.png';
+import coffee3 from 'assets/images/cafe/coffee3.png';
+const cafeData = {
+  id: 1,
+  title: '일상이 예술, 예술이 일상',
+  desc: 'Aat 카페는 커피, 식사와 와인 그리고 푸드마켓이 한 공간에 있는 One-stop-shop입니다. 간단한 식사는 물론 다양한 디저트와 와인리스트를 보유하고 있으며 집으로 돌아 갈 때는 먹거리와 식재료 구입이 가능한 새로운 라이프 스타일 공간을 추구하고 있습니다.',
+  banner: `${banner}`,
+  gallery: [
+    { id: 1, url: `${coffee1}` },
+    { id: 2, url: `${coffee2}` },
+    { id: 3, url: `${coffee3}` },
+    { id: 4, url: `${coffee1}` },
+    { id: 5, url: `${coffee2}` },
+    { id: 6, url: `${coffee3}` },
+  ],
+};
 
 export default cafeData;
