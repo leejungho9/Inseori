@@ -27,7 +27,7 @@ const ArtShopTitle = styled.h1`
 
   @media screen and (max-width: 991px) {
     font-family: 'PretendardSemiBold';
-    font-size: 22px;
+    font-size: var(--text-size-22);
     font-weight: bold;
     margin: 30px 25px;
     display: inline-block;

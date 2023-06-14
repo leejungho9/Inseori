@@ -32,7 +32,7 @@ const OnedayClassDetailTitle = styled.h1`
 
   @media screen and (max-width: 991px) {
     margin: 30px 25px;
-    font-size: 22px;
+    font-size: var(--text-size-22);
   }
 `;
 

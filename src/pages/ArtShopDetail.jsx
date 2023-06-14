@@ -30,7 +30,7 @@ const ArtShopDetailTitle = styled.h1`
   display: none;
 
   @media screen and (max-width: 991px) {
-    font-size: 22px;
+    font-size: var(--text-size-22);
     font-weight: bold;
     margin: 30px 25px;
     display: inline-block;
