@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
 import cultureData from 'data/cultureData';
@@ -185,62 +185,108 @@ const CultureSpaceShopName = styled.figcaption`
 
 const CultureSpace = () => {
   const [navMenu, setNavMenu] = useState('갑빠오의 집');
+  const [currentId, setCurrentId] = useState(1);
+  const [culture, setCulture] = useState([]);
+  const [otherCulture, setOtherCulture] = useState([]);
+  const handleChangeMenu = (name) => {
+    setNavMenu(name);
+    if (name === '갑빠오의 집') {
+      setCurrentId(1);
+      return;
+    }
+
+    if (name === '반창고') {
+      setCurrentId(2);
+      return;
+    }
+  };
 
   const CultureNav = () => {
     return (
       <CultureNavBox>
-        {cultureData.map((item, index) => (
-          <>
-            <CultureNavMenu
-              key={index}
-              onClick={() => setNavMenu(item.name)}
-              active={navMenu === item.name}
-            >
-              {item.name}
-            </CultureNavMenu>
-            <span>/</span>
-          </>
-        ))}
+        <CultureNavMenu
+          onClick={() => handleChangeMenu('갑빠오의 집')}
+          active={navMenu === '갑빠오의 집'}
+        >
+          갑빠오의 집
+        </CultureNavMenu>
+        <span>/</span>
+        <CultureNavMenu
+          onClick={() => handleChangeMenu('반창고')}
+          active={navMenu === '반창고'}
+        >
+          반창고
+        </CultureNavMenu>
       </CultureNavBox>
     );
   };
+
+  const CultureBanner = ({ url }) => {
+    return (
+      <CultureSpaceBannerBox>
+        <CultureSpaceBanner url={url} />
+      </CultureSpaceBannerBox>
+    );
+  };
+
+  const CultureShop = ({ exhibitions, setCurrentId }) => {
+    return (
+      <CultureSpaceShopBox>
+        <CultureSpaceShopName>지난전시</CultureSpaceShopName>
+        <Linebar />
+        <ExhibitionCard items={exhibitions} setCurrentId={setCurrentId} />
+      </CultureSpaceShopBox>
+    );
+  };
+
+  useEffect(() => {
+    const currentCultureData = cultureData.filter(
+      (item) => item.id === currentId && item.name === navMenu,
+    );
+    setCulture(currentCultureData);
+
+    const otherCultureData = cultureData.filter(
+      (item) => item.id !== currentId && item.name === navMenu,
+    );
+    setOtherCulture(otherCultureData);
+  }, [currentId, navMenu]);
+
+  useEffect(() => {
+    scrollTo(0, 0);
+  }, [currentId]);
+
   return (
     <CultureSpaceContainer>
       <CultureSpaceWrapper>
         <CultureSpaceBox>
           <CultureNav />
-          {cultureData
-            .filter((item) => navMenu === item.name)
-            .map((item) => (
-              <>
-                <CultureSpaceBannerBox key={item.id}>
-                  <CultureSpaceBanner url={item.banner} />
-                </CultureSpaceBannerBox>
-                <CultureSpaceMenuBox>
-                  <CultureSpaceName>{item.title}</CultureSpaceName>
-                  <Linebar />
-                  <CultureDescBox>
-                    <CultureSpaceDesc>{item.desc}</CultureSpaceDesc>
-                    <ReserveButtonBox>
-                      <ReserveButton>작품보기</ReserveButton>
-                    </ReserveButtonBox>
-                  </CultureDescBox>
-                </CultureSpaceMenuBox>
-                <CarouselWrapper
-                  slides={item.gallery}
-                  width={'450px'}
-                  height={'450px'}
-                  padding={'20px'}
-                />
-                {item.exhibition.length !== 0 && (
-                  <CultureSpaceShopBox>
-                    <CultureSpaceShopName>지난전시</CultureSpaceShopName>
-                    <Linebar />
-                    <ExhibitionCard items={item.exhibition} />
-                  </CultureSpaceShopBox>
-                )}
-              </>
-            ))}
+          {culture.map((item, index) => (
+            <div key={index}>
+              <CultureBanner url={item.banner} />
+              <CultureSpaceMenuBox>
+                <CultureSpaceName>{item.title}</CultureSpaceName>
+                <Linebar />
+                <CultureDescBox>
+                  <CultureSpaceDesc>{item.desc}</CultureSpaceDesc>
+                  <ReserveButtonBox>
+                    <ReserveButton>작품보기</ReserveButton>
+                  </ReserveButtonBox>
+                </CultureDescBox>
+              </CultureSpaceMenuBox>
+              <CarouselWrapper
+                slides={item.gallery}
+                width={'450px'}
+                height={'450px'}
+                padding={'20px'}
+              />
+            </div>
+          ))}
+          {navMenu === '반창고' && (
+            <CultureShop
+              exhibitions={otherCulture}
+              setCurrentId={setCurrentId}
+            />
+          )}
         </CultureSpaceBox>
       </CultureSpaceWrapper>
     </CultureSpaceContainer>
