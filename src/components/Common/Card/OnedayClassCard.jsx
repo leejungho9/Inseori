@@ -121,7 +121,10 @@ const OnedayClassCard = () => {
     <OnedayClassCardWrapper>
       {onedayClassData.map((item) => (
         <OnedayClassCardBox key={item.id}>
-          <OnedayClassCardLink to={`/onedayClass/${item.id}`}>
+          <OnedayClassCardLink
+            to={`/onedayClass/${item.id}`}
+            state={{ item: item }}
+          >
             <OnedayClassImageBox>
               <OnedayClassImage
                 src={item.url}
@@ -137,8 +140,8 @@ const OnedayClassCard = () => {
           </OnedayClassInfoHead>
           <OnedayClassInfoBody>
             <OnedayClassDate>
-              {item.date} <span>/</span>
-              <Break /> {item.starthour} ~ {item.endhour}
+              {item.startDate} <span>/</span>
+              <Break /> {item.startHour} ~ {item.endHour}
             </OnedayClassDate>
             <OnedayClassPersonnel>인원 {item.headCount}명</OnedayClassPersonnel>
           </OnedayClassInfoBody>
