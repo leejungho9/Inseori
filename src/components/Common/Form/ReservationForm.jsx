@@ -117,7 +117,7 @@ const ClassInfoDesc = styled.p`
     font-size: var(--text-size-14);
   }
 `;
-const ReservationForm = () => {
+const ReservationForm = ({ item }) => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [age, setAge] = useState('');
@@ -134,6 +134,10 @@ const ReservationForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (item.status === 'soldout') {
+      alert('예약이 마감됐습니다.');
+      return;
+    }
     validateReservationForm();
   };
 
@@ -218,19 +222,21 @@ const ReservationForm = () => {
       <ClassInfoBox>
         <ClassInfoTextBox>
           <ClassInfoTextLabel>날짜</ClassInfoTextLabel>
-          <ClassInfoTextValue>2023.5.13(토)</ClassInfoTextValue>
+          <ClassInfoTextValue>{item.startDate}</ClassInfoTextValue>
         </ClassInfoTextBox>
         <ClassInfoTextBox>
           <ClassInfoTextLabel>시간</ClassInfoTextLabel>
-          <ClassInfoTextValue>11:00~13:00</ClassInfoTextValue>
+          <ClassInfoTextValue>
+            {item.startHour} ~ {item.endHour}
+          </ClassInfoTextValue>
         </ClassInfoTextBox>
         <ClassInfoTextBox>
           <ClassInfoTextLabel>예약마감</ClassInfoTextLabel>
-          <ClassInfoTextValue>2023.5.10(수)</ClassInfoTextValue>
+          <ClassInfoTextValue>{item.endDate}</ClassInfoTextValue>
         </ClassInfoTextBox>
         <ClassInfoTextBox>
           <ClassInfoTextLabel>수강료</ClassInfoTextLabel>
-          <ClassInfoTextValue>45,000원</ClassInfoTextValue>
+          <ClassInfoTextValue>{item.price} 원</ClassInfoTextValue>
         </ClassInfoTextBox>
         <ClassInfoTextBox>
           <ClassInfoTextLabel>입금계좌</ClassInfoTextLabel>
@@ -314,7 +320,7 @@ const ReservationForm = () => {
           </ClassInfoDesc>
         </ClassInfoDescBox>
         <ReserveButton type="submit" color={'black'} link={false}>
-          예약하기
+          {item.status === 'soldout' ? '예약마감' : '예약하기'}
         </ReserveButton>
       </ClassInfoInputBox>
     </ClassInfoForm>
