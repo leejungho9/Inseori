@@ -38,8 +38,8 @@ const MainMenuLink = styled.a`
   font-family: 'PretendardSemiBold';
   font-size: var(--text-size-18);
   font-weight: bold;
-  color: ${({ active }) =>
-    active ? 'var(--text-point-color)' : 'var(--gray)'};
+  color: var(--gray);
+  color: ${({ active }) => active && 'var(--text-point-color)'};
 
   &:hover {
     color: var(--text-point-color);
@@ -67,7 +67,9 @@ const NavSubLi = styled.li`
 
 const NavLink = styled(Link)`
   cursor: pointer;
-  color: ${({ active }) => (active ? 'var(--text-point-color)' : '#515151')};
+  color: 'var(--gray)';
+  color: ${({ active }) =>
+    active === 'true' ? 'var(--text-point-color)' : 'var(--gray)'};
   &:hover {
     color: var(--text-point-color);
     font-weight: 600;
@@ -117,19 +119,28 @@ function Nav() {
             </MainMenuLink>
             <NavSubUl subMenuVisible={subMenuVisible}>
               <NavSubLi>
-                <NavLink to="/roomA" active={pathname === '/roomA'}>
+                <NavLink
+                  to="/roomA"
+                  active={pathname === '/roomA' ? 'true' : 'false'}
+                >
                   홰경당
                 </NavLink>
               </NavSubLi>
               <NavSubLi>
                 {/** 임시로 roomA 에 연결**/}
-                <NavLink to="/roomB" active={pathname === '/roomB'}>
+                <NavLink
+                  to="/roomA"
+                  active={pathname === '/roomB' ? 'true' : 'false'}
+                >
                   예린의 집
                 </NavLink>
               </NavSubLi>
               <NavSubLi>
                 {/** 임시로 roomA 에 연결**/}
-                <NavLink to="/roomC" active={pathname === '/roomC'}>
+                <NavLink
+                  to="/roomA"
+                  active={pathname === '/roomC' ? 'true' : 'false'}
+                >
                   다경당
                 </NavLink>
               </NavSubLi>
