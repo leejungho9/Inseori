@@ -4,6 +4,7 @@ import ReservationForm from 'components/Common/Form/ReservationForm';
 import classBanner from 'assets/images/onedayclass/detail/onedayclassDetail.png';
 import onedayCalssImage1 from 'assets/images/onedayclass/detail/onedayClassImage1.png';
 import onedayCalssImage2 from 'assets/images/onedayclass/detail/onedayClassImage2.png';
+import { useLocation } from 'react-router-dom';
 
 const OnedayClassDetialContainer = styled.main`
   overflow: hidden;
@@ -123,6 +124,9 @@ const OnedayClassDetailDesc = styled.p`
   letter-spacing: -0.06em;
 `;
 const OnedayClassDetail = () => {
+  const location = useLocation();
+  const { item } = location.state;
+
   return (
     <OnedayClassDetialContainer>
       <OnedayClassDetailWrapper>
@@ -132,7 +136,7 @@ const OnedayClassDetail = () => {
           <ReservationFormBox>
             <ReservationFormTitle>예약신청서</ReservationFormTitle>
             <Linebar />
-            <ReservationForm />
+            <ReservationForm item={item} />
           </ReservationFormBox>
         </ReservationWrapper>
         <ReservationImageBox>
