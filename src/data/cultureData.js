@@ -15,8 +15,10 @@ const cultureData = [
     id: 1,
     name: '갑빠오의 집',
     title: 'A small, good thing',
+    startDate: '23.10.01',
+    endDate: '23.12.31',
+    author: '갑빠오',
     desc: '갑빠오 스튜디오는 일상적이고 사적인 경험을 토대로 다양한 아트웍을 선보이고 있습니다. 온전히 “나"로 존재할 수 있는 자유와 치유의방, 우리는 모두 별것 아니지만, 도움이되는 것들 덕분에 살아갈 수 있습니다.',
-    exhibition: [],
     gallery: [
       {
         id: 1,
@@ -53,41 +55,11 @@ const cultureData = [
     id: 2,
     name: '반창고',
     title: '반창고',
+    startDate: '23.10.01',
+    endDate: '23.12.31',
+    author: '김경화',
+    url: `${image2}`,
     desc: '옛날 곡식창고로 쓰이던 건물입니다. 반 +  heal  : 지역사회, 환경을 살리는 치유창고, 함께 쓰는 나눔창고 중의적 의미를 두고 운영하는 갤러리입니다. 바뀌는 전시와 다양한 대관 행사들로 채워지며 지역민들과의 교류를 도모하는 공간입니다.',
-    exhibition: [
-      {
-        id: 1,
-        name: '온기를 전하는 풍경',
-        author: '김경화',
-        startDate: '2023.10.01',
-        endDate: '2023.12.31',
-        url: `${image1}`,
-      },
-      {
-        id: 2,
-        name: '소멸하는 아름다움',
-        author: '황란',
-        startDate: '2023.10.01',
-        endDate: '2023.12.31',
-        url: `${image2}`,
-      },
-      {
-        id: 3,
-        name: '온기를 전하는 풍경',
-        author: '김경화',
-        startDate: '2023.10.01',
-        endDate: '2023.12.31',
-        url: `${image3}`,
-      },
-      {
-        id: 4,
-        name: '온기를 전하는 풍경',
-        author: '김경화',
-        startDate: '2023.10.01',
-        endDate: '2023.12.31',
-        url: `${image3}`,
-      },
-    ],
     gallery: [
       {
         id: 1,
@@ -119,6 +91,88 @@ const cultureData = [
       },
     ],
     banner: `${space2_banner}`,
+  },
+  {
+    id: 3,
+    name: '반창고',
+    title: '온기를 전하는 풍경',
+    startDate: '23.10.01',
+    endDate: '23.12.31',
+    author: '김경화',
+    url: `${image1}`,
+    desc: '옛날 곡식창고로 쓰이던 건물입니다. 반 +  heal  : 지역사회, 환경을 살리는 치유창고, 함께 쓰는 나눔창고 중의적 의미를 두고 운영하는 갤러리입니다. 바뀌는 전시와 다양한 대관 행사들로 채워지며 지역민들과의 교류를 도모하는 공간입니다.',
+    gallery: [
+      {
+        id: 1,
+        url: `${image1}`,
+      },
+      {
+        id: 2,
+        url: `${image3}`,
+      },
+      {
+        id: 3,
+        url: `${image1}`,
+      },
+      {
+        id: 4,
+        url: `${image1}`,
+      },
+      {
+        id: 5,
+        url: `${image3}`,
+      },
+      {
+        id: 6,
+        url: `${image1}`,
+      },
+      {
+        id: 7,
+        url: `${image3}`,
+      },
+    ],
+    banner: `${space1_banner}`,
+  },
+  {
+    id: 4,
+    name: '반창고',
+    title: '온기를 전하는 풍경',
+    startDate: '23.10.01',
+    endDate: '23.12.31',
+    author: '김경화',
+    url: `${image3}`,
+    desc: '옛날 곡식창고로 쓰이던 건물입니다. 반 +  heal  : 지역사회, 환경을 살리는 치유창고, 함께 쓰는 나눔창고 중의적 의미를 두고 운영하는 갤러리입니다. 바뀌는 전시와 다양한 대관 행사들로 채워지며 지역민들과의 교류를 도모하는 공간입니다.',
+    gallery: [
+      {
+        id: 1,
+        url: `${image2}`,
+      },
+      {
+        id: 2,
+        url: `${image3}`,
+      },
+      {
+        id: 3,
+        url: `${image2}`,
+      },
+      {
+        id: 4,
+        url: `${image2}`,
+      },
+      {
+        id: 5,
+        url: `${image3}`,
+      },
+      {
+        id: 6,
+        url: `${image2}`,
+      },
+      {
+        id: 7,
+        url: `${image3}`,
+      },
+    ],
+    banner: `${space1_banner}`,
   },
 ];
 
