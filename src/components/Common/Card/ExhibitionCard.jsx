@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 const ExhibitionCardWrapper = styled.section`
   width: 100%;
@@ -26,8 +25,6 @@ const ExhibitionCardWrapper = styled.section`
   }
 `;
 const ExhibitionCardBox = styled.article``;
-
-const ExhibitionCardLink = styled(Link)``;
 
 const ExhibitionShopImageBox = styled.figure`
   position: relative;
@@ -93,19 +90,21 @@ const ExhibitionName = styled.span`
     margin-top: 25px;
   }
 `;
-const ExhibitionCard = ({ items }) => {
+const ExhibitionCard = ({ items, setCurrentId }) => {
+  const clickChangeList = (id) => {
+    setCurrentId(id);
+  };
+
   return (
     <ExhibitionCardWrapper>
-      {items.map((item) => (
-        <ExhibitionCardBox key={item.id}>
-          <ExhibitionCardLink to={`/exhibition/${item.id}`} state={{ item }}>
-            <ExhibitionShopImageBox>
-              <ExhibitionShopImage
-                src={item.url}
-                alt="전시이미지"
-              ></ExhibitionShopImage>
-            </ExhibitionShopImageBox>
-          </ExhibitionCardLink>
+      {items.map((item, index) => (
+        <ExhibitionCardBox key={index}>
+          <ExhibitionShopImageBox onClick={() => clickChangeList(item.id)}>
+            <ExhibitionShopImage
+              src={item.url}
+              alt="전시이미지"
+            ></ExhibitionShopImage>
+          </ExhibitionShopImageBox>
           <ExhibitionInfoHead>
             <ExhibitionDate>
               {item.startDate} - {item.endDate}
@@ -115,7 +114,7 @@ const ExhibitionCard = ({ items }) => {
             <ExhibitionAuthor>{item.author}</ExhibitionAuthor>
           </ExhibitionInfoBody>
           <ExhibitionInfoFoot>
-            <ExhibitionName>{item.name}</ExhibitionName>
+            <ExhibitionName>{item.title}</ExhibitionName>
           </ExhibitionInfoFoot>
         </ExhibitionCardBox>
       ))}
