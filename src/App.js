@@ -1,6 +1,5 @@
 import ArtShop from 'pages/ArtShop';
 import Cafe from 'pages/Cafe';
-import CafeDetail from 'pages/CafeDetail';
 import CultureSpace from 'pages/CultureSpace';
 import Main from 'pages/Main';
 import OnedayClass from 'pages/OnedayClass';
@@ -39,10 +38,6 @@ function App() {
         {
           path: 'cafe',
           element: <Cafe />,
-        },
-        {
-          path: 'cafe/:id',
-          element: <CafeDetail />,
         },
         {
           path: 'cultureSpace',
