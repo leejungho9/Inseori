@@ -143,7 +143,9 @@ const OnedayClassCard = () => {
               {item.startDate} <span>/</span>
               <Break /> {item.startHour} ~ {item.endHour}
             </OnedayClassDate>
-            <OnedayClassPersonnel>인원 {item.headCount}명</OnedayClassPersonnel>
+            <OnedayClassPersonnel>
+              인원 {item.minHeadCount} - {item.maxHeadCount}명
+            </OnedayClassPersonnel>
           </OnedayClassInfoBody>
           <OnedayClassInfoFoot>
             <OnedayClassPrice>{item.price}원</OnedayClassPrice>
