@@ -1,4 +1,3 @@
-import onedayClassData from 'data/onedayClassData';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -7,8 +6,7 @@ const OnedayClassCardWrapper = styled.section`
   width: 100%;
   padding-right: 100px;
   display: grid;
-  row-gap: 120px;
-  column-gap: 20px;
+  grid-gap: 120px 20px;
   grid-template-columns: repeat(4, 1fr);
 
   @media screen and (max-width: 1440px) {
@@ -28,24 +26,36 @@ const OnedayClassCardWrapper = styled.section`
   }
 `;
 
-const OnedayClassCardBox = styled.article``;
+const OnedayClassCardContentWrapper = styled.article``;
+
+const OnedayClassImageWrapper = styled.figure`
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 142.3%;
+  border-radius: 10px;
+  overflow: hidden;
+
+  @media screen and (max-width: 991px) {
+    border-radius: 15px;
+  }
+`;
 
 const OnedayClassCardLink = styled(Link)``;
 
-const OnedayClassImageBox = styled.figure`
-  position: relative;
-  cursor: pointer;
+const OnedayClassImageBox = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f2f2f2;
 `;
 
 const OnedayClassImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10px;
-
-  @media screen and (max-width: 991px) {
-    border-radius: 15px;
-  }
 `;
 
 const OnedayClassInfoHead = styled.section`
@@ -115,23 +125,24 @@ const Break = styled.br`
     display: block;
   }
 `;
-
-const OnedayClassCard = () => {
+const OnedayClassCard = ({ items }) => {
   return (
     <OnedayClassCardWrapper>
-      {onedayClassData.map((item) => (
-        <OnedayClassCardBox key={item.id}>
-          <OnedayClassCardLink
-            to={`/onedayClass/${item.id}`}
-            state={{ item: item }}
-          >
+      {items.map((item) => (
+        <OnedayClassCardContentWrapper key={item.id}>
+          <OnedayClassImageWrapper>
             <OnedayClassImageBox>
-              <OnedayClassImage
-                src={item.url}
-                alt="원데이클래스 이미지"
-              ></OnedayClassImage>
+              <OnedayClassCardLink
+                to={`/onedayClass/${item.id}`}
+                state={{ item: item }}
+              >
+                <OnedayClassImage
+                  src={item.url}
+                  alt="원데이클래스 이미지"
+                ></OnedayClassImage>
+              </OnedayClassCardLink>
             </OnedayClassImageBox>
-          </OnedayClassCardLink>
+          </OnedayClassImageWrapper>
           <OnedayClassInfoHead>
             <OnedayClassName>라탄조명 클래스</OnedayClassName>
             <OnedayClassStatus>
@@ -150,10 +161,9 @@ const OnedayClassCard = () => {
           <OnedayClassInfoFoot>
             <OnedayClassPrice>{item.price}원</OnedayClassPrice>
           </OnedayClassInfoFoot>
-        </OnedayClassCardBox>
+        </OnedayClassCardContentWrapper>
       ))}
     </OnedayClassCardWrapper>
   );
 };
-
 export default OnedayClassCard;
