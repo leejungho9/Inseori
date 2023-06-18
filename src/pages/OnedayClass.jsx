@@ -1,4 +1,4 @@
-import OnedayClassCard from 'components/Common/Card/OnedayClassCard';
+import OnedayClassCardList from 'components/Common/CardList/OnedayCalssCardList';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -35,7 +35,7 @@ const OnedayCalss = () => {
     <OnedayCalssContainer>
       <OnedayCalssWrapper>
         <OnedayCalssTitle>원데이클래스</OnedayCalssTitle>
-        <OnedayClassCard />
+        <OnedayClassCardList />
       </OnedayCalssWrapper>
     </OnedayCalssContainer>
   );
