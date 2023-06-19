@@ -35,7 +35,7 @@ const NavLi = styled.li`
 `;
 
 const MainMenuLink = styled.a`
-  font-family: 'PretendardSemiBold';
+  font-family: 'PretendardSemiBold', 'NotoSans', 'sans-serif';
   font-size: var(--text-size-18);
   font-weight: bold;
   color: var(--gray);

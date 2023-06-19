@@ -26,7 +26,7 @@ const ArtShopBox = styled.article``;
 
 const ArtShopTitle = styled.h1`
   font-size: var(--text-size-18);
-  font-family: 'PretendardSemiBold';
+  font-family: 'PretendardSemiBold', 'NotoSans', 'sans-serif';
   margin-bottom: 20px;
 
   @media screen and (max-width: 991px) {
@@ -34,7 +34,6 @@ const ArtShopTitle = styled.h1`
   }
 
   @media screen and (max-width: 500px) {
-    font-family: 'PretendardSemiBold';
     font-size: var(--text-size-22);
     line-height: 27px;
     letter-spacing: -0.07em;
@@ -74,7 +73,7 @@ const ArtShopMenuBox = styled.figure`
 
 const ArtShopName = styled.figcaption`
   font-size: var(--text-size-18);
-  font-family: 'PretendardSemiBold';
+  font-family: 'PretendardSemiBold', 'NotoSans', 'sans-serif';
   margin-top: 30px;
 
   @media screen and (max-width: 991px) {
@@ -117,7 +116,7 @@ const ArtShopDesc = styled.p`
   line-height: 234.5%;
   letter-spacing: -0.07em;
   font-size: var(--text-size-16);
-  font-family: 'PretendardRegular';
+  font-family: 'PretendardRegular', 'NotoSans', 'sans-serif';
 
   @media screen and (max-width: 991px) {
     margin-bottom: 50px;

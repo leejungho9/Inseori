@@ -114,8 +114,9 @@ html {
 }
 
 html, body {
-	font-family: "PretendardMedium" ;
+	font-family: 'PretendardMedium', 'NotoSans', 'sans-serif' ;
   letter-spacing: -0.07em;
+  font-display: swap;
 }
 
 a {
