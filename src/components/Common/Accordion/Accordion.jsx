@@ -61,6 +61,7 @@ const AccordionDesc = styled.p`
   color: var(--dark);
   line-height: 180.5%;
   padding: 20px 10px;
+  font-family: 'PretendardRegular';
 
   @media screen and (max-width: 991px) {
     font-size: var(--text-size-16);
