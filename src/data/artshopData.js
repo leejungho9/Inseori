@@ -1,4 +1,4 @@
-import banner from 'assets/images/artshop/banner.png';
+import banner from 'assets/images/artshop/banner.jpg';
 import artshop1 from 'assets/images/artshop/artshop1.png';
 import artshop2 from 'assets/images/artshop/artshop2.png';
 import artshop3 from 'assets/images/artshop/artshop3.png';

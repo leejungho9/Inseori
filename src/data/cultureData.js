@@ -1,4 +1,4 @@
-import space1_banner from 'assets/images/culturespace/space1/banner.png';
+import space1_banner from 'assets/images/culturespace/space1/banner.jpg';
 import space2_banner from 'assets/images/culturespace/space2/banner.png';
 import image1 from 'assets/images/culturespace/exhibition/image1.png';
 import image2 from 'assets/images/culturespace/exhibition/image2.png';
