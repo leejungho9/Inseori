@@ -42,7 +42,7 @@ const CafeTitle = styled.h1`
 `;
 
 const CafeBannerBox = styled.figure`
-  height: 300px;
+  height: 35vh;
   padding-right: 100px;
 
   @media screen and (max-width: 991px) {
