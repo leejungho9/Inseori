@@ -26,7 +26,7 @@ const CafeBox = styled.article``;
 
 const CafeTitle = styled.h1`
   font-size: var(--text-size-18);
-  font-family: 'PretendardBold';
+  font-family: 'PretendardSemiBold';
   margin-bottom: 20px;
 
   @media screen and (max-width: 991px) {
@@ -74,7 +74,7 @@ const CafeMenuBox = styled.figure`
 
 const CafeName = styled.figcaption`
   font-size: var(--text-size-18);
-  font-family: 'PretendardBold';
+  font-family: 'PretendardSemiBold';
   margin-top: 30px;
 
   @media screen and (max-width: 991px) {
@@ -91,7 +91,7 @@ const Linebar = styled.hr`
   height: 1px;
   background-color: #e4e4e4;
   border: none;
-  margin: 20px 100px 30px 0;
+  margin: 30px 100px 30px 0;
   display: block;
 
   @media screen and (max-width: 900px) {

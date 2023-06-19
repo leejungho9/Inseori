@@ -29,7 +29,7 @@ const OnedayClassDetailWrapper = styled.section`
 
 const OnedayClassDetailTitle = styled.h1`
   font-family: 'PretendardSemiBold';
-  font-size: var(--text-size-22);
+  font-size: var(--text-size-18);
 
   @media screen and (max-width: 991px) {
     margin: 30px 25px;
@@ -75,11 +75,11 @@ const Linebar = styled.hr`
   border: none;
   background-color: #d9d9d9;
   height: 1px;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-bottom: 30px;
 
   @media screen and (max-width: 991px) {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     margin-bottom: 45px;
   }
 `;

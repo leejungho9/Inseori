@@ -12,7 +12,7 @@ const ReserveLinkBtn = styled(Link)`
   align-items: center;
   font-size: var(--text-size-16);
   color: var(--gray);
-  font-family: 'PretendardBold';
+  font-family: 'PretendardSemiBold';
   font-weight: bold;
 
   @media screen and (max-width: 500px) {
@@ -30,7 +30,7 @@ const ReserveSubmitBtn = styled.button`
   align-items: center;
   font-size: var(--text-size-16);
   color: var(--gray);
-  font-family: 'PretendardBold';
+  font-family: 'PretendardSemiBold';
   font-weight: bold;
 
   @media screen and (max-width: 500px) {
