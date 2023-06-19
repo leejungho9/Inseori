@@ -61,7 +61,7 @@ const LogoLink = styled.a`
 
 const Logo = styled.img`
   width: 100%;
-  height: auto;
+  height: 100%;
 `;
 
 const BurgerWrapper = styled.nav`
