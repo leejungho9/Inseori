@@ -106,6 +106,7 @@ const CafeDesc = styled.p`
   letter-spacing: -0.07em;
   margin-bottom: 50px;
   font-size: var(--text-size-16);
+  font-family: 'PretendardRegular';
 
   @media screen and (max-width: 991px) {
     margin-bottom: 46px;

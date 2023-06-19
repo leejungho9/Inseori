@@ -134,7 +134,7 @@ const CultureSpaceDesc = styled.p`
   line-height: 234.5%;
   letter-spacing: -0.07em;
   font-size: var(--text-size-16);
-
+  font-family: 'PretendardRegular';
   @media screen and (max-width: 991px) {
     margin-bottom: 50px;
     padding: 0 35px;
