@@ -41,7 +41,7 @@ const ArtShopTitle = styled.h1`
 `;
 
 const ArtShopBannerBox = styled.figure`
-  height: calc(100vh - 637px);
+  height: 300px;
   padding-right: 100px;
 
   @media screen and (max-width: 991px) {
