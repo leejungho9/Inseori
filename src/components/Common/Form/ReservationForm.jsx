@@ -270,7 +270,7 @@ const ReservationForm = ({ item }) => {
       return;
     }
   };
-  console.log(item);
+
   return (
     <>
       <Modal
@@ -300,7 +300,9 @@ const ReservationForm = ({ item }) => {
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoTextLabel>예약마감</ClassInfoTextLabel>
-            <ClassInfoTextValue>{item.endDate}</ClassInfoTextValue>
+            <ClassInfoTextValue>
+              {item.endDate} / {item.maxHeadCount} 명
+            </ClassInfoTextValue>
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoTextLabel>수강료</ClassInfoTextLabel>
