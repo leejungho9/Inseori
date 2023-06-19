@@ -36,7 +36,7 @@ const LogoImageBox = styled.div`
 
 const Logo = styled.img`
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
 `;
 
@@ -168,7 +168,7 @@ const IconBox = styled.div`
 `;
 const SocialIcon = styled.img`
   width: 100%;
-  height: auto;
+  height: 100%;
 `;
 const CuratedText = styled.span`
   display: none;
@@ -222,8 +222,9 @@ const Footer = forwardRef((props, footerRef) => {
                 target="_blank"
                 href="https://map.kakao.com/?itemId=386938052"
                 rel="noreferrer"
+                aria-label="지도 바로가기"
               >
-                <SocialIcon src={map}></SocialIcon>
+                <SocialIcon src={map} alt="지도 이미지"></SocialIcon>
               </a>
             </IconBox>
             <IconBox>
@@ -231,8 +232,9 @@ const Footer = forwardRef((props, footerRef) => {
                 target="_blank"
                 href="https://www.instagram.com/inseori01/"
                 rel="noreferrer"
+                aria-label="인스타그램 바로가기"
               >
-                <SocialIcon src={insta}></SocialIcon>
+                <SocialIcon src={insta} alt="인스타그램 이미지"></SocialIcon>
               </a>
             </IconBox>
             <IconBox>
@@ -240,8 +242,9 @@ const Footer = forwardRef((props, footerRef) => {
                 target="_blank"
                 href="https://pf.kakao.com/_xnhxhrxj"
                 rel="noreferrer"
+                aria-label="카카오톡 바로가기"
               >
-                <SocialIcon src={kakao}></SocialIcon>
+                <SocialIcon src={kakao} alt="카카오톡 이미지"></SocialIcon>
               </a>
             </IconBox>
           </SocialIconBox>
