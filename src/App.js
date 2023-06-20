@@ -1,12 +1,14 @@
-import ArtShop from 'pages/ArtShop';
-import Cafe from 'pages/Cafe';
-import CultureSpace from 'pages/CultureSpace';
-import Main from 'pages/Main';
-import OnedayClass from 'pages/OnedayClass';
-import OnedayClassDetail from 'pages/OnedayClassDetail';
-import RoomA from 'pages/RoomA';
+import { lazy } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Root } from 'router/routes';
+
+const ArtShop = lazy(() => import('pages/ArtShop'));
+const Cafe = lazy(() => import('pages/Cafe'));
+const CultureSpace = lazy(() => import('pages/CultureSpace'));
+const Main = lazy(() => import('pages/Main'));
+const OnedayClass = lazy(() => import('pages/OnedayClass'));
+const OnedayClassDetail = lazy(() => import('pages/OnedayClassDetail'));
+const RoomA = lazy(() => import('pages/RoomA'));
 
 function App() {
   const router = createBrowserRouter([
