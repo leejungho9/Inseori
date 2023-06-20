@@ -44,22 +44,26 @@ ${Variables}
 @font-face {
 	font-family: "PretendardRegular";
 	font-weight: 400;
-	src: url(${PretendardRegular}) format("woff2")
+	src: url(${PretendardRegular}) format("woff2");
+  font-display:swap;
 }
 @font-face {
 	font-family: "PretendardMedium";
 	font-weight: 500;
-	src: url(${PretendardMedium}) format("woff2")
+	src: url(${PretendardMedium}) format("woff2");
+  font-display:swap;
 }
 @font-face {
 	font-family: "PretendardBold";
 	font-weight: 600;
-	src: url(${PretendardBold}) format("woff2")
+	src: url(${PretendardBold}) format("woff2");
+  font-display:swap;
 }
 @font-face {
 	font-family: "PretendardSemiBold";
 	font-weight: 700;
-	src: url(${PretendardSemiBold}) format("woff2")
+	src: url(${PretendardSemiBold}) format("woff2");
+  font-display:swap;
 }
 
 *{
