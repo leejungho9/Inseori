@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 const PaginationContainer = styled.div``;

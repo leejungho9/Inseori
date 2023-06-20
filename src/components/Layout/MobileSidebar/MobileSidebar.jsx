@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { AiOutlineRight } from 'react-icons/ai';
 import reserveLogo from 'assets/images/common/reserLogo.png';

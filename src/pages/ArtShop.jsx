@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
 import ReserveButton from 'components/Common/Button/ReserveButton';

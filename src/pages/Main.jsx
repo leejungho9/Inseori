@@ -1,9 +1,10 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import styled from 'styled-components';
 import BannerCarousel from '../components/Common/Carousel/BannerCarousel';
 import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
 import maingalleryData from 'data/maingalleryData';
 import mainbannerData from 'data/mainbannerData';
+// import BannerSkeleton from 'components/Common/Skeleton/BannerSkeleton';
 
 const MainContainer = styled.main`
   overflow: hidden;
@@ -86,6 +87,7 @@ const Main = forwardRef((props, mainTopRef) => {
   return (
     <MainContainer>
       <MainWrpper ref={mainTopRef}>
+        {/* <BannerSkeleton /> */}
         <BannerCarousel slides={mainbannerData} />
         <MainIntroWrapper>
           <MainIntroBox>

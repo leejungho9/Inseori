@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
 import cultureData from 'data/cultureData';

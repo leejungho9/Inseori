@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import ReservationForm from 'components/Common/Form/ReservationForm';
 import classBanner from 'assets/images/onedayclass/detail/onedayclassDetail.png';

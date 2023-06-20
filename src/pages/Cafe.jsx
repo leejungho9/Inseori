@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import cafebanner from 'assets/images/cafe/banner.png';
 import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';

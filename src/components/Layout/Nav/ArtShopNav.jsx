@@ -1,5 +1,4 @@
 import Searchbar from 'components/Common/Searchbar/Searchbar';
-import React from 'react';
 import { useState } from 'react';
 import { GoSearch } from 'react-icons/go';
 import { Form, Link } from 'react-router-dom';

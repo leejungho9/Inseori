@@ -1,5 +1,4 @@
 import OnedayClassCardList from 'components/Common/CardList/OnedayCalssCardList';
-import React from 'react';
 import styled from 'styled-components';
 
 const OnedayCalssContainer = styled.main`
