@@ -6,6 +6,7 @@ import artshopData from 'data/artshopData';
 import { getData } from 'apis/api';
 import useLoading from 'hooks/useLoading';
 import BannerSkeleton from 'components/Common/Skeleton/BannerSkeleton';
+import CardSkeleton from 'components/Common/Skeleton/CardSkeleton';
 
 const ArtShopContainer = styled.main`
   overflow: hidden;
@@ -149,21 +150,21 @@ const ReserveButtonBox = styled.div`
 const ArtShop = () => {
   const [bannerImage, setBannerImage] = useState([]);
   // ! api 수정되면 적용
-  // const [galleryImage, setGalleryImage] = useState([]);
+  const [galleryImage, setGalleryImage] = useState([]);
   const fetchMainBannerImage = async () => {
     const response = await getData('shop/banner/images/');
     setBannerImage(response);
   };
-  // const fetchMainGalleryImage = async () => {
-  //   const response = await getData('shop/gallery/images/');
-  //   setGalleryImage(response);
-  // };
+  const fetchMainGalleryImage = async () => {
+    const response = await getData('shop/artworks/');
+    setGalleryImage(response);
+  };
   const [getBanner, isBannerLoading] = useLoading(fetchMainBannerImage);
-  // const [getGallery, isGalleryLoading] = useLoading(fetchMainGalleryImage);
+  const [getGallery, isGalleryLoading] = useLoading(fetchMainGalleryImage);
 
   useEffect(() => {
     getBanner();
-    // getGallery();
+    getGallery();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -190,12 +191,21 @@ const ArtShop = () => {
                 </ReserveButtonBox>
               </ArtShopDescBox>
             </ArtShopMenuBox>
-            <CarouselWrapper
-              slides={artshopData.gallery}
-              width={'450px'}
-              height={'450px'}
-              padding={'20px'}
-            />
+            {isGalleryLoading ? (
+              <CardSkeleton
+                length={4}
+                width={'450px'}
+                height={'450px'}
+                padding={'20px'}
+              />
+            ) : (
+              <CarouselWrapper
+                slides={galleryImage}
+                width={'450px'}
+                height={'450px'}
+                padding={'20px'}
+              />
+            )}
           </ArtShopBox>
         )}
       </ArtShopWrapper>
