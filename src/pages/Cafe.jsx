@@ -27,6 +27,7 @@ const CafeTitle = styled.h1`
   font-size: var(--text-size-18);
   font-family: 'PretendardSemiBold';
   margin-bottom: 20px;
+  color: red;
 
   @media screen and (max-width: 991px) {
     margin: 28px 25px;
