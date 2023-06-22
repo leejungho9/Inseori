@@ -1,4 +1,4 @@
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Root } from 'router/routes';
 
@@ -49,7 +49,11 @@ function App() {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <Suspense fallback="..loading">
+      <RouterProvider router={router} />
+    </Suspense>
+  );
 }
 
 export default App;
