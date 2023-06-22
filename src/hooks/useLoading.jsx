@@ -1,4 +1,4 @@
-const { useState } = require('react');
+import { useState } from 'react';
 
 const useLoading = (action) => {
   const [loading, setLoading] = useState(true);
