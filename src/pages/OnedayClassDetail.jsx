@@ -1,9 +1,13 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ReservationForm from 'components/Common/Form/ReservationForm';
 import classBanner from 'assets/images/onedayclass/detail/onedayclassDetail.png';
 import onedayCalssImage1 from 'assets/images/onedayclass/detail/onedayClassImage1.png';
 import onedayCalssImage2 from 'assets/images/onedayclass/detail/onedayClassImage2.png';
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { getData } from 'apis/api';
+import useLoading from 'hooks/useLoading';
+import BannerSkeleton from 'components/Common/Skeleton/BannerSkeleton';
 
 const OnedayClassDetialContainer = styled.main`
   overflow: hidden;
@@ -122,20 +126,31 @@ const OnedayClassDetailDesc = styled.p`
   line-height: 32px;
   letter-spacing: -0.06em;
 `;
-const OnedayClassDetail = () => {
-  const location = useLocation();
-  const { item } = location.state;
 
+const OnedayClassDetail = () => {
+  let { id } = useParams();
+  const [detail, setDetail] = useState([]);
+
+  const fetchClassDetail = async () => {
+    const response = await getData(`lesson/lessons/${id}/`);
+    setDetail(response);
+  };
+
+  const [getClassDetail, isClassDetailLoading] = useLoading(fetchClassDetail);
+  useEffect(() => {
+    getClassDetail();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <OnedayClassDetialContainer>
       <OnedayClassDetailWrapper>
-        <OnedayClassDetailTitle>라탄조명 클래스</OnedayClassDetailTitle>
+        <OnedayClassDetailTitle>{detail.title}</OnedayClassDetailTitle>
         <ReservationWrapper>
-          <ReservationBanner />
+          {isClassDetailLoading ? <BannerSkeleton /> : <ReservationBanner />}
           <ReservationFormBox>
             <ReservationFormTitle>예약신청서</ReservationFormTitle>
             <Linebar />
-            <ReservationForm item={item} />
+            <ReservationForm data={detail} />
           </ReservationFormBox>
         </ReservationWrapper>
         <ReservationImageBox>
