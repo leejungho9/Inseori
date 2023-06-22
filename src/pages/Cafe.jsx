@@ -5,7 +5,7 @@ import cafeData from 'data/cafeData';
 import useLoading from 'hooks/useLoading';
 import BannerSkeleton from 'components/Common/Skeleton/BannerSkeleton';
 import { getData } from 'apis/api';
-// import GallerySkeleton from 'components/Common/Skeleton/GallerySkeleton';
+import GallerySkeleton from 'components/Common/Skeleton/GallerySkeleton';
 
 const CafeContainer = styled.main`
   overflow: hidden;
@@ -129,25 +129,23 @@ const CafeDesc = styled.p`
 
 const Cafe = () => {
   const [bannerImage, setBannerImage] = useState([]);
-
-  // ! api 수정되면 적용
-  // const [galleryImage, setGalleryImage] = useState([]);
+  const [galleryImage, setGalleryImage] = useState([]);
 
   const fetchCafeBanner = async () => {
     const response = await getData('/cafe/banner/images/');
     setBannerImage(response);
   };
 
-  // const fetchCafeGalleryImage = async () => {
-  //   const response = await getData('/cafe/gallery/images/');
-  //   setGalleryImage(response);
-  // };
+  const fetchCafeGalleryImage = async () => {
+    const response = await getData('/cafe/menu/images/');
+    setGalleryImage(response);
+  };
   const [getBanner, isBannerLoading] = useLoading(fetchCafeBanner);
-  // const [getGallery, isGalleryLoading] = useLoading(fetchCafeGalleryImage);
+  const [getGallery, isGalleryLoading] = useLoading(fetchCafeGalleryImage);
 
   useEffect(() => {
     getBanner();
-    // getGallery();
+    getGallery();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -169,21 +167,21 @@ const Cafe = () => {
               <Linebar />
               <CafeDesc>{cafeData.desc}</CafeDesc>
             </CafeMenuBox>
-            {/* {isGalleryLoading ? (
+            {isGalleryLoading ? (
               <GallerySkeleton
                 length={4}
                 width={'450px'}
                 height={'450px'}
                 padding={'20px'}
               />
-            ) : ( */}
-            <CarouselWrapper
-              slides={cafeData.gallery}
-              width={'450px'}
-              height={'450px'}
-              padding={'20px'}
-            />
-            {/* )} */}
+            ) : (
+              <CarouselWrapper
+                slides={galleryImage}
+                width={'450px'}
+                height={'450px'}
+                padding={'20px'}
+              />
+            )}
           </CafeBox>
         )}
       </CafeWrapper>
