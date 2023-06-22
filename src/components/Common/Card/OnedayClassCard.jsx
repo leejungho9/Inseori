@@ -117,13 +117,14 @@ const OnedayClassPrice = styled.span`
   font-size: var(--text-size-15);
   font-weight: bold;
 `;
+//! 사용미정
+// const Break = styled.br`
+//   display: none;
+//   @media screen and (max-width: 500px) {
+//     display: block;
+//   }
+// `;
 
-const Break = styled.br`
-  display: none;
-  @media screen and (max-width: 500px) {
-    display: block;
-  }
-`;
 const OnedayClassCard = ({ items }) => {
   return (
     <OnedayClassCardWrapper>
@@ -136,26 +137,21 @@ const OnedayClassCard = ({ items }) => {
                 state={{ item: item }}
               >
                 <OnedayClassImage
-                  src={item.url}
+                  src={item.thumb_url}
                   alt="원데이클래스 이미지"
                 ></OnedayClassImage>
               </OnedayClassCardLink>
             </OnedayClassImageBox>
           </OnedayClassImageWrapper>
           <OnedayClassInfoHead>
-            <OnedayClassName>라탄조명 클래스</OnedayClassName>
+            <OnedayClassName>{item.title}</OnedayClassName>
             <OnedayClassStatus>
-              {item.status === 'soldout' && 'SOLD OUT'}
+              {item.is_soldout && 'SOLD OUT'}
             </OnedayClassStatus>
           </OnedayClassInfoHead>
           <OnedayClassInfoBody>
-            <OnedayClassDate>
-              {item.startDate} <span>/</span>
-              <Break /> {item.startHour} ~ {item.endHour}
-            </OnedayClassDate>
-            <OnedayClassPersonnel>
-              인원 {item.minHeadCount} - {item.maxHeadCount}명
-            </OnedayClassPersonnel>
+            <OnedayClassDate>{item.period}</OnedayClassDate>
+            <OnedayClassPersonnel>인원 {item.people}</OnedayClassPersonnel>
           </OnedayClassInfoBody>
           <OnedayClassInfoFoot>
             <OnedayClassPrice>{item.price}원</OnedayClassPrice>
