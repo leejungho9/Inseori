@@ -101,6 +101,7 @@ const Main = forwardRef((props, mainTopRef) => {
   useEffect(() => {
     getBanner();
     getGallery();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -127,7 +128,7 @@ const Main = forwardRef((props, mainTopRef) => {
 
         {isGalleryLoading ? (
           <GallerySkeleton
-            length={4}
+            length={45}
             width={'435px'}
             height={'435px'}
             padding={'25px'}
