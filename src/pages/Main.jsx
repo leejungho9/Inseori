@@ -2,7 +2,7 @@ import { forwardRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import BannerCarousel from '../components/Common/Carousel/BannerCarousel';
 import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
-import { getData } from 'apis/main';
+import { getData } from 'apis/api';
 import useLoading from 'hooks/useLoading';
 import BannerSkeleton from 'components/Common/Skeleton/BannerSkeleton';
 import GallerySkeleton from 'components/Common/Skeleton/GallerySkeleton';
@@ -128,7 +128,7 @@ const Main = forwardRef((props, mainTopRef) => {
 
         {isGalleryLoading ? (
           <GallerySkeleton
-            length={45}
+            length={4}
             width={'435px'}
             height={'435px'}
             padding={'25px'}
