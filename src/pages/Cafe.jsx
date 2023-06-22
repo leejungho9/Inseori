@@ -5,7 +5,7 @@ import cafeData from 'data/cafeData';
 import useLoading from 'hooks/useLoading';
 import BannerSkeleton from 'components/Common/Skeleton/BannerSkeleton';
 import { getData } from 'apis/api';
-import GallerySkeleton from 'components/Common/Skeleton/GallerySkeleton';
+// import GallerySkeleton from 'components/Common/Skeleton/GallerySkeleton';
 
 const CafeContainer = styled.main`
   overflow: hidden;
@@ -169,21 +169,21 @@ const Cafe = () => {
               <Linebar />
               <CafeDesc>{cafeData.desc}</CafeDesc>
             </CafeMenuBox>
-            {isGalleryLoading ? (
+            {/* {isGalleryLoading ? (
               <GallerySkeleton
                 length={4}
                 width={'450px'}
                 height={'450px'}
                 padding={'20px'}
               />
-            ) : (
-              <CarouselWrapper
-                slides={cafeData.gallery}
-                width={'450px'}
-                height={'450px'}
-                padding={'20px'}
-              />
-            )}
+            ) : ( */}
+            <CarouselWrapper
+              slides={cafeData.gallery}
+              width={'450px'}
+              height={'450px'}
+              padding={'20px'}
+            />
+            {/* )} */}
           </CafeBox>
         )}
       </CafeWrapper>
