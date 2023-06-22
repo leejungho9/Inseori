@@ -39,7 +39,7 @@ const MainImg = styled.img`
   height: 100%;
   object-fit: cover;
 `;
-function MainBannerCarousel({ slides }) {
+function BannerCarousel({ slides }) {
   const settings = {
     dots: true,
     infinite: true,
@@ -51,13 +51,12 @@ function MainBannerCarousel({ slides }) {
     pauseOnHover: false,
     fade: true,
   };
-
   return (
     <SliderContainer>
       <Slider {...settings}>
         {slides.map((slide, index) => (
           <MainImgBox key={index}>
-            <MainImg src={slide.url} alt="캐러셀메인" />
+            <MainImg src={slide.image_url} alt={slide.title} />
           </MainImgBox>
         ))}
       </Slider>
@@ -65,4 +64,4 @@ function MainBannerCarousel({ slides }) {
   );
 }
 
-export default MainBannerCarousel;
+export default BannerCarousel;
