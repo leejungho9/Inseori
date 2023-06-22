@@ -50,8 +50,8 @@ const Carousel = ({ slides, options, width, height, padding }) => {
           {slides.map((slide, index) => (
             <EmblaSlide key={index} padding={padding}>
               <Image
-                src={slide.url}
-                alt="캐러셀메인"
+                src={slide.image_url}
+                alt={slide.title}
                 pathname={pathname}
                 width={width}
                 height={height}
