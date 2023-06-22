@@ -1,7 +1,11 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
 import ReserveButton from 'components/Common/Button/ReserveButton';
 import artshopData from 'data/artshopData';
+import { getData } from 'apis/api';
+import useLoading from 'hooks/useLoading';
+import BannerSkeleton from 'components/Common/Skeleton/BannerSkeleton';
 
 const ArtShopContainer = styled.main`
   overflow: hidden;
@@ -143,6 +147,26 @@ const ReserveButtonBox = styled.div`
 `;
 
 const ArtShop = () => {
+  const [bannerImage, setBannerImage] = useState([]);
+  // ! api 수정되면 적용
+  // const [galleryImage, setGalleryImage] = useState([]);
+  const fetchMainBannerImage = async () => {
+    const response = await getData('shop/banner/images/');
+    setBannerImage(response);
+  };
+  // const fetchMainGalleryImage = async () => {
+  //   const response = await getData('shop/gallery/images/');
+  //   setGalleryImage(response);
+  // };
+  const [getBanner, isBannerLoading] = useLoading(fetchMainBannerImage);
+  // const [getGallery, isGalleryLoading] = useLoading(fetchMainGalleryImage);
+
+  useEffect(() => {
+    getBanner();
+    // getGallery();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <ArtShopContainer>
       <ArtShopWrapper>
@@ -150,7 +174,11 @@ const ArtShop = () => {
           <ArtShopBox>
             <ArtShopTitle>아트샵</ArtShopTitle>
             <ArtShopBannerBox>
-              <ArtShopBanner url={artshopData.banner} />
+              {isBannerLoading ? (
+                <BannerSkeleton />
+              ) : (
+                <ArtShopBanner url={bannerImage[0].image_url} />
+              )}
             </ArtShopBannerBox>
             <ArtShopMenuBox>
               <ArtShopName>{artshopData.title}</ArtShopName>
