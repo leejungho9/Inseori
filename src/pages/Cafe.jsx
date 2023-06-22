@@ -1,7 +1,11 @@
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import cafebanner from 'assets/images/cafe/banner.png';
 import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
 import cafeData from 'data/cafeData';
+import useLoading from 'hooks/useLoading';
+import BannerSkeleton from 'components/Common/Skeleton/BannerSkeleton';
+import { getData } from 'apis/api';
+// import GallerySkeleton from 'components/Common/Skeleton/GallerySkeleton';
 
 const CafeContainer = styled.main`
   overflow: hidden;
@@ -59,7 +63,7 @@ const CafeBanner = styled.div`
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url(${cafebanner});
+  background-image: url(${(props) => props.url});
   background-position: center;
 `;
 
@@ -124,6 +128,29 @@ const CafeDesc = styled.p`
 `;
 
 const Cafe = () => {
+  const [bannerImage, setBannerImage] = useState([]);
+
+  // ! api 수정되면 적용
+  // const [galleryImage, setGalleryImage] = useState([]);
+
+  const fetchCafeBanner = async () => {
+    const response = await getData('/cafe/banner/images/');
+    setBannerImage(response);
+  };
+
+  // const fetchCafeGalleryImage = async () => {
+  //   const response = await getData('/cafe/gallery/images/');
+  //   setGalleryImage(response);
+  // };
+  const [getBanner, isBannerLoading] = useLoading(fetchCafeBanner);
+  // const [getGallery, isGalleryLoading] = useLoading(fetchCafeGalleryImage);
+
+  useEffect(() => {
+    getBanner();
+    // getGallery();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <CafeContainer>
       <CafeWrapper>
@@ -131,19 +158,32 @@ const Cafe = () => {
           <CafeBox>
             <CafeTitle>카페</CafeTitle>
             <CafeBannerBox>
-              <CafeBanner />
+              {isBannerLoading ? (
+                <BannerSkeleton />
+              ) : (
+                <CafeBanner url={bannerImage[0].image_url} />
+              )}
             </CafeBannerBox>
             <CafeMenuBox>
               <CafeName>Aat/menu</CafeName>
               <Linebar />
               <CafeDesc>{cafeData.desc}</CafeDesc>
             </CafeMenuBox>
+            {/* {isGalleryLoading ? (
+              <GallerySkeleton
+                length={4}
+                width={'450px'}
+                height={'450px'}
+                padding={'20px'}
+              />
+            ) : ( */}
             <CarouselWrapper
               slides={cafeData.gallery}
               width={'450px'}
               height={'450px'}
               padding={'20px'}
             />
+            {/* )} */}
           </CafeBox>
         )}
       </CafeWrapper>
