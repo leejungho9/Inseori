@@ -1,5 +1,8 @@
+import { useEffect, useState } from 'react';
 import OnedayClassCardList from 'components/Common/CardList/OnedayCalssCardList';
 import styled from 'styled-components';
+import useLoading from 'hooks/useLoading';
+import { getData } from 'apis/api';
 
 const OnedayCalssContainer = styled.main`
   overflow: hidden;
@@ -30,11 +33,23 @@ const OnedayCalssTitle = styled.h1`
 `;
 
 const OnedayCalss = () => {
+  const [classInfo, setClassInfo] = useState();
+
+  const fetchClassInfo = async () => {
+    const response = await getData('lesson/lessons/');
+    setClassInfo(response);
+  };
+  const [getInfo, isInfoLoading] = useLoading(fetchClassInfo);
+
+  useEffect(() => {
+    getInfo();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <OnedayCalssContainer>
       <OnedayCalssWrapper>
         <OnedayCalssTitle>원데이클래스</OnedayCalssTitle>
-        <OnedayClassCardList />
+        <OnedayClassCardList loading={isInfoLoading} items={classInfo} />
       </OnedayCalssWrapper>
     </OnedayCalssContainer>
   );
