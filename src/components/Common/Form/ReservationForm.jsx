@@ -120,7 +120,7 @@ const ClassInfoDesc = styled.p`
     font-size: var(--text-size-14);
   }
 `;
-const ReservationForm = ({ item }) => {
+const ReservationForm = ({ data }) => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [age, setAge] = useState('');
@@ -153,12 +153,12 @@ const ReservationForm = ({ item }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (item.status === 'soldout') {
+    if (data.status === 'soldout') {
       showCheckModal();
       changeCheckContent('예약이 마감됐습니다.');
       return;
     }
-    if (item.book) {
+    if (data.book) {
       showCheckModal();
       changeCheckContent('이미 예약이 완료되었습니다. \n 문의 : 061-761-6701');
       return;
@@ -179,7 +179,7 @@ const ReservationForm = ({ item }) => {
       headCount,
       classRequest,
       reservationCheck,
-      item,
+      data,
     );
 
     if (!successMessage) {
@@ -290,23 +290,19 @@ const ReservationForm = ({ item }) => {
         <ClassInfoBox>
           <ClassInfoTextBox>
             <ClassInfoTextLabel>날짜</ClassInfoTextLabel>
-            <ClassInfoTextValue>{item.startDate}</ClassInfoTextValue>
+            <ClassInfoTextValue>{data.period}</ClassInfoTextValue>
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoTextLabel>시간</ClassInfoTextLabel>
-            <ClassInfoTextValue>
-              {item.startHour} ~ {item.endHour}
-            </ClassInfoTextValue>
+            <ClassInfoTextValue>{data.period}</ClassInfoTextValue>
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoTextLabel>예약마감</ClassInfoTextLabel>
-            <ClassInfoTextValue>
-              {item.endDate} / {item.maxHeadCount} 명
-            </ClassInfoTextValue>
+            <ClassInfoTextValue> {data.people}</ClassInfoTextValue>
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoTextLabel>수강료</ClassInfoTextLabel>
-            <ClassInfoTextValue>{item.price} 원</ClassInfoTextValue>
+            <ClassInfoTextValue>{data.price} 원</ClassInfoTextValue>
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoTextLabel>입금계좌</ClassInfoTextLabel>
@@ -315,13 +311,13 @@ const ReservationForm = ({ item }) => {
             </ClassInfoTextValue>
           </ClassInfoTextBox>
           <ClassInfoTextBox>
-            {item.book === true ? (
+            {data.book === true ? (
               <ClassCheckbox
                 type="checkbox"
                 id="check"
                 name="reservationCheck"
                 onChange={handleChange}
-                checked={item.book}
+                checked={data.book}
                 ref={reservationCheckRef}
               />
             ) : (
@@ -342,7 +338,7 @@ const ReservationForm = ({ item }) => {
         <ClassInfoInputBox>
           <ClassInfoTextBox>
             <ClassInfoLabel htmlFor="name">이름</ClassInfoLabel>
-            {item.book === true ? (
+            {data.book === true ? (
               <ClassInfoInput readOnly value="이정호" />
             ) : (
               <ClassInfoInput
@@ -357,7 +353,7 @@ const ReservationForm = ({ item }) => {
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoLabel htmlFor="phone">전화번호</ClassInfoLabel>
-            {item.book === true ? (
+            {data.book === true ? (
               <ClassInfoInput readOnly value={'010-2222-2222'} />
             ) : (
               <ClassInfoInput
@@ -372,7 +368,7 @@ const ReservationForm = ({ item }) => {
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoLabel htmlFor="headCount">인원수</ClassInfoLabel>
-            {item.book === true ? (
+            {data.book === true ? (
               <ClassInfoInput readOnly value={4} />
             ) : (
               <ClassInfoInput
@@ -387,7 +383,7 @@ const ReservationForm = ({ item }) => {
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoLabel htmlFor="age">체험자 나이</ClassInfoLabel>
-            {item.book === true ? (
+            {data.book === true ? (
               <ClassInfoInput readOnly value={'22,20,23'} />
             ) : (
               <ClassInfoInput
@@ -403,7 +399,7 @@ const ReservationForm = ({ item }) => {
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoLabel htmlFor="classRequest">요청사항</ClassInfoLabel>
-            {item.book === true ? (
+            {data.book === true ? (
               <ClassInfoInput
                 readOnly
                 value={
@@ -430,11 +426,11 @@ const ReservationForm = ({ item }) => {
             type={'submit'}
             color={'black'}
             link={false}
-            disabled={item.status === 'soldout' || item.book}
+            disabled={data.status === 'soldout' || data.book}
           >
-            {item.status === 'soldout'
+            {data.status === 'soldout'
               ? '예약마감'
-              : item.book
+              : data.book
               ? '예약완료'
               : '예약하기'}
           </ReserveButton>
