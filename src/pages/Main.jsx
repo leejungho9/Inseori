@@ -1,10 +1,11 @@
-import { forwardRef } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import BannerCarousel from '../components/Common/Carousel/BannerCarousel';
 import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
-import maingalleryData from 'data/maingalleryData';
-import mainbannerData from 'data/mainbannerData';
-// import BannerSkeleton from 'components/Common/Skeleton/BannerSkeleton';
+import { getData } from 'apis/main';
+import useLoading from 'hooks/useLoading';
+import BannerSkeleton from 'components/Common/Skeleton/BannerSkeleton';
+import GallerySkeleton from 'components/Common/Skeleton/GallerySkeleton';
 
 const MainContainer = styled.main`
   overflow: hidden;
@@ -84,11 +85,32 @@ const Break = styled.br`
 `;
 
 const Main = forwardRef((props, mainTopRef) => {
+  const [bannerImage, setBannerImage] = useState([]);
+  const [galleryImage, setGalleryImage] = useState([]);
+  const fetchMainBannerImage = async () => {
+    const response = await getData('banner/images/');
+    setBannerImage(response);
+  };
+  const fetchMainGalleryImage = async () => {
+    const response = await getData('gallery/images/');
+    setGalleryImage(response);
+  };
+  const [getBanner, isBannerLoading] = useLoading(fetchMainBannerImage);
+  const [getGallery, isGalleryLoading] = useLoading(fetchMainGalleryImage);
+
+  useEffect(() => {
+    getBanner();
+    getGallery();
+  }, []);
+
   return (
     <MainContainer>
       <MainWrpper ref={mainTopRef}>
-        {/* <BannerSkeleton /> */}
-        <BannerCarousel slides={mainbannerData} />
+        {isBannerLoading ? (
+          <BannerSkeleton />
+        ) : (
+          <BannerCarousel slides={bannerImage} />
+        )}
         <MainIntroWrapper>
           <MainIntroBox>
             <MainTitle>인서리공원</MainTitle>
@@ -102,12 +124,22 @@ const Main = forwardRef((props, mainTopRef) => {
             </MainIntro>
           </MainIntroBox>
         </MainIntroWrapper>
-        <CarouselWrapper
-          slides={maingalleryData}
-          width={'435px'}
-          height={'435px'}
-          padding={'25px'}
-        />
+
+        {isGalleryLoading ? (
+          <GallerySkeleton
+            length={4}
+            width={'435px'}
+            height={'435px'}
+            padding={'25px'}
+          />
+        ) : (
+          <CarouselWrapper
+            slides={galleryImage}
+            width={'435px'}
+            height={'435px'}
+            padding={'25px'}
+          />
+        )}
       </MainWrpper>
     </MainContainer>
   );
