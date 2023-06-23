@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
-import cultureData from 'data/cultureData';
 import ReserveButton from 'components/Common/Button/ReserveButton';
 import ExhibitionCard from 'components/Common/Card/ExhibitionCard';
+import useLoading from 'hooks/useLoading';
+import BannerSkeleton from 'components/Common/Skeleton/BannerSkeleton';
+import { getData } from 'apis/api';
 
 const CultureSpaceContainer = styled.main`
   overflow: hidden;
@@ -186,8 +188,22 @@ const CultureSpaceShopName = styled.figcaption`
 const CultureSpace = () => {
   const [navMenu, setNavMenu] = useState('갑빠오의 집');
   const [currentId, setCurrentId] = useState(1);
-  const [culture, setCulture] = useState([]);
+
+  const [currentCulture, setCurrentCulture] = useState([]);
   const [otherCulture, setOtherCulture] = useState([]);
+  const [culture, setCulture] = useState([]);
+
+  const fetchCultureInfo = async () => {
+    const response = await getData('culture/spaces/');
+    setCulture(response);
+  };
+  const [getCulture, isCultureLoading] = useLoading(fetchCultureInfo);
+
+  useEffect(() => {
+    getCulture();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const handleChangeMenu = (name) => {
     setNavMenu(name);
     if (name === '갑빠오의 집') {
@@ -240,16 +256,13 @@ const CultureSpace = () => {
   };
 
   useEffect(() => {
-    const currentCultureData = cultureData.filter(
-      (item) => item.id === currentId && item.name === navMenu,
-    );
-    setCulture(currentCultureData);
+    const currentCultureData = culture.filter((item) => item.id === currentId);
+    setCurrentCulture(currentCultureData);
 
-    const otherCultureData = cultureData.filter(
-      (item) => item.id !== currentId && item.name === navMenu,
-    );
+    const otherCultureData = culture.filter((item) => item.slug === 'BCG_1');
+
     setOtherCulture(otherCultureData);
-  }, [currentId, navMenu]);
+  }, [culture, currentId]);
 
   useEffect(() => {
     scrollTo(0, 0);
@@ -260,21 +273,30 @@ const CultureSpace = () => {
       <CultureSpaceWrapper>
         <CultureSpaceBox>
           <CultureNav />
-          {culture.map((item, index) => (
+          {currentCulture.map((item, index) => (
             <div key={index}>
-              <CultureBanner url={item.banner} />
+              {isCultureLoading ? (
+                <BannerSkeleton />
+              ) : (
+                <CultureBanner url={item.image_url} />
+              )}
               <CultureSpaceMenuBox>
                 <CultureSpaceName>{item.title}</CultureSpaceName>
                 <Linebar />
                 <CultureDescBox>
-                  <CultureSpaceDesc>{item.desc}</CultureSpaceDesc>
+                  <CultureSpaceDesc>
+                    갑빠오 스튜디오는 일상적이고 사적인 경험을 토대로 다양한
+                    아트웍을 선보이고 있습니다. 온전히 &quot;나&quot;로 존재할
+                    수 있는 자유와 치유의방, 우리는 모두 별것 아니지만,
+                    도움이되는 것들 덕분에 살아갈 수 있습니다.
+                  </CultureSpaceDesc>
                   <ReserveButtonBox>
-                    <ReserveButton>작품보기</ReserveButton>
+                    <ReserveButton>예약하기</ReserveButton>
                   </ReserveButtonBox>
                 </CultureDescBox>
               </CultureSpaceMenuBox>
               <CarouselWrapper
-                slides={item.gallery}
+                slides={item.images}
                 width={'450px'}
                 height={'450px'}
                 padding={'20px'}
