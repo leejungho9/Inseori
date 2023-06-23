@@ -89,34 +89,35 @@ const ExhibitionName = styled.span`
     margin-top: 25px;
   }
 `;
-const ExhibitionCard = ({ items, setCurrentId }) => {
-  const clickChangeList = (id) => {
-    setCurrentId(id);
-  };
+const ExhibitionCard = ({ items }) => {
+  // const clickChangeList = (id) => {
+  //   setCurrentId(id);
+  // };
 
   return (
     <ExhibitionCardWrapper>
-      {items.map((item, index) => (
-        <ExhibitionCardBox key={index}>
-          <ExhibitionShopImageBox onClick={() => clickChangeList(item.id)}>
-            <ExhibitionShopImage
-              src={item.url}
-              alt="전시이미지"
-            ></ExhibitionShopImage>
-          </ExhibitionShopImageBox>
-          <ExhibitionInfoHead>
-            <ExhibitionDate>
-              {item.startDate} - {item.endDate}
-            </ExhibitionDate>
-          </ExhibitionInfoHead>
-          <ExhibitionInfoBody>
-            <ExhibitionAuthor>{item.author}</ExhibitionAuthor>
-          </ExhibitionInfoBody>
-          <ExhibitionInfoFoot>
-            <ExhibitionName>{item.title}</ExhibitionName>
-          </ExhibitionInfoFoot>
-        </ExhibitionCardBox>
-      ))}
+      {items &&
+        items[0].images.map((item, index) => (
+          <ExhibitionCardBox key={index}>
+            <ExhibitionShopImageBox>
+              <ExhibitionShopImage
+                src={item.image_url}
+                alt="전시이미지"
+              ></ExhibitionShopImage>
+            </ExhibitionShopImageBox>
+            <ExhibitionInfoHead>
+              <ExhibitionDate>
+                {item.startDate} - {item.endDate}
+              </ExhibitionDate>
+            </ExhibitionInfoHead>
+            <ExhibitionInfoBody>
+              <ExhibitionAuthor>{item.author}</ExhibitionAuthor>
+            </ExhibitionInfoBody>
+            <ExhibitionInfoFoot>
+              <ExhibitionName>{item.title}</ExhibitionName>
+            </ExhibitionInfoFoot>
+          </ExhibitionCardBox>
+        ))}
     </ExhibitionCardWrapper>
   );
 };
