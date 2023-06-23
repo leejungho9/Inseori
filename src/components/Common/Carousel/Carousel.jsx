@@ -47,17 +47,18 @@ const Carousel = ({ slides, options, width, height, padding }) => {
     <Embla>
       <EmblaViewport ref={emblaRef}>
         <EmblaContainer>
-          {slides.map((slide, index) => (
-            <EmblaSlide key={index} padding={padding}>
-              <Image
-                src={slide.image_url}
-                alt={slide.title}
-                pathname={pathname}
-                width={width}
-                height={height}
-              />
-            </EmblaSlide>
-          ))}
+          {slides &&
+            slides.map((slide, index) => (
+              <EmblaSlide key={index} padding={padding}>
+                <Image
+                  src={slide.image_url}
+                  alt={slide.title}
+                  pathname={pathname}
+                  width={width}
+                  height={height}
+                />
+              </EmblaSlide>
+            ))}
         </EmblaContainer>
       </EmblaViewport>
     </Embla>
