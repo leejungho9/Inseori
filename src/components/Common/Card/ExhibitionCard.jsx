@@ -21,13 +21,27 @@ const ExhibitionCardWrapper = styled.section`
   }
   @media screen and (max-width: 560px) {
     grid-template-columns: repeat(2, 1fr);
+    padding: 8px 20px 0px;
   }
 `;
 const ExhibitionCardBox = styled.article``;
 
-const ExhibitionShopImageBox = styled.figure`
+const ExhibitionShopImageWrapper = styled.figure`
   position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 151.3%;
+  overflow: hidden;
   cursor: pointer;
+`;
+
+const ExhibitionShopBox = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f2f2f2;
 `;
 const ExhibitionShopImage = styled.img`
   width: 100%;
@@ -99,12 +113,11 @@ const ExhibitionCard = ({ items }) => {
       {items &&
         items[0].images.map((item, index) => (
           <ExhibitionCardBox key={index}>
-            <ExhibitionShopImageBox>
-              <ExhibitionShopImage
-                src={item.image_url}
-                alt="전시이미지"
-              ></ExhibitionShopImage>
-            </ExhibitionShopImageBox>
+            <ExhibitionShopImageWrapper>
+              <ExhibitionShopBox>
+                <ExhibitionShopImage src={item.image_url} alt="전시이미지" />
+              </ExhibitionShopBox>
+            </ExhibitionShopImageWrapper>
             <ExhibitionInfoHead>
               <ExhibitionDate>
                 {item.startDate} - {item.endDate}

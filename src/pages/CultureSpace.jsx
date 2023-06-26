@@ -177,7 +177,7 @@ const CultureSpaceShopName = styled.figcaption`
   margin-top: 60px;
 
   @media screen and (max-width: 991px) {
-    margin: 50px 25px 0px;
+    margin: 50px 25px 17px;
   }
 
   @media screen and (max-width: 500px) {
