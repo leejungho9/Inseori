@@ -1,4 +1,3 @@
-import { useLocation } from 'react-router-dom';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import styled from 'styled-components';
@@ -17,7 +16,7 @@ const EmblaSlide = styled.div`
   margin-right: ${({ padding }) => padding && padding};
 
   @media screen and (max-width: 500px) {
-    margin-right: ${({ padding }) => padding && 15 + 'px'};
+    margin-right: 15px;
   }
 `;
 
@@ -28,19 +27,20 @@ const Image = styled.img`
   object-fit: cover;
 
   @media screen and (max-width: 500px) {
-    width: ${({ pathname }) => pathname === '/' && 250 + 'px'};
-    height: ${({ pathname }) => pathname === '/' && 250 + 'px'};
-    width: ${({ pathname }) => pathname === '/roomA' && 300 + 'px'};
-    height: ${({ pathname }) => pathname === '/roomA' && 300 + 'px'};
-    width: ${({ pathname }) =>
-      pathname === '/cafe' || ('/artshop' && 270 + 'px')};
-    height: ${({ pathname }) =>
-      pathname === '/cafe' || ('/artshop' && 270 + 'px')};
+    width: ${({ mobilewidth }) => mobilewidth && mobilewidth};
+    height: ${({ mobileheight }) => mobileheight && mobileheight};
   }
 `;
 
-const Carousel = ({ slides, options, width, height, padding }) => {
-  const { pathname } = useLocation();
+const Carousel = ({
+  slides,
+  options,
+  width,
+  height,
+  padding,
+  mobilewidth,
+  mobileheight,
+}) => {
   const [emblaRef] = useEmblaCarousel(options, [Autoplay({ delay: 2000 })]);
 
   return (
@@ -53,9 +53,10 @@ const Carousel = ({ slides, options, width, height, padding }) => {
                 <Image
                   src={slide.image_url}
                   alt={slide.title}
-                  pathname={pathname}
                   width={width}
                   height={height}
+                  mobilewidth={mobilewidth}
+                  mobileheight={mobileheight}
                 />
               </EmblaSlide>
             ))}

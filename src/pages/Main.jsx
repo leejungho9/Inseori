@@ -132,6 +132,8 @@ const Main = forwardRef((props, mainTopRef) => {
             width={'435px'}
             height={'435px'}
             padding={'25px'}
+            mobilewidth={'270px'}
+            mobileheight={'270px'}
           />
         ) : (
           <CarouselWrapper
@@ -139,6 +141,8 @@ const Main = forwardRef((props, mainTopRef) => {
             width={'435px'}
             height={'435px'}
             padding={'25px'}
+            mobilewidth={'270px'}
+            mobileheight={'270px'}
           />
         )}
       </MainWrpper>

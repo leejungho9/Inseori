@@ -5,7 +5,14 @@ const CarosuelSection = styled.section`
   position: relative;
 `;
 
-const CarouselWrapper = ({ slides, width, height, padding }) => {
+const CarouselWrapper = ({
+  slides,
+  width,
+  height,
+  padding,
+  mobilewidth,
+  mobileheight,
+}) => {
   const options = { loop: true, align: 'start' };
 
   return (
@@ -16,6 +23,8 @@ const CarouselWrapper = ({ slides, width, height, padding }) => {
         width={width}
         height={height}
         padding={padding}
+        mobilewidth={mobilewidth}
+        mobileheight={mobileheight}
       />
     </CarosuelSection>
   );

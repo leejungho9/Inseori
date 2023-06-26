@@ -19,7 +19,7 @@ const EmblaSlide = styled.div`
   margin-right: ${({ padding }) => padding && padding};
 
   @media screen and (max-width: 500px) {
-    margin-right: ${({ padding }) => padding && 15 + 'px'};
+    margin-right: 15px;
   }
 `;
 
@@ -30,17 +30,18 @@ const Image = styled(SkeletonItem)`
   object-fit: cover;
 
   @media screen and (max-width: 500px) {
-    width: ${({ pathname }) => pathname === '/' && 250 + 'px'};
-    height: ${({ pathname }) => pathname === '/' && 250 + 'px'};
-    width: ${({ pathname }) => pathname === '/roomA' && 300 + 'px'};
-    height: ${({ pathname }) => pathname === '/roomA' && 300 + 'px'};
-    width: ${({ pathname }) =>
-      pathname === '/cafe' || ('/artshop' && 270 + 'px')};
-    height: ${({ pathname }) =>
-      pathname === '/cafe' || ('/artshop' && 270 + 'px')};
+    width: ${({ mobilewidth }) => mobilewidth && mobilewidth};
+    height: ${({ mobileheight }) => mobileheight && mobileheight};
   }
 `;
-const GallerySkeleton = ({ length, width, height, padding }) => {
+const GallerySkeleton = ({
+  length,
+  width,
+  height,
+  padding,
+  mobilewidth,
+  mobileheight,
+}) => {
   const { pathname } = useLocation();
   return (
     <GallerySkeletonWrapper>
@@ -48,7 +49,13 @@ const GallerySkeleton = ({ length, width, height, padding }) => {
         <EmblaContainer>
           {new Array(length).fill('').map((_, index) => (
             <EmblaSlide key={index} padding={padding}>
-              <Image pathname={pathname} width={width} height={height} />
+              <Image
+                pathname={pathname}
+                width={width}
+                height={height}
+                mobilewidth={mobilewidth}
+                mobileheight={mobileheight}
+              />
             </EmblaSlide>
           ))}
         </EmblaContainer>

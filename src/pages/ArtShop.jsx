@@ -197,6 +197,8 @@ const ArtShop = () => {
                 width={'450px'}
                 height={'450px'}
                 padding={'20px'}
+                mobilewidth={'270px'}
+                mobileheight={'270px'}
               />
             ) : (
               <CarouselWrapper
@@ -204,6 +206,8 @@ const ArtShop = () => {
                 width={'450px'}
                 height={'450px'}
                 padding={'20px'}
+                mobilewidth={'270px'}
+                mobileheight={'270px'}
               />
             )}
           </ArtShopBox>

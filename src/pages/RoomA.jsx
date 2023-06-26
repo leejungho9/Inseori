@@ -259,6 +259,8 @@ function RoomA() {
             width={'436px'}
             height={'436px'}
             padding={'25px'}
+            mobilewidth={'300px'}
+            mobileheight={'300px'}
           />
         ) : (
           <RoomImagesContainer>
