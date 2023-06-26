@@ -5,7 +5,7 @@ const reservationValidate = (
   headCount,
   classRequest,
   reservationCheck,
-  item,
+  detail,
 ) => {
   let errorMessage = '';
   let successMessage = '예약이 완료되었습니다. \n 문의 : 061-761-6701';
@@ -24,8 +24,8 @@ const reservationValidate = (
   const isAgeValid = ageRegex.test(age);
 
   // ! 인원수 =  1이상의 숫자만 가능
-  const min = item.minHeadCount;
-  const max = item.maxHeadCount;
+  const min = detail.minHeadCount;
+  const max = detail.maxHeadCount;
   // const headCountRegex = /^(?:[1-9]|10)$/;
   const headCountRegex = new RegExp(`^(?:[${min}-${max}])$`);
   const isHeadCountValid = headCountRegex.test(headCount);
