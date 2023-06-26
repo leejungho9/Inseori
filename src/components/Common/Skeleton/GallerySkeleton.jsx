@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import SkeletonItem from './SkeletonItem';
-import { useLocation } from 'react-router-dom';
 
 const GallerySkeletonWrapper = styled.section`
   position: relative;
@@ -42,7 +41,6 @@ const GallerySkeleton = ({
   mobilewidth,
   mobileheight,
 }) => {
-  const { pathname } = useLocation();
   return (
     <GallerySkeletonWrapper>
       <EmblaViewport>
@@ -50,7 +48,6 @@ const GallerySkeleton = ({
           {new Array(length).fill('').map((_, index) => (
             <EmblaSlide key={index} padding={padding}>
               <Image
-                pathname={pathname}
                 width={width}
                 height={height}
                 mobilewidth={mobilewidth}
