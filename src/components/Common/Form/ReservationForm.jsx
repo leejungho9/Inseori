@@ -6,6 +6,7 @@ import ReserveButton from '../Button/ReserveButton';
 import useModal from 'hooks/useModal';
 import ReservationModal from '../Modal/ReservationModal';
 import Modal from '../Modal/Modal';
+import { postData } from 'apis/api';
 
 const ClassInfoForm = styled(Form)`
   display: flex;
@@ -120,19 +121,19 @@ const ClassInfoDesc = styled.p`
     font-size: var(--text-size-14);
   }
 `;
-const ReservationForm = ({ data }) => {
+const ReservationForm = ({ detail }) => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [age, setAge] = useState('');
-  const [headCount, setHeadCount] = useState('');
-  const [classRequest, setclassRequest] = useState('');
+  const [people, setPeople] = useState('');
+  const [requirement, setrequirement] = useState('');
   const [reservationCheck, setReservationCheck] = useState(false);
 
   const nameRef = useRef(null);
   const phoneRef = useRef(null);
   const ageRef = useRef(null);
-  const headCountRef = useRef(null);
-  const classRequestRef = useRef(null);
+  const peopleRef = useRef(null);
+  const requirementRef = useRef(null);
   const reservationCheckRef = useRef(null);
   const [focusRef, setFocusRef] = useState(null);
   const [
@@ -153,12 +154,12 @@ const ReservationForm = ({ data }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (data.status === 'soldout') {
+    if (detail.status === 'soldout') {
       showCheckModal();
       changeCheckContent('예약이 마감됐습니다.');
       return;
     }
-    if (data.book) {
+    if (detail.book) {
       showCheckModal();
       changeCheckContent('이미 예약이 완료되었습니다. \n 문의 : 061-761-6701');
       return;
@@ -171,15 +172,15 @@ const ReservationForm = ({ data }) => {
     ref.current.focus();
   };
 
-  const validateReservationForm = () => {
+  const validateReservationForm = async () => {
     const { errorData, errorMessage, successMessage } = reservationValidate(
       name,
       phone,
       age,
-      headCount,
-      classRequest,
+      people,
+      requirement,
       reservationCheck,
-      data,
+      detail,
     );
 
     if (!successMessage) {
@@ -195,10 +196,10 @@ const ReservationForm = ({ data }) => {
         setFocusRef(phoneRef);
         return;
       }
-      if (errorData === 'headCount') {
+      if (errorData === 'people') {
         showErrorModal();
         changeErrorContent(errorMessage);
-        setFocusRef(headCountRef);
+        setFocusRef(peopleRef);
 
         return;
       }
@@ -208,13 +209,13 @@ const ReservationForm = ({ data }) => {
         setFocusRef(ageRef);
         return;
       }
-      if (errorData === 'classRequest') {
+      if (errorData === 'requirement') {
         showErrorModal();
         changeErrorContent(errorMessage);
-        setFocusRef(classRequestRef);
-        classRequestRef.current.selectionStart =
-          classRequestRef.current.selectionEnd =
-            classRequestRef.current.value.length;
+        setFocusRef(requirementRef);
+        requirementRef.current.selectionStart =
+          requirementRef.current.selectionEnd =
+            requirementRef.current.value.length;
         return;
       }
       if (errorData === 'reservationCheck') {
@@ -225,10 +226,29 @@ const ReservationForm = ({ data }) => {
       }
     }
 
+    const data = {
+      lesson: detail.title,
+      name,
+      phone,
+      age,
+      people,
+      requirement,
+    };
     if (successMessage) {
-      showErrorModal();
-      changeErrorContent(successMessage);
+      await postData('lesson/reserve/create/', data);
+      resetInput();
+      showCheckModal();
+      changeCheckContent(successMessage);
     }
+  };
+
+  const resetInput = () => {
+    setName('');
+    setPhone('');
+    setAge('');
+    setPeople('');
+    setrequirement('');
+    setReservationCheck(false);
   };
 
   const handleChange = (event) => {
@@ -246,11 +266,11 @@ const ReservationForm = ({ data }) => {
       setPhone(phoneValue);
       return;
     }
-    if (name === 'headCount') {
+    if (name === 'people') {
       if (value.length <= 2) {
-        const headCountRegex = /[^0-9]/g;
-        const headCountValue = value.replace(headCountRegex, '');
-        setHeadCount(headCountValue);
+        const peopleRegex = /[^0-9]/g;
+        const peopleValue = value.replace(peopleRegex, '');
+        setPeople(peopleValue);
       }
       return;
     }
@@ -261,8 +281,8 @@ const ReservationForm = ({ data }) => {
 
       return;
     }
-    if (name === 'classRequest') {
-      setclassRequest(value);
+    if (name === 'requirement') {
+      setrequirement(value);
       return;
     }
     if (name === 'reservationCheck') {
@@ -290,19 +310,19 @@ const ReservationForm = ({ data }) => {
         <ClassInfoBox>
           <ClassInfoTextBox>
             <ClassInfoTextLabel>날짜</ClassInfoTextLabel>
-            <ClassInfoTextValue>{data.period}</ClassInfoTextValue>
+            <ClassInfoTextValue>{detail.period}</ClassInfoTextValue>
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoTextLabel>시간</ClassInfoTextLabel>
-            <ClassInfoTextValue>{data.period}</ClassInfoTextValue>
+            <ClassInfoTextValue>{detail.period}</ClassInfoTextValue>
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoTextLabel>예약마감</ClassInfoTextLabel>
-            <ClassInfoTextValue> {data.people}</ClassInfoTextValue>
+            <ClassInfoTextValue> {detail.people}</ClassInfoTextValue>
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoTextLabel>수강료</ClassInfoTextLabel>
-            <ClassInfoTextValue>{data.price} 원</ClassInfoTextValue>
+            <ClassInfoTextValue>{detail.price} 원</ClassInfoTextValue>
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoTextLabel>입금계좌</ClassInfoTextLabel>
@@ -311,25 +331,14 @@ const ReservationForm = ({ data }) => {
             </ClassInfoTextValue>
           </ClassInfoTextBox>
           <ClassInfoTextBox>
-            {data.book === true ? (
-              <ClassCheckbox
-                type="checkbox"
-                id="check"
-                name="reservationCheck"
-                onChange={handleChange}
-                checked={data.book}
-                ref={reservationCheckRef}
-              />
-            ) : (
-              <ClassCheckbox
-                type="checkbox"
-                id="check"
-                name="reservationCheck"
-                onChange={handleChange}
-                checked={reservationCheck}
-                ref={reservationCheckRef}
-              />
-            )}
+            <ClassCheckbox
+              type="checkbox"
+              id="check"
+              name="reservationCheck"
+              onChange={handleChange}
+              checked={reservationCheck}
+              ref={reservationCheckRef}
+            />
             <ClassCheckLable htmlFor="check">
               위 내용을 모두 확인하였습니다.
             </ClassCheckLable>
@@ -338,84 +347,59 @@ const ReservationForm = ({ data }) => {
         <ClassInfoInputBox>
           <ClassInfoTextBox>
             <ClassInfoLabel htmlFor="name">이름</ClassInfoLabel>
-            {data.book === true ? (
-              <ClassInfoInput readOnly value="이정호" />
-            ) : (
-              <ClassInfoInput
-                id="name"
-                name="name"
-                type="text"
-                onChange={handleChange}
-                value={name}
-                ref={nameRef}
-              />
-            )}
+            <ClassInfoInput
+              id="name"
+              name="name"
+              type="text"
+              onChange={handleChange}
+              value={name}
+              ref={nameRef}
+            />
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoLabel htmlFor="phone">전화번호</ClassInfoLabel>
-            {data.book === true ? (
-              <ClassInfoInput readOnly value={'010-2222-2222'} />
-            ) : (
-              <ClassInfoInput
-                id="phone"
-                name="phone"
-                type="text"
-                onChange={handleChange}
-                value={phone}
-                ref={phoneRef}
-              />
-            )}
+            <ClassInfoInput
+              id="phone"
+              name="phone"
+              type="text"
+              onChange={handleChange}
+              value={phone}
+              ref={phoneRef}
+            />
           </ClassInfoTextBox>
           <ClassInfoTextBox>
-            <ClassInfoLabel htmlFor="headCount">인원수</ClassInfoLabel>
-            {data.book === true ? (
-              <ClassInfoInput readOnly value={4} />
-            ) : (
-              <ClassInfoInput
-                id="headCount"
-                name="headCount"
-                type="text"
-                onChange={handleChange}
-                value={headCount}
-                ref={headCountRef}
-              />
-            )}
+            <ClassInfoLabel htmlFor="people">인원수</ClassInfoLabel>
+            <ClassInfoInput
+              id="people"
+              name="people"
+              type="text"
+              onChange={handleChange}
+              value={people}
+              ref={peopleRef}
+            />
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoLabel htmlFor="age">체험자 나이</ClassInfoLabel>
-            {data.book === true ? (
-              <ClassInfoInput readOnly value={'22,20,23'} />
-            ) : (
-              <ClassInfoInput
-                id="age"
-                name="age"
-                type="text"
-                onChange={handleChange}
-                value={age}
-                ref={ageRef}
-                placeholder="여러 명의 경우, 전부 기입해주세요. 예) 15,16,20"
-              />
-            )}
+            <ClassInfoInput
+              id="age"
+              name="age"
+              type="text"
+              onChange={handleChange}
+              value={age}
+              ref={ageRef}
+              placeholder="여러 명의 경우, 전부 기입해주세요. 예) 15,16,20"
+            />
           </ClassInfoTextBox>
           <ClassInfoTextBox>
-            <ClassInfoLabel htmlFor="classRequest">요청사항</ClassInfoLabel>
-            {data.book === true ? (
-              <ClassInfoInput
-                readOnly
-                value={
-                  '4살 애기도 같이 가는데, 참여는 안하고 옆에 있기만 할거에요 '
-                }
-              />
-            ) : (
-              <ClassInfoInput
-                id="classRequest"
-                name="classRequest"
-                type="text"
-                onChange={handleChange}
-                value={classRequest}
-                ref={classRequestRef}
-              />
-            )}
+            <ClassInfoLabel htmlFor="requirement">요청사항</ClassInfoLabel>
+            <ClassInfoInput
+              id="requirement"
+              name="requirement"
+              type="text"
+              onChange={handleChange}
+              value={requirement}
+              ref={requirementRef}
+            />
           </ClassInfoTextBox>
           <ClassInfoDescBox>
             <ClassInfoDesc>
@@ -426,13 +410,9 @@ const ReservationForm = ({ data }) => {
             type={'submit'}
             color={'black'}
             link={false}
-            disabled={data.status === 'soldout' || data.book}
+            disabled={detail.status === 'soldout' || detail.book}
           >
-            {data.status === 'soldout'
-              ? '예약마감'
-              : data.book
-              ? '예약완료'
-              : '예약하기'}
+            {detail.status === 'soldout' ? '예약마감' : '예약하기'}
           </ReserveButton>
         </ClassInfoInputBox>
       </ClassInfoForm>
