@@ -150,7 +150,7 @@ const OnedayClassDetail = () => {
           <ReservationFormBox>
             <ReservationFormTitle>예약신청서</ReservationFormTitle>
             <Linebar />
-            <ReservationForm data={detail} />
+            <ReservationForm detail={detail} />
           </ReservationFormBox>
         </ReservationWrapper>
         <ReservationImageBox>
