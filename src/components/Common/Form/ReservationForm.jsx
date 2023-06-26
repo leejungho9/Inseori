@@ -227,7 +227,7 @@ const ReservationForm = ({ detail }) => {
     }
 
     const data = {
-      lesson: detail.title,
+      lesson: detail.id,
       name,
       phone,
       age,
@@ -235,10 +235,20 @@ const ReservationForm = ({ detail }) => {
       requirement,
     };
     if (successMessage) {
-      await postData('lesson/reserve/create/', data);
-      resetInput();
-      showCheckModal();
-      changeCheckContent(successMessage);
+      const response = await postData('lesson/resercve/create/', data);
+      if (response === undefined) {
+        showCheckModal();
+        changeCheckContent(
+          '예약을 완료하지 못했습니다.  \n 다시 시도해주세요.',
+        );
+        return;
+      }
+      if (response.status === 201) {
+        resetInput();
+        showCheckModal();
+        changeCheckContent(successMessage);
+        return;
+      }
     }
   };
 
