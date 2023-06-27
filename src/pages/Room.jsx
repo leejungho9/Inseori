@@ -6,7 +6,6 @@ import ban2 from 'assets/images/room/ban/ban2.png';
 import ban3 from 'assets/images/room/ban/ban3.png';
 import ban4 from 'assets/images/room/ban/ban4.png';
 import Accordion from 'components/Common/Accordion/Accordion';
-import roomgalleryData from 'data/roomgalleryData';
 import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
 import BannerCarousel from 'components/Common/Carousel/BannerCarousel';
 import { getData } from 'apis/api';
@@ -239,6 +238,7 @@ function Room() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
+  console.log(roomDetail);
   return (
     <MainContainer>
       <MainWrpper>
@@ -261,7 +261,13 @@ function Room() {
         </RoomDescWrapper>
         {mobileGallery ? (
           <CarouselWrapper
-            slides={roomgalleryData}
+            slides={[
+              { id: 1, image_url: roomDetail.image1_url },
+              { id: 2, image_url: roomDetail.image2_url },
+              { id: 3, image_url: roomDetail.image3_url },
+              { id: 4, image_url: roomDetail.image4_url },
+              { id: 5, image_url: roomDetail.image5_url },
+            ]}
             width={'436px'}
             height={'436px'}
             padding={'25px'}
