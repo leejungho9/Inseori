@@ -83,7 +83,7 @@ const PlusIcon = styled(AiOutlinePlus)`
   }
 `;
 
-const Accordion = () => {
+const Accordion = ({ items }) => {
   const accordiItemRef = useRef([]);
   const [itemHeight, setItemHeight] = useState([0]);
   const [itemVisible, setItemVisible] = useState('itemA');
@@ -115,13 +115,7 @@ const Accordion = () => {
         height={itemHeight[0]}
         ref={(el) => (accordiItemRef.current[0] = el)}
       >
-        <AccordionDesc>
-          스테이 아트앤은 (주)아트앤라이프에서 기획하고 운영하는 복합문화공간인
-          인서리공원 내에 있는 스테이입니다. 광양 내 100년된 한옥을 리노베이션
-          한 다경당, 근대시대에 있을 법한 공간으로 꾸며진 예린의 집, 한옥이 더
-          이상 옛것이 아닌 현대의 펍한 공안으로 거듭난 홰경당이 있으며 더
-          다양하고 아름다운 공간을 만들어 갈 계획을 가지고 있습니다.
-        </AccordionDesc>
+        <AccordionDesc>{items.information}</AccordionDesc>
       </AccordionDescBox>
       <AccordionTitleBox onClick={() => handleShowAccordion('itemB')}>
         <AccordionTitle>주의사항</AccordionTitle>
@@ -133,11 +127,7 @@ const Accordion = () => {
         height={itemHeight[1]}
         ref={(el) => (accordiItemRef.current[1] = el)}
       >
-        <AccordionDesc>
-          스테이 아트앤은 (주)아트앤라이프에서 기획하고 운영하는 복합문화공간인
-          인서리공원 내에 있는 스테이입니다. 광양 내 100년된 한옥을 리노베이션
-          한 다경당....
-        </AccordionDesc>
+        <AccordionDesc>{items.caution}</AccordionDesc>
       </AccordionDescBox>
       <AccordionTitleBox onClick={() => handleShowAccordion('itemC')}>
         <AccordionTitle>어매니티</AccordionTitle>
@@ -149,12 +139,7 @@ const Accordion = () => {
         height={itemHeight[2]}
         ref={(el) => (accordiItemRef.current[2] = el)}
       >
-        <AccordionDesc>
-          스테이 아트앤은 (주)아트앤라이프에서 기획하고 운영하는 복합문화공간인
-          인서리공원 내에 있는 스테이입니다. 광양 내 100년된 한옥을 리노베이션
-          한 다경당, 근대시대에 있을 법한 공간으로 꾸며진 예린의 집, 한옥이 더
-          이상 옛것이 아닌 현대의 펍한 ...
-        </AccordionDesc>
+        <AccordionDesc>{items.amedityt}</AccordionDesc>
       </AccordionDescBox>
       <AccordionTitleBox onClick={() => handleShowAccordion('itemD')}>
         <AccordionTitle>추가요금 안내</AccordionTitle>
@@ -166,10 +151,7 @@ const Accordion = () => {
         height={itemHeight[3]}
         ref={(el) => (accordiItemRef.current[3] = el)}
       >
-        <AccordionDesc>
-          스테이 아트앤은 (주)아트앤라이프에서 기획하고 운영하는 복합문화공간인
-          인서리공원 내에 있는 스테이입니다....
-        </AccordionDesc>
+        <AccordionDesc>{items.subcharge}</AccordionDesc>
       </AccordionDescBox>
     </AccordionContainer>
   );
