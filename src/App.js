@@ -8,7 +8,7 @@ const CultureSpace = lazy(() => import('pages/CultureSpace'));
 const Main = lazy(() => import('pages/Main'));
 const OnedayClass = lazy(() => import('pages/OnedayClass'));
 const OnedayClassDetail = lazy(() => import('pages/OnedayClassDetail'));
-const RoomA = lazy(() => import('pages/RoomA'));
+const Room = lazy(() => import('pages/Room'));
 
 function App() {
   const router = createBrowserRouter([
@@ -22,8 +22,8 @@ function App() {
           element: <Main />,
         },
         {
-          path: 'roomA',
-          element: <RoomA />,
+          path: 'room/:id',
+          element: <Room />,
         },
         {
           path: 'onedayClass',
