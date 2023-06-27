@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import instagram from 'assets/images/common/insta.png';
 import kakao from 'assets/images/common/kakao.png';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
 const NavContainer = styled.nav`
@@ -65,7 +65,7 @@ const NavSubLi = styled.li`
   }
 `;
 
-const NavLink = styled(Link)`
+const NavLink = styled.a`
   cursor: pointer;
   color: 'var(--gray)';
   color: ${({ active }) =>
@@ -120,7 +120,7 @@ function Nav() {
             <NavSubUl subMenuVisible={subMenuVisible}>
               <NavSubLi>
                 <NavLink
-                  to="/room/1"
+                  href="/room/1"
                   active={pathname === '/room/1' ? 'true' : 'false'}
                 >
                   홰경당
@@ -128,7 +128,7 @@ function Nav() {
               </NavSubLi>
               <NavSubLi>
                 <NavLink
-                  to="/room/2"
+                  href="/room/2"
                   active={pathname === '/room/2' ? 'true' : 'false'}
                 >
                   예린의 집
@@ -136,7 +136,7 @@ function Nav() {
               </NavSubLi>
               <NavSubLi>
                 <NavLink
-                  to="/room/3"
+                  href="/room/3"
                   active={pathname === '/room/3' ? 'true' : 'false'}
                 >
                   다경당
