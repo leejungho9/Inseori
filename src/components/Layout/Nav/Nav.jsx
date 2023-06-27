@@ -114,14 +114,14 @@ function Nav() {
       <NavBox>
         <Navul>
           <NavLi onMouseLeave={closeSubMenu}>
-            <MainMenuLink onMouseEnter={showSubMenu} href="/roomA">
+            <MainMenuLink onMouseEnter={showSubMenu} href="/room/1">
               스테이
             </MainMenuLink>
             <NavSubUl subMenuVisible={subMenuVisible}>
               <NavSubLi>
                 <NavLink
-                  to="/roomA"
-                  active={pathname === '/roomA' ? 'true' : 'false'}
+                  to="/room/1"
+                  active={pathname === '/room/1' ? 'true' : 'false'}
                 >
                   홰경당
                 </NavLink>
@@ -129,8 +129,8 @@ function Nav() {
               <NavSubLi>
                 {/** 임시로 roomA 에 연결**/}
                 <NavLink
-                  to="/roomA"
-                  active={pathname === '/roomB' ? 'true' : 'false'}
+                  to="/room/2"
+                  active={pathname === '/room/2' ? 'true' : 'false'}
                 >
                   예린의 집
                 </NavLink>
@@ -138,8 +138,8 @@ function Nav() {
               <NavSubLi>
                 {/** 임시로 roomA 에 연결**/}
                 <NavLink
-                  to="/roomA"
-                  active={pathname === '/roomC' ? 'true' : 'false'}
+                  to="/room/3"
+                  active={pathname === '/room/3' ? 'true' : 'false'}
                 >
                   다경당
                 </NavLink>
