@@ -5,16 +5,14 @@ import ban from 'assets/images/room/ban/ban.png';
 import ban2 from 'assets/images/room/ban/ban2.png';
 import ban3 from 'assets/images/room/ban/ban3.png';
 import ban4 from 'assets/images/room/ban/ban4.png';
-import room1 from 'assets/images/room/room1.jpg';
-import room2 from 'assets/images/room/room2.jpg';
-import room3 from 'assets/images/room/room3.jpg';
-import room4 from 'assets/images/room/room4.jpg';
-import room5 from 'assets/images/room/room5.jpg';
 import Accordion from 'components/Common/Accordion/Accordion';
 import roomgalleryData from 'data/roomgalleryData';
 import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
 import BannerCarousel from 'components/Common/Carousel/BannerCarousel';
-import roombannerData from 'data/roombannerData';
+import { getData } from 'apis/api';
+import useLoading from 'hooks/useLoading';
+import BannerSkeleton from 'components/Common/Skeleton/BannerSkeleton';
+import { useParams } from 'react-router-dom';
 
 const MainContainer = styled.main`
   overflow: hidden;
@@ -92,6 +90,7 @@ const RoomDesc = styled.p`
   line-height: 1.8;
   font-family: PretendardRegular;
   letter-spacing: -0.07em;
+  white-space: pre;
 
   @media screen and (max-width: 991px) {
     text-align: center;
@@ -223,29 +222,36 @@ const IconImage = styled.img`
   height: auto;
 `;
 
-//! 줄바꿈
-const Break = styled.br``;
-
-function RoomA() {
+function Room() {
   const [mobileGallery, setMobileGallery] = useState(false);
+  const [roomDetail, setroomDetail] = useState([]);
+  const { id } = useParams();
+  const fetchMainBannerImage = async () => {
+    const response = await getData(`stay/rooms/${id}/`);
+    setroomDetail(response);
+  };
+  const [getRoomDetail, isRoomDetailLoading] = useLoading(fetchMainBannerImage);
   useEffect(() => {
+    getRoomDetail();
     if (window.innerWidth < 500) {
       setMobileGallery(true);
     }
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
+
   return (
     <MainContainer>
       <MainWrpper>
-        <BannerCarousel slides={roombannerData} />
+        {isRoomDetailLoading ? (
+          <BannerSkeleton />
+        ) : (
+          <BannerCarousel slides={roomDetail && roomDetail.banners} />
+        )}
         <RoomDescWrapper>
           <RoomDescBox>
-            <RoomTitle>홰경당</RoomTitle>
-            <RoomSubTitle>한옥을 현대적으로 재해석하다.</RoomSubTitle>
-            <RoomDesc>
-              홰경당은 인서리공원 Aat 카페와 가장 인접하게 위치하고 <Break />
-              있으며 젊은 사람들이 좋아하는 감성요소들로 채워진 <Break />
-              모던한 숙소입니다.
-            </RoomDesc>
+            <RoomTitle>{roomDetail.name}</RoomTitle>
+            <RoomSubTitle>{roomDetail.title}</RoomSubTitle>
+            <RoomDesc>{roomDetail.description}</RoomDesc>
           </RoomDescBox>
           <ReserveButtonBox>
             <ReserveButton url="https://booking.naver.com/booking/3/bizes/802107/items/4737745">
@@ -266,23 +272,23 @@ function RoomA() {
           <RoomImagesContainer>
             <HeadImageBox>
               <RoomImageWrapper className="item">
-                <RoomImage src={room1} alt="홰경당 이미지" />
+                <RoomImage src={roomDetail.image1_url} alt="홰경당 이미지" />
               </RoomImageWrapper>
               <RoomImageWrapper className="item">
-                <RoomImage src={room2} alt="홰경당 이미지" />
+                <RoomImage src={roomDetail.image2_url} alt="홰경당 이미지" />
               </RoomImageWrapper>
             </HeadImageBox>
             <BodyImageBox>
               <RoomImageWrapper className="item">
-                <RoomImage src={room3} alt="홰경당 이미지" />
+                <RoomImage src={roomDetail.image3_url} alt="홰경당 이미지" />
               </RoomImageWrapper>
               <RoomImageWrapper className="item">
-                <RoomImage src={room4} alt="홰경당 이미지" />
+                <RoomImage src={roomDetail.image4_url} alt="홰경당 이미지" />
               </RoomImageWrapper>
             </BodyImageBox>
             <FootImageBox>
               <RoomImageWrapper className="item">
-                <RoomImage src={room5} alt="홰경당 이미지" />
+                <RoomImage src={roomDetail.image5_url} alt="홰경당 이미지" />
               </RoomImageWrapper>
             </FootImageBox>
           </RoomImagesContainer>
@@ -290,7 +296,7 @@ function RoomA() {
         <RoomInfoWrapper>
           <RoomTitle>객실정보</RoomTitle>
           <RoomInfoBox>
-            <Accordion />
+            <Accordion items={roomDetail} />
             <RoomIconBox>
               <IconBox>
                 <IconImage src={ban} ait="고성방가 금지"></IconImage>
@@ -312,4 +318,4 @@ function RoomA() {
   );
 }
 
-export default RoomA;
+export default Room;
