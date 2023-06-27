@@ -101,7 +101,7 @@ const Accordion = ({ items }) => {
   useEffect(() => {
     const heights = accordiItemRef.current.map((el) => el.scrollHeight);
     setItemHeight(heights);
-  }, [itemVisible]);
+  }, [items, itemVisible]);
 
   return (
     <AccordionContainer>
