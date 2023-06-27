@@ -56,7 +56,10 @@ function BannerCarousel({ slides }) {
       <Slider {...settings}>
         {slides.map((slide, index) => (
           <MainImgBox key={index}>
-            <MainImg src={slide.image_url} alt={slide.title} />
+            <MainImg
+              src={slide.image_url || slide.banner_url}
+              alt={slide.title}
+            />
           </MainImgBox>
         ))}
       </Slider>
