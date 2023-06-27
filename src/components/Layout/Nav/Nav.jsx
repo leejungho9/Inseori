@@ -127,7 +127,6 @@ function Nav() {
                 </NavLink>
               </NavSubLi>
               <NavSubLi>
-                {/** 임시로 roomA 에 연결**/}
                 <NavLink
                   to="/room/2"
                   active={pathname === '/room/2' ? 'true' : 'false'}
@@ -136,7 +135,6 @@ function Nav() {
                 </NavLink>
               </NavSubLi>
               <NavSubLi>
-                {/** 임시로 roomA 에 연결**/}
                 <NavLink
                   to="/room/3"
                   active={pathname === '/room/3' ? 'true' : 'false'}
