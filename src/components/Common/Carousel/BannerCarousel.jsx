@@ -51,17 +51,19 @@ function BannerCarousel({ slides }) {
     pauseOnHover: false,
     fade: true,
   };
+
   return (
     <SliderContainer>
       <Slider {...settings}>
-        {slides.map((slide, index) => (
-          <MainImgBox key={index}>
-            <MainImg
-              src={slide.image_url || slide.banner_url}
-              alt={slide.title}
-            />
-          </MainImgBox>
-        ))}
+        {slides &&
+          slides.map((slide, index) => (
+            <MainImgBox key={index}>
+              <MainImg
+                src={slide.image_url || slide.banner_url}
+                alt={slide.title}
+              />
+            </MainImgBox>
+          ))}
       </Slider>
     </SliderContainer>
   );
