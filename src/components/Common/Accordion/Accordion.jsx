@@ -139,7 +139,7 @@ const Accordion = ({ items }) => {
         height={itemHeight[2]}
         ref={(el) => (accordiItemRef.current[2] = el)}
       >
-        <AccordionDesc>{items.amedityt}</AccordionDesc>
+        <AccordionDesc>{items.amedity}</AccordionDesc>
       </AccordionDescBox>
       <AccordionTitleBox onClick={() => handleShowAccordion('itemD')}>
         <AccordionTitle>추가요금 안내</AccordionTitle>
