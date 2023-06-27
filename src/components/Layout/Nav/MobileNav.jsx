@@ -73,21 +73,21 @@ function MobileNav() {
       <NavBox>
         <NavUl>
           <NavLi>
-            <MainMenuLink href="/roomA">스테이</MainMenuLink>
+            <MainMenuLink href="/room/1">스테이</MainMenuLink>
             <Linebar />
             <NavSubUl>
               <NavSubLi>
-                <NavLink href="/roomA" active={pathname === '/roomA'}>
+                <NavLink href="/room/1" active={pathname === '/room/1'}>
                   홰경당
                 </NavLink>
               </NavSubLi>
               <NavSubLi>
-                <NavLink href="/roomA" active={pathname === '/roomB'}>
+                <NavLink href="/room/2" active={pathname === '/room/2'}>
                   예린의집
                 </NavLink>
               </NavSubLi>
               <NavSubLi>
-                <NavLink href="/roomA" active={pathname === '/roomC'}>
+                <NavLink href="/room/3" active={pathname === '/room/3'}>
                   다경당
                 </NavLink>
               </NavSubLi>
