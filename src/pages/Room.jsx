@@ -238,14 +238,16 @@ function Room() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
-  console.log(roomDetail);
   return (
     <MainContainer>
       <MainWrpper>
         {isRoomDetailLoading ? (
           <BannerSkeleton />
         ) : (
-          <BannerCarousel slides={roomDetail && roomDetail.banners} />
+          <BannerCarousel
+            slides={roomDetail && roomDetail.banners}
+            main={false}
+          />
         )}
         <RoomDescWrapper>
           <RoomDescBox>
@@ -262,11 +264,31 @@ function Room() {
         {mobileGallery ? (
           <CarouselWrapper
             slides={[
-              { id: 1, image_url: roomDetail.image1_url },
-              { id: 2, image_url: roomDetail.image2_url },
-              { id: 3, image_url: roomDetail.image3_url },
-              { id: 4, image_url: roomDetail.image4_url },
-              { id: 5, image_url: roomDetail.image5_url },
+              {
+                id: 1,
+                image_url: roomDetail.image1_url,
+                image_m_url: roomDetail.image1_m_url,
+              },
+              {
+                id: 2,
+                image_url: roomDetail.image2_url,
+                image_m_url: roomDetail.image2_m_url,
+              },
+              {
+                id: 3,
+                image_url: roomDetail.image3_url,
+                image_m_url: roomDetail.image3_m_url,
+              },
+              {
+                id: 4,
+                image_url: roomDetail.image4_url,
+                image_m_url: roomDetail.image4_m_url,
+              },
+              {
+                id: 5,
+                image_url: roomDetail.image5_url,
+                image_m_url: roomDetail.image5_m_url,
+              },
             ]}
             width={'436px'}
             height={'436px'}
