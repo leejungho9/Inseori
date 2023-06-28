@@ -117,13 +117,6 @@ const OnedayClassPrice = styled.span`
   font-size: var(--text-size-15);
   font-weight: bold;
 `;
-//! 사용미정
-// const Break = styled.br`
-//   display: none;
-//   @media screen and (max-width: 500px) {
-//     display: block;
-//   }
-// `;
 
 const OnedayClassCard = ({ items }) => {
   return (
