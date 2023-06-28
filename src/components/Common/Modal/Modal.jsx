@@ -42,7 +42,7 @@ const ModalHead = styled.div`
   position: relative;
 `;
 
-const ModalCloaseButton = styled(IoCloseOutline)`
+const ModalCloseButton = styled(IoCloseOutline)`
   font-size: 25px;
   cursor: pointer;
   position: absolute;
@@ -74,7 +74,7 @@ const Modal = ({ showModal, closeModal, modalContent }) => {
         <ModalContainer>
           <ModalWrapper>
             <ModalHead>
-              <ModalCloaseButton onClick={closeModal} />
+              <ModalCloseButton onClick={closeModal} />
             </ModalHead>
             <ModaBody>
               <ModalContent>{modalContent}</ModalContent>
