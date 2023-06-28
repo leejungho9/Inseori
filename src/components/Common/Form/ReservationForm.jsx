@@ -154,16 +154,12 @@ const ReservationForm = ({ detail }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (detail.status === 'soldout') {
+    if (detail.is_soldout) {
       showCheckModal();
       changeCheckContent('예약이 마감됐습니다.');
       return;
     }
-    if (detail.book) {
-      showCheckModal();
-      changeCheckContent('이미 예약이 완료되었습니다. \n 문의 : 061-761-6701');
-      return;
-    }
+
     validateReservationForm();
   };
 
@@ -328,7 +324,7 @@ const ReservationForm = ({ detail }) => {
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoTextLabel>예약마감</ClassInfoTextLabel>
-            <ClassInfoTextValue> {detail.people}</ClassInfoTextValue>
+            <ClassInfoTextValue> {}</ClassInfoTextValue>
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoTextLabel>수강료</ClassInfoTextLabel>
@@ -422,9 +418,9 @@ const ReservationForm = ({ detail }) => {
             type={'submit'}
             color={'black'}
             link={false}
-            disabled={detail.status === 'soldout' || detail.book}
+            disabled={detail.is_soldout}
           >
-            {detail.status === 'soldout' ? '예약마감' : '예약하기'}
+            {detail.is_soldout ? '예약마감' : '예약하기'}
           </ReserveButton>
         </ClassInfoInputBox>
       </ClassInfoForm>
