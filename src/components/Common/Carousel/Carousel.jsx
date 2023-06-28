@@ -50,14 +50,25 @@ const Carousel = ({
           {slides &&
             slides.map((slide, index) => (
               <EmblaSlide key={index} padding={padding}>
-                <Image
-                  src={slide.image_url}
-                  alt={slide.title}
-                  width={width}
-                  height={height}
-                  mobilewidth={mobilewidth}
-                  mobileheight={mobileheight}
-                />
+                <picture>
+                  <source
+                    srcSet={
+                      slide.image_m_url === 'no-image-error'
+                        ? slide.image_url
+                        : slide.image_m_url
+                    }
+                    media="(max-width : 500px)"
+                  />
+
+                  <Image
+                    src={slide.image_url}
+                    alt={slide.title}
+                    width={width}
+                    height={height}
+                    mobilewidth={mobilewidth}
+                    mobileheight={mobileheight}
+                  />
+                </picture>
               </EmblaSlide>
             ))}
         </EmblaContainer>
