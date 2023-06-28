@@ -332,7 +332,9 @@ const ReservationForm = ({ detail }) => {
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoTextLabel>수강료</ClassInfoTextLabel>
-            <ClassInfoTextValue>{detail.price} 원</ClassInfoTextValue>
+            <ClassInfoTextValue>
+              {Number(detail.price).toLocaleString()} 원
+            </ClassInfoTextValue>
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoTextLabel>입금계좌</ClassInfoTextLabel>
