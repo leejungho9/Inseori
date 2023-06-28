@@ -39,7 +39,7 @@ const MainImg = styled.img`
   height: 100%;
   object-fit: cover;
 `;
-function BannerCarousel({ slides }) {
+function BannerCarousel({ slides, main }) {
   const settings = {
     dots: true,
     infinite: true,
@@ -55,25 +55,39 @@ function BannerCarousel({ slides }) {
     <SliderContainer>
       <Slider {...settings}>
         {slides &&
-          slides.map((slide, index) => (
-            <MainImgBox key={index}>
-              <picture>
-                <source
-                  srcSet={
-                    slide.image_m_url === 'no-image-error'
-                      ? slide.banner_url
-                      : slide.image_m_url
-                  }
-                  media="(max-width : 500px)"
-                />
+          slides.map((slide, index) =>
+            main ? (
+              <MainImgBox key={index}>
+                <picture>
+                  <source
+                    srcSet={
+                      slide.image_m_url === 'no-image-error'
+                        ? slide.banner_url
+                        : slide.image_m_url
+                    }
+                    media="(max-width : 500px)"
+                  />
 
-                <MainImg
-                  src={slide.image_url || slide.banner_url}
-                  alt={slide.title}
-                />
-              </picture>
-            </MainImgBox>
-          ))}
+                  <MainImg src={slide.image_url} alt={slide.title} />
+                </picture>
+              </MainImgBox>
+            ) : (
+              <MainImgBox key={index}>
+                <picture>
+                  <source
+                    srcSet={
+                      slide.banner_m_url === 'no-image-error'
+                        ? slide.banner_url
+                        : slide.image_m_url
+                    }
+                    media="(max-width : 500px)"
+                  />
+
+                  <MainImg src={slide.banner_url} alt={slide.title} />
+                </picture>
+              </MainImgBox>
+            ),
+          )}
       </Slider>
     </SliderContainer>
   );
