@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ReservationForm from 'components/Common/Form/ReservationForm';
-import classBanner from 'assets/images/onedayclass/detail/onedayclassDetail.png';
 import onedayCalssImage1 from 'assets/images/onedayclass/detail/onedayClassImage1.png';
 import onedayCalssImage2 from 'assets/images/onedayclass/detail/onedayClassImage2.png';
 import { useParams } from 'react-router-dom';
@@ -47,11 +46,7 @@ const ReservationWrapper = styled.article`
   }
 `;
 
-const ReservationBanner = styled.figure`
-  background-image: url(${classBanner});
-  background-repeat: no-repeat;
-  background-position: center 55%;
-  background-size: cover;
+const ReservationBanner = styled.img`
   width: 100%;
   height: 300px;
   border-radius: 20px;
@@ -82,7 +77,6 @@ const Linebar = styled.hr`
   margin-bottom: 30px;
 
   @media screen and (max-width: 991px) {
-    /* margin-bottom: 20px; */
     margin-bottom: 45px;
   }
 `;
@@ -141,12 +135,31 @@ const OnedayClassDetail = () => {
     getClassDetail();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  console.log(detail);
   return (
     <OnedayClassDetialContainer>
       <OnedayClassDetailWrapper>
         <OnedayClassDetailTitle>{detail.title}</OnedayClassDetailTitle>
         <ReservationWrapper>
-          {isClassDetailLoading ? <BannerSkeleton /> : <ReservationBanner />}
+          {isClassDetailLoading ? (
+            <BannerSkeleton />
+          ) : (
+            <picture>
+              <source
+                media="(max-width : 500px)"
+                srcSet={
+                  detail.image_m_url === 'no-image-error'
+                    ? detail.banner_url
+                    : detail.image_m_url
+                }
+              />
+              <ReservationBanner
+                src={detail.image_url}
+                alt="원데이클래스 배너 이미지"
+              />
+            </picture>
+          )}
           <ReservationFormBox>
             <ReservationFormTitle>예약신청서</ReservationFormTitle>
             <Linebar />
