@@ -33,7 +33,7 @@ const OnedayCalssTitle = styled.h1`
 `;
 
 const OnedayCalss = () => {
-  const [classInfo, setClassInfo] = useState();
+  const [classInfo, setClassInfo] = useState([]);
 
   const fetchClassInfo = async () => {
     const response = await getData('lesson/lessons/');
