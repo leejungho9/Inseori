@@ -110,7 +110,7 @@ const Main = forwardRef((props, mainTopRef) => {
         {isBannerLoading ? (
           <BannerSkeleton />
         ) : (
-          <BannerCarousel slides={bannerImage} />
+          <BannerCarousel slides={bannerImage} main={true} />
         )}
         <MainIntroWrapper>
           <MainIntroBox>
