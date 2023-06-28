@@ -58,13 +58,10 @@ const ArtShopBannerBox = styled.figure`
   }
 `;
 
-const ArtShopBanner = styled.div`
+const ArtShopBanner = styled.img`
   width: 100%;
   height: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(${({ url }) => url && url});
-  background-position: left center;
+  object-fit: cover;
 `;
 
 const ArtShopMenuBox = styled.figure`
@@ -165,9 +162,12 @@ const ArtShop = () => {
   useEffect(() => {
     getBanner();
     getGallery();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  console.log(bannerImage);
+  console.log(galleryImage);
   return (
     <ArtShopContainer>
       <ArtShopWrapper>
@@ -178,7 +178,20 @@ const ArtShop = () => {
               {isBannerLoading ? (
                 <BannerSkeleton />
               ) : (
-                <ArtShopBanner url={bannerImage[0].image_url} />
+                <picture>
+                  <source
+                    media="(max-width : 500px)"
+                    srcSet={
+                      bannerImage[0].image_m_url === 'no-image-error'
+                        ? bannerImage[0].image_url
+                        : bannerImage[0].image_m_url
+                    }
+                  />
+                  <ArtShopBanner
+                    src={bannerImage[0].image_url}
+                    alt="artshop_banner"
+                  />
+                </picture>
               )}
             </ArtShopBannerBox>
             <ArtShopMenuBox>
