@@ -151,7 +151,9 @@ const OnedayClassCard = ({ items }) => {
             <OnedayClassPersonnel>인원 {item.people}</OnedayClassPersonnel>
           </OnedayClassInfoBody>
           <OnedayClassInfoFoot>
-            <OnedayClassPrice>{item.price}원</OnedayClassPrice>
+            <OnedayClassPrice>
+              {Number(item.price).toLocaleString()}원
+            </OnedayClassPrice>
           </OnedayClassInfoFoot>
         </OnedayClassCardContentWrapper>
       ))}
