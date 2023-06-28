@@ -258,9 +258,7 @@ const CultureSpace = () => {
   useEffect(() => {
     const currentCultureData = culture.filter((item) => item.id === currentId);
     setCurrentCulture(currentCultureData);
-
     const otherCultureData = culture.filter((item) => item.slug === 'BCG_1');
-
     setOtherCulture(otherCultureData);
   }, [culture, currentId]);
 
@@ -284,12 +282,7 @@ const CultureSpace = () => {
                 <CultureSpaceName>{item.title}</CultureSpaceName>
                 <Linebar />
                 <CultureDescBox>
-                  <CultureSpaceDesc>
-                    갑빠오 스튜디오는 일상적이고 사적인 경험을 토대로 다양한
-                    아트웍을 선보이고 있습니다. 온전히 &quot;나&quot;로 존재할
-                    수 있는 자유와 치유의방, 우리는 모두 별것 아니지만,
-                    도움이되는 것들 덕분에 살아갈 수 있습니다.
-                  </CultureSpaceDesc>
+                  <CultureSpaceDesc>{item.description}</CultureSpaceDesc>
                   <ReserveButtonBox>
                     <ReserveButton>예약하기</ReserveButton>
                   </ReserveButtonBox>
