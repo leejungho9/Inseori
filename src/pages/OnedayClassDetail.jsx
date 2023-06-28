@@ -171,10 +171,7 @@ const OnedayClassDetail = () => {
           <ReservationImage src={onedayCalssImage2} />
         </ReservationImageBox>
         <OnedayClassDetailDescBox>
-          <OnedayClassDetailDesc>
-            나에게 가장 잘 어울리는, 오직 나만이 가질 수 있는 그 누구도 없는
-            나만의 향수를 인서리공원에서 만들어보세요.
-          </OnedayClassDetailDesc>
+          <OnedayClassDetailDesc>{detail.description}</OnedayClassDetailDesc>
         </OnedayClassDetailDescBox>
       </OnedayClassDetailWrapper>
     </OnedayClassDetialContainer>
