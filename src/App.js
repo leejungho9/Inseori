@@ -22,27 +22,27 @@ function App() {
           element: <Main />,
         },
         {
-          path: 'room/:id',
+          path: '/stay/room/:id',
           element: <Room />,
         },
         {
-          path: 'onedayClass',
+          path: '/lesson',
           element: <OnedayClass />,
         },
         {
-          path: 'onedayClass/:id',
+          path: '/lesson/:id',
           element: <OnedayClassDetail />,
         },
         {
-          path: 'artshop',
+          path: '/shop',
           element: <ArtShop />,
         },
         {
-          path: 'cafe',
+          path: '/cafe',
           element: <Cafe />,
         },
         {
-          path: 'cultureSpace',
+          path: '/culture',
           element: <CultureSpace />,
         },
       ],
