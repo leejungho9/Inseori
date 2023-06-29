@@ -173,7 +173,7 @@ const Cafe = () => {
                 />
                 <CafeBanner
                   src={bannerImage && bannerImage[0].image_url}
-                  alt="카페 배너 이미지"
+                  alt="cafe_banner"
                 />
               </picture>
             )}
@@ -190,7 +190,6 @@ const Cafe = () => {
               있습니다.
             </CafeDesc>
           </CafeMenuBox>
-
           {isGalleryLoading ? (
             <GallerySkeleton
               length={4}
