@@ -10,8 +10,8 @@ import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
 import BannerCarousel from 'components/Common/Carousel/BannerCarousel';
 import { getData } from 'apis/api';
 import useLoading from 'hooks/useLoading';
-import BannerSkeleton from 'components/Common/Skeleton/BannerSkeleton';
 import { useParams } from 'react-router-dom';
+import BannerSkeleton from 'components/Common/Skeleton/BannerSkeleton';
 
 const MainContainer = styled.main`
   overflow: hidden;
@@ -242,12 +242,9 @@ function Room() {
     <MainContainer>
       <MainWrpper>
         {isRoomDetailLoading ? (
-          <BannerSkeleton />
+          <BannerSkeleton size={'large'} />
         ) : (
-          <BannerCarousel
-            slides={roomDetail && roomDetail.banners}
-            main={false}
-          />
+          <BannerCarousel slides={roomDetail && roomDetail.banners} />
         )}
         <RoomDescWrapper>
           <RoomDescBox>
