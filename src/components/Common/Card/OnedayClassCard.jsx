@@ -125,7 +125,7 @@ const OnedayClassCard = ({ items }) => {
         <OnedayClassCardContentWrapper key={item.id}>
           <OnedayClassImageWrapper>
             <OnedayClassImageBox>
-              <OnedayClassCardLink to={`/onedayClass/${item.id}`}>
+              <OnedayClassCardLink to={`/lesson/${item.id}`}>
                 <OnedayClassImage
                   src={item.thumb_url}
                   alt="원데이클래스 이미지"
