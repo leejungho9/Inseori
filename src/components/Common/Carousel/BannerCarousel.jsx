@@ -39,7 +39,7 @@ const MainImg = styled.img`
   height: 100%;
   object-fit: cover;
 `;
-function BannerCarousel({ slides, main }) {
+function BannerCarousel({ slides, path }) {
   const settings = {
     dots: true,
     infinite: true,
@@ -56,13 +56,14 @@ function BannerCarousel({ slides, main }) {
       <Slider {...settings}>
         {slides &&
           slides.map((slide, index) =>
-            main ? (
+            //! 메인화면 배너
+            path === 'main' && 'cafe' && 'shop' && 'lesson' ? (
               <MainImgBox key={index}>
                 <picture>
                   <source
                     srcSet={
                       slide.image_m_url === 'no-image-error'
-                        ? slide.banner_url
+                        ? slide.image_url
                         : slide.image_m_url
                     }
                     media="(max-width : 500px)"
@@ -72,17 +73,17 @@ function BannerCarousel({ slides, main }) {
                 </picture>
               </MainImgBox>
             ) : (
+              //! 스테이 배너
               <MainImgBox key={index}>
                 <picture>
                   <source
                     srcSet={
                       slide.banner_m_url === 'no-image-error'
                         ? slide.banner_url
-                        : slide.image_m_url
+                        : slide.banner_m_url
                     }
                     media="(max-width : 500px)"
                   />
-
                   <MainImg src={slide.banner_url} alt={slide.title} />
                 </picture>
               </MainImgBox>
