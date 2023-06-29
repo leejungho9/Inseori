@@ -108,9 +108,9 @@ const Main = forwardRef((props, mainTopRef) => {
     <MainContainer>
       <MainWrpper ref={mainTopRef}>
         {isBannerLoading ? (
-          <BannerSkeleton />
+          <BannerSkeleton size={'large'} />
         ) : (
-          <BannerCarousel slides={bannerImage} main={true} />
+          <BannerCarousel slides={bannerImage} path={'main'} />
         )}
         <MainIntroWrapper>
           <MainIntroBox>
