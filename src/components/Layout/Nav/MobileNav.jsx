@@ -73,37 +73,43 @@ function MobileNav() {
       <NavBox>
         <NavUl>
           <NavLi>
-            <MainMenuLink href="/room/1">스테이</MainMenuLink>
+            <MainMenuLink href="/stay/room/1">스테이</MainMenuLink>
             <Linebar />
             <NavSubUl>
               <NavSubLi>
-                <NavLink href="/room/1" active={pathname === '/room/1'}>
+                <NavLink
+                  href="/stay/room/1"
+                  active={pathname === '/stay/room/1'}
+                >
                   홰경당
                 </NavLink>
               </NavSubLi>
               <NavSubLi>
-                <NavLink href="/room/2" active={pathname === '/room/2'}>
+                <NavLink
+                  href="/stay/room/2"
+                  active={pathname === '/stay/room/2'}
+                >
                   예린의집
                 </NavLink>
               </NavSubLi>
               <NavSubLi>
-                <NavLink href="/room/3" active={pathname === '/room/3'}>
+                <NavLink
+                  href="/stay/room/3"
+                  active={pathname === '/stay/room/3'}
+                >
                   다경당
                 </NavLink>
               </NavSubLi>
             </NavSubUl>
           </NavLi>
           <NavLi>
-            <MainMenuLink
-              href="/onedayClass"
-              active={pathname === '/onedayClass'}
-            >
+            <MainMenuLink href="/lesson" active={pathname === '/lesson'}>
               원데이클래스
             </MainMenuLink>
             <Linebar />
           </NavLi>
           <NavLi>
-            <MainMenuLink href="/artshop" active={pathname === '/artshop'}>
+            <MainMenuLink href="/shop" active={pathname === '/shop'}>
               아트샵
             </MainMenuLink>
             <Linebar />
@@ -115,10 +121,7 @@ function MobileNav() {
             <Linebar />
           </NavLi>
           <NavLi>
-            <MainMenuLink
-              href="/cultureSpace"
-              active={pathname === '/cultureSpace'}
-            >
+            <MainMenuLink href="/culture" active={pathname === '/culture'}>
               문화공간
             </MainMenuLink>
             <Linebar />

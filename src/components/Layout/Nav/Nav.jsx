@@ -114,30 +114,30 @@ function Nav() {
       <NavBox>
         <Navul>
           <NavLi onMouseLeave={closeSubMenu}>
-            <MainMenuLink onMouseEnter={showSubMenu} href="/room/1">
+            <MainMenuLink onMouseEnter={showSubMenu} href="/stay/room/1">
               스테이
             </MainMenuLink>
             <NavSubUl subMenuVisible={subMenuVisible}>
               <NavSubLi>
                 <NavLink
-                  href="/room/1"
-                  active={pathname === '/room/1' ? 'true' : 'false'}
+                  href="/stay/room/1"
+                  active={pathname === '/stay/room/1' ? 'true' : 'false'}
                 >
                   홰경당
                 </NavLink>
               </NavSubLi>
               <NavSubLi>
                 <NavLink
-                  href="/room/2"
-                  active={pathname === '/room/2' ? 'true' : 'false'}
+                  href="/stay/room/2"
+                  active={pathname === '/stay/room/2' ? 'true' : 'false'}
                 >
                   예린의 집
                 </NavLink>
               </NavSubLi>
               <NavSubLi>
                 <NavLink
-                  href="/room/3"
-                  active={pathname === '/room/3' ? 'true' : 'false'}
+                  href="/stay/room/3"
+                  active={pathname === '/stay/room/3' ? 'true' : 'false'}
                 >
                   다경당
                 </NavLink>
@@ -145,15 +145,12 @@ function Nav() {
             </NavSubUl>
           </NavLi>
           <NavLi>
-            <MainMenuLink
-              href="/onedayClass"
-              active={pathname === '/onedayClass'}
-            >
+            <MainMenuLink href="/lesson" active={pathname === '/lesson'}>
               원데이클래스
             </MainMenuLink>
           </NavLi>
           <NavLi>
-            <MainMenuLink href="/artshop" active={pathname === '/artshop'}>
+            <MainMenuLink href="/shop" active={pathname === '/shop'}>
               아트샵
             </MainMenuLink>
           </NavLi>
@@ -165,8 +162,8 @@ function Nav() {
           <NavLi>
             <MainMenuLink
               className="mainMenu"
-              href="/cultureSpace"
-              active={pathname === '/cultureSpace'}
+              href="/culture"
+              active={pathname === '/culture'}
             >
               문화공간
             </MainMenuLink>
