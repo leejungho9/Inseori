@@ -57,7 +57,7 @@ const ExhibitionInfoHead = styled.section`
   font-weight: bold;
 
   @media screen and (max-width: 500px) {
-    padding-bottom: 20px;
+    padding-bottom: 25px;
   }
 `;
 
@@ -102,29 +102,29 @@ const ExhibitionName = styled.span`
   @media screen and (max-width: 991px) {
     margin-top: 25px;
   }
+  @media screen and (max-width: 500px) {
+    margin-top: 0;
+  }
 `;
-const ExhibitionCard = ({ items }) => {
-  // const clickChangeList = (id) => {
-  //   setCurrentId(id);
-  // };
-
+const ExhibitionCard = ({ items, setCurrentId }) => {
+  const clickChangeList = (id) => {
+    setCurrentId(id);
+  };
   return (
     <ExhibitionCardWrapper>
       {items &&
-        items[0].images.map((item, index) => (
+        items.map((item, index) => (
           <ExhibitionCardBox key={index}>
             <ExhibitionShopImageWrapper>
-              <ExhibitionShopBox>
-                <ExhibitionShopImage src={item.image_url} alt="전시이미지" />
+              <ExhibitionShopBox onClick={() => clickChangeList(item.id)}>
+                <ExhibitionShopImage src={item.thumb_url} alt="전시이미지" />
               </ExhibitionShopBox>
             </ExhibitionShopImageWrapper>
             <ExhibitionInfoHead>
-              <ExhibitionDate>
-                {item.startDate} - {item.endDate}
-              </ExhibitionDate>
+              <ExhibitionDate>23.10.03-23.12.31</ExhibitionDate>
             </ExhibitionInfoHead>
             <ExhibitionInfoBody>
-              <ExhibitionAuthor>{item.author}</ExhibitionAuthor>
+              <ExhibitionAuthor>김경화</ExhibitionAuthor>
             </ExhibitionInfoBody>
             <ExhibitionInfoFoot>
               <ExhibitionName>{item.title}</ExhibitionName>
