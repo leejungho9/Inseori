@@ -2,11 +2,10 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
 import ReserveButton from 'components/Common/Button/ReserveButton';
-import artshopData from 'data/artshopData';
 import { getData } from 'apis/api';
 import useLoading from 'hooks/useLoading';
 import BannerSkeleton from 'components/Common/Skeleton/BannerSkeleton';
-import CardSkeleton from 'components/Common/Skeleton/CardSkeleton';
+import GallerySkeleton from 'components/Common/Skeleton/GallerySkeleton';
 
 const ArtShopContainer = styled.main`
   overflow: hidden;
@@ -144,6 +143,13 @@ const ReserveButtonBox = styled.div`
   }
 `;
 
+//! 줄바꿈
+const Break = styled.br`
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
+`;
+
 const ArtShop = () => {
   const [bannerImage, setBannerImage] = useState([]);
   // ! api 수정되면 적용
@@ -162,67 +168,72 @@ const ArtShop = () => {
   useEffect(() => {
     getBanner();
     getGallery();
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <ArtShopContainer>
       <ArtShopWrapper>
-        {artshopData && (
-          <ArtShopBox>
-            <ArtShopTitle>아트샵</ArtShopTitle>
-            <ArtShopBannerBox>
-              {isBannerLoading ? (
-                <BannerSkeleton />
-              ) : (
-                <picture>
-                  <source
-                    media="(max-width : 500px)"
-                    srcSet={
-                      bannerImage[0].image_m_url === 'no-image-error'
-                        ? bannerImage[0].image_url
-                        : bannerImage[0].image_m_url
-                    }
-                  />
-                  <ArtShopBanner
-                    src={bannerImage[0].image_url}
-                    alt="artshop_banner"
-                  />
-                </picture>
-              )}
-            </ArtShopBannerBox>
-            <ArtShopMenuBox>
-              <ArtShopName>{artshopData.title}</ArtShopName>
-              <Linebar />
-              <ArtShopDescBox>
-                <ArtShopDesc>{artshopData.desc}</ArtShopDesc>
-                <ReserveButtonBox>
-                  <ReserveButton>구입하기</ReserveButton>
-                </ReserveButtonBox>
-              </ArtShopDescBox>
-            </ArtShopMenuBox>
-            {isGalleryLoading ? (
-              <CardSkeleton
-                length={4}
-                width={'450px'}
-                height={'450px'}
-                padding={'20px'}
-                mobilewidth={'270px'}
-                mobileheight={'270px'}
-              />
+        <ArtShopBox>
+          <ArtShopTitle>아트샵</ArtShopTitle>
+          <ArtShopBannerBox>
+            {isBannerLoading ? (
+              <BannerSkeleton size={'small'} />
             ) : (
-              <CarouselWrapper
-                slides={galleryImage}
-                width={'450px'}
-                height={'450px'}
-                padding={'20px'}
-                mobilewidth={'270px'}
-                mobileheight={'270px'}
-              />
+              <picture>
+                <source
+                  media="(max-width : 500px)"
+                  srcSet={
+                    bannerImage &&
+                    bannerImage[0].image_m_url === 'no-image-error'
+                      ? bannerImage[0].image_url
+                      : bannerImage[0].image_m_url
+                  }
+                />
+                <ArtShopBanner
+                  src={bannerImage && bannerImage[0].image_url}
+                  alt="artshop_banner"
+                />
+              </picture>
             )}
-          </ArtShopBox>
-        )}
+          </ArtShopBannerBox>
+          <ArtShopMenuBox>
+            <ArtShopName>일상이 예술, 예술이 일상</ArtShopName>
+            <Linebar />
+            <ArtShopDescBox>
+              <ArtShopDesc>
+                Aat 카페는 커피, 식사와 와인 그리고 푸드마켓이 한 공간에 있는
+                One-stop-shop입니다. 간단한 <Break />
+                식사는 물론 다양한 디저트와 와인리스트를 보유하고 있으며 집으로
+                돌아 갈 때는 먹거리와 식재
+                <Break />료 구입이 가능한 새로운 라이프 스타일 공간을 추구하고
+                있습니다.
+              </ArtShopDesc>
+              <ReserveButtonBox>
+                <ReserveButton>구입하기</ReserveButton>
+              </ReserveButtonBox>
+            </ArtShopDescBox>
+          </ArtShopMenuBox>
+          {isGalleryLoading ? (
+            <GallerySkeleton
+              length={4}
+              width={'450px'}
+              height={'450px'}
+              padding={'20px'}
+              mobilewidth={'270px'}
+              mobileheight={'270px'}
+            />
+          ) : (
+            <CarouselWrapper
+              slides={galleryImage}
+              width={'450px'}
+              height={'450px'}
+              padding={'20px'}
+              mobilewidth={'270px'}
+              mobileheight={'270px'}
+            />
+          )}
+        </ArtShopBox>
       </ArtShopWrapper>
     </ArtShopContainer>
   );
