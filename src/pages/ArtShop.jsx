@@ -166,8 +166,6 @@ const ArtShop = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(bannerImage);
-  console.log(galleryImage);
   return (
     <ArtShopContainer>
       <ArtShopWrapper>
