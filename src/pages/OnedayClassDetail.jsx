@@ -136,7 +136,6 @@ const OnedayClassDetail = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(detail);
   return (
     <OnedayClassDetialContainer>
       <OnedayClassDetailWrapper>

@@ -198,7 +198,6 @@ const CultureSpace = () => {
 
   useEffect(() => {
     getCulture();
-    console.log('gdgdg');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -248,7 +247,6 @@ const CultureSpace = () => {
     scrollTo(0, 0);
   }, [currentId]);
 
-  console.log(currentCulture);
   return (
     <CultureSpaceContainer>
       <CultureSpaceWrapper>

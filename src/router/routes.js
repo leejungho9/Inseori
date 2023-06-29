@@ -24,7 +24,6 @@ export function Root() {
       const windowHeight = window.innerHeight; // ! 브라우저 높이
       const footerOffset = footerTop - windowHeight; // ! 푸터 위치 - 브라우저 높이
 
-      console.log(footerOffset);
       if (refs.headerRef && footerRef) {
         if (window.innerWidth > 1024) {
           if (window.scrollY >= footerOffset) {
