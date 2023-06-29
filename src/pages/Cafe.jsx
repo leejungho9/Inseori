@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
-import cafeData from 'data/cafeData';
 import useLoading from 'hooks/useLoading';
 import BannerSkeleton from 'components/Common/Skeleton/BannerSkeleton';
 import { getData } from 'apis/api';
@@ -58,13 +57,10 @@ const CafeBannerBox = styled.figure`
   }
 `;
 
-const CafeBanner = styled.div`
+const CafeBanner = styled.img`
   width: 100%;
   height: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(${(props) => props.url});
-  background-position: center;
+  object-fit: cover;
 `;
 
 const CafeMenuBox = styled.figure`
@@ -103,7 +99,7 @@ const Linebar = styled.hr`
 `;
 
 const CafeDesc = styled.p`
-  width: 541px;
+  width: 100%;
   font-size: 16px;
   line-height: 234.5%;
   letter-spacing: -0.07em;
@@ -124,6 +120,13 @@ const CafeDesc = styled.p`
     line-height: 29px;
     text-align: justify;
     letter-spacing: -0.095em;
+  }
+`;
+
+//! 줄바꿈
+const Break = styled.br`
+  @media screen and (max-width: 500px) {
+    display: none;
   }
 `;
 
@@ -152,42 +155,62 @@ const Cafe = () => {
   return (
     <CafeContainer>
       <CafeWrapper>
-        {cafeData && (
-          <CafeBox>
-            <CafeTitle>카페</CafeTitle>
-            <CafeBannerBox>
-              {isBannerLoading ? (
-                <BannerSkeleton />
-              ) : (
-                <CafeBanner url={bannerImage[0].image_url} />
-              )}
-            </CafeBannerBox>
-            <CafeMenuBox>
-              <CafeName>Aat/menu</CafeName>
-              <Linebar />
-              <CafeDesc>{cafeData.desc}</CafeDesc>
-            </CafeMenuBox>
-            {isGalleryLoading ? (
-              <GallerySkeleton
-                length={4}
-                width={'450px'}
-                height={'450px'}
-                padding={'20px'}
-                mobilewidth={'270px'}
-                mobileheight={'270px'}
-              />
+        <CafeBox>
+          <CafeTitle>카페</CafeTitle>
+          <CafeBannerBox>
+            {isBannerLoading ? (
+              <BannerSkeleton size={'small'} />
             ) : (
-              <CarouselWrapper
-                slides={galleryImage}
-                width={'450px'}
-                height={'450px'}
-                padding={'20px'}
-                mobilewidth={'270px'}
-                mobileheight={'270px'}
-              />
+              <picture>
+                <source
+                  media="(max-width : 500px)"
+                  srcSet={
+                    bannerImage &&
+                    bannerImage[0].image_m_url === 'no-image-error'
+                      ? bannerImage[0].image_url
+                      : bannerImage[0].image_m_url
+                  }
+                />
+                <CafeBanner
+                  src={bannerImage && bannerImage[0].image_url}
+                  alt="카페 배너 이미지"
+                />
+              </picture>
             )}
-          </CafeBox>
-        )}
+          </CafeBannerBox>
+          <CafeMenuBox>
+            <CafeName>Aat/menu</CafeName>
+            <Linebar />
+            <CafeDesc>
+              Aat 카페는 커피, 식사와 와인 그리고 푸드마켓이 한 공간에 있는
+              One-stop-shop입니다. 간단한 <Break />
+              식사는 물론 다양한 디저트와 와인리스트를 보유하고 있으며 집으로
+              돌아 갈 때는 먹거리와 식재
+              <Break />료 구입이 가능한 새로운 라이프 스타일 공간을 추구하고
+              있습니다.
+            </CafeDesc>
+          </CafeMenuBox>
+
+          {isGalleryLoading ? (
+            <GallerySkeleton
+              length={4}
+              width={'450px'}
+              height={'450px'}
+              padding={'20px'}
+              mobilewidth={'270px'}
+              mobileheight={'270px'}
+            />
+          ) : (
+            <CarouselWrapper
+              slides={galleryImage}
+              width={'450px'}
+              height={'450px'}
+              padding={'20px'}
+              mobilewidth={'270px'}
+              mobileheight={'270px'}
+            />
+          )}
+        </CafeBox>
       </CafeWrapper>
     </CafeContainer>
   );
