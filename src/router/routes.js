@@ -20,13 +20,14 @@ export function Root() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const footerTop = footerRef.current.offsetTop; //! 푸터 최상단 위치
+      const footerTop = footerRef.current && footerRef.current.offsetTop; //! 푸터 최상단 위치
       const windowHeight = window.innerHeight; // ! 브라우저 높이
       const footerOffset = footerTop - windowHeight; // ! 푸터 위치 - 브라우저 높이
 
+      console.log(footerOffset);
       if (refs.headerRef && footerRef) {
         if (window.innerWidth > 1024) {
-          if (window.pageYOffset >= footerOffset) {
+          if (window.scrollY >= footerOffset) {
             setLeftNavFixed(false);
           } else {
             setLeftNavFixed(true);
