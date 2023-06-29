@@ -74,13 +74,10 @@ const CultureSpaceBannerBox = styled.figure`
   }
 `;
 
-const CultureSpaceBanner = styled.div`
+const CultureSpaceBanner = styled.img`
   width: 100%;
   height: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(${({ url }) => url && url});
-  background-position: center;
+  object-fit: cover;
 `;
 
 const CultureSpaceMenuBox = styled.figure`
@@ -201,6 +198,7 @@ const CultureSpace = () => {
 
   useEffect(() => {
     getCulture();
+    console.log('gdgdg');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -237,28 +235,12 @@ const CultureSpace = () => {
     );
   };
 
-  const CultureBanner = ({ url }) => {
-    return (
-      <CultureSpaceBannerBox>
-        <CultureSpaceBanner url={url} />
-      </CultureSpaceBannerBox>
-    );
-  };
-
-  const CultureShop = ({ exhibitions, setCurrentId }) => {
-    return (
-      <CultureSpaceShopBox>
-        <CultureSpaceShopName>지난전시</CultureSpaceShopName>
-        <Linebar />
-        <ExhibitionCard items={exhibitions} setCurrentId={setCurrentId} />
-      </CultureSpaceShopBox>
-    );
-  };
-
   useEffect(() => {
     const currentCultureData = culture.filter((item) => item.id === currentId);
     setCurrentCulture(currentCultureData);
-    const otherCultureData = culture.filter((item) => item.slug === 'BCG_1');
+    const otherCultureData = culture.filter(
+      (item) => item.division === 'BCG' && item.id !== currentId,
+    );
     setOtherCulture(otherCultureData);
   }, [culture, currentId]);
 
@@ -266,6 +248,7 @@ const CultureSpace = () => {
     scrollTo(0, 0);
   }, [currentId]);
 
+  console.log(currentCulture);
   return (
     <CultureSpaceContainer>
       <CultureSpaceWrapper>
@@ -273,18 +256,35 @@ const CultureSpace = () => {
           <CultureNav />
           {currentCulture.map((item, index) => (
             <div key={index}>
-              {isCultureLoading ? (
-                <BannerSkeleton />
-              ) : (
-                <CultureBanner url={item.image_url} />
-              )}
+              <CultureSpaceBannerBox>
+                {isCultureLoading ? (
+                  <BannerSkeleton size={'small'} />
+                ) : (
+                  <picture>
+                    <source
+                      media="(max-width : 500px)"
+                      srcSet={
+                        item.image_m_url === 'no-image-error'
+                          ? item.image_url
+                          : item.image_m_url
+                      }
+                    />
+                    <CultureSpaceBanner
+                      src={item.image_url}
+                      alt="문화생활 배너 이미지"
+                    />
+                  </picture>
+                )}
+              </CultureSpaceBannerBox>
               <CultureSpaceMenuBox>
                 <CultureSpaceName>{item.title}</CultureSpaceName>
                 <Linebar />
                 <CultureDescBox>
                   <CultureSpaceDesc>{item.description}</CultureSpaceDesc>
                   <ReserveButtonBox>
-                    <ReserveButton>예약하기</ReserveButton>
+                    <ReserveButton>
+                      {item.division === 'BCG' ? '작품보기' : '예약하기'}
+                    </ReserveButton>
                   </ReserveButtonBox>
                 </CultureDescBox>
               </CultureSpaceMenuBox>
@@ -299,10 +299,14 @@ const CultureSpace = () => {
             </div>
           ))}
           {navMenu === '반창고' && (
-            <CultureShop
-              exhibitions={otherCulture}
-              setCurrentId={setCurrentId}
-            />
+            <CultureSpaceShopBox>
+              <CultureSpaceShopName>지난전시</CultureSpaceShopName>
+              <Linebar />
+              <ExhibitionCard
+                items={otherCulture}
+                setCurrentId={setCurrentId}
+              />
+            </CultureSpaceShopBox>
           )}
         </CultureSpaceBox>
       </CultureSpaceWrapper>
