@@ -7,11 +7,10 @@ import ban3 from 'assets/images/room/ban/ban3.png';
 import ban4 from 'assets/images/room/ban/ban4.png';
 import Accordion from 'components/Common/Accordion/Accordion';
 import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
-import BannerCarousel from 'components/Common/Carousel/BannerCarousel';
 import { getData } from 'apis/api';
 import useLoading from 'hooks/useLoading';
 import { useParams } from 'react-router-dom';
-import BannerSkeleton from 'components/Common/Skeleton/BannerSkeleton';
+import { BannerLargeCarousel } from 'components/Common/Carousel/BannerCarousel';
 
 const MainContainer = styled.main`
   overflow: hidden;
@@ -241,11 +240,11 @@ function Room() {
   return (
     <MainContainer>
       <MainWrpper>
-        {isRoomDetailLoading ? (
-          <BannerSkeleton size={'large'} />
-        ) : (
-          <BannerCarousel slides={roomDetail && roomDetail.banners} />
-        )}
+        <BannerLargeCarousel
+          slides={roomDetail && roomDetail.banners}
+          path={'room '}
+          loading={isRoomDetailLoading}
+        />
         <RoomDescWrapper>
           <RoomDescBox>
             <RoomTitle>{roomDetail.name}</RoomTitle>

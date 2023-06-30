@@ -1,11 +1,10 @@
 import { forwardRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import BannerCarousel from '../components/Common/Carousel/BannerCarousel';
 import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
 import { getData } from 'apis/api';
 import useLoading from 'hooks/useLoading';
-import BannerSkeleton from 'components/Common/Skeleton/BannerSkeleton';
 import GallerySkeleton from 'components/Common/Skeleton/GallerySkeleton';
+import { BannerLargeCarousel } from 'components/Common/Carousel/BannerCarousel';
 
 const MainContainer = styled.main`
   overflow: hidden;
@@ -107,11 +106,11 @@ const Main = forwardRef((props, mainTopRef) => {
   return (
     <MainContainer>
       <MainWrpper ref={mainTopRef}>
-        {isBannerLoading ? (
-          <BannerSkeleton size={'large'} />
-        ) : (
-          <BannerCarousel slides={bannerImage} path={'main'} />
-        )}
+        <BannerLargeCarousel
+          slides={bannerImage}
+          path={'main'}
+          loading={isBannerLoading}
+        />
         <MainIntroWrapper>
           <MainIntroBox>
             <MainTitle>인서리공원</MainTitle>
