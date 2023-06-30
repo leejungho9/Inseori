@@ -316,15 +316,19 @@ const ReservationForm = ({ detail }) => {
         <ClassInfoBox>
           <ClassInfoTextBox>
             <ClassInfoTextLabel>날짜</ClassInfoTextLabel>
-            <ClassInfoTextValue>{detail.period}</ClassInfoTextValue>
+            <ClassInfoTextValue>{detail.d_day}</ClassInfoTextValue>
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoTextLabel>시간</ClassInfoTextLabel>
-            <ClassInfoTextValue>{detail.period}</ClassInfoTextValue>
+            <ClassInfoTextValue>{detail.duration}</ClassInfoTextValue>
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoTextLabel>예약마감</ClassInfoTextLabel>
-            <ClassInfoTextValue> {}</ClassInfoTextValue>
+            <ClassInfoTextValue> {detail.l_day}</ClassInfoTextValue>
+          </ClassInfoTextBox>
+          <ClassInfoTextBox>
+            <ClassInfoTextLabel>수강인원</ClassInfoTextLabel>
+            <ClassInfoTextValue>{detail.people}</ClassInfoTextValue>
           </ClassInfoTextBox>
           <ClassInfoTextBox>
             <ClassInfoTextLabel>수강료</ClassInfoTextLabel>
@@ -332,12 +336,7 @@ const ReservationForm = ({ detail }) => {
               {Number(detail.price).toLocaleString()} 원
             </ClassInfoTextValue>
           </ClassInfoTextBox>
-          <ClassInfoTextBox>
-            <ClassInfoTextLabel>입금계좌</ClassInfoTextLabel>
-            <ClassInfoTextValue>
-              우리은행 1002-151-887345 이정수
-            </ClassInfoTextValue>
-          </ClassInfoTextBox>
+
           <ClassInfoTextBox>
             <ClassCheckbox
               type="checkbox"
@@ -411,7 +410,7 @@ const ReservationForm = ({ detail }) => {
           </ClassInfoTextBox>
           <ClassInfoDescBox>
             <ClassInfoDesc>
-              원데이클래스 참여가능여부 확인되면 핸드폰으로 개별 연락드립니다.
+              원데이클래스 참여가능여부가 확인되면 핸드폰으로 개별 연락드립니다.
             </ClassInfoDesc>
           </ClassInfoDescBox>
           <ReserveButton

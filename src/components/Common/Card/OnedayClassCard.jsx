@@ -118,6 +118,13 @@ const OnedayClassPrice = styled.span`
   font-weight: bold;
 `;
 
+const Break = styled.br`
+  display: none;
+  @media screen and (max-width: 500px) {
+    display: block;
+  }
+`;
+
 const OnedayClassCard = ({ items }) => {
   return (
     <OnedayClassCardWrapper>
@@ -140,7 +147,10 @@ const OnedayClassCard = ({ items }) => {
             </OnedayClassStatus>
           </OnedayClassInfoHead>
           <OnedayClassInfoBody>
-            <OnedayClassDate>{item.period}</OnedayClassDate>
+            <OnedayClassDate>
+              {item.d_day} <span>/</span> <Break />
+              {item.duration}
+            </OnedayClassDate>
             <OnedayClassPersonnel>인원 {item.people}</OnedayClassPersonnel>
           </OnedayClassInfoBody>
           <OnedayClassInfoFoot>
