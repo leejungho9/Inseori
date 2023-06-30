@@ -77,7 +77,7 @@ const ReservationImageBox = styled.figure`
 `;
 
 const OnedayClassDetailDescBox = styled.article`
-  padding: 40px 25px 0px;
+  padding: 40px 0px;
   line-height: 32px;
   letter-spacing: -0.06em;
 `;
@@ -87,6 +87,7 @@ const OnedayClassDetailDesc = styled.p`
   font-family: PretendardRegular;
   line-height: 32px;
   letter-spacing: -0.06em;
+  padding: 0 25px;
 `;
 
 const OnedayClassDetail = () => {
