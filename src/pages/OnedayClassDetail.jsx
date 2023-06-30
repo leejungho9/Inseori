@@ -70,14 +70,9 @@ const Linebar = styled.hr`
 
 const ReservationImageBox = styled.figure`
   width: 100%;
-  display: none;
   margin-top: 93px;
   img:first-child {
     margin-bottom: 20px;
-  }
-
-  @media screen and (max-width: 500px) {
-    display: block;
   }
 `;
 
@@ -85,10 +80,6 @@ const OnedayClassDetailDescBox = styled.article`
   padding: 40px 25px 0px;
   line-height: 32px;
   letter-spacing: -0.06em;
-  display: none;
-  @media screen and (max-width: 500px) {
-    display: block;
-  }
 `;
 
 const OnedayClassDetailDesc = styled.p`
@@ -131,12 +122,12 @@ const OnedayClassDetail = () => {
             <ReservationForm detail={detail} />
           </ReservationFormBox>
         </ReservationWrapper>
-        {detail.image_editor !== '' && (
-          <ReservationImageBox>
-            <div dangerouslySetInnerHTML={createHTML()}></div>
-          </ReservationImageBox>
-        )}
         <OnedayClassDetailDescBox>
+          {detail.image_editor !== '' && (
+            <ReservationImageBox>
+              <div dangerouslySetInnerHTML={createHTML()}></div>
+            </ReservationImageBox>
+          )}
           <OnedayClassDetailDesc>{detail.description}</OnedayClassDetailDesc>
         </OnedayClassDetailDescBox>
       </OnedayClassDetailWrapper>
