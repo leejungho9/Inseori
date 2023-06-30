@@ -1,7 +1,8 @@
-import Slider from 'react-slick';
 import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import BannerSkeleton from '../Skeleton/BannerSkeleton';
+import Slider from 'react-slick';
 
 const SliderContainer = styled.section`
   .slick-slider {
@@ -39,7 +40,8 @@ const MainImg = styled.img`
   height: 100%;
   object-fit: cover;
 `;
-function BannerCarousel({ slides, path }) {
+
+export function BannerLargeCarousel({ slides, path, loading }) {
   const settings = {
     dots: true,
     infinite: true,
@@ -53,45 +55,90 @@ function BannerCarousel({ slides, path }) {
   };
   return (
     <SliderContainer>
-      <Slider {...settings}>
-        {slides &&
-          slides.map((slide, index) =>
-            //! 메인화면 배너
-            path === 'main' && 'cafe' && 'shop' && 'lesson' ? (
-              <MainImgBox key={index}>
-                <picture>
-                  <source
-                    srcSet={
-                      slide.image_m_url === 'no-image-error'
-                        ? slide.image_url
-                        : slide.image_m_url
-                    }
-                    media="(max-width : 500px)"
-                  />
-
-                  <MainImg src={slide.image_url} alt={slide.title} />
-                </picture>
-              </MainImgBox>
-            ) : (
-              //! 스테이 배너
-              <MainImgBox key={index}>
-                <picture>
-                  <source
-                    srcSet={
-                      slide.banner_m_url === 'no-image-error'
-                        ? slide.banner_url
-                        : slide.banner_m_url
-                    }
-                    media="(max-width : 500px)"
-                  />
-                  <MainImg src={slide.banner_url} alt={slide.title} />
-                </picture>
-              </MainImgBox>
-            ),
-          )}
-      </Slider>
+      {loading ? (
+        <BannerSkeleton size={'large'} />
+      ) : (
+        <Slider {...settings}>
+          {slides &&
+            slides.map((slide, index) =>
+              //! 메인화면 배너
+              path === 'main' ? (
+                <MainImgBox key={index}>
+                  <picture>
+                    <source
+                      srcSet={
+                        slide.image_m_url === 'no-image-error'
+                          ? slide.image_url
+                          : slide.image_m_url
+                      }
+                      media="(max-width : 500px)"
+                    />
+                    <MainImg src={slide.image_url} alt={slide.title} />
+                  </picture>
+                </MainImgBox>
+              ) : (
+                //! 스테이 배너
+                <MainImgBox key={index}>
+                  <picture>
+                    <source
+                      srcSet={
+                        slide.banner_m_url === 'no-image-error'
+                          ? slide.banner_url
+                          : slide.banner_m_url
+                      }
+                      media="(max-width : 500px)"
+                    />
+                    <MainImg src={slide.banner_url} alt={slide.title} />
+                  </picture>
+                </MainImgBox>
+              ),
+            )}
+        </Slider>
+      )}
     </SliderContainer>
   );
 }
 
-export default BannerCarousel;
+export function BannerSmallCarousel({ slides, loading }) {
+  const settings = {
+    dots: true,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    pauseOnHover: false,
+    fade: true,
+  };
+
+  return (
+    <SliderContainer>
+      {loading ? (
+        <BannerSkeleton size={'small'} />
+      ) : (
+        <Slider {...settings}>
+          {slides &&
+            slides.map((slide, index) => {
+              <>
+                <MainImgBox key={index}>
+                  <picture>
+                    <source
+                      srcSet={
+                        slide.banner_url === 'no-image-error'
+                          ? slide.banner_url
+                          : slide.banner_m_url
+                      }
+                      media="(max-width : 500px)"
+                    />
+
+                    <MainImg src={slide.banner_url} alt={slide.title} />
+                  </picture>
+                </MainImgBox>
+              </>;
+            })}
+        </Slider>
+      )}
+    </SliderContainer>
+  );
+}
