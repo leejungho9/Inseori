@@ -291,6 +291,7 @@ function Room() {
             padding={'25px'}
             mobilewidth={'300px'}
             mobileheight={'300px'}
+            loading={isRoomDetailLoading}
           />
         ) : (
           <RoomImagesContainer>

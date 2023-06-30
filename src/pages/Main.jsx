@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
 import { getData } from 'apis/api';
 import useLoading from 'hooks/useLoading';
-import GallerySkeleton from 'components/Common/Skeleton/GallerySkeleton';
 import { BannerLargeCarousel } from 'components/Common/Carousel/BannerCarousel';
 
 const MainContainer = styled.main`
@@ -124,26 +123,15 @@ const Main = forwardRef((props, mainTopRef) => {
             </MainIntro>
           </MainIntroBox>
         </MainIntroWrapper>
-
-        {isGalleryLoading ? (
-          <GallerySkeleton
-            length={4}
-            width={'435px'}
-            height={'435px'}
-            padding={'25px'}
-            mobilewidth={'270px'}
-            mobileheight={'270px'}
-          />
-        ) : (
-          <CarouselWrapper
-            slides={galleryImage}
-            width={'435px'}
-            height={'435px'}
-            padding={'25px'}
-            mobilewidth={'270px'}
-            mobileheight={'270px'}
-          />
-        )}
+        <CarouselWrapper
+          slides={galleryImage}
+          width={'435px'}
+          height={'435px'}
+          padding={'25px'}
+          mobilewidth={'270px'}
+          mobileheight={'270px'}
+          loading={isGalleryLoading}
+        />
       </MainWrpper>
     </MainContainer>
   );

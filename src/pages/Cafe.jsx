@@ -2,9 +2,8 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
 import useLoading from 'hooks/useLoading';
-import BannerSkeleton from 'components/Common/Skeleton/BannerSkeleton';
 import { getData } from 'apis/api';
-import GallerySkeleton from 'components/Common/Skeleton/GallerySkeleton';
+import { Banner } from 'components/Common/Carousel/Banner';
 
 const CafeContainer = styled.main`
   overflow: hidden;
@@ -55,12 +54,6 @@ const CafeBannerBox = styled.figure`
     width: 100%;
     height: 240px;
   }
-`;
-
-const CafeBanner = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 `;
 
 const CafeMenuBox = styled.figure`
@@ -158,25 +151,10 @@ const Cafe = () => {
         <CafeBox>
           <CafeTitle>카페</CafeTitle>
           <CafeBannerBox>
-            {isBannerLoading ? (
-              <BannerSkeleton size={'small'} />
-            ) : (
-              <picture>
-                <source
-                  media="(max-width : 500px)"
-                  srcSet={
-                    bannerImage &&
-                    bannerImage[0].image_m_url === 'no-image-error'
-                      ? bannerImage[0].image_url
-                      : bannerImage[0].image_m_url
-                  }
-                />
-                <CafeBanner
-                  src={bannerImage && bannerImage[0].image_url}
-                  alt="cafe_banner"
-                />
-              </picture>
-            )}
+            <Banner
+              loading={isBannerLoading}
+              item={bannerImage && bannerImage}
+            />
           </CafeBannerBox>
           <CafeMenuBox>
             <CafeName>Aat/menu</CafeName>
@@ -190,25 +168,15 @@ const Cafe = () => {
               있습니다.
             </CafeDesc>
           </CafeMenuBox>
-          {isGalleryLoading ? (
-            <GallerySkeleton
-              length={4}
-              width={'450px'}
-              height={'450px'}
-              padding={'20px'}
-              mobilewidth={'270px'}
-              mobileheight={'270px'}
-            />
-          ) : (
-            <CarouselWrapper
-              slides={galleryImage}
-              width={'450px'}
-              height={'450px'}
-              padding={'20px'}
-              mobilewidth={'270px'}
-              mobileheight={'270px'}
-            />
-          )}
+          <CarouselWrapper
+            slides={galleryImage}
+            width={'450px'}
+            height={'450px'}
+            padding={'20px'}
+            mobilewidth={'270px'}
+            mobileheight={'270px'}
+            loading={isGalleryLoading}
+          />
         </CafeBox>
       </CafeWrapper>
     </CafeContainer>

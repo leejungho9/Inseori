@@ -4,7 +4,7 @@ import ReservationForm from 'components/Common/Form/ReservationForm';
 import { useParams } from 'react-router-dom';
 import { getData } from 'apis/api';
 import useLoading from 'hooks/useLoading';
-import BannerSkeleton from 'components/Common/Skeleton/BannerSkeleton';
+import { RoundBanner } from 'components/Common/Carousel/Banner';
 
 const OnedayClassDetialContainer = styled.main`
   overflow: hidden;
@@ -30,6 +30,7 @@ const OnedayClassDetailWrapper = styled.section`
 const OnedayClassDetailTitle = styled.h1`
   font-family: 'PretendardSemiBold';
   font-size: var(--text-size-18);
+  margin-bottom: 30px;
 
   @media screen and (max-width: 991px) {
     margin: 30px 25px;
@@ -41,18 +42,6 @@ const ReservationWrapper = styled.article`
   width: 100%;
   @media screen and (max-width: 991px) {
     padding: 0 25px;
-  }
-`;
-
-const ReservationBanner = styled.img`
-  width: 100%;
-  height: 300px;
-  border-radius: 20px;
-  margin-top: 30px;
-
-  @media screen and (max-width: 991px) {
-    width: 100%;
-    height: 430px;
   }
 `;
 
@@ -92,16 +81,6 @@ const ReservationImageBox = styled.figure`
   }
 `;
 
-// const ReservationImage = styled.img`
-//   width: 100%;
-//   height: 430px;
-//   object-fit: cover;
-
-//   @media screen and (max-width: 500px) {
-//     height: 300px;
-//   }
-// `;
-
 const OnedayClassDetailDescBox = styled.article`
   padding: 40px 25px 0px;
   line-height: 32px;
@@ -138,29 +117,14 @@ const OnedayClassDetail = () => {
     return { __html: detail.image_editor };
   };
 
+  console.log(detail);
+
   return (
     <OnedayClassDetialContainer>
       <OnedayClassDetailWrapper>
         <OnedayClassDetailTitle>{detail.title}</OnedayClassDetailTitle>
         <ReservationWrapper>
-          {isClassDetailLoading ? (
-            <BannerSkeleton />
-          ) : (
-            <picture>
-              <source
-                media="(max-width : 500px)"
-                srcSet={
-                  detail.image_m_url === 'no-image-error'
-                    ? detail.banner_url
-                    : detail.image_m_url
-                }
-              />
-              <ReservationBanner
-                src={detail.image_url}
-                alt="원데이클래스 배너 이미지"
-              />
-            </picture>
-          )}
+          <RoundBanner loading={isClassDetailLoading} item={detail && detail} />
           <ReservationFormBox>
             <ReservationFormTitle>예약신청서</ReservationFormTitle>
             <Linebar />

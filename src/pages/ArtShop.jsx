@@ -4,8 +4,7 @@ import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
 import ReserveButton from 'components/Common/Button/ReserveButton';
 import { getData } from 'apis/api';
 import useLoading from 'hooks/useLoading';
-import BannerSkeleton from 'components/Common/Skeleton/BannerSkeleton';
-import GallerySkeleton from 'components/Common/Skeleton/GallerySkeleton';
+import { Banner } from 'components/Common/Carousel/Banner';
 
 const ArtShopContainer = styled.main`
   overflow: hidden;
@@ -57,12 +56,6 @@ const ArtShopBannerBox = styled.figure`
   }
 `;
 
-const ArtShopBanner = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
 const ArtShopMenuBox = styled.figure`
   padding-right: 100px;
 
@@ -111,7 +104,7 @@ const ArtShopDescBox = styled.div`
 `;
 
 const ArtShopDesc = styled.p`
-  width: 541px;
+  width: 100%;
   font-size: 16px;
   line-height: 234.5%;
   letter-spacing: -0.07em;
@@ -177,25 +170,10 @@ const ArtShop = () => {
         <ArtShopBox>
           <ArtShopTitle>아트샵</ArtShopTitle>
           <ArtShopBannerBox>
-            {isBannerLoading ? (
-              <BannerSkeleton size={'small'} />
-            ) : (
-              <picture>
-                <source
-                  media="(max-width : 500px)"
-                  srcSet={
-                    bannerImage &&
-                    bannerImage[0].image_m_url === 'no-image-error'
-                      ? bannerImage[0].image_url
-                      : bannerImage[0].image_m_url
-                  }
-                />
-                <ArtShopBanner
-                  src={bannerImage && bannerImage[0].image_url}
-                  alt="artshop_banner"
-                />
-              </picture>
-            )}
+            <Banner
+              loading={isBannerLoading}
+              item={bannerImage && bannerImage}
+            />
           </ArtShopBannerBox>
           <ArtShopMenuBox>
             <ArtShopName>일상이 예술, 예술이 일상</ArtShopName>
@@ -214,25 +192,15 @@ const ArtShop = () => {
               </ReserveButtonBox>
             </ArtShopDescBox>
           </ArtShopMenuBox>
-          {isGalleryLoading ? (
-            <GallerySkeleton
-              length={4}
-              width={'450px'}
-              height={'450px'}
-              padding={'20px'}
-              mobilewidth={'270px'}
-              mobileheight={'270px'}
-            />
-          ) : (
-            <CarouselWrapper
-              slides={galleryImage}
-              width={'450px'}
-              height={'450px'}
-              padding={'20px'}
-              mobilewidth={'270px'}
-              mobileheight={'270px'}
-            />
-          )}
+          <CarouselWrapper
+            slides={galleryImage}
+            width={'450px'}
+            height={'450px'}
+            padding={'20px'}
+            mobilewidth={'270px'}
+            mobileheight={'270px'}
+            loading={isGalleryLoading}
+          />
         </ArtShopBox>
       </ArtShopWrapper>
     </ArtShopContainer>

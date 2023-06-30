@@ -4,8 +4,8 @@ import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
 import ReserveButton from 'components/Common/Button/ReserveButton';
 import ExhibitionCard from 'components/Common/Card/ExhibitionCard';
 import useLoading from 'hooks/useLoading';
-import BannerSkeleton from 'components/Common/Skeleton/BannerSkeleton';
 import { getData } from 'apis/api';
+import { Banner } from 'components/Common/Carousel/Banner';
 
 const CultureSpaceContainer = styled.main`
   overflow: hidden;
@@ -74,14 +74,9 @@ const CultureSpaceBannerBox = styled.figure`
   }
 `;
 
-const CultureSpaceBanner = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
 const CultureSpaceMenuBox = styled.figure`
   padding-right: 100px;
+  min-height: 270px;
 
   @media screen and (max-width: 991px) {
     padding-right: 0px;
@@ -252,50 +247,38 @@ const CultureSpace = () => {
       <CultureSpaceWrapper>
         <CultureSpaceBox>
           <CultureNav />
-          {currentCulture.map((item, index) => (
-            <div key={index}>
-              <CultureSpaceBannerBox>
-                {isCultureLoading ? (
-                  <BannerSkeleton size={'small'} />
-                ) : (
-                  <picture>
-                    <source
-                      media="(max-width : 500px)"
-                      srcSet={
-                        item.image_m_url === 'no-image-error'
-                          ? item.image_url
-                          : item.image_m_url
-                      }
-                    />
-                    <CultureSpaceBanner
-                      src={item.image_url}
-                      alt="문화생활 배너 이미지"
-                    />
-                  </picture>
-                )}
-              </CultureSpaceBannerBox>
-              <CultureSpaceMenuBox>
-                <CultureSpaceName>{item.title}</CultureSpaceName>
-                <Linebar />
-                <CultureDescBox>
-                  <CultureSpaceDesc>{item.description}</CultureSpaceDesc>
-                  <ReserveButtonBox>
-                    <ReserveButton>
-                      {item.division === 'BCG' ? '작품보기' : '예약하기'}
-                    </ReserveButton>
-                  </ReserveButtonBox>
-                </CultureDescBox>
-              </CultureSpaceMenuBox>
-              <CarouselWrapper
-                slides={item.images}
-                width={'450px'}
-                height={'450px'}
-                padding={'20px'}
-                mobilewidth={'270px'}
-                mobileheight={'270px'}
-              />
-            </div>
-          ))}
+          <CultureSpaceBannerBox>
+            <Banner
+              loading={isCultureLoading}
+              item={currentCulture && currentCulture}
+            />
+          </CultureSpaceBannerBox>
+          <CultureSpaceMenuBox>
+            {currentCulture &&
+              currentCulture.map((item, index) => (
+                <div key={index}>
+                  <CultureSpaceName>{item.title}</CultureSpaceName>
+                  <Linebar />
+                  <CultureDescBox>
+                    <CultureSpaceDesc>{item.description}</CultureSpaceDesc>
+                    <ReserveButtonBox>
+                      <ReserveButton>
+                        {item.division === 'BCG' ? '작품보기' : '예약하기'}
+                      </ReserveButton>
+                    </ReserveButtonBox>
+                  </CultureDescBox>
+                </div>
+              ))}
+          </CultureSpaceMenuBox>
+          <CarouselWrapper
+            slides={currentCulture[0] && currentCulture[0].images}
+            width={'450px'}
+            height={'450px'}
+            padding={'20px'}
+            mobilewidth={'270px'}
+            mobileheight={'270px'}
+            loading={isCultureLoading}
+          />
           {navMenu === '반창고' && (
             <CultureSpaceShopBox>
               <CultureSpaceShopName>지난전시</CultureSpaceShopName>
