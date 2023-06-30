@@ -1,3 +1,4 @@
+import Spinner from 'components/Common/Spinner/Spinner';
 import { lazy, Suspense } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Root } from 'router/routes';
@@ -50,7 +51,7 @@ function App() {
   ]);
 
   return (
-    <Suspense fallback="..loading">
+    <Suspense fallback={<Spinner />}>
       <RouterProvider router={router} />
     </Suspense>
   );
