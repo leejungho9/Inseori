@@ -40,7 +40,10 @@ const OnedayClassImageWrapper = styled.figure`
   }
 `;
 
-const OnedayClassCardLink = styled(Link)``;
+const OnedayClassCardLink = styled(Link)`
+  display: block;
+  height: 100%;
+`;
 
 const OnedayClassImageBox = styled.div`
   position: absolute;
