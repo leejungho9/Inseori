@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ReservationForm from 'components/Common/Form/ReservationForm';
-import onedayCalssImage1 from 'assets/images/onedayclass/detail/onedayClassImage1.png';
-import onedayCalssImage2 from 'assets/images/onedayclass/detail/onedayClassImage2.png';
 import { useParams } from 'react-router-dom';
 import { getData } from 'apis/api';
 import useLoading from 'hooks/useLoading';
@@ -94,15 +92,15 @@ const ReservationImageBox = styled.figure`
   }
 `;
 
-const ReservationImage = styled.img`
-  width: 100%;
-  height: 430px;
-  object-fit: cover;
+// const ReservationImage = styled.img`
+//   width: 100%;
+//   height: 430px;
+//   object-fit: cover;
 
-  @media screen and (max-width: 500px) {
-    height: 300px;
-  }
-`;
+//   @media screen and (max-width: 500px) {
+//     height: 300px;
+//   }
+// `;
 
 const OnedayClassDetailDescBox = styled.article`
   padding: 40px 25px 0px;
@@ -136,6 +134,10 @@ const OnedayClassDetail = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const createHTML = () => {
+    return { __html: detail.image_editor };
+  };
+
   return (
     <OnedayClassDetialContainer>
       <OnedayClassDetailWrapper>
@@ -165,10 +167,11 @@ const OnedayClassDetail = () => {
             <ReservationForm detail={detail} />
           </ReservationFormBox>
         </ReservationWrapper>
-        <ReservationImageBox>
-          <ReservationImage src={onedayCalssImage1} />
-          <ReservationImage src={onedayCalssImage2} />
-        </ReservationImageBox>
+        {detail.image_editor !== '' && (
+          <ReservationImageBox>
+            <div dangerouslySetInnerHTML={createHTML()}></div>
+          </ReservationImageBox>
+        )}
         <OnedayClassDetailDescBox>
           <OnedayClassDetailDesc>{detail.description}</OnedayClassDetailDesc>
         </OnedayClassDetailDescBox>
