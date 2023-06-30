@@ -180,15 +180,15 @@ const ArtShop = () => {
             <Linebar />
             <ArtShopDescBox>
               <ArtShopDesc>
-                Aat 카페는 커피, 식사와 와인 그리고 푸드마켓이 한 공간에 있는
-                One-stop-shop입니다. 간단한 <Break />
-                식사는 물론 다양한 디저트와 와인리스트를 보유하고 있으며 집으로
-                돌아 갈 때는 먹거리와 식재
-                <Break />료 구입이 가능한 새로운 라이프 스타일 공간을 추구하고
-                있습니다.
+                작가들의 에디션 작품부터 저렴한 아트포스터까지 다양한 가격대의
+                그림이 준비되어 있습니다. <Break /> 선물하기에 좋은 소품들과
+                문구류, 아트 굿즈들을 판매하며 지역 작가와 협업하여
+                <Break /> 판매를 장려하고 클래스를 기획하는 공간입니다.
               </ArtShopDesc>
               <ReserveButtonBox>
-                <ReserveButton>구입하기</ReserveButton>
+                <ReserveButton url="https://artnedition.com/">
+                  구입하기
+                </ReserveButton>
               </ReserveButtonBox>
             </ArtShopDescBox>
           </ArtShopMenuBox>
