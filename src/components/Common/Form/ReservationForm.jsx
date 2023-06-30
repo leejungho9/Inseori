@@ -118,7 +118,7 @@ const ClassInfoDesc = styled.p`
   font-family: 'PretendardRegular';
   letter-spacing: -0.07em;
   @media screen and (max-width: 500px) {
-    font-size: var(--text-size-14);
+    font-size: var(--text-size-15);
   }
 `;
 const ReservationForm = ({ detail }) => {
