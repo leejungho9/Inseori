@@ -50,7 +50,7 @@ const TelText = styled.span`
     letter-spacing: 1.3px;
   }
   //! 임시
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 991px) {
     font-size: var(--text-size-20);
   }
 `;
@@ -65,7 +65,7 @@ const Tel = styled.h1`
   }
 
   //! 임시
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 991px) {
     font-size: var(--text-size-18);
     margin-bottom: 25px;
   }
@@ -82,7 +82,7 @@ const FooterTextBox = styled.div`
     width: 100%;
   }
   //! 임시
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 991px) {
     display: block;
     text-align: center;
   }
@@ -95,7 +95,7 @@ const AddressTextBox = styled.div`
   }
   //! 임시
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 991px) {
     position: static;
     right: 0;
   }
@@ -117,12 +117,12 @@ const AddressText = styled.address`
   font-size: var(--text-size-12);
   color: var(--gray);
   @media screen and (max-width: 991px) {
-    font-size: var(--text-size-12);
+    font-size: var(--text-size-16);
   }
   //! 임시
 
-  @media screen and (max-width: 500px) {
-    font-size: var(--text-size-11);
+  @media screen and (max-width: 991px) {
+    font-size: var(--text-size-15);
   }
 `;
 
@@ -154,7 +154,7 @@ const FooterIconBox = styled.div`
   }
   //! 임시
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 991px) {
     justify-content: center;
   }
 `;
@@ -181,7 +181,7 @@ const CuratedText = styled.span`
   }
 
   //! 임시
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 991px) {
     display: none;
   }
 `;
