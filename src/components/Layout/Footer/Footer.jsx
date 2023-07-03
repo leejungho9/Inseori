@@ -206,7 +206,6 @@ const Footer = forwardRef((props, footerRef) => {
               <AddressText>사업자 등록번호 : 798-88-00750</AddressText>
             </TextBox>
             <TextBox>
-              <AddressText>통신판매업신고번호 : 2018-경기파주-0016</AddressText>
               <AddressText>인서리공원 대표이사 : 박소연</AddressText>
             </TextBox>
           </AddressTextBox>
