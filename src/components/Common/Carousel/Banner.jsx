@@ -24,6 +24,7 @@ const RoundImage = styled.img`
   }
 `;
 export const Banner = ({ loading, item }) => {
+  console.log(item[0]);
   return (
     <>
       {loading ? (
@@ -35,8 +36,8 @@ export const Banner = ({ loading, item }) => {
               media="(max-width : 500px)"
               srcSet={
                 item[0].image_m_url === 'no-image-error'
-                  ? item.image_url
-                  : item.image_m_url
+                  ? item[0].image_url
+                  : item[0].image_m_url
               }
             />
             <Image src={item[0].image_url} alt="배너 이미지" />
