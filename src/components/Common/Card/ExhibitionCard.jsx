@@ -1,5 +1,41 @@
 import styled from 'styled-components';
 
+const CultureSpaceShopBox = styled.figure`
+  padding-right: 100px;
+
+  @media screen and (max-width: 991px) {
+    padding-right: 0px;
+    padding-bottom: 0px;
+  }
+`;
+
+const CultureSpaceShopName = styled.figcaption`
+  font-size: var(--text-size-18);
+  font-family: 'PretendardBold';
+  margin-top: 60px;
+
+  @media screen and (max-width: 991px) {
+    margin: 50px 25px 17px;
+  }
+
+  @media screen and (max-width: 500px) {
+    font-size: var(--text-size-15);
+  }
+`;
+
+const Linebar = styled.hr`
+  width: 100%;
+  height: 1px;
+  background-color: #e4e4e4;
+  border: none;
+  margin: 30px 0px 30px 0px;
+  display: block;
+
+  @media screen and (max-width: 900px) {
+    margin: 0px 100px 17px 0;
+  }
+`;
+
 const ExhibitionCardWrapper = styled.section`
   width: 100%;
   display: grid;
@@ -110,28 +146,54 @@ const ExhibitionCard = ({ items, setCurrentId }) => {
   const clickChangeList = (id) => {
     setCurrentId(id);
   };
+
+  const dateCalculation = (item) => {
+    let str = item.s_date;
+    const year = str.slice(0, 4);
+    const month = str.slice(-5, -3);
+    const day = str.slice(-2);
+
+    const currentDate = new Date(); // 현재 날짜와 시간을 가져옴
+    const targetDate = new Date(`${year}-${month}-${day}T00:00:00`);
+
+    if (currentDate > targetDate) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   return (
-    <ExhibitionCardWrapper>
-      {items &&
-        items.map((item, index) => (
-          <ExhibitionCardBox key={index}>
-            <ExhibitionShopImageWrapper>
-              <ExhibitionShopBox onClick={() => clickChangeList(item.id)}>
-                <ExhibitionShopImage src={item.thumb_url} alt="전시이미지" />
-              </ExhibitionShopBox>
-            </ExhibitionShopImageWrapper>
-            <ExhibitionInfoHead>
-              <ExhibitionDate>23.10.03-23.12.31</ExhibitionDate>
-            </ExhibitionInfoHead>
-            <ExhibitionInfoBody>
-              <ExhibitionAuthor>김경화</ExhibitionAuthor>
-            </ExhibitionInfoBody>
-            <ExhibitionInfoFoot>
-              <ExhibitionName>{item.title}</ExhibitionName>
-            </ExhibitionInfoFoot>
-          </ExhibitionCardBox>
-        ))}
-    </ExhibitionCardWrapper>
+    <CultureSpaceShopBox>
+      <CultureSpaceShopName>지난전시</CultureSpaceShopName>
+      <Linebar />
+      <ExhibitionCardWrapper>
+        {items &&
+          items.map(
+            (item, index) =>
+              dateCalculation(item) && (
+                <ExhibitionCardBox key={index}>
+                  <ExhibitionShopImageWrapper>
+                    <ExhibitionShopBox onClick={() => clickChangeList(item.id)}>
+                      <ExhibitionShopImage
+                        src={item.thumb_url}
+                        alt="전시이미지"
+                      />
+                    </ExhibitionShopBox>
+                  </ExhibitionShopImageWrapper>
+                  <ExhibitionInfoHead>
+                    <ExhibitionDate>{item.s_date}</ExhibitionDate>
+                  </ExhibitionInfoHead>
+                  <ExhibitionInfoBody>
+                    <ExhibitionAuthor>{item.artist_name}</ExhibitionAuthor>
+                  </ExhibitionInfoBody>
+                  <ExhibitionInfoFoot>
+                    <ExhibitionName>{item.title}</ExhibitionName>
+                  </ExhibitionInfoFoot>
+                </ExhibitionCardBox>
+              ),
+          )}
+      </ExhibitionCardWrapper>
+    </CultureSpaceShopBox>
   );
 };
 
