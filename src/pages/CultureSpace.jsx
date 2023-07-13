@@ -154,29 +154,6 @@ const ReserveButtonBox = styled.div`
   }
 `;
 
-const CultureSpaceShopBox = styled.figure`
-  padding-right: 100px;
-
-  @media screen and (max-width: 991px) {
-    padding-right: 0px;
-    padding-bottom: 0px;
-  }
-`;
-
-const CultureSpaceShopName = styled.figcaption`
-  font-size: var(--text-size-18);
-  font-family: 'PretendardBold';
-  margin-top: 60px;
-
-  @media screen and (max-width: 991px) {
-    margin: 50px 25px 17px;
-  }
-
-  @media screen and (max-width: 500px) {
-    font-size: var(--text-size-15);
-  }
-`;
-
 const CultureSpace = () => {
   const [navMenu, setNavMenu] = useState('갑빠오의 집');
   const [currentId, setCurrentId] = useState(1);
@@ -235,6 +212,7 @@ const CultureSpace = () => {
     const otherCultureData = culture.filter(
       (item) => item.division === 'BCG' && item.id !== currentId,
     );
+
     setOtherCulture(otherCultureData);
   }, [culture, currentId]);
 
@@ -280,14 +258,7 @@ const CultureSpace = () => {
             loading={isCultureLoading}
           />
           {navMenu === '반창고' && (
-            <CultureSpaceShopBox>
-              <CultureSpaceShopName>지난전시</CultureSpaceShopName>
-              <Linebar />
-              <ExhibitionCard
-                items={otherCulture}
-                setCurrentId={setCurrentId}
-              />
-            </CultureSpaceShopBox>
+            <ExhibitionCard items={otherCulture} setCurrentId={setCurrentId} />
           )}
         </CultureSpaceBox>
       </CultureSpaceWrapper>
