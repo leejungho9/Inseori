@@ -15,8 +15,6 @@ const CarouselWrapper = ({
   mobileheight,
   loading,
 }) => {
-  const options = { loop: true, align: 'start' };
-
   return (
     <>
       {loading ? (
@@ -32,7 +30,6 @@ const CarouselWrapper = ({
         <CarosuelSection>
           <Carousel
             slides={slides}
-            options={options}
             width={width}
             height={height}
             padding={padding}

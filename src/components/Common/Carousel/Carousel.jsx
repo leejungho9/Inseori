@@ -34,13 +34,13 @@ const Image = styled.img`
 
 const Carousel = ({
   slides,
-  options,
   width,
   height,
   padding,
   mobilewidth,
   mobileheight,
 }) => {
+  const options = { loop: true, align: 'start' };
   const [emblaRef] = useEmblaCarousel(options, [Autoplay({ delay: 2000 })]);
 
   return (
