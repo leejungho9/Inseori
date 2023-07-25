@@ -13,6 +13,7 @@ const ReserveLinkBtn = styled(Link)`
   color: var(--gray);
   font-family: 'PretendardSemiBold';
   font-weight: bold;
+  cursor: pointer;
 
   @media screen and (max-width: 500px) {
     border: 1px solid var(--gray);
@@ -31,16 +32,17 @@ const ReserveSubmitBtn = styled.button`
   color: var(--gray);
   font-family: 'PretendardSemiBold';
   font-weight: bold;
+  cursor: pointer;
 
   @media screen and (max-width: 500px) {
     border: 1px solid var(--gray);
   }
 `;
-function ReserveButton({ children, url, link = true }) {
+function ReserveButton({ children, url, link = true, onClick }) {
   return link ? (
     <ReserveLinkBtn to={url}>{children}</ReserveLinkBtn>
   ) : (
-    <ReserveSubmitBtn>{children}</ReserveSubmitBtn>
+    <ReserveSubmitBtn onClick={onClick}>{children}</ReserveSubmitBtn>
   );
 }
 
