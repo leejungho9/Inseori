@@ -24,7 +24,6 @@ const RoundImage = styled.img`
   }
 `;
 export const Banner = ({ loading, item }) => {
-  console.log(item[0]);
   return (
     <>
       {loading ? (
