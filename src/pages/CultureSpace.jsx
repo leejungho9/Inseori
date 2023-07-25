@@ -6,6 +6,7 @@ import ExhibitionCard from 'components/Common/Card/ExhibitionCard';
 import useLoading from 'hooks/useLoading';
 import { getData } from 'apis/api';
 import { Banner } from 'components/Common/Carousel/Banner';
+import { useNavigate } from 'react-router-dom';
 
 const CultureSpaceContainer = styled.main`
   overflow: hidden;
@@ -157,13 +158,13 @@ const ReserveButtonBox = styled.div`
 const CultureSpace = () => {
   const [navMenu, setNavMenu] = useState('갑빠오의 집');
   const [currentId, setCurrentId] = useState(1);
-
   const [currentCulture, setCurrentCulture] = useState([]);
   const [otherCulture, setOtherCulture] = useState([]);
   const [culture, setCulture] = useState([]);
+  const navigate = useNavigate();
 
   const fetchCultureInfo = async () => {
-    const response = await getData('culture/spaces/');
+    const response = await getData('culture/spaces/', navigate);
     setCulture(response);
   };
   const [getCulture, isCultureLoading] = useLoading(fetchCultureInfo);

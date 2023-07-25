@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ReservationForm from 'components/Common/Form/ReservationForm';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getData } from 'apis/api';
 import useLoading from 'hooks/useLoading';
 import { RoundBanner } from 'components/Common/Carousel/Banner';
@@ -93,9 +93,9 @@ const OnedayClassDetailDesc = styled.p`
 const OnedayClassDetail = () => {
   let { id } = useParams();
   const [detail, setDetail] = useState([]);
-
+  const navigate = useNavigate();
   const fetchClassDetail = async () => {
-    const response = await getData(`lesson/lessons/${id}/`);
+    const response = await getData(`lesson/lessons/${id}/`, navigate);
     setDetail(response);
   };
 

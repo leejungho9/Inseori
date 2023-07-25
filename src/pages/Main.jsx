@@ -4,6 +4,7 @@ import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
 import { getData } from 'apis/api';
 import useLoading from 'hooks/useLoading';
 import { BannerLargeCarousel } from 'components/Common/Carousel/BannerCarousel';
+import { useNavigate } from 'react-router-dom';
 
 const MainContainer = styled.main`
   overflow: hidden;
@@ -36,7 +37,7 @@ const MainIntroWrapper = styled.section`
   }
 `;
 const MainIntroBox = styled.div`
-  width: 510px;
+  width: 500px;
   text-align: center;
   margin: 0 auto;
   @media screen and (max-width: 991px) {
@@ -85,12 +86,14 @@ const Break = styled.br`
 const Main = forwardRef((props, mainTopRef) => {
   const [bannerImage, setBannerImage] = useState([]);
   const [galleryImage, setGalleryImage] = useState([]);
+  const navigate = useNavigate();
+
   const fetchMainBannerImage = async () => {
-    const response = await getData('banner/images/');
+    const response = await getData('banner/images/', navigate);
     setBannerImage(response);
   };
   const fetchMainGalleryImage = async () => {
-    const response = await getData('gallery/images/');
+    const response = await getData('gallery/images/', navigate);
     setGalleryImage(response);
   };
   const [getBanner, isBannerLoading] = useLoading(fetchMainBannerImage);
@@ -118,8 +121,7 @@ const Main = forwardRef((props, mainTopRef) => {
               리노베이션한 한옥 14채를 활용하여 <Break />
               많은 사람들이 쉽게, 더 가까이 예술을 접하고 <Break />
               향유 할 수 있기를 바라는 기대로 만들어진
-              <Break />
-              복합문화공간입니다.
+              <Break /> 복합문화공간입니다.
             </MainIntro>
           </MainIntroBox>
         </MainIntroWrapper>

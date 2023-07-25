@@ -4,6 +4,7 @@ import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
 import useLoading from 'hooks/useLoading';
 import { getData } from 'apis/api';
 import { Banner } from 'components/Common/Carousel/Banner';
+import { useNavigate } from 'react-router-dom';
 
 const CafeContainer = styled.main`
   overflow: hidden;
@@ -126,14 +127,14 @@ const Break = styled.br`
 const Cafe = () => {
   const [bannerImage, setBannerImage] = useState([]);
   const [galleryImage, setGalleryImage] = useState([]);
-
+  const navigate = useNavigate();
   const fetchCafeBanner = async () => {
-    const response = await getData('/cafe/banner/images/');
+    const response = await getData('/cafe/banner/images/', navigate);
     setBannerImage(response);
   };
 
   const fetchCafeGalleryImage = async () => {
-    const response = await getData('/cafe/menu/images/');
+    const response = await getData('/cafe/menu/images/', navigate);
     setGalleryImage(response);
   };
   const [getBanner, isBannerLoading] = useLoading(fetchCafeBanner);

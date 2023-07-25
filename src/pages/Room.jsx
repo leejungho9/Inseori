@@ -9,7 +9,7 @@ import Accordion from 'components/Common/Accordion/Accordion';
 import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
 import { getData } from 'apis/api';
 import useLoading from 'hooks/useLoading';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { BannerLargeCarousel } from 'components/Common/Carousel/BannerCarousel';
 
 const MainContainer = styled.main`
@@ -224,8 +224,9 @@ function Room() {
   const [mobileGallery, setMobileGallery] = useState(false);
   const [roomDetail, setroomDetail] = useState([]);
   const { id } = useParams();
+  const navigate = useNavigate();
   const fetchMainBannerImage = async () => {
-    const response = await getData(`stay/rooms/${id}/`);
+    const response = await getData(`stay/rooms/${id}/`, navigate);
     setroomDetail(response);
   };
   const [getRoomDetail, isRoomDetailLoading] = useLoading(fetchMainBannerImage);

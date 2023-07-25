@@ -5,6 +5,7 @@ import ReserveButton from 'components/Common/Button/ReserveButton';
 import { getData } from 'apis/api';
 import useLoading from 'hooks/useLoading';
 import { Banner } from 'components/Common/Carousel/Banner';
+import { useNavigate } from 'react-router-dom';
 
 const ArtShopContainer = styled.main`
   overflow: hidden;
@@ -145,14 +146,14 @@ const Break = styled.br`
 
 const ArtShop = () => {
   const [bannerImage, setBannerImage] = useState([]);
-  // ! api 수정되면 적용
   const [galleryImage, setGalleryImage] = useState([]);
+  const navigate = useNavigate();
   const fetchMainBannerImage = async () => {
-    const response = await getData('shop/banner/images/');
+    const response = await getData('shop/banner/images/', navigate);
     setBannerImage(response);
   };
   const fetchMainGalleryImage = async () => {
-    const response = await getData('shop/artworks/');
+    const response = await getData('shop/artworks/', navigate);
     setGalleryImage(response);
   };
   const [getBanner, isBannerLoading] = useLoading(fetchMainBannerImage);

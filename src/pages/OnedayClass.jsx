@@ -3,6 +3,7 @@ import OnedayClassCardList from 'components/Common/CardList/OnedayCalssCardList'
 import styled from 'styled-components';
 import useLoading from 'hooks/useLoading';
 import { getData } from 'apis/api';
+import { useNavigate } from 'react-router-dom';
 
 const OnedayCalssContainer = styled.main`
   overflow: hidden;
@@ -34,9 +35,9 @@ const OnedayCalssTitle = styled.h1`
 
 const OnedayCalss = () => {
   const [classInfo, setClassInfo] = useState([]);
-
+  const navigate = useNavigate();
   const fetchClassInfo = async () => {
-    const response = await getData('lesson/lessons/');
+    const response = await getData('lesson/lessons/', navigate);
     setClassInfo(response);
   };
   const [getInfo, isInfoLoading] = useLoading(fetchClassInfo);
