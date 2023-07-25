@@ -80,9 +80,12 @@ const CultureSpaceBannerBox = styled.figure`
 const CultureSpaceMenuBox = styled.figure`
   padding-right: 100px;
   min-height: 270px;
+  margin-bottom: 50px;
 
   @media screen and (max-width: 991px) {
     padding-right: 0px;
+    margin-bottom: 75px;
+    min-height: 0;
   }
 `;
 
@@ -117,11 +120,9 @@ const CultureDescBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 50px;
 
   @media screen and (max-width: 991px) {
     flex-direction: column;
-    margin-bottom: 75px;
   }
 `;
 
@@ -279,18 +280,21 @@ const CultureSpace = () => {
                         {item && item.description}
                       </CultureSpaceDesc>
                       <ReserveButtonBox>
-                        {mobile ? (
-                          <ReserveButton link={true} href="tel:061-761-6701">
-                            {item && item.division === 'BCG'
-                              ? '작품보기'
-                              : '예약하기'}
-                          </ReserveButton>
-                        ) : (
-                          <ReserveButton link={false} onClick={handleShowModal}>
-                            {item && item.division === 'BCG'
-                              ? '작품보기'
-                              : '예약하기'}
-                          </ReserveButton>
+                        {item.division === 'KPO' &&
+                          (mobile ? (
+                            <ReserveButton url="tel:061-761-6701">
+                              예약하기
+                            </ReserveButton>
+                          ) : (
+                            <ReserveButton
+                              link={false}
+                              onClick={handleShowModal}
+                            >
+                              예약하기
+                            </ReserveButton>
+                          ))}
+                        {item.division === 'BCG' && (
+                          <ReserveButton>작품보기</ReserveButton>
                         )}
                       </ReserveButtonBox>
                     </CultureDescBox>
