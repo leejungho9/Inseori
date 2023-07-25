@@ -147,51 +147,30 @@ const ExhibitionCard = ({ items, setCurrentId }) => {
     setCurrentId(id);
   };
 
-  const dateCalculation = (item) => {
-    let str = item.s_date;
-    const year = str.slice(0, 4);
-    const month = str.slice(-5, -3);
-    const day = str.slice(-2);
-
-    const currentDate = new Date(); // 현재 날짜와 시간을 가져옴
-    const targetDate = new Date(`${year}-${month}-${day}T00:00:00`);
-
-    if (currentDate > targetDate) {
-      return true;
-    } else {
-      return false;
-    }
-  };
   return (
     <CultureSpaceShopBox>
-      <CultureSpaceShopName>지난전시</CultureSpaceShopName>
+      <CultureSpaceShopName>전시</CultureSpaceShopName>
       <Linebar />
       <ExhibitionCardWrapper>
         {items &&
-          items.map(
-            (item, index) =>
-              dateCalculation(item) && (
-                <ExhibitionCardBox key={index}>
-                  <ExhibitionShopImageWrapper>
-                    <ExhibitionShopBox onClick={() => clickChangeList(item.id)}>
-                      <ExhibitionShopImage
-                        src={item.thumb_url}
-                        alt="전시이미지"
-                      />
-                    </ExhibitionShopBox>
-                  </ExhibitionShopImageWrapper>
-                  <ExhibitionInfoHead>
-                    <ExhibitionDate>{item.s_date}</ExhibitionDate>
-                  </ExhibitionInfoHead>
-                  <ExhibitionInfoBody>
-                    <ExhibitionAuthor>{item.artist_name}</ExhibitionAuthor>
-                  </ExhibitionInfoBody>
-                  <ExhibitionInfoFoot>
-                    <ExhibitionName>{item.title}</ExhibitionName>
-                  </ExhibitionInfoFoot>
-                </ExhibitionCardBox>
-              ),
-          )}
+          items.map((item, index) => (
+            <ExhibitionCardBox key={index}>
+              <ExhibitionShopImageWrapper>
+                <ExhibitionShopBox onClick={() => clickChangeList(item.id)}>
+                  <ExhibitionShopImage src={item.thumb_url} alt="전시이미지" />
+                </ExhibitionShopBox>
+              </ExhibitionShopImageWrapper>
+              <ExhibitionInfoHead>
+                <ExhibitionDate>{item.s_date}</ExhibitionDate>
+              </ExhibitionInfoHead>
+              <ExhibitionInfoBody>
+                <ExhibitionAuthor>{item.artist_name}</ExhibitionAuthor>
+              </ExhibitionInfoBody>
+              <ExhibitionInfoFoot>
+                <ExhibitionName>{item.title}</ExhibitionName>
+              </ExhibitionInfoFoot>
+            </ExhibitionCardBox>
+          ))}
       </ExhibitionCardWrapper>
     </CultureSpaceShopBox>
   );
