@@ -253,7 +253,10 @@ function Room() {
             <RoomDesc>{roomDetail.description}</RoomDesc>
           </RoomDescBox>
           <ReserveButtonBox>
-            <ReserveButton url="https://booking.naver.com/booking/3/bizes/802107/items/4737745">
+            <ReserveButton
+              target="_blank"
+              url="https://booking.naver.com/booking/3/bizes/802107/items/4737745"
+            >
               예약하기
             </ReserveButton>
           </ReserveButtonBox>
