@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 const { REACT_APP_API } = process.env;
-
-export const getData = async (path) => {
+export const getData = async (path, navigate) => {
   try {
     const response = await axios.get(`${REACT_APP_API}/${path}`);
     return response.data;
   } catch (error) {
     console.log(error);
+    navigate('/error');
   }
 };
 

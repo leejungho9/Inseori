@@ -1,4 +1,5 @@
 import Spinner from 'components/Common/Spinner/Spinner';
+import NotFoundPage from 'pages/NotFoundPage';
 import { lazy, Suspense } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Root } from 'router/routes';
@@ -16,7 +17,7 @@ function App() {
     {
       path: '/',
       element: <Root />,
-      // errorElement: <NotFoundPage />  ,
+      errorElement: <NotFoundPage />,
       children: [
         {
           path: '/',
