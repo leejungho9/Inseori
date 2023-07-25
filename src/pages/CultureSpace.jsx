@@ -158,8 +158,8 @@ const ReserveButtonBox = styled.div`
 `;
 
 const CultureSpace = () => {
-  const [navMenu, setNavMenu] = useState('갑빠오의 집');
-  const [currentId, setCurrentId] = useState(1);
+  const [navMenu, setNavMenu] = useState('KPO');
+  const [currentId, setCurrentId] = useState(null);
   const [currentCulture, setCurrentCulture] = useState([]);
   const [otherCulture, setOtherCulture] = useState([]);
   const [culture, setCulture] = useState([]);
@@ -186,30 +186,21 @@ const CultureSpace = () => {
 
   const handleChangeMenu = (name) => {
     setNavMenu(name);
-    if (name === '갑빠오의 집') {
-      setCurrentId(1);
-      return;
-    }
-
-    if (name === '반창고') {
-      setCurrentId(2);
-      return;
-    }
   };
 
   const CultureNav = () => {
     return (
       <CultureNavBox>
         <CultureNavMenu
-          onClick={() => handleChangeMenu('갑빠오의 집')}
-          active={navMenu === '갑빠오의 집'}
+          onClick={() => handleChangeMenu('KPO')}
+          active={navMenu === 'KPO'}
         >
           갑빠오의 집
         </CultureNavMenu>
         <span>/</span>
         <CultureNavMenu
-          onClick={() => handleChangeMenu('반창고')}
-          active={navMenu === '반창고'}
+          onClick={() => handleChangeMenu('BCG')}
+          active={navMenu === 'BCG'}
         >
           반창고
         </CultureNavMenu>
@@ -218,14 +209,32 @@ const CultureSpace = () => {
   };
 
   useEffect(() => {
-    const currentCultureData = culture.filter((item) => item.id === currentId);
-    setCurrentCulture(currentCultureData);
-    const otherCultureData = culture.filter(
-      (item) => item.division === 'BCG' && item.id !== currentId,
-    );
+    if (navMenu === 'KPO') {
+      const currentCultureData = culture.filter(
+        (item) => item.division === 'KPO',
+      );
+      setCurrentCulture(currentCultureData);
+    }
 
-    setOtherCulture(otherCultureData);
-  }, [culture, currentId]);
+    if (navMenu === 'BCG') {
+      const currentCultureData = culture.filter((item) => {
+        if (currentId === null) {
+          return item.division === 'BCG';
+        } else if (currentId !== null) {
+          return item.division === 'BCG' && currentId === item.id;
+        }
+      });
+
+      setCurrentCulture([currentCultureData[0]]);
+      setCurrentId(currentCultureData[0] && currentCultureData[0].id);
+
+      const otherCultureData = culture.filter(
+        (item) => item.division === 'BCG' && item.id !== currentId,
+      );
+
+      setOtherCulture(otherCultureData);
+    }
+  }, [culture, currentId, navMenu]);
 
   useEffect(() => {
     scrollTo(0, 0);
@@ -263,18 +272,24 @@ const CultureSpace = () => {
               {currentCulture &&
                 currentCulture.map((item, index) => (
                   <div key={index}>
-                    <CultureSpaceName>{item.title}</CultureSpaceName>
+                    <CultureSpaceName>{item && item.title}</CultureSpaceName>
                     <Linebar />
                     <CultureDescBox>
-                      <CultureSpaceDesc>{item.description}</CultureSpaceDesc>
+                      <CultureSpaceDesc>
+                        {item && item.description}
+                      </CultureSpaceDesc>
                       <ReserveButtonBox>
                         {mobile ? (
                           <ReserveButton link={true} href="tel:061-761-6701">
-                            {item.division === 'BCG' ? '작품보기' : '예약하기'}
+                            {item && item.division === 'BCG'
+                              ? '작품보기'
+                              : '예약하기'}
                           </ReserveButton>
                         ) : (
                           <ReserveButton link={false} onClick={handleShowModal}>
-                            {item.division === 'BCG' ? '작품보기' : '예약하기'}
+                            {item && item.division === 'BCG'
+                              ? '작품보기'
+                              : '예약하기'}
                           </ReserveButton>
                         )}
                       </ReserveButtonBox>
@@ -291,10 +306,11 @@ const CultureSpace = () => {
               mobileheight={'270px'}
               loading={isCultureLoading}
             />
-            {navMenu === '반창고' && (
+            {navMenu === 'BCG' && (
               <ExhibitionCard
                 items={otherCulture}
                 setCurrentId={setCurrentId}
+                setCurrentCulture={setCurrentCulture}
               />
             )}
           </CultureSpaceBox>
