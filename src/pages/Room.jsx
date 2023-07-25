@@ -237,7 +237,6 @@ function Room() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
-
   return (
     <MainContainer>
       <MainWrpper>
@@ -254,8 +253,15 @@ function Room() {
           </RoomDescBox>
           <ReserveButtonBox>
             <ReserveButton
-              target="_blank"
-              url="https://booking.naver.com/booking/3/bizes/802107/items/4737745"
+              url={
+                roomDetail.name === '홰경당'
+                  ? 'https://booking.naver.com/booking/3/bizes/802107/items/4737745'
+                  : roomDetail.name === '예린의집'
+                  ? 'https://booking.naver.com/booking/3/bizes/802107/items/4775578'
+                  : roomDetail.name === '다경당'
+                  ? 'https://booking.naver.com/booking/3/bizes/802107/items/4774326'
+                  : ''
+              }
             >
               예약하기
             </ReserveButton>
