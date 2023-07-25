@@ -109,8 +109,6 @@ const OnedayClassDetail = () => {
     return { __html: detail.image_editor };
   };
 
-  console.log(detail);
-
   return (
     <OnedayClassDetialContainer>
       <OnedayClassDetailWrapper>
