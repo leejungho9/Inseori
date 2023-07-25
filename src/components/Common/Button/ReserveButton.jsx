@@ -40,7 +40,9 @@ const ReserveSubmitBtn = styled.button`
 `;
 function ReserveButton({ children, url, link = true, onClick }) {
   return link ? (
-    <ReserveLinkBtn to={url}>{children}</ReserveLinkBtn>
+    <ReserveLinkBtn to={url} target="_brank">
+      {children}
+    </ReserveLinkBtn>
   ) : (
     <ReserveSubmitBtn onClick={onClick}>{children}</ReserveSubmitBtn>
   );
