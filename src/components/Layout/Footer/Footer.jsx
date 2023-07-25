@@ -44,10 +44,11 @@ const TelBox = styled.div``;
 const TelText = styled.span`
   display: none;
   @media screen and (max-width: 991px) {
+    font-family: 'PretendardSemiBold';
     font-size: var(--text-size-25);
     display: block;
-    font-weight: bold;
     letter-spacing: 1.3px;
+    letter-spacing: -0.07em;
   }
   //! 임시
   @media screen and (max-width: 991px) {
@@ -57,11 +58,10 @@ const TelText = styled.span`
 const Tel = styled.h1`
   font-size: var(--text-size-20);
   color: var(--dark);
-  font-weight: bold;
+  font-weight: PretendardRegular;
   margin-bottom: 5px;
   @media screen and (max-width: 991px) {
-    font-weight: normal;
-    letter-spacing: -1px;
+    letter-spacing: -0.07em;
   }
 
   //! 임시
