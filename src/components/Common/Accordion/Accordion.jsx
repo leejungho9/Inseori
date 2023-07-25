@@ -86,7 +86,7 @@ const PlusIcon = styled(AiOutlinePlus)`
 const Accordion = ({ items }) => {
   const accordiItemRef = useRef([]);
   const [itemHeight, setItemHeight] = useState([0]);
-  const [itemVisible, setItemVisible] = useState('itemA');
+  const [itemVisible, setItemVisible] = useState('all');
 
   //! 아코디언 활성화
   const handleShowAccordion = (menu) => {
@@ -107,11 +107,15 @@ const Accordion = ({ items }) => {
     <AccordionContainer>
       <AccordionTitleBox onClick={() => handleShowAccordion('itemA')}>
         <AccordionTitle>정보</AccordionTitle>
-        {itemVisible === 'itemA' ? <MinusIcon /> : <PlusIcon />}
+        {itemVisible === 'itemA' || itemVisible === 'all' ? (
+          <MinusIcon />
+        ) : (
+          <PlusIcon />
+        )}
       </AccordionTitleBox>
       <Linebar />
       <AccordionDescBox
-        itemVisible={itemVisible === 'itemA'}
+        itemVisible={itemVisible === 'itemA' || itemVisible === 'all'}
         height={itemHeight[0]}
         ref={(el) => (accordiItemRef.current[0] = el)}
       >
@@ -119,11 +123,15 @@ const Accordion = ({ items }) => {
       </AccordionDescBox>
       <AccordionTitleBox onClick={() => handleShowAccordion('itemB')}>
         <AccordionTitle>주의사항</AccordionTitle>
-        {itemVisible === 'itemB' ? <MinusIcon /> : <PlusIcon />}
+        {itemVisible === 'itemB' || itemVisible === 'all' ? (
+          <MinusIcon />
+        ) : (
+          <PlusIcon />
+        )}
       </AccordionTitleBox>
       <Linebar />
       <AccordionDescBox
-        itemVisible={itemVisible === 'itemB'}
+        itemVisible={itemVisible === 'itemB' || itemVisible === 'all'}
         height={itemHeight[1]}
         ref={(el) => (accordiItemRef.current[1] = el)}
       >
@@ -131,11 +139,15 @@ const Accordion = ({ items }) => {
       </AccordionDescBox>
       <AccordionTitleBox onClick={() => handleShowAccordion('itemC')}>
         <AccordionTitle>어매니티</AccordionTitle>
-        {itemVisible === 'itemC' ? <MinusIcon /> : <PlusIcon />}
+        {itemVisible === 'itemC' || itemVisible === 'all' ? (
+          <MinusIcon />
+        ) : (
+          <PlusIcon />
+        )}
       </AccordionTitleBox>
       <Linebar />
       <AccordionDescBox
-        itemVisible={itemVisible === 'itemC'}
+        itemVisible={itemVisible === 'itemC' || itemVisible === 'all'}
         height={itemHeight[2]}
         ref={(el) => (accordiItemRef.current[2] = el)}
       >
@@ -143,11 +155,15 @@ const Accordion = ({ items }) => {
       </AccordionDescBox>
       <AccordionTitleBox onClick={() => handleShowAccordion('itemD')}>
         <AccordionTitle>추가요금 안내</AccordionTitle>
-        {itemVisible === 'itemD' ? <MinusIcon /> : <PlusIcon />}
+        {itemVisible === 'itemD' || itemVisible === 'all' ? (
+          <MinusIcon />
+        ) : (
+          <PlusIcon />
+        )}
       </AccordionTitleBox>
       <Linebar />
       <AccordionDescBox
-        itemVisible={itemVisible === 'itemD'}
+        itemVisible={itemVisible === 'itemD' || itemVisible === 'all'}
         height={itemHeight[3]}
         ref={(el) => (accordiItemRef.current[3] = el)}
       >
