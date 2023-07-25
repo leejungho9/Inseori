@@ -7,6 +7,8 @@ import useLoading from 'hooks/useLoading';
 import { getData } from 'apis/api';
 import { Banner } from 'components/Common/Carousel/Banner';
 import { useNavigate } from 'react-router-dom';
+import Modal from 'components/Common/Modal/Modal';
+import useModal from 'hooks/useModal';
 
 const CultureSpaceContainer = styled.main`
   overflow: hidden;
@@ -161,6 +163,14 @@ const CultureSpace = () => {
   const [currentCulture, setCurrentCulture] = useState([]);
   const [otherCulture, setOtherCulture] = useState([]);
   const [culture, setCulture] = useState([]);
+  const [
+    modalState,
+    modalOpen,
+    modalClose,
+    modalCheckContent,
+    modalContentState,
+  ] = useModal();
+  const [mobile, setMobile] = useState(false);
   const navigate = useNavigate();
 
   const fetchCultureInfo = async () => {
@@ -169,10 +179,10 @@ const CultureSpace = () => {
   };
   const [getCulture, isCultureLoading] = useLoading(fetchCultureInfo);
 
-  useEffect(() => {
-    getCulture();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const handleShowModal = () => {
+    modalOpen();
+    modalContentState('전화문의 : 061-761-6701');
+  };
 
   const handleChangeMenu = (name) => {
     setNavMenu(name);
@@ -221,49 +231,76 @@ const CultureSpace = () => {
     scrollTo(0, 0);
   }, [currentId]);
 
+  useEffect(() => {
+    getCulture();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (window.innerWidth < 500) {
+      setMobile(true);
+    }
+  }, []);
+
   return (
-    <CultureSpaceContainer>
-      <CultureSpaceWrapper>
-        <CultureSpaceBox>
-          <CultureNav />
-          <CultureSpaceBannerBox>
-            <Banner
+    <>
+      <Modal
+        showModal={modalState}
+        closeModal={modalClose}
+        modalContent={modalCheckContent}
+      />
+      <CultureSpaceContainer>
+        <CultureSpaceWrapper>
+          <CultureSpaceBox>
+            <CultureNav />
+            <CultureSpaceBannerBox>
+              <Banner
+                loading={isCultureLoading}
+                item={currentCulture && currentCulture}
+              />
+            </CultureSpaceBannerBox>
+            <CultureSpaceMenuBox>
+              {currentCulture &&
+                currentCulture.map((item, index) => (
+                  <div key={index}>
+                    <CultureSpaceName>{item.title}</CultureSpaceName>
+                    <Linebar />
+                    <CultureDescBox>
+                      <CultureSpaceDesc>{item.description}</CultureSpaceDesc>
+                      <ReserveButtonBox>
+                        {mobile ? (
+                          <ReserveButton link={true} href="tel:061-761-6701">
+                            {item.division === 'BCG' ? '작품보기' : '예약하기'}
+                          </ReserveButton>
+                        ) : (
+                          <ReserveButton link={false} onClick={handleShowModal}>
+                            {item.division === 'BCG' ? '작품보기' : '예약하기'}
+                          </ReserveButton>
+                        )}
+                      </ReserveButtonBox>
+                    </CultureDescBox>
+                  </div>
+                ))}
+            </CultureSpaceMenuBox>
+            <CarouselWrapper
+              slides={currentCulture[0] && currentCulture[0].images}
+              width={'450px'}
+              height={'450px'}
+              padding={'20px'}
+              mobilewidth={'270px'}
+              mobileheight={'270px'}
               loading={isCultureLoading}
-              item={currentCulture && currentCulture}
             />
-          </CultureSpaceBannerBox>
-          <CultureSpaceMenuBox>
-            {currentCulture &&
-              currentCulture.map((item, index) => (
-                <div key={index}>
-                  <CultureSpaceName>{item.title}</CultureSpaceName>
-                  <Linebar />
-                  <CultureDescBox>
-                    <CultureSpaceDesc>{item.description}</CultureSpaceDesc>
-                    <ReserveButtonBox>
-                      <ReserveButton>
-                        {item.division === 'BCG' ? '작품보기' : '예약하기'}
-                      </ReserveButton>
-                    </ReserveButtonBox>
-                  </CultureDescBox>
-                </div>
-              ))}
-          </CultureSpaceMenuBox>
-          <CarouselWrapper
-            slides={currentCulture[0] && currentCulture[0].images}
-            width={'450px'}
-            height={'450px'}
-            padding={'20px'}
-            mobilewidth={'270px'}
-            mobileheight={'270px'}
-            loading={isCultureLoading}
-          />
-          {navMenu === '반창고' && (
-            <ExhibitionCard items={otherCulture} setCurrentId={setCurrentId} />
-          )}
-        </CultureSpaceBox>
-      </CultureSpaceWrapper>
-    </CultureSpaceContainer>
+            {navMenu === '반창고' && (
+              <ExhibitionCard
+                items={otherCulture}
+                setCurrentId={setCurrentId}
+              />
+            )}
+          </CultureSpaceBox>
+        </CultureSpaceWrapper>
+      </CultureSpaceContainer>
+    </>
   );
 };
 
