@@ -158,7 +158,7 @@ const Cafe = () => {
             />
           </CafeBannerBox>
           <CafeMenuBox>
-            <CafeName>Aat/menu</CafeName>
+            <CafeName>Aat / menu</CafeName>
             <Linebar />
             <CafeDesc>
               Aat 카페는 커피, 식사와 와인 그리고 푸드마켓이 한 공간에 있는
