@@ -35,41 +35,45 @@
 <table>
   <tbody>
     <tr>
-      <td colspan="2" style="display: flex; align-items : center; text-align : center;"><strong>메인페이지</strong></td>
+      <td style="text-align: center;"><strong>메인페이지</strong></td>
+      <td style="text-align: center;"><strong>스테이(홰경당)</strong></td>
     </tr>
     <tr>
-      <td style="text-align: center;" colspan="2" ><img src="https://github.com/leejungho9/DAMDA/assets/71073027/ce2ec53a-3f16-4b65-9350-2554895f629c" alt="메인 페이지" style="margin: 0 auto;"></td>
+      <td style="text-align: center;"><img src="https://github.com/leejungho9/Inseori/assets/71073027/d19d5f59-5344-445a-b81d-e72457ce4307" alt="메인 페이지" style="margin: 0 auto;"></td>
+      <td style="text-align: center;"><img src="https://github.com/leejungho9/Inseori/assets/71073027/f5abf1a7-a6c2-4002-855f-6fc550559807" alt="스테이"></td>
     </tr>
      <tr>
-      <td style="text-align: center;"><strong>메인 페이지</strong></td>
-      <td style="text-align: center;"><strong>스테이 페이지</strong></td>
+      <td style="text-align: center;"><strong>스테이(예린의집)</strong></td>
+      <td style="text-align: center;"><strong>스테이(다경당)</strong></td>
     </tr>
     <tr>
-      <td style="text-align: center;"><img src="https://github.com/leejungho9/DAMDA/assets/71073027/c3074376-e76d-4bc7-adb7-1051163b7d41" alt="로그인 페이지"></td>
-      <td style="text-align: center;"><img src="https://github.com/leejungho9/DAMDA/assets/71073027/61272001-bf44-4c7e-8051-e06413825c2f" alt="회원가입 페이지"></td>
+      <td style="text-align: center;"><img src="https://github.com/leejungho9/Inseori/assets/71073027/def44f0f-7519-4171-bf2b-75a2974da36e" alt="스테이"></td>
+      <td style="text-align: center;"><img src="https://github.com/leejungho9/Inseori/assets/71073027/c92a63ad-e0f9-4ece-8023-df566138d6dc" alt="스테이"></td>
     </tr>
      <tr>
       <td style="text-align: center;"><strong>원데이클래스 페이지</strong></td>
+      <td style="text-align: center;"><strong>원데이클래스 상세 페이지</strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: center;"><img src="https://github.com/leejungho9/Inseori/assets/71073027/a471bd68-4007-4b0b-bd37-bd7474f55d17" alt="원데이클래스 페이지"></td>
+      <td style="text-align: center;"><img src="https://github.com/leejungho9/Inseori/assets/71073027/01424fea-96f1-4dea-9080-86567119f0b8" alt="원데이클래스 상세 페이지"></td>
+    </tr>
+    <tr>
       <td style="text-align: center;"><strong>아트샵 페이지</strong></td>
+      <td  style="text-align: center;"><strong>카페 페이지</strong></td>
     </tr>
     <tr>
-      <td style="text-align: center;"><img src="https://github.com/leejungho9/DAMDA/assets/71073027/b999fa06-4134-4031-ae7e-e3c3de626f76" alt="상품 페이지"></td>
-      <td style="text-align: center;"><img src="https://github.com/leejungho9/DAMDA/assets/71073027/3d8a6e89-d46e-47b9-aed7-f0749b4c0abc" alt="상품 상세 페이지"></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;"><strong>카페 페이지</strong></td>
-      <td  style="text-align: center;"><strong>문화공간 페이지</strong></td>
-    </tr>
-    <tr>
-      <td style="text-align: center;"><img src="https://github.com/leejungho9/DAMDA/assets/71073027/7743871e-2d08-4bb7-814e-207c347cf6b2" alt="장바구니 페이지"></td>
-      <td style="text-align: center;"><img src="https://github.com/leejungho9/DAMDA/assets/71073027/e40b30e6-c10d-48f2-9b38-c4f98d1e5b68" alt="관심상품 페이지"></td>
+      <td style="text-align: center;"><img src="" alt="장바구니 페이지"></td>
+      <td style="text-align: center;"><img src="" alt="관심상품 페이지"></td>
     </tr>
      <tr>
-      <td style="text-align: center;"><strong>모바일</strong></td>
+      <td style="text-align: center;"><strong>문화공간(갑빠오)</strong></td>
+      <td  style="text-align: center;"><strong>문화공간(반창고)</strong></td>
     </tr>
     <tr>
-      <td style="text-align: center;"><img src="https://github.com/leejungho9/DAMDA/assets/71073027/919c908e-b33d-4ed1-8886-8ab161cdc29a" alt="주문 페이지"></td>
-    </tr>  
+      <td style="text-align: center;"><img src="" alt="장바구니 페이지"></td>
+      <td style="text-align: center;"><img src="" alt="관심상품 페이지"></td>
+    </tr>
   </tbody>
 </table>
 
