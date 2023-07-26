@@ -72,7 +72,7 @@
     </tr>
     <tr>
       <td style="text-align: center;"><img src="" alt="장바구니 페이지"></td>
-      <td style="text-align: center;"><img src="" alt="관심상품 페이지"></td>
+      <td style="text-align: center;"><img src="https://im4.ezgif.com/tmp/ezgif-4-f4c89c5f7a.gif" alt="관심상품 페이지"></td>
     </tr>
   </tbody>
 </table>
@@ -80,6 +80,7 @@
 <br/>
 
 ## ✉️ Commit  Message
+![Uploading ezgif.com-video-to-gif (2).gif…]()
 
 |Message|Description|
 |:---:|:---|
