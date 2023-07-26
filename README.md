@@ -31,7 +31,6 @@
 | <img src="https://github.com/leejungho9/DAMDA/assets/71073027/028e5714-1c64-46c4-95d5-c0129087ff98" alt="icon" width="65" height="65" />  | <img src="https://github.com/leejungho9/DAMDA/assets/71073027/84277f32-eb2c-466a-af96-d18c951b13e7" alt="icon" width="65" height="65" />  | <img src="https://github.com/leejungho9/DAMDA/assets/71073027/fda03fff-e651-40e1-a0b7-19e2270b4f5e" alt="icon" width="65" height="65" />  | 
 
 ## 💻 Pages & Features
-![Uploading embla-logo-.svg…]()
 
 <table>
   <tbody>
