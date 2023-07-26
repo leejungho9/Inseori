@@ -293,9 +293,19 @@ const CultureSpace = () => {
                               예약하기
                             </ReserveButton>
                           ))}
-                        {item.division === 'BCG' && (
-                          <ReserveButton>작품보기</ReserveButton>
-                        )}
+                        {item.division === 'BCG' &&
+                          (item.link_url !== '' ? (
+                            <ReserveButton url={item.link_url}>
+                              작품보기
+                            </ReserveButton>
+                          ) : (
+                            <ReserveButton
+                              link={false}
+                              onClick={handleShowModal}
+                            >
+                              작품보기
+                            </ReserveButton>
+                          ))}
                       </ReserveButtonBox>
                     </CultureDescBox>
                   </div>
