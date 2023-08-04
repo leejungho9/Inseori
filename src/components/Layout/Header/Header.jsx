@@ -36,7 +36,7 @@ const NavWrapper = styled.section`
 `;
 
 const LogoWrapper = styled.nav`
-  width: 234px;
+  width: 200px;
   height: 150px;
   display: flex;
   align-items: center;

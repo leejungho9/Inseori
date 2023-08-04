@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
-import logo from 'assets/images/common/footerimage.png';
 import insta from 'assets/images/common/insta.png';
 import kakao from 'assets/images/common/kakao.png';
+import logo from 'assets/images/common/logo.png';
 import map from 'assets/images/common/map.png';
 import styled from 'styled-components';
 import { LineFlex } from '../../../styles/GlobalStyle';
@@ -50,7 +50,6 @@ const TelText = styled.span`
     letter-spacing: 1.3px;
     letter-spacing: -0.07em;
   }
-  //! 임시
   @media screen and (max-width: 991px) {
     font-size: var(--text-size-20);
   }
@@ -63,8 +62,6 @@ const Tel = styled.h1`
   @media screen and (max-width: 991px) {
     letter-spacing: -0.07em;
   }
-
-  //! 임시
   @media screen and (max-width: 991px) {
     font-size: var(--text-size-18);
     margin-bottom: 25px;
@@ -81,7 +78,6 @@ const FooterTextBox = styled.div`
     display: flex;
     width: 100%;
   }
-  //! 임시
   @media screen and (max-width: 991px) {
     display: block;
     text-align: center;
@@ -93,8 +89,6 @@ const AddressTextBox = styled.div`
     position: absolute;
     right: 50px;
   }
-  //! 임시
-
   @media screen and (max-width: 991px) {
     position: static;
     right: 0;
@@ -119,8 +113,6 @@ const AddressText = styled.address`
   @media screen and (max-width: 991px) {
     font-size: var(--text-size-16);
   }
-  //! 임시
-
   @media screen and (max-width: 991px) {
     font-size: var(--text-size-15);
   }
@@ -152,8 +144,6 @@ const FooterIconBox = styled.div`
     display: flex;
     justify-content: space-between;
   }
-  //! 임시
-
   @media screen and (max-width: 991px) {
     justify-content: center;
   }
@@ -179,8 +169,6 @@ const CuratedText = styled.span`
     display: block;
     margin-right: 90px;
   }
-
-  //! 임시
   @media screen and (max-width: 991px) {
     display: none;
   }
