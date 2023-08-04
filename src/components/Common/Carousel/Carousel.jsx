@@ -1,3 +1,4 @@
+import React from 'react';
 import Autoplay from 'embla-carousel-autoplay';
 import useEmblaCarousel from 'embla-carousel-react';
 import styled from 'styled-components';
@@ -32,49 +33,43 @@ const Image = styled.img`
   }
 `;
 
-const Carousel = ({
-  slides,
-  width,
-  height,
-  padding,
-  mobilewidth,
-  mobileheight,
-}) => {
-  const options = { loop: true, align: 'start' };
-  const [emblaRef] = useEmblaCarousel(options, [Autoplay({ delay: 2000 })]);
+const Carousel = React.memo(
+  ({ slides, width, height, padding, mobilewidth, mobileheight }) => {
+    const options = { loop: true, align: 'start' };
+    const [emblaRef] = useEmblaCarousel(options, [Autoplay({ delay: 2000 })]);
+    return (
+      <Embla>
+        <EmblaViewport ref={emblaRef}>
+          <EmblaContainer>
+            {slides &&
+              slides.map((slide, index) => (
+                <EmblaSlide key={index} padding={padding}>
+                  <picture>
+                    <source
+                      srcSet={
+                        slide.image_m_url === 'no-image-error'
+                          ? slide.image_url
+                          : slide.image_m_url
+                      }
+                      media="(max-width : 500px)"
+                    />
+                    <Image
+                      src={slide.image_url}
+                      alt={slide.title}
+                      width={width}
+                      height={height}
+                      mobilewidth={mobilewidth}
+                      mobileheight={mobileheight}
+                    />
+                  </picture>
+                </EmblaSlide>
+              ))}
+          </EmblaContainer>
+        </EmblaViewport>
+      </Embla>
+    );
+  },
+);
 
-  return (
-    <Embla>
-      <EmblaViewport ref={emblaRef}>
-        <EmblaContainer>
-          {slides &&
-            slides.map((slide, index) => (
-              <EmblaSlide key={index} padding={padding}>
-                <picture>
-                  <source
-                    srcSet={
-                      slide.image_m_url === 'no-image-error'
-                        ? slide.image_url
-                        : slide.image_m_url
-                    }
-                    media="(max-width : 500px)"
-                  />
-
-                  <Image
-                    src={slide.image_url}
-                    alt={slide.title}
-                    width={width}
-                    height={height}
-                    mobilewidth={mobilewidth}
-                    mobileheight={mobileheight}
-                  />
-                </picture>
-              </EmblaSlide>
-            ))}
-        </EmblaContainer>
-      </EmblaViewport>
-    </Embla>
-  );
-};
-
+Carousel.displayName = 'Carousel';
 export default Carousel;
