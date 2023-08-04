@@ -1,3 +1,4 @@
+import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -41,7 +42,7 @@ const MainImg = styled.img`
   object-fit: cover;
 `;
 
-export function BannerLargeCarousel({ slides, path, loading }) {
+export const BannerLargeCarousel = React.memo(({ slides, path, loading }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -97,9 +98,9 @@ export function BannerLargeCarousel({ slides, path, loading }) {
       )}
     </SliderContainer>
   );
-}
+});
 
-export function BannerSmallCarousel({ slides, loading }) {
+export const BannerSmallCarousel = React.memo(({ slides, loading }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -111,7 +112,6 @@ export function BannerSmallCarousel({ slides, loading }) {
     pauseOnHover: false,
     fade: true,
   };
-
   return (
     <SliderContainer>
       {loading ? (
@@ -141,4 +141,7 @@ export function BannerSmallCarousel({ slides, loading }) {
       )}
     </SliderContainer>
   );
-}
+});
+
+BannerLargeCarousel.displayName = 'BannerLargeCarousel';
+BannerSmallCarousel.displayName = 'BannerSmallCarousel';
