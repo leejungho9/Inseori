@@ -57,7 +57,7 @@ const NavSubUl = styled.ul`
 `;
 
 const NavSubLi = styled.li`
-  font-size: var(--text-size-14);
+  font-size: var(--text-size-15);
   padding-top: 15px;
 
   &:first-child {
