@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getData } from 'apis/api';
 import { BannerLargeCarousel } from 'components/Common/Carousel/BannerCarousel';
@@ -75,7 +75,6 @@ const MainIntro = styled.p`
     font-size: var(--text-size-16);
   }
 `;
-//! 줄바꿈
 const Break = styled.br`
   display: none;
   @media screen and (max-width: 991px) {
@@ -83,7 +82,7 @@ const Break = styled.br`
   }
 `;
 
-const Main = forwardRef((props, mainTopRef) => {
+const Main = () => {
   const [bannerImage, setBannerImage] = useState([]);
   const [galleryImage, setGalleryImage] = useState([]);
   const navigate = useNavigate();
@@ -107,7 +106,7 @@ const Main = forwardRef((props, mainTopRef) => {
 
   return (
     <MainContainer>
-      <MainWrpper ref={mainTopRef}>
+      <MainWrpper>
         <BannerLargeCarousel
           slides={bannerImage}
           path={'main'}
@@ -137,7 +136,7 @@ const Main = forwardRef((props, mainTopRef) => {
       </MainWrpper>
     </MainContainer>
   );
-});
+};
 
 // * displayName 설정
 Main.displayName = 'Main';
