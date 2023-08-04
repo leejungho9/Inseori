@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import ReservationForm from 'components/Common/Form/ReservationForm';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getData } from 'apis/api';
-import useLoading from 'hooks/useLoading';
 import { RoundBanner } from 'components/Common/Carousel/Banner';
+import ReservationForm from 'components/Common/Form/ReservationForm';
+import useLoading from 'hooks/useLoading';
+import styled from 'styled-components';
 
 const OnedayClassDetialContainer = styled.main`
   overflow: hidden;

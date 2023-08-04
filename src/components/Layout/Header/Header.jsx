@@ -1,9 +1,9 @@
 import React, { forwardRef, useState } from 'react';
-import styled from 'styled-components';
-import reserveLogo from 'assets/images/common/reserLogo.png';
-import logo from 'assets/images/common/logo.png';
 import ham from 'assets/images/common/ham.png';
+import logo from 'assets/images/common/logo.png';
+import reserveLogo from 'assets/images/common/reserLogo.png';
 import Nav from 'components/Layout/Nav/Nav';
+import styled from 'styled-components';
 import MobileSidebar from '../MobileSidebar/MobileSidebar';
 
 const HeaderContainer = styled.header`

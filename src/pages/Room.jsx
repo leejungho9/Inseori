@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import ReserveButton from 'components/Common/Button/ReserveButton';
+import { useNavigate, useParams } from 'react-router-dom';
+import { getData } from 'apis/api';
 import ban from 'assets/images/room/ban/ban.png';
 import ban2 from 'assets/images/room/ban/ban2.png';
 import ban3 from 'assets/images/room/ban/ban3.png';
 import ban4 from 'assets/images/room/ban/ban4.png';
 import Accordion from 'components/Common/Accordion/Accordion';
-import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
-import { getData } from 'apis/api';
-import useLoading from 'hooks/useLoading';
-import { useNavigate, useParams } from 'react-router-dom';
+import ReserveButton from 'components/Common/Button/ReserveButton';
 import { BannerLargeCarousel } from 'components/Common/Carousel/BannerCarousel';
+import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
+import useLoading from 'hooks/useLoading';
+import styled from 'styled-components';
 
 const MainContainer = styled.main`
   overflow: hidden;

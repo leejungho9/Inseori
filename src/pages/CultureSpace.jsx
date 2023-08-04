@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
+import { useNavigate } from 'react-router-dom';
+import { getData } from 'apis/api';
 import ReserveButton from 'components/Common/Button/ReserveButton';
 import ExhibitionCard from 'components/Common/Card/ExhibitionCard';
-import useLoading from 'hooks/useLoading';
-import { getData } from 'apis/api';
 import { Banner } from 'components/Common/Carousel/Banner';
-import { useNavigate } from 'react-router-dom';
+import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
 import Modal from 'components/Common/Modal/Modal';
+import useLoading from 'hooks/useLoading';
 import useModal from 'hooks/useModal';
+import styled from 'styled-components';
 
 const CultureSpaceContainer = styled.main`
   overflow: hidden;

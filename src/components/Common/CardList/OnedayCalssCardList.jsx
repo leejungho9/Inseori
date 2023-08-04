@@ -1,5 +1,5 @@
-import CardSkeleton from '../Skeleton/CardSkeleton';
 import OnedayClassCard from '../Card/OnedayClassCard';
+import CardSkeleton from '../Skeleton/CardSkeleton';
 
 const OnedayClassCardList = ({ loading, items }) => {
   return (

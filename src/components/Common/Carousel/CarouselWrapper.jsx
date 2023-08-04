@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Carousel from './Carousel';
 import GallerySkeleton from '../Skeleton/GallerySkeleton';
+import Carousel from './Carousel';
 
 const CarosuelSection = styled.section`
   position: relative;

@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import { useLocation } from 'react-router-dom';
 import instagram from 'assets/images/common/insta.png';
 import kakao from 'assets/images/common/kakao.png';
-import { useLocation } from 'react-router-dom';
+import styled from 'styled-components';
 
 const NavContainer = styled.nav`
   margin-top: 50px;

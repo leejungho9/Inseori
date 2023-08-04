@@ -1,8 +1,8 @@
-import styled, { createGlobalStyle, css } from 'styled-components';
+import PretendardBold from 'assets/fonts/Pretendard-Bold.woff2';
 import PretendardMedium from 'assets/fonts/Pretendard-Medium.woff2';
 import PretendardRegular from 'assets/fonts/Pretendard-Regular.woff2';
-import PretendardBold from 'assets/fonts/Pretendard-Bold.woff2';
 import PretendardSemiBold from 'assets/fonts/Pretendard-SemiBold.woff2';
+import styled, { createGlobalStyle, css } from 'styled-components';
 // *  변수
 export const Variables = css`
   :root {
@@ -79,8 +79,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -91,7 +91,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }

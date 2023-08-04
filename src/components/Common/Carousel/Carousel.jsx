@@ -1,5 +1,5 @@
-import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
+import useEmblaCarousel from 'embla-carousel-react';
 import styled from 'styled-components';
 
 const Embla = styled.div``;

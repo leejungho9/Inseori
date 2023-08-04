@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import OnedayClassCardList from 'components/Common/CardList/OnedayCalssCardList';
-import styled from 'styled-components';
-import useLoading from 'hooks/useLoading';
-import { getData } from 'apis/api';
 import { useNavigate } from 'react-router-dom';
+import { getData } from 'apis/api';
+import OnedayClassCardList from 'components/Common/CardList/OnedayCalssCardList';
+import useLoading from 'hooks/useLoading';
+import styled from 'styled-components';
 
 const OnedayCalssContainer = styled.main`
   overflow: hidden;

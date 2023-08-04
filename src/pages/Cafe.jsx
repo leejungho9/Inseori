@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
-import useLoading from 'hooks/useLoading';
+import { useNavigate } from 'react-router-dom';
 import { getData } from 'apis/api';
 import { Banner } from 'components/Common/Carousel/Banner';
-import { useNavigate } from 'react-router-dom';
+import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
+import useLoading from 'hooks/useLoading';
+import styled from 'styled-components';
 
 const CafeContainer = styled.main`
   overflow: hidden;

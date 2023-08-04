@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
-import styled from 'styled-components';
 import { IoCloseOutline } from 'react-icons/io5';
+import styled from 'styled-components';
 
 const Background = styled.div`
   position: fixed;

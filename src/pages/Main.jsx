@@ -1,10 +1,10 @@
 import { forwardRef, useEffect, useState } from 'react';
-import styled from 'styled-components';
-import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
-import { getData } from 'apis/api';
-import useLoading from 'hooks/useLoading';
-import { BannerLargeCarousel } from 'components/Common/Carousel/BannerCarousel';
 import { useNavigate } from 'react-router-dom';
+import { getData } from 'apis/api';
+import { BannerLargeCarousel } from 'components/Common/Carousel/BannerCarousel';
+import CarouselWrapper from 'components/Common/Carousel/CarouselWrapper';
+import useLoading from 'hooks/useLoading';
+import styled from 'styled-components';
 
 const MainContainer = styled.main`
   overflow: hidden;

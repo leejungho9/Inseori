@@ -1,7 +1,7 @@
-import Spinner from 'components/Common/Spinner/Spinner';
-import NotFoundPage from 'pages/NotFoundPage';
 import { lazy, Suspense } from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Spinner from 'components/Common/Spinner/Spinner';
+import NotFoundPage from 'pages/NotFoundPage';
 import { Root } from 'router/routes';
 
 const ArtShop = lazy(() => import('pages/ArtShop'));

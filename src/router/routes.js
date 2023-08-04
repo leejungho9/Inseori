@@ -1,8 +1,8 @@
+import { useEffect, useRef, useState } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
 import Footer from 'components/Layout/Footer/Footer';
 import Header from 'components/Layout/Header/Header';
 import ScrollToTop from 'hooks/ScrollToTop';
-import { useEffect, useRef, useState } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
 import GlobalStyle from 'styles/GlobalStyle';
 
 export function Root() {

@@ -1,12 +1,12 @@
 import React, { useRef, useState } from 'react';
 import { Form } from 'react-router-dom';
+import { postData } from 'apis/api';
+import useModal from 'hooks/useModal';
 import styled from 'styled-components';
 import reservationValidate from 'utils/reservationValidate';
 import ReserveButton from '../Button/ReserveButton';
-import useModal from 'hooks/useModal';
-import ReservationModal from '../Modal/ReservationModal';
 import Modal from '../Modal/Modal';
-import { postData } from 'apis/api';
+import ReservationModal from '../Modal/ReservationModal';
 
 const ClassInfoForm = styled(Form)`
   display: flex;

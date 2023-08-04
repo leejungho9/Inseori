@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
+import styled from 'styled-components';
 const PaginationContainer = styled.div``;
 
 const NumberButton = styled.button`
