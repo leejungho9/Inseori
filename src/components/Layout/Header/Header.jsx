@@ -45,13 +45,13 @@ const LogoWrapper = styled.nav`
   box-sizing: border-box;
 
   @media screen and (max-width: 991px) {
-    width: 185px;
+    width: 155px;
     height: 70px;
     padding-left: 25px;
   }
   @media screen and (max-width: 500px) {
     padding-left: 20px;
-    width: 150px;
+    width: 130px;
   }
 `;
 
