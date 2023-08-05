@@ -1,7 +1,3 @@
-import PretendardBold from 'assets/fonts/Pretendard-Bold.woff2';
-import PretendardMedium from 'assets/fonts/Pretendard-Medium.woff2';
-import PretendardRegular from 'assets/fonts/Pretendard-Regular.woff2';
-import PretendardSemiBold from 'assets/fonts/Pretendard-SemiBold.woff2';
 import styled, { createGlobalStyle, css } from 'styled-components';
 // *  변수
 export const Variables = css`
@@ -44,25 +40,37 @@ ${Variables}
 @font-face {
 	font-family: "PretendardRegular";
 	font-weight: 400;
-	src: url(${PretendardRegular}) format("woff2");
+  font-style: normal;
+  src:url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.woff2') format('woff2'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.woff') format('woff'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.ttf') format("truetype");
   font-display:swap;
 }
 @font-face {
 	font-family: "PretendardMedium";
 	font-weight: 500;
-	src: url(${PretendardMedium}) format("woff2");
-  font-display:swap;
-}
-@font-face {
-	font-family: "PretendardBold";
-	font-weight: 600;
-	src: url(${PretendardBold}) format("woff2");
+  font-style: normal;
+  src:url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Medium.woff2') format('woff2'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Medium.woff') format('woff'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Medium.ttf') format("truetype");
   font-display:swap;
 }
 @font-face {
 	font-family: "PretendardSemiBold";
+	font-weight: 600;
+  font-style: normal;
+  src:url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.woff2') format('woff2'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.woff') format('woff'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.ttf') format("truetype");
+  font-display:swap;
+}
+@font-face {
+	font-family: "PretendardBold";
 	font-weight: 700;
-	src: url(${PretendardSemiBold}) format("woff2");
+  font-style: normal;
+  src:url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.woff2') format('woff2'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.woff') format('woff'),
+      url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.ttf') format("truetype");
   font-display:swap;
 }
 
