@@ -122,6 +122,9 @@ const RoomImagesContainer = styled.section`
   @media screen and (max-width: 991px) {
     grid-row-gap: 10px;
   }
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
 `;
 
 const HeadImageBox = styled.div`
@@ -220,29 +223,71 @@ const IconImage = styled.img`
   height: auto;
 `;
 
+const MobileCarouselContainer = styled.section`
+  display: none;
+  @media screen and (max-width: 500px) {
+    display: block;
+  }
+`;
+
 function Room() {
-  const [mobileGallery, setMobileGallery] = useState(false);
+  const ROOM_BOOKING_URLS = {
+    홰경당: 'https://booking.naver.com/booking/3/bizes/802107/items/4737745',
+    예린의집: 'https://booking.naver.com/booking/3/bizes/802107/items/4775578',
+    다경당: 'https://booking.naver.com/booking/3/bizes/802107/items/4774326',
+  };
+
   const [roomDetail, setroomDetail] = useState([]);
   const { id } = useParams();
   const navigate = useNavigate();
+
   const fetchMainBannerImage = async () => {
     const response = await getData(`stay/rooms/${id}/`, navigate);
     setroomDetail(response);
   };
   const [getRoomDetail, isRoomDetailLoading] = useLoading(fetchMainBannerImage);
+
+  const formatRoomImages = (roomDetail) => {
+    return [
+      {
+        id: 1,
+        image_url: roomDetail.image1_url,
+        image_m_url: roomDetail.image1_m_url,
+      },
+      {
+        id: 2,
+        image_url: roomDetail.image2_url,
+        image_m_url: roomDetail.image2_m_url,
+      },
+      {
+        id: 3,
+        image_url: roomDetail.image3_url,
+        image_m_url: roomDetail.image3_m_url,
+      },
+      {
+        id: 4,
+        image_url: roomDetail.image4_url,
+        image_m_url: roomDetail.image4_m_url,
+      },
+      {
+        id: 5,
+        image_url: roomDetail.image5_url,
+        image_m_url: roomDetail.image5_m_url,
+      },
+    ];
+  };
+
   useEffect(() => {
     getRoomDetail();
-    if (window.innerWidth < 500) {
-      setMobileGallery(true);
-    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
+
   return (
     <MainContainer>
       <MainWrpper>
         <BannerLargeCarousel
           slides={roomDetail && roomDetail.banners}
-          path={'room '}
+          path={'room'}
           loading={isRoomDetailLoading}
         />
         <RoomDescWrapper>
@@ -252,50 +297,14 @@ function Room() {
             <RoomDesc>{roomDetail.description}</RoomDesc>
           </RoomDescBox>
           <ReserveButtonBox>
-            <ReserveButton
-              url={
-                roomDetail.name === '홰경당'
-                  ? 'https://booking.naver.com/booking/3/bizes/802107/items/4737745'
-                  : roomDetail.name === '예린의집'
-                  ? 'https://booking.naver.com/booking/3/bizes/802107/items/4775578'
-                  : roomDetail.name === '다경당'
-                  ? 'https://booking.naver.com/booking/3/bizes/802107/items/4774326'
-                  : ''
-              }
-            >
+            <ReserveButton url={ROOM_BOOKING_URLS[roomDetail.name]}>
               예약하기
             </ReserveButton>
           </ReserveButtonBox>
         </RoomDescWrapper>
-        {mobileGallery ? (
+        <MobileCarouselContainer>
           <CarouselWrapper
-            slides={[
-              {
-                id: 1,
-                image_url: roomDetail.image1_url,
-                image_m_url: roomDetail.image1_m_url,
-              },
-              {
-                id: 2,
-                image_url: roomDetail.image2_url,
-                image_m_url: roomDetail.image2_m_url,
-              },
-              {
-                id: 3,
-                image_url: roomDetail.image3_url,
-                image_m_url: roomDetail.image3_m_url,
-              },
-              {
-                id: 4,
-                image_url: roomDetail.image4_url,
-                image_m_url: roomDetail.image4_m_url,
-              },
-              {
-                id: 5,
-                image_url: roomDetail.image5_url,
-                image_m_url: roomDetail.image5_m_url,
-              },
-            ]}
+            slides={formatRoomImages(roomDetail)}
             width={'436px'}
             height={'436px'}
             padding={'25px'}
@@ -303,38 +312,38 @@ function Room() {
             mobileheight={'300px'}
             loading={isRoomDetailLoading}
           />
-        ) : (
-          <RoomImagesContainer>
-            <HeadImageBox>
-              <RoomImageWrapper className="item">
-                <RoomImage src={roomDetail.image1_url} alt="홰경당 이미지" />
-              </RoomImageWrapper>
-              <RoomImageWrapper className="item">
-                <RoomImage src={roomDetail.image2_url} alt="홰경당 이미지" />
-              </RoomImageWrapper>
-            </HeadImageBox>
-            <BodyImageBox>
-              <RoomImageWrapper className="item">
-                <RoomImage src={roomDetail.image3_url} alt="홰경당 이미지" />
-              </RoomImageWrapper>
-              <RoomImageWrapper className="item">
-                <RoomImage src={roomDetail.image4_url} alt="홰경당 이미지" />
-              </RoomImageWrapper>
-            </BodyImageBox>
-            <FootImageBox>
-              <RoomImageWrapper className="item">
-                <RoomImage src={roomDetail.image5_url} alt="홰경당 이미지" />
-              </RoomImageWrapper>
-            </FootImageBox>
-          </RoomImagesContainer>
-        )}
+        </MobileCarouselContainer>
+        <RoomImagesContainer>
+          <HeadImageBox>
+            <RoomImageWrapper>
+              <RoomImage src={roomDetail.image1_url} alt="홰경당 상세 이미지" />
+            </RoomImageWrapper>
+            <RoomImageWrapper>
+              <RoomImage src={roomDetail.image2_url} alt="홰경당 상세 이미지" />
+            </RoomImageWrapper>
+          </HeadImageBox>
+          <BodyImageBox>
+            <RoomImageWrapper>
+              <RoomImage src={roomDetail.image3_url} alt="홰경당 상세 이미지" />
+            </RoomImageWrapper>
+            <RoomImageWrapper>
+              <RoomImage src={roomDetail.image4_url} alt="홰경당 상세 이미지" />
+            </RoomImageWrapper>
+          </BodyImageBox>
+          <FootImageBox>
+            <RoomImageWrapper>
+              <RoomImage src={roomDetail.image5_url} alt="홰경당 상세 이미지" />
+            </RoomImageWrapper>
+          </FootImageBox>
+        </RoomImagesContainer>
+
         <RoomInfoWrapper>
           <RoomTitle>객실정보</RoomTitle>
           <RoomInfoBox>
             <Accordion items={roomDetail} />
             <RoomIconBox>
               <IconBox>
-                <IconImage src={ban} ait="고성방가 금지"></IconImage>
+                <IconImage src={ban} alt="고성방가 금지"></IconImage>
               </IconBox>
               <IconBox>
                 <IconImage src={ban2} alt="실내흡연 금지"></IconImage>
