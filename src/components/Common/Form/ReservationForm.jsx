@@ -180,45 +180,32 @@ const ReservationForm = ({ detail }) => {
     );
 
     if (!successMessage) {
-      if (errorData === 'name') {
-        showErrorModal();
-        changeErrorContent(errorMessage);
-        setFocusRef(nameRef);
-        return;
-      }
-      if (errorData === 'phone') {
-        showErrorModal();
-        changeErrorContent(errorMessage);
-        setFocusRef(phoneRef);
-        return;
-      }
-      if (errorData === 'people') {
-        showErrorModal();
-        changeErrorContent(errorMessage);
-        setFocusRef(peopleRef);
-
-        return;
-      }
-      if (errorData === 'age') {
-        showErrorModal();
-        changeErrorContent(errorMessage);
-        setFocusRef(ageRef);
-        return;
-      }
-      if (errorData === 'requirement') {
-        showErrorModal();
-        changeErrorContent(errorMessage);
-        setFocusRef(requirementRef);
-        requirementRef.current.selectionStart =
-          requirementRef.current.selectionEnd =
-            requirementRef.current.value.length;
-        return;
-      }
-      if (errorData === 'reservationCheck') {
-        showErrorModal();
-        changeErrorContent(errorMessage);
-        setFocusRef(reservationCheckRef);
-        return;
+      showErrorModal();
+      changeErrorContent(errorMessage);
+      switch (errorData) {
+        case 'name':
+          setFocusRef(nameRef);
+          break;
+        case 'phone':
+          setFocusRef(phoneRef);
+          break;
+        case 'people':
+          setFocusRef(peopleRef);
+          break;
+        case 'age':
+          setFocusRef(ageRef);
+          break;
+        case 'requirement':
+          setFocusRef(requirementRef);
+          requirementRef.current.selectionStart =
+            requirementRef.current.selectionEnd =
+              requirementRef.current.value.length;
+          break;
+        case 'reservationCheck':
+          setFocusRef(reservationCheckRef);
+          break;
+        default:
+          break;
       }
     }
 
@@ -230,20 +217,24 @@ const ReservationForm = ({ detail }) => {
       people,
       requirement,
     };
+
+    let modalContent;
+
     if (successMessage) {
-      const response = await postData('lesson/resercve/create/', data);
-      if (response === undefined) {
-        showCheckModal();
-        changeCheckContent(
-          '예약을 완료하지 못했습니다.  \n 다시 시도해주세요.',
-        );
-        return;
+      try {
+        const response = await postData('lesson/resercve/create/', data);
+        if (response.status === 201) {
+          resetInput();
+          modalContent = successMessage;
+        }
+      } catch (error) {
+        modalContent =
+          '예약 요청 중 오류가 발생했습니다.  \n 다시 시도해주세요.';
       }
-      if (response.status === 201) {
-        resetInput();
+
+      if (modalContent) {
         showCheckModal();
-        changeCheckContent(successMessage);
-        return;
+        changeCheckContent(modalContent);
       }
     }
   };
@@ -257,43 +248,38 @@ const ReservationForm = ({ detail }) => {
     setReservationCheck(false);
   };
 
-  const handleChange = (event) => {
+  const handleInputChange = (event) => {
     const { name, value, checked } = event.target;
 
-    if (name === 'name') {
-      const nameRegex = /[^ㄱ-ㅎ가-힣a-zA-Z]/g;
-      const nameValue = value.replace(nameRegex, '');
-      setName(nameValue);
-      return;
-    }
-    if (name === 'phone') {
-      const phoneRegex = /[^0-9]/g;
-      const phoneValue = value.replace(phoneRegex, '');
-      setPhone(phoneValue);
-      return;
-    }
-    if (name === 'people') {
-      if (value.length <= 2) {
-        const peopleRegex = /[^0-9]/g;
-        const peopleValue = value.replace(peopleRegex, '');
-        setPeople(peopleValue);
-      }
-      return;
-    }
-    if (name === 'age') {
-      const ageCountRegex = /[^0-9,]/g;
-      const ageCountValue = value.replace(ageCountRegex, '');
-      setAge(ageCountValue);
+    switch (name) {
+      case 'name':
+        setName(value.replace(/[^ㄱ-ㅎ가-힣a-zA-Z]/g, ''));
+        break;
 
-      return;
-    }
-    if (name === 'requirement') {
-      setrequirement(value);
-      return;
-    }
-    if (name === 'reservationCheck') {
-      setReservationCheck(checked);
-      return;
+      case 'phone':
+        setPhone(value.replace(/[^0-9]/g, ''));
+        break;
+
+      case 'people':
+        if (value.length <= 2) {
+          setPeople(value.replace(/[^0-9]/g, ''));
+        }
+        break;
+
+      case 'age':
+        setAge(value.replace(/[^0-9,]/g, ''));
+        break;
+
+      case 'requirement':
+        setrequirement(value);
+        break;
+
+      case 'reservationCheck':
+        setReservationCheck(checked);
+        break;
+
+      default:
+        break;
     }
   };
 
@@ -342,7 +328,7 @@ const ReservationForm = ({ detail }) => {
               type="checkbox"
               id="check"
               name="reservationCheck"
-              onChange={handleChange}
+              onChange={handleInputChange}
               checked={reservationCheck}
               ref={reservationCheckRef}
             />
@@ -358,7 +344,7 @@ const ReservationForm = ({ detail }) => {
               id="name"
               name="name"
               type="text"
-              onChange={handleChange}
+              onChange={handleInputChange}
               value={name}
               ref={nameRef}
             />
@@ -369,7 +355,7 @@ const ReservationForm = ({ detail }) => {
               id="phone"
               name="phone"
               type="text"
-              onChange={handleChange}
+              onChange={handleInputChange}
               value={phone}
               ref={phoneRef}
             />
@@ -380,7 +366,7 @@ const ReservationForm = ({ detail }) => {
               id="people"
               name="people"
               type="text"
-              onChange={handleChange}
+              onChange={handleInputChange}
               value={people}
               ref={peopleRef}
             />
@@ -391,7 +377,7 @@ const ReservationForm = ({ detail }) => {
               id="age"
               name="age"
               type="text"
-              onChange={handleChange}
+              onChange={handleInputChange}
               value={age}
               ref={ageRef}
               placeholder="여러 명의 경우, 전부 기입해주세요. 예) 15,16,20"
@@ -403,7 +389,7 @@ const ReservationForm = ({ detail }) => {
               id="requirement"
               name="requirement"
               type="text"
-              onChange={handleChange}
+              onChange={handleInputChange}
               value={requirement}
               ref={requirementRef}
             />
