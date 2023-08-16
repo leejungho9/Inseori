@@ -9,7 +9,7 @@
 - **`Project` :** Inseori01(인서리공원)
 - **`Project duration` :** 2023.05.11- 2023.06.30
 - **`Project description` :** 인서리공원은 예술과 문화를 중심으로 한 다양한 경험을 제공하는 사이트
-- **`members` :** frontend developer , backend developer, designer 
+- **`members` :** frontend developer 1 , backend developer 1, designer 1
 - **`Link` :** [🌐인서리공원 ](https://inseori01.com/)
   
 
