@@ -9,24 +9,23 @@ const reservationValidate = (
 ) => {
   let errorMessage = '';
   let successMessage = '예약이 완료되었습니다. \n 문의 : 061-761-6701';
-
   //! 이름 = 영문대소문자, 한글 1자 이상만 가능
 
   const nameRegex = /^[가-힣a-zA-Z]{1,}$/;
   const isNameValid = nameRegex.test(name);
 
   //! 폰번호 =  11~14자 사이의 숫자만 가능
-  const phoneRegex = /^\d{11,14}$/;
+  const phoneRegex = /^\d{9,14}$/;
   const isPhoneValid = phoneRegex.test(phone);
 
   //! 나이 =  숫자, 쉼표만 가능
   const ageRegex = /^[0-9,]+[0-9]$/;
   const isAgeValid = ageRegex.test(age);
 
-  // ! 인원수 =  1이상의 숫자만 가능
-  const min = detail.minHeadCount;
-  const max = detail.maxHeadCount;
-  // const headCountRegex = /^(?:[1-9]|10)$/;
+  // ! 인원수 =  최소 최대 수강인원만 가능
+  const headCounts = detail.people.match(/\d+/g);
+  const min = Math.min(...headCounts.map(Number));
+  const max = Math.max(...headCounts.map(Number));
   const headCountRegex = new RegExp(`^(?:[${min}-${max}])$`);
   const isHeadCountValid = headCountRegex.test(headCount);
 
@@ -48,11 +47,11 @@ const reservationValidate = (
   }
   if (!isHeadCountValid) {
     if (headCount < min) {
-      errorMessage = `최소 인원수를 확인해주세요.`;
+      errorMessage = `최소 수강인원을 확인해주세요.`;
       return { errorData: 'headCount', errorMessage };
     }
     if (headCount > max) {
-      errorMessage = `최대 인원수를 확인해주세요.`;
+      errorMessage = `최대 수강인원을 확인해주세요.`;
       return { errorData: 'headCount', errorMessage };
     }
   }
