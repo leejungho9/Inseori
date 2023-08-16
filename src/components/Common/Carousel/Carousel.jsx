@@ -42,8 +42,8 @@ const Carousel = React.memo(
         <EmblaViewport ref={emblaRef}>
           <EmblaContainer>
             {slides &&
-              slides.map((slide, index) => (
-                <EmblaSlide key={index} padding={padding}>
+              slides.map((slide) => (
+                <EmblaSlide key={slide.id} padding={padding}>
                   <picture>
                     <source
                       srcSet={
